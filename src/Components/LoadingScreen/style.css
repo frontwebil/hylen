@@ -4,6 +4,13 @@
   background: #82938d;
   opacity: 1;
   transition: opacity 0.5s ease;
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 100vh;
 }
 
 .loading-screen.hide {
