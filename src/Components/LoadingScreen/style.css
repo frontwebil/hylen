@@ -1,0 +1,12 @@
+.loading-screen {
+  max-width: 100%;
+  width: 100%;
+  background: #82938d;
+}
+
+.loading-screen-video {
+  max-width: 100%;
+  width: 100%;
+  height: 100vh;
+  object-fit: contain;
+}
