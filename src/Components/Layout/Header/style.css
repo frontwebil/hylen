@@ -1,16 +1,33 @@
 .header {
   background-color: #443c3b;
+  margin-top: 15px;
+  position: fixed;
+  width: 100%;
+  top: 0;
 }
+
+.header::after {
+  content: "";
+  position: absolute;
+  background-color: #80908d;
+  bottom: 100%;
+  width: 100%;
+  height: 20px;
+}
+
 .header .container {
+  padding: 0;
   display: flex;
   align-items: center;
   height: 54px;
 }
 .header-logo {
+  padding-left: 20px;
   max-width: 185px;
   width: 100%;
 }
 .header-menu-button {
+  position: relative;
   display: flex;
   align-items: center;
   max-width: 200px;
@@ -19,6 +36,16 @@
   background: #81918d;
   padding-left: 20px;
 }
+.header-menu-button::after {
+  position: absolute;
+  z-index: 5;
+  content: "";
+  background-color: #443c3b;
+  height: 20px;
+  width: 100%;
+  bottom: 100%;
+  left: 0;
+}
 .header-search {
   background: #d4dad8;
   height: 100%;
@@ -26,8 +53,12 @@
   width: 100%;
   display: flex;
   align-items: center;
-  padding: 0 16px;
+  padding: 0 12px;
   gap: 20px;
+}
+
+.header-search-icon {
+  width: 25px;
 }
 
 .header-search-input {
@@ -37,8 +68,87 @@
   line-height: 22px;
 }
 .header-search-button {
+  max-width: 150px;
+  width: 100%;
+  font-family: Commissioner;
+  font-weight: 600;
+  font-size: 18px;
+  text-transform: uppercase;
+  color: #fff;
+  text-align: center;
 }
+
+.header-tel-us {
+  position: relative;
+  font-weight: 600;
+  font-size: 18px;
+  color: #443c3b;
+  max-width: 220px;
+  width: 100%;
+  background-color: #81918d;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header-tel-us::after {
+  position: absolute;
+  z-index: 5;
+  content: "";
+  background-color: #443c3b;
+  height: 20px;
+  bottom: 100%;
+  left: 0;
+  width: 100%;
+}
+
+.contact-us {
+  max-width: 260px;
+  width: 100%;
+  font-weight: 600;
+  font-size: 18px;
+  letter-spacing: 0.85px;
+  text-transform: uppercase;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 0 10px;
+}
+
 .header-search-changle-language {
+  position: relative;
+  max-width: 100px;
+  width: 100%;
+  height: 100%;
+  background-color: #81918d;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
+.header-search-changle-language::after {
+  position: absolute;
+  z-index: 5;
+  content: "";
+  background-color: #443c3b;
+  height: 20px;
+  bottom: 100%;
+  left: 0;
+  width: 100%;
+}
+
+.header-search-changle-language p {
+  color: #443c3b;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.header-search-changle-language img {
+  width: 8px;
 }
 
 .header-menu-button-icon {

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import "./style.css";
+import Link from "next/link";
 
 export function Header() {
   return (
@@ -22,13 +23,15 @@ export function Header() {
           </div>
         </div>
         <div className="header-search">
-          <label htmlFor="search-input" className="header-search-icon">
-            <Image
-              src={"/Header/search.svg"}
-              width={24}
-              height={24}
-              alt="Search"
-            />
+          <label htmlFor="search-input">
+            <div className="header-search-icon">
+              <Image
+                src={"/Header/search.svg"}
+                width={24}
+                height={24}
+                alt="Search"
+              />
+            </div>
           </label>
           <input
             type="text"
@@ -37,7 +40,10 @@ export function Header() {
           />
         </div>
         <div className="header-search-button">ЗНАЙТИ</div>
-        <div className="">
+        <div className="header-tel-us">
+          <Link href={"tel:380997465652"}>+38 (099) 746-56-52</Link>
+        </div>
+        <div className="contact-us">
           <p>зв’язатись з нами</p>
           <Image
             src={"/Header/arrow-white.svg"}
