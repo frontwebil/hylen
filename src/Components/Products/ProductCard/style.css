@@ -2,7 +2,6 @@
   max-width: 450px;
   width: 100%;
   border: 2px solid #443c3b;
-  transition: all 0.3s ease;
 }
 
 .product-card img {
@@ -55,7 +54,7 @@
 }
 
 .product-card:hover .product-card-icon {
-  background-color: #ffffff;
+  background-color: #fff;
 }
 
 .product-card-media {
