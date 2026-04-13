@@ -1,14 +1,17 @@
 import { Hero } from "@/Components/Hero/Hero";
 import { Header } from "@/Components/Layout/Header/Header";
 import { LoadingScreen } from "@/Components/LoadingScreen/LoadingScreen";
+import { Products } from "@/Components/Products/Products";
+import { UnderHeroLines } from "@/Components/UnderHeroLines/UnderHeroLines";
 
 export default function Home() {
   return (
     <>
-      <LoadingScreen />
+      {/* <LoadingScreen /> */}
       <Header />
-      <Hero />
-      <div style={{height:"300vh"}}></div>
+      {/* <Hero /> */}
+      <UnderHeroLines />
+      <Products />
     </>
   );
 }
