@@ -1,0 +1,61 @@
+.byro {
+  background: #ffffff;
+  padding: 180px 0 240px;
+  color: #1f2a19;
+}
+.byro-top h2 {
+  font-family: Commissioner;
+  font-weight: 500;
+  font-size: 55px;
+  line-height: 61px;
+  letter-spacing: -0.85px;
+  text-transform: uppercase;
+  padding-bottom: 35px;
+  padding-left: 60px;
+}
+.byro-top h3 {
+  font-family: Commissioner;
+  font-weight: 500;
+  font-size: 55px;
+  line-height: 61px;
+  letter-spacing: -0.85px;
+  text-transform: uppercase;
+  margin-left: auto;
+  max-width: 630px;
+  width: 100%;
+  padding-top: 30px;
+}
+.byro-top {
+  display: flex;
+  flex-direction: column;
+}
+
+.byro-content {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  margin-top: 120px;
+}
+.byro-content-img {
+  max-width: 530px;
+  width: 100%;
+}
+.byro-content-text {
+  max-width: 630px;
+  width: 100%;
+}
+
+.byro-content-text h2 {
+  font-weight: 500;
+  font-size: 40px;
+  line-height: 44px;
+  letter-spacing: -2%;
+  margin-bottom: 78px;
+}
+
+.byro-content-text p {
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 32px;
+  letter-spacing: 0%;
+}
