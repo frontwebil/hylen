@@ -28,6 +28,8 @@
 .byro-top {
   display: flex;
   flex-direction: column;
+  position: relative;
+  z-index: 2;
 }
 
 .byro-content {
@@ -36,10 +38,16 @@
   gap: 40px;
   margin-top: 120px;
 }
+.byro-content-img img {
+  position: relative;
+  z-index: 3;
+}
 .byro-content-img {
   max-width: 530px;
   width: 100%;
+  position: relative;
 }
+
 .byro-content-text {
   max-width: 630px;
   width: 100%;
@@ -58,4 +66,22 @@
   font-size: 24px;
   line-height: 32px;
   letter-spacing: 0%;
+}
+
+.byro-globe {
+  position: absolute;
+  z-index: 0;
+  pointer-events: none;
+  left: 50%;
+  top: 50%;
+  width: 185%;
+  max-width: 800px;
+  transform: translate(-78%, -52%);
+}
+
+.byro-globe .byro-globe__image {
+  width: 100%;
+  height: auto;
+  max-width: none;
+  display: block;
 }

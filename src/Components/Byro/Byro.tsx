@@ -19,7 +19,21 @@ export function Byro() {
         </div>
         <div className="byro-content">
           <div className="byro-content-img">
-            <Image src={'/Byro/byro.png'} width={2000} height={1000} alt="byro-photo"/>
+            <Image
+              src={"/Byro/byro.png"}
+              width={2000}
+              height={1000}
+              alt="byro-photo"
+            />
+            <div className="byro-globe">
+              <Image
+                className="byro-globe__image"
+                src={"/Byro/bg-globe.svg"}
+                width={3000}
+                height={2000}
+                alt=""
+              />
+            </div>
           </div>
           <div className="byro-content-text">
             <h2>

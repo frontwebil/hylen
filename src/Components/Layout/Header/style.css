@@ -181,6 +181,7 @@
   align-items: center;
   gap: 5px;
   cursor: pointer;
+  text-transform: uppercase;
 }
 
 .header-search-changle-language::after {

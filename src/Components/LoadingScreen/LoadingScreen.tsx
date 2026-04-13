@@ -1,10 +1,22 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./style.css";
 
 export function LoadingScreen() {
   const [isHidden, setIsHidden] = useState(false);
+
+  useEffect(() => {
+    if (!isHidden) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isHidden]);
 
   return (
     <section className={`loading-screen ${isHidden ? "hide" : ""}`}>
