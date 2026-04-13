@@ -1,6 +1,7 @@
 .under-hero-lines {
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 }
 .under-hero-line-edge {
   background-color: #443c3b;

@@ -1,0 +1,25 @@
+.products {
+  background-color: #80908d;
+  padding: 120px 0 200px;
+}
+
+.products-title {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.products-title h4 {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  color: #443c3b;
+  padding-bottom: 4px;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 60px 15px;
+  margin-top: 40px;
+}

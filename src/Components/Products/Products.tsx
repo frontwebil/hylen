@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { ProductCard } from "./ProductCard/ProductCard";
+import "./style.css";
 
 export type ProductItem = {
   title: string;
@@ -53,7 +54,7 @@ export function Products() {
           />
           <h4>продукти</h4>
         </div>
-        <div className="products">
+        <div className="products-grid">
           {products.map((el, i) => (
             <ProductCard product={el} key={i} />
           ))}

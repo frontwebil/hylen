@@ -7,9 +7,9 @@ import { UnderHeroLines } from "@/Components/UnderHeroLines/UnderHeroLines";
 export default function Home() {
   return (
     <>
-      {/* <LoadingScreen /> */}
+      <LoadingScreen />
       <Header />
-      {/* <Hero /> */}
+      <Hero />
       <UnderHeroLines />
       <Products />
     </>
