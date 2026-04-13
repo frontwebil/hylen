@@ -4,37 +4,66 @@ import Image from "next/image";
 import { ProductItem } from "../Products";
 import "./style.css";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export function ProductCard({ product }: { product: ProductItem }) {
   const [isHover, setIsHover] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const cardRef = useRef<HTMLAnchorElement | null>(null);
+
+  useEffect(() => {
+    if (!cardRef.current) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          const video = document.createElement("video");
+          video.src = `${product.img}.webm`;
+          video.preload = "auto";
+
+          video.onloadeddata = () => {
+            setIsLoaded(true);
+          };
+
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "200px" }, // трохи раніше підгружає
+    );
+
+    observer.observe(cardRef.current);
+
+    return () => observer.disconnect();
+  }, [product.img]);
 
   return (
     <Link
+      ref={cardRef}
       href={"/"}
       className="product-card"
       onMouseEnter={() => setIsHover(true)}
       onMouseLeave={() => setIsHover(false)}
     >
       <div className="product-card-media">
-        {!isHover && (
-          <Image
-            src={`${product.img}.webp`}
-            width={1000}
-            height={300}
-            alt="Фото продукту"
-          />
-        )}
+        {/* IMAGE */}
+        <Image
+          src={`${product.img}.webp`}
+          width={1000}
+          height={300}
+          alt="Фото продукту"
+          className={`product-card-image ${isHover && isLoaded ? "hide" : ""}`}
+        />
 
-        {isHover && (
+        {/* VIDEO */}
+        {isLoaded && (
           <video
-            className="product-card-video"
+            className={`product-card-video ${isHover ? "show" : ""}`}
             src={`${product.img}.webm`}
             autoPlay
             muted
             loop
             playsInline
-            preload="metadata"
+            preload="auto"
           />
         )}
       </div>
@@ -50,6 +79,7 @@ export function ProductCard({ product }: { product: ProductItem }) {
           />
         </div>
       </div>
+
       <div className="product-card-subtitle">{product.subTitle}</div>
     </Link>
   );

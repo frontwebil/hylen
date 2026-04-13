@@ -1,0 +1,32 @@
+.advantages {
+  background-color: #d7ccbd;
+  padding: 75px 0 200px;
+}
+.advantages-top {
+  display: flex;
+  justify-content: space-between;
+}
+.advantages-top-title {
+  font-weight: 400;
+  font-size: 24px;
+  letter-spacing: -1px;
+  text-transform: uppercase;
+
+  color: #1f2a19;
+}
+.advantages-top-text {
+  max-width: 620px;
+  width: 100%;
+  margin-top: 90px;
+
+  font-family: Inter;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 110%;
+  color: #1f2a19;
+}
+.advantages-cards {
+  margin-top: 90px;
+  display: flex;
+  flex-direction: column;
+}

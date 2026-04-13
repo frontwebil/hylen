@@ -7,7 +7,6 @@
 .product-card img {
   object-fit: contain;
   height: 360px;
-  transition: all 0.3s ease;
 }
 
 .product-card-flex {
@@ -69,4 +68,38 @@
   height: 100%;
   object-fit: contain;
   display: block;
+}
+
+/* 🔥 overlay для відео */
+.product-card-media {
+  position: relative;
+}
+
+/* IMAGE */
+.product-card-media img {
+  position: relative;
+  z-index: 1;
+  transition:
+    opacity 0.4s ease,
+    transform 0.4s ease;
+}
+
+/* VIDEO */
+.product-card-video {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+/* коли ховер і відео готове */
+.product-card-image.hide {
+  opacity: 0;
+  transform: scale(1.02);
+}
+
+.product-card-video.show {
+  opacity: 1;
 }

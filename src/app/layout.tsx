@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
-import { Commissioner } from "next/font/google";
+import { Commissioner, Inter } from "next/font/google";
 import "./globals.css";
 import "./reset.css";
 
 const commissionerFont = Commissioner({ subsets: ["latin"] });
+const interFont = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "HYLEN",
@@ -19,7 +20,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${commissionerFont.className} h-full antialiased`}
+      className={`${commissionerFont.className} ${interFont.className} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">{children}</body>
     </html>

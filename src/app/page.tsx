@@ -4,6 +4,8 @@ import { LoadingScreen } from "@/Components/LoadingScreen/LoadingScreen";
 import { Products } from "@/Components/Products/Products";
 import { UnderHeroLines } from "@/Components/Lines/UnderHeroLines/UnderHeroLines";
 import { UnderProductsLines } from "@/Components/Lines/UnderProductsLines/UnderProductsLines";
+import { Advantages } from "@/Components/Advantages/Advantages";
+import { UnderAdvantagesLines } from "@/Components/Lines/UnderAdvantagesLines/UnderAdvantagesLines";
 
 export default function Home() {
   return (
@@ -14,6 +16,8 @@ export default function Home() {
       <UnderHeroLines />
       <Products />
       <UnderProductsLines />
+      <Advantages />
+      <UnderAdvantagesLines />
     </>
   );
 }

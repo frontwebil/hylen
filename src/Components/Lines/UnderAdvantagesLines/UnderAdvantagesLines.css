@@ -1,0 +1,59 @@
+.under-advantages-lines {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.under-advantages-line-edge {
+  background-color: #D7CCBD;
+  height: 22px;
+  width: 100%;
+}
+
+.under-advantages-line-edge .container {
+  position: relative;
+}
+
+.under-advantages-line-edge-left {
+  position: absolute;
+  left: 90px;
+  max-width: 216px;
+  height: 22px;
+  width: 100%;
+  background-color: #FFFFFF;
+  display: block;
+}
+.under-advantages-line-edge-right {
+  position: absolute;
+  right: -92%;
+  max-width: 100%;
+  height: 22px;
+  width: 100%;
+  background-color: #FFFFFF;
+}
+.under-advantages-line-middle {
+  background-color: #FFFFFF;
+  height: 22px;
+  width: 100%;
+}
+
+.under-advantages-line-middle .container {
+  position: relative;
+}
+
+.under-advantages-line-middle-left {
+  position: absolute;
+  left: 90px;
+  max-width: 216px;
+  height: 22px;
+  width: 100%;
+  background-color: #D7CCBD;
+  display: block;
+}
+.under-advantages-line-middle-right {
+  position: absolute;
+  right: -92%;
+  max-width: 100%;
+  height: 22px;
+  width: 100%;
+  background-color: #D7CCBD;
+}
