@@ -16,12 +16,29 @@ export function ProductCard({ product }: { product: ProductItem }) {
       onMouseEnter={() => setIsHover(true)}
       onMouseLeave={() => setIsHover(false)}
     >
-      <Image
-        src={`${product.img}${isHover ? ".gif" : ".webp"}`}
-        width={1000}
-        height={300}
-        alt="Фото продукту"
-      />
+      <div className="product-card-media">
+        {!isHover && (
+          <Image
+            src={`${product.img}.webp`}
+            width={1000}
+            height={300}
+            alt="Фото продукту"
+          />
+        )}
+
+        {isHover && (
+          <video
+            className="product-card-video"
+            src={`${product.img}.webm`}
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+          />
+        )}
+      </div>
+
       <div className="product-card-flex">
         <div className="product-card-flex-title">{product.title}</div>
         <div className="product-card-icon">
