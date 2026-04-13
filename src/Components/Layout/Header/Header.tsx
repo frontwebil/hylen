@@ -1,9 +1,15 @@
+"use client";
+
 import Image from "next/image";
 import "./style.css";
 import Link from "next/link";
+import { useState } from "react";
 
 export function Header() {
+  const [isOpenMenu, setIsOpenMenu] = useState(false);
+
   return (
+    <>
     <header className="header">
       <div className="container">
         <div className="header-logo">
@@ -14,12 +20,46 @@ export function Header() {
             alt="Hylen Logo"
           />
         </div>
-        <div className="header-menu-button">
-          <div className="header-menu-button-icon">
+        <div
+          className="header-menu-button"
+          onClick={() => setIsOpenMenu(!isOpenMenu)}
+        >
+          <div
+            className={`header-menu-button-icon ${isOpenMenu ? "open" : ""}`}
+          >
             <span></span>
             <span></span>
             <span></span>
             <span></span>
+          </div>
+          <div className={`header-menu ${isOpenMenu ? "active" : ""}`}>
+            <Link href={"/"} className="header-menu-link">
+              <p>про бренд</p>
+              <Image
+                src={"/Header/arrow.svg"}
+                width={16}
+                height={13}
+                alt="arrow-next"
+              />
+            </Link>
+            <Link href={"/"} className="header-menu-link">
+              <p>Продукти</p>
+              <Image
+                src={"/Header/arrow.svg"}
+                width={16}
+                height={13}
+                alt="arrow-next"
+              />
+            </Link>
+            <Link href={"/"} className="header-menu-link">
+              <p>контакти</p>
+              <Image
+                src={"/Header/arrow.svg"}
+                width={16}
+                height={13}
+                alt="arrow-next"
+              />
+            </Link>
           </div>
         </div>
         <div className="header-search">
@@ -58,5 +98,7 @@ export function Header() {
         </div>
       </div>
     </header>
+    <div className="header-spacer"/>
+    </>
   );
 }

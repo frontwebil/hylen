@@ -13,3 +13,14 @@ body {
   margin: 0 auto;
   padding: 0 25px;
 }
+
+html,
+body {
+  -ms-overflow-style: none; /* IE, Edge old */
+  scrollbar-width: none; /* Firefox */
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}
