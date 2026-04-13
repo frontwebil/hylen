@@ -8,9 +8,8 @@ import { useLanguage } from "@/Store/useLanguage";
 
 export function Header() {
   const [isOpenMenu, setIsOpenMenu] = useState(false);
+  const [isOpenLanguagueMenu, setIsOpenLanguagueMenu] = useState(false);
   const { language, setLanguage } = useLanguage();
-
-  console.log(language);
 
   return (
     <>
@@ -98,10 +97,20 @@ export function Header() {
           </div>
           <div
             className="header-search-changle-language"
-            onClick={() => setLanguage("en")}
+            onClick={() => setIsOpenLanguagueMenu(!isOpenLanguagueMenu)}
           >
             <p>{language}</p>
             <Image src={"/Header/icon-lang.svg"} width={8} height={6} alt=">" />
+            <div
+              className={`header-search-changle-language-menu ${isOpenLanguagueMenu && "active"}`}
+            >
+              <button className="" onClick={() => setLanguage("uk")}>
+                UK
+              </button>
+              <button className="" onClick={() => setLanguage("en")}>
+                EN
+              </button>
+            </div>
           </div>
         </div>
       </header>

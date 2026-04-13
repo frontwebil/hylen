@@ -23,8 +23,8 @@
   height: 54px;
 }
 
-.header-spacer{
- margin-top: 69px; 
+.header-spacer {
+  margin-top: 69px;
 }
 
 .header-logo {
@@ -184,6 +184,46 @@
   text-transform: uppercase;
 }
 
+.header-search-changle-language-menu {
+  position: absolute;
+  top: 100%;
+  background-color: #81918d;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  pointer-events: none;
+
+  transition:
+    opacity 0.35s ease,
+    transform 0.35s ease,
+    visibility 0.35s ease;
+}
+
+.header-search-changle-language-menu.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.header-search-changle-language-menu button {
+  padding: 14px 0px;
+  border-top: 1px solid #443c3b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #443c3b;
+  font-size: 18px;
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
 .header-search-changle-language::after {
   position: absolute;
   z-index: 5;
@@ -275,4 +315,3 @@
   width: 0%;
   left: 50%;
 }
-

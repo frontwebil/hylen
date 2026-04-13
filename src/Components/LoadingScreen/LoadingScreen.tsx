@@ -7,6 +7,7 @@ export function LoadingScreen() {
   const [isHidden, setIsHidden] = useState(false);
 
   useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "instant" });
     if (!isHidden) {
       document.body.style.overflow = "hidden";
     } else {
