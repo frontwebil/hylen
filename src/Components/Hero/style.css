@@ -64,6 +64,7 @@
   transform: translateY(0);
   pointer-events: auto;
   animation: heroFadeUp 0.55s ease both;
+  animation-delay: 0.08s;
 }
 
 .hero-title.hidden {
@@ -89,6 +90,24 @@
   line-height: 23px;
   letter-spacing: 0.85px;
   text-transform: uppercase;
+  transition:
+    opacity 0.4s ease,
+    transform 0.4s ease;
+  will-change: opacity, transform;
+}
+
+.hero-contact-us.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+  animation: heroFadeUp 0.55s ease both;
+  animation-delay: 0.22s;
+}
+
+.hero-contact-us.hidden {
+  opacity: 0;
+  transform: translateY(18px);
+  pointer-events: none;
 }
 
 .hero-right {
@@ -162,6 +181,7 @@
   transform: translateY(0);
   pointer-events: auto;
   animation: heroFadeUp 0.55s ease both;
+  animation-delay: 0.16s;
 }
 
 .hero-text.hidden {

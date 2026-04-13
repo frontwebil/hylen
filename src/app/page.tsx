@@ -5,9 +5,10 @@ import { LoadingScreen } from "@/Components/LoadingScreen/LoadingScreen";
 export default function Home() {
   return (
     <>
-      {/* <LoadingScreen /> */}
+      <LoadingScreen />
       <Header />
       <Hero />
+      <div style={{height:"300vh"}}></div>
     </>
   );
 }

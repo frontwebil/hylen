@@ -8,6 +8,7 @@ import { useEffect, useRef, useState } from "react";
 export function Hero() {
   const sectionRef = useRef<HTMLElement | null>(null);
   const [activeSlide, setActiveSlide] = useState(0);
+  const [isAnimationReady, setIsAnimationReady] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -45,6 +46,16 @@ export function Hero() {
     };
   }, []);
 
+  useEffect(() => {
+    const timer = window.setTimeout(() => {
+      setIsAnimationReady(true);
+    }, 3300);
+
+    return () => {
+      window.clearTimeout(timer);
+    };
+  }, []);
+
   const scrollToSlide = (slideIndex: number) => {
     const section = sectionRef.current;
     if (!section) return;
@@ -71,18 +82,25 @@ export function Hero() {
         <div className="hero-left">
           <div className="hero-left-title-wrap">
             <h2
-              className={`hero-title ${activeSlide === 0 ? "visible" : "hidden"}`}
+              className={`hero-title ${
+                isAnimationReady && activeSlide === 0 ? "visible" : "hidden"
+              }`}
             >
               Техніка, що не підводить
             </h2>
             <h2
-              className={`hero-title ${activeSlide === 1 ? "visible" : "hidden"}`}
+              className={`hero-title ${
+                isAnimationReady && activeSlide === 1 ? "visible" : "hidden"
+              }`}
             >
               Індивідуально спроектовані рішення
             </h2>
           </div>
 
-          <Link href={"/contact"} className="hero-contact-us">
+          <Link
+            href={"/contact"}
+            className={`hero-contact-us ${isAnimationReady ? "visible" : "hidden"}`}
+          >
             <p>зв’язатись з нами</p>
             <Image src={"/Header/arrow.svg"} width={14} height={15} alt="=>" />
           </Link>
@@ -111,7 +129,9 @@ export function Hero() {
 
           <div className="hero-right-text">
             <div
-              className={`hero-text ${activeSlide === 0 ? "visible" : "hidden"}`}
+              className={`hero-text ${
+                isAnimationReady && activeSlide === 0 ? "visible" : "hidden"
+              }`}
             >
               <p>
                 HYLEN – це більше, ніж інженерний бренд. Це надійний партнер для
@@ -135,7 +155,9 @@ export function Hero() {
             </div>
 
             <div
-              className={`hero-text ${activeSlide === 1 ? "visible" : "hidden"}`}
+              className={`hero-text ${
+                isAnimationReady && activeSlide === 1 ? "visible" : "hidden"
+              }`}
             >
               <p>
                 Для особливих завдань і нестандартних вимог ми пропонуємо
