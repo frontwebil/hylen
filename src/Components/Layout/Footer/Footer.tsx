@@ -81,7 +81,7 @@ export function Footer() {
           <p>©2025   Всі права захищені</p>
           <Link href={"/"}>Публічна оферта</Link>
           <Link href={"/"}>Політика конфіденційності</Link>
-          <Link href={"/"}>Політика використання Cookies</Link>
+          <Link href={"/"}>Політика використання cookies</Link>
         </div>
       </div>
     </footer>
