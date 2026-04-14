@@ -2,23 +2,25 @@
 
 import Image from "next/image";
 import "./style.css";
-import { useState } from "react";
 import type { AdvantageBlock } from "../advantagesData";
 
-type AdvantagesCardProps = AdvantageBlock;
+type AdvantagesCardProps = AdvantageBlock & {
+  isOpen: boolean;
+  onToggle: (cardId: string) => void;
+};
 
 export function AdvantagesCard({
+  id,
   index,
   title,
   description,
   benefit,
-  defaultOpen = false,
+  isOpen,
+  onToggle,
 }: AdvantagesCardProps) {
-  const [isOpen, setIsOpen] = useState(defaultOpen);
-
   return (
     <div className={`advantages-card ${isOpen ? "open" : ""}`}>
-      <div className="advantages-card-top" onClick={() => setIsOpen(!isOpen)}>
+      <div className="advantages-card-top" onClick={() => onToggle(id)}>
         <div className="advantages-card-top-left">
           <div className="advantages-card-top-left-count">[{index}]</div>
           <h2>{title}</h2>

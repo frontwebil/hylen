@@ -1,8 +1,21 @@
+"use client";
+
 import "./style.css";
 import { ADVANTAGES_BLOCKS } from "./advantagesData";
 import { AdvantagesCard } from "./AdvantagesCard/AdvantagesCard";
+import { useMemo, useState } from "react";
 
 export function Advantages() {
+  const initialOpenId = useMemo(
+    () => ADVANTAGES_BLOCKS.find((block) => block.defaultOpen)?.id ?? null,
+    []
+  );
+  const [openCardId, setOpenCardId] = useState<string | null>(initialOpenId);
+
+  const handleToggle = (cardId: string) => {
+    setOpenCardId((currentOpenId) => (currentOpenId === cardId ? null : cardId));
+  };
+
   return (
     <section className="advantages">
       <div className="container">
@@ -19,7 +32,12 @@ export function Advantages() {
         </div>
         <div className="advantages-cards">
           {ADVANTAGES_BLOCKS.map((block) => (
-            <AdvantagesCard key={block.id} {...block} />
+            <AdvantagesCard
+              key={block.id}
+              {...block}
+              isOpen={openCardId === block.id}
+              onToggle={handleToggle}
+            />
           ))}
         </div>
       </div>
