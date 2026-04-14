@@ -18,7 +18,7 @@ export function ProductCard({ product }: { product: ProductItem }) {
       (entries) => {
         if (entries[0].isIntersecting) {
           const video = document.createElement("video");
-          video.src = `${product.img}.webm`;
+          video.src = `${product.img}.mp4`;
           video.preload = "auto";
 
           video.onloadeddata = () => {
