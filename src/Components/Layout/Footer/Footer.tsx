@@ -63,7 +63,7 @@ export function Footer() {
                 <Link href={"/"}>Пeреваги Hylen</Link>
                 <Link href={"/"}>Конструкторське бюро</Link>
                 <Link href={"/"}>Про HYLEN</Link>
-                <Link href={"/"}>контакти</Link>
+                <Link href={"/"}>Контакти</Link>
               </div>
             </div>
             <div className="footer-column-content">
