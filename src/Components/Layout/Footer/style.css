@@ -2,8 +2,7 @@
   background: #808f8b;
   padding: 70px 0 40px;
 }
-.container {
-}
+
 .footer-top {
   display: flex;
   align-items: flex-end;
@@ -118,7 +117,7 @@
 .footer-column-content-title {
   font-weight: 500;
   font-size: 16px;
-  line-height: 24px;
+  line-height: 100%;
   color: #575553;
   padding-bottom: 16px;
 }

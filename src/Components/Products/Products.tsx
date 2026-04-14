@@ -31,7 +31,7 @@ export const products: ProductItem[] = [
   },
   {
     title: "ТЯГОВИЙ ВУЗОЛ",
-    subTitle: "Причіпи-напівпричіпи",
+    subTitle: "Причепи-напівпричепи",
     img: "/Products/5",
   },
   {
