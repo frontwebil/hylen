@@ -58,7 +58,7 @@ export function ProductCard({ product }: { product: ProductItem }) {
         {isLoaded && (
           <video
             className={`product-card-video ${isHover ? "show" : ""}`}
-            src={`${product.img}.webm`}
+            src={`${product.img}.mp4`}
             autoPlay
             muted
             loop
