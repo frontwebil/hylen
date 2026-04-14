@@ -84,7 +84,7 @@ export function Header() {
           </div>
           <div className="header-search-button">ЗНАЙТИ</div>
           <div className="header-tel-us">
-            <Link href={"tel:380997465652"}>+38 (099) 746-56-52</Link>
+            <Link href={"tel:380998409875"}>+38 (099) 840-98-75</Link>
           </div>
           <div className="contact-us">
             <p>зв’язатись з нами</p>
