@@ -11,7 +11,7 @@ export type ProductItem = {
 export const products: ProductItem[] = [
   {
     title: "ХРЕБЕТ У ПОЛІ",
-    subTitle: "Одноосні причепи",
+    subTitle: "Одноосні причіпи",
     img: "/Products/1",
   },
   {
