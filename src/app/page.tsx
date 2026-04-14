@@ -7,6 +7,8 @@ import { UnderProductsLines } from "@/Components/Lines/UnderProductsLines/UnderP
 import { Advantages } from "@/Components/Advantages/Advantages";
 import { UnderAdvantagesLines } from "@/Components/Lines/UnderAdvantagesLines/UnderAdvantagesLines";
 import { Byro } from "@/Components/Byro/Byro";
+import { UnderByroLines } from "@/Components/Lines/UnderByroLines/UnderByroLines";
+import { Footer } from "@/Components/Layout/Footer/Footer";
 
 export default function Home() {
   return (
@@ -20,6 +22,8 @@ export default function Home() {
       <Advantages />
       <UnderAdvantagesLines />
       <Byro />
+      <UnderByroLines />
+      <Footer />
     </>
   );
 }
