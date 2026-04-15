@@ -62,39 +62,44 @@ export function Header() {
             </div>
           )}
 
-          <div className="header-search">
-            {width && width >= 1340 && (
-              <label htmlFor="search-input">
-                <div className="header-search-icon">
+          {width && width > 620 && (
+            <>
+              <div className="header-search">
+                {width && width >= 1340 && (
+                  <label htmlFor="search-input">
+                    <div className="header-search-icon">
+                      <Image
+                        src={"/Header/search.svg"}
+                        width={24}
+                        height={24}
+                        alt="Search"
+                      />
+                    </div>
+                  </label>
+                )}
+                <input
+                  type="text"
+                  id="search-input"
+                  className="header-search-input"
+                  placeholder="я шукаю..."
+                />
+              </div>
+
+              <div className="header-search-button">
+                {width && width >= 1340 ? (
+                  "Знайти"
+                ) : (
                   <Image
-                    src={"/Header/search.svg"}
+                    src={"/Header/search-white.svg"}
                     width={24}
                     height={24}
                     alt="Search"
                   />
-                </div>
-              </label>
-            )}
-            <input
-              type="text"
-              id="search-input"
-              className="header-search-input"
-              placeholder="я шукаю..."
-            />
-          </div>
+                )}
+              </div>
+            </>
+          )}
 
-          <div className="header-search-button">
-            {width && width >= 1340 ? (
-              "Знайти"
-            ) : (
-              <Image
-                src={"/Header/search-white.svg"}
-                width={24}
-                height={24}
-                alt="Search"
-              />
-            )}
-          </div>
           <div className="header-tel-us">
             <Link href={"tel:380998409875"}>+38 (099) 840-98-75</Link>
           </div>
@@ -146,12 +151,39 @@ export function Header() {
                   <p>Продукти</p>
                   <MdArrowForward className="header-menu-link-icon" />
                 </Link>
-                <Link href={"#contacts"} className="header-menu-link">
+                <Link href={"#contacts"} className="header-menu-link last">
                   <p>контакти</p>
                   <MdArrowForward className="header-menu-link-icon" />
                 </Link>
+                {width && width <= 620 && (
+                  <div className="header-search-mobile-wrapper">
+                    <div className="header-search">
+                      {width && width >= 1340 && (
+                        <label htmlFor="search-input">
+                          <div className="header-search-icon">
+                            <Image
+                              src={"/Header/search.svg"}
+                              width={24}
+                              height={24}
+                              alt="Search"
+                            />
+                          </div>
+                        </label>
+                      )}
+                      <input
+                        type="text"
+                        id="search-input"
+                        className="header-search-input"
+                        placeholder="я шукаю..."
+                      />
+                    </div>
+
+                    <div className="header-search-button">
+                      {width && width >= 1340 ? "Знайти" : <IoMdSearch />}
+                    </div>
+                  </div>
+                )}
                 <div className="header-menu-mobile-contact">
-                  {/* <IoMdSearch /> */}
                   <h3 className="header-menu-mobile-contact-title">
                     Зв’язатись з нами:
                   </h3>
