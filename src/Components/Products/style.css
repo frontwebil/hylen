@@ -23,3 +23,29 @@
   gap: 60px 15px;
   margin-top: 40px;
 }
+
+@media (max-width: 1100px) {
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 50px 15px;
+    margin-top: 40px;
+  }
+  .product-card {
+    max-width: 100%;
+  }
+}
+@media (max-width: 600px) {
+  .products .container {
+    padding: 0;
+  }
+  .products-title {
+    padding-left: 20px;
+    padding-bottom: 32px;
+  }
+
+  .products {
+    background-color: #80908d;
+    padding: 90px 0 120px;
+  }
+}

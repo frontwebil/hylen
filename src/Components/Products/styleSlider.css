@@ -1,0 +1,51 @@
+.products-slider {
+  width: 100%;
+  overflow: hidden;
+}
+
+.products-slider-viewport {
+  overflow: hidden;
+}
+
+.products-slider-container {
+  display: flex;
+  align-items: stretch;
+}
+
+.products-slide {
+  flex: 0 0 88%;
+  min-width: 0;
+  padding-left: 2%;
+}
+
+.products-slider-controls {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  gap: 3px;
+}
+
+.products-slider-bar {
+  position: relative;
+  width: 23px;
+  height: 2px;
+  background: #443c3b; /* темні неактивні */
+  overflow: hidden;
+  cursor: pointer;
+  border: none;
+  padding: 0;
+}
+
+/* активна біла лінія */
+.products-slider-bar span {
+  position: absolute;
+  inset: 0;
+  background: #fff;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+}
+
+.products-slider-bar.active span {
+  transform: scaleX(1);
+}

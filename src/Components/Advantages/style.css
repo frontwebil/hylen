@@ -1,10 +1,10 @@
 .advantages {
   background-color: #d7ccbd;
-  padding: 75px 0 200px;
+  padding: 140px 0 240px;
 }
 .advantages-top {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
 }
 .advantages-top-title {
   font-weight: 400;
@@ -17,8 +17,8 @@
 .advantages-top-text {
   max-width: 620px;
   width: 100%;
-  margin-top: 90px;
-
+  margin-top: 50px;
+  margin-left: auto;
   font-weight: 400;
   font-size: 24px;
   line-height: 110%;
@@ -28,4 +28,44 @@
   margin-top: 90px;
   display: flex;
   flex-direction: column;
+}
+
+@media (max-width: 920px) {
+  .advantages-top-text {
+    font-size: 20px;
+    line-height: 110%;
+    max-width: 500px;
+  }
+  .advantages {
+    background-color: #d7ccbd;
+    padding: 120px 0 180px;
+  }
+  .advantages-cards {
+    margin-top: 70px;
+  }
+}
+
+@media (max-width: 640px) {
+  .advantages-top {
+    padding: 0 20px;
+  }
+  .advantages .container {
+    padding: 0;
+  }
+  .advantages {
+    padding: 80px 0 140px;
+  }
+  .advantages-top-title {
+    font-size: 32px;
+    line-height: 100%;
+  }
+  .advantages-top-text {
+    font-size: 16px;
+    line-height: 110%;
+    max-width: 100%;
+    margin-top: 45px;
+  }
+  .advantages-cards {
+    margin-top: 50px;
+  }
 }

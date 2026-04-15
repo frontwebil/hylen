@@ -5,14 +5,17 @@ import { ProductItem } from "../Products";
 import "./style.css";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
+import { useWindowWidth } from "@/Hooks/useWindowWidth";
 
 export function ProductCard({ product }: { product: ProductItem }) {
   const [isHover, setIsHover] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
   const cardRef = useRef<HTMLAnchorElement | null>(null);
+  const width = useWindowWidth();
+  const isMobile = width && width < 900;
 
   useEffect(() => {
-    if (!cardRef.current) return;
+    if (!cardRef.current || isMobile) return; // ⛔ стоп якщо мобілка
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -28,21 +31,21 @@ export function ProductCard({ product }: { product: ProductItem }) {
           observer.disconnect();
         }
       },
-      { rootMargin: "200px" }, // трохи раніше підгружає
+      { rootMargin: "200px" },
     );
 
     observer.observe(cardRef.current);
 
     return () => observer.disconnect();
-  }, [product.img]);
+  }, [product.img, isMobile]);
 
   return (
     <Link
       ref={cardRef}
       href={"/"}
       className="product-card"
-      onMouseEnter={() => setIsHover(true)}
-      onMouseLeave={() => setIsHover(false)}
+      onMouseEnter={() => !isMobile && setIsHover(true)}
+      onMouseLeave={() => !isMobile && setIsHover(false)}
     >
       <div className="product-card-media">
         {/* IMAGE */}
@@ -54,8 +57,7 @@ export function ProductCard({ product }: { product: ProductItem }) {
           className={`product-card-image ${isHover && isLoaded ? "hide" : ""}`}
         />
 
-        {/* VIDEO */}
-        {isLoaded && (
+        {isLoaded && !isMobile && (
           <video
             className={`product-card-video ${isHover ? "show" : ""}`}
             src={`${product.img}.mp4`}

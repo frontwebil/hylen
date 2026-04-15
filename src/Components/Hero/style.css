@@ -12,6 +12,7 @@
   justify-content: space-between;
   align-items: center;
   z-index: 5;
+  gap: 200px;
 }
 
 .hero .container::after {
@@ -249,4 +250,64 @@
   border: 1px solid #ffffff;
   border-radius: 40px;
   padding: 8px 20px 10px;
+}
+
+@media (max-width: 1100px) {
+  .hero .container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .hero-text-second-slide-cards {
+    max-width: 100%;
+  }
+
+  .hero .container:after {
+    top: 40%;
+  }
+  .hero-text {
+  }
+
+  .hero-right {
+    max-width: 100%;
+  }
+  .hero-right-text {
+    max-width: 100%;
+  }
+}
+@media (max-width: 920px) {
+}
+
+@media (max-width: 520px) {
+  .hero .container {
+    gap: 175px;
+    padding-bottom: 30px;
+  }
+  .hero .container:after {
+    top: 46%;
+    left: 50%;
+  }
+  .hero-title {
+    font-weight: 500;
+    font-size: 40px;
+    line-height: 45px;
+    letter-spacing: -2.5px;
+  }
+  .hero-text {
+    font-size: 16px;
+    line-height: 20px;
+  }
+  .hero-text h3 {
+    font-size: 16px;
+    line-height: 20px;
+    margin: 25px 0 20px;
+  }
+  .hero-text-second-slide-card {
+    font-size: 18px;
+    padding: 6px 16px 8px;
+  }
+  .hero-text-second-slide-cards {
+    gap: 10px;
+  }
 }

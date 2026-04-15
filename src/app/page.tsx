@@ -13,8 +13,9 @@ import { Footer } from "@/Components/Layout/Footer/Footer";
 export default function Home() {
   return (
     <>
-      <LoadingScreen />
-      <Header />
+      {/* <LoadingScreen /> */}
+
+      {/* <Header /> */}
       <Hero />
       <UnderHeroLines />
       <Products />

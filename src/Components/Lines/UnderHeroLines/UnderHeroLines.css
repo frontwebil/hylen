@@ -57,3 +57,31 @@
   width: 100%;
   background-color: #443c3b;
 }
+
+@media (max-width: 920px) {
+  .under-hero-line-edge-left,
+  .under-hero-line-middle-left {
+    max-width: 120px;
+  }
+}
+
+@media (max-width: 640px) {
+  .under-hero-line-edge,
+  .under-hero-line-edge-left,
+  .under-hero-line-edge-right,
+  .under-hero-line-middle,
+  .under-hero-line-middle-left,
+  .under-hero-line-middle-right {
+    height: 10px;
+  }
+
+  .under-hero-line-edge-left,
+  .under-hero-line-middle-left {
+    max-width: 60px;
+  }
+
+  .under-hero-line-edge-right,
+  .under-hero-line-middle-right {
+    right: -95%;
+  }
+}

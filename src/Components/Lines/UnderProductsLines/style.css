@@ -55,3 +55,46 @@
   right: 60px;
   background-color: #d7ccbd;
 }
+
+@media (max-width: 920px) {
+  .UnderProductsLines-line-top,
+  .UnderProductsLines-line-top-left,
+  .UnderProductsLines-line-top-right,
+  .UnderProductsLines-line-bottom-left,
+  .UnderProductsLines-line-bottom-right,
+  .UnderProductsLines-line-bottom {
+    height: 20px;
+  }
+
+  .UnderProductsLines-line-top-left,
+  .UnderProductsLines-line-bottom-left {
+    left: -96%;
+  }
+
+  .UnderProductsLines-line-top-right,
+  .UnderProductsLines-line-bottom-right {
+    max-width: 89px;
+  }
+}
+
+@media (max-width: 640px) {
+  .UnderProductsLines-line-top,
+  .UnderProductsLines-line-top-left,
+  .UnderProductsLines-line-top-right,
+  .UnderProductsLines-line-bottom-left,
+  .UnderProductsLines-line-bottom-right,
+  .UnderProductsLines-line-bottom {
+    height: 10px;
+  }
+
+  .UnderProductsLines-line-top-left,
+  .UnderProductsLines-line-bottom-left {
+    left: -96%;
+  }
+
+  .UnderProductsLines-line-top-right,
+  .UnderProductsLines-line-bottom-right {
+    max-width: 45px;
+    right: 27px;
+  }
+}

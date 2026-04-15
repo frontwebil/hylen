@@ -4,7 +4,7 @@
   overflow: hidden;
 }
 .under-advantages-line-edge {
-  background-color: #D7CCBD;
+  background-color: #d7ccbd;
   height: 22px;
   width: 100%;
 }
@@ -19,7 +19,7 @@
   max-width: 216px;
   height: 22px;
   width: 100%;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   display: block;
 }
 .under-advantages-line-edge-right {
@@ -28,10 +28,10 @@
   max-width: 100%;
   height: 22px;
   width: 100%;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
 }
 .under-advantages-line-middle {
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   height: 22px;
   width: 100%;
 }
@@ -46,7 +46,7 @@
   max-width: 216px;
   height: 22px;
   width: 100%;
-  background-color: #D7CCBD;
+  background-color: #d7ccbd;
   display: block;
 }
 .under-advantages-line-middle-right {
@@ -55,5 +55,46 @@
   max-width: 100%;
   height: 22px;
   width: 100%;
-  background-color: #D7CCBD;
+  background-color: #d7ccbd;
+}
+
+@media (max-width: 920px) {
+  .under-advantages-line-edge-left,
+  .under-advantages-line-middle-left,
+  .under-advantages-line-edge,
+  .under-advantages-line-middle,
+  .under-advantages-line-edge-right,
+  .under-advantages-line-middle-right {
+    height: 20px;
+  }
+
+  .under-advantages-line-middle-left,
+  .under-advantages-line-edge-left {
+    max-width: 100px;
+  }
+
+  .under-advantages-line-middle-right,
+  .under-advantages-line-edge-right {
+    right: -95%;
+  }
+}
+
+@media (max-width: 640px) {
+  .under-advantages-line-edge-left,
+  .under-advantages-line-middle-left,
+  .under-advantages-line-edge,
+  .under-advantages-line-middle,
+  .under-advantages-line-edge-right,
+  .under-advantages-line-middle-right {
+    height: 10px;
+  }
+  .under-advantages-line-middle-left,
+  .under-advantages-line-edge-left {
+    max-width: 50px;
+    left: 25px;
+  }
+  .under-advantages-line-middle-right,
+  .under-advantages-line-edge-right {
+    right: -93%;
+  }
 }

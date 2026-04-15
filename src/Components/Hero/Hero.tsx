@@ -49,7 +49,7 @@ export function Hero() {
   useEffect(() => {
     const timer = window.setTimeout(() => {
       setIsAnimationReady(true);
-    }, 3300);
+    }, 0);
 
     return () => {
       window.clearTimeout(timer);
