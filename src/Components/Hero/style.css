@@ -13,6 +13,8 @@
   align-items: center;
   z-index: 5;
   gap: 200px;
+  padding-top: 20px;
+  box-sizing: border-box;
 }
 
 .hero .container::after {
@@ -282,7 +284,7 @@
 @media (max-width: 520px) {
   .hero .container {
     gap: 175px;
-    padding-bottom: 30px;
+    padding-bottom: calc(30px + env(safe-area-inset-bottom));
   }
   .hero .container:after {
     top: 46%;
@@ -315,7 +317,7 @@
 @media (max-width: 520px) and (max-height: 760px) {
   .hero .container {
     gap: 120px;
-    padding-bottom: 16px;
+    padding-bottom: calc(16px + env(safe-area-inset-bottom));
   }
 
   .hero-left {

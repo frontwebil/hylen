@@ -15,7 +15,7 @@ export default function Home() {
     <>
       {/* <LoadingScreen /> */}
 
-      {/* <Header /> */}
+      <Header />
       <Hero />
       <UnderHeroLines />
       <Products />
