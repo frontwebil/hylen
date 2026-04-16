@@ -17,20 +17,19 @@
   box-sizing: border-box;
 }
 
-.hero .container::after {
+.hero-bg-video {
   position: absolute;
   width: 100%;
   height: 100%;
-  content: "";
-  background-image: url("/Hero/bg-gif.gif");
   max-width: 900px;
   left: 48%;
   top: 50%;
   transform: translate(-50%, -50%);
-  background-position: center;
-  background-size: contain;
-  background-repeat: no-repeat;
   z-index: 1;
+
+  object-fit: contain;
+  object-position: center;
+  pointer-events: none;
 }
 
 .hero-left {
@@ -265,7 +264,7 @@
     max-width: 100%;
   }
 
-  .hero .container:after {
+  .hero-bg-video {
     top: 40%;
   }
   .hero-text {
@@ -290,7 +289,7 @@
     gap: 175px;
     padding-bottom: calc(30px + env(safe-area-inset-bottom));
   }
-  .hero .container:after {
+  .hero-bg-video {
     top: 46%;
     left: 50%;
   }

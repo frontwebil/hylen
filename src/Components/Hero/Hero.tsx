@@ -79,6 +79,18 @@ export function Hero() {
   return (
     <section className="hero" ref={sectionRef}>
       <div className="container">
+        <video
+          className="hero-bg-video"
+          aria-hidden="true"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+        >
+          <source src="/Hero/bg-video.mp4" type="video/mp4" />
+        </video>
+
         <div className="hero-left">
           <div className="hero-left-title-wrap">
             <h2
