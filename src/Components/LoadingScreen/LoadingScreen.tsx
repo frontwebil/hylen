@@ -27,6 +27,7 @@ export function LoadingScreen() {
         playsInline
         className="loading-screen-video"
         onEnded={() => setIsHidden(true)}
+          preload="auto"
       >
         <source src="/LoadingScreen/video.webm" type="video/webm" />
       </video>
