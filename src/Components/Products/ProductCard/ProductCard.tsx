@@ -15,7 +15,7 @@ export function ProductCard({ product }: { product: ProductItem }) {
   const isMobile = width && width < 900;
 
   useEffect(() => {
-    if (!cardRef.current || isMobile) return; // ⛔ стоп якщо мобілка
+    if (!cardRef.current || isMobile) return;
 
     const observer = new IntersectionObserver(
       (entries) => {
