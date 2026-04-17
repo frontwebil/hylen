@@ -1,8 +1,11 @@
 import "./style.css";
+import { useHeaderContactForm } from "@/Store/useHeaderContactForm";
 
 export function HeaderContactForm() {
+  const { isOpen, close } = useHeaderContactForm();
+
   return (
-    <div className="header-contact-form">
+    <div className={`header-contact-form ${isOpen ? "active" : ""}`}>
       <div className="header-contact-form-wrapper">
         <div className="header-contact-form-text">
           <h2>Зв’яжіться з нами:</h2>
@@ -65,7 +68,11 @@ export function HeaderContactForm() {
               ВІДПРАВИТИ
             </button>
 
-            <button type="button" className="header-contact-form-close">
+            <button
+              type="button"
+              className="header-contact-form-close"
+              onClick={close}
+            >
               ЗАКРИТИ
             </button>
           </div>

@@ -4,6 +4,22 @@
   background-color: #81918d;
   left: 25px;
   top: 100%;
+
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  pointer-events: none;
+  transition:
+    opacity 0.35s ease,
+    transform 0.35s ease,
+    visibility 0.35s ease;
+}
+
+.header-contact-form.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  pointer-events: auto;
 }
 
 .header-contact-form-container {
@@ -92,6 +108,7 @@
   text-transform: uppercase;
 
   color: #ffffff;
+  cursor: pointer;
 }
 .header-contact-form-close {
   border: 3px solid #443c3b;
@@ -106,4 +123,5 @@
   line-height: 24px;
   letter-spacing: 0.85px;
   text-transform: uppercase;
+  cursor: pointer;
 }

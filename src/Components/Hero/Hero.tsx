@@ -1,14 +1,15 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import "./style.css";
 import { useEffect, useRef, useState } from "react";
+import { useHeaderContactForm } from "@/Store/useHeaderContactForm";
 
 export function Hero() {
   const sectionRef = useRef<HTMLElement | null>(null);
   const [activeSlide, setActiveSlide] = useState(0);
   const [isAnimationReady, setIsAnimationReady] = useState(false);
+  const { open: openContactForm } = useHeaderContactForm();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -109,13 +110,14 @@ export function Hero() {
             </h2>
           </div>
 
-          <Link
-            href={"/contact"}
+          <button
+            type="button"
             className={`hero-contact-us ${isAnimationReady ? "visible" : "hidden"}`}
+            onClick={openContactForm}
           >
             <p>зв’язатись з нами</p>
             <Image src={"/Header/arrow.svg"} width={14} height={15} alt="=>" />
-          </Link>
+          </button>
         </div>
 
         <div
