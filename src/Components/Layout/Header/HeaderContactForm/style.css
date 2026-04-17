@@ -125,3 +125,18 @@
   text-transform: uppercase;
   cursor: pointer;
 }
+
+.header-contact-form-submit,
+.header-contact-form-close {
+  transition: all 0.3s ease;
+}
+
+.header-contact-form-submit:hover {
+  background: #fff;
+  color: #443c3b;
+}
+
+.header-contact-form-close:hover {
+  background: #443c3b;
+  color: #fff;
+}
