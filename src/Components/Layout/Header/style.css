@@ -21,7 +21,10 @@
   display: flex;
   align-items: center;
   height: 54px;
+  position: relative;
 }
+
+
 
 .header-spacer {
   margin-top: 69px;

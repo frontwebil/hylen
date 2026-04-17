@@ -9,6 +9,7 @@ import { MdArrowForward } from "react-icons/md";
 import { useWindowWidth } from "@/Hooks/useWindowWidth";
 import { FooterLanguagueChanger } from "../Footer/FooterLanguagueChanger/FooterLanguagueChanger";
 import { IoMdSearch } from "react-icons/io";
+import { HeaderContactForm } from "./HeaderContactForm/HeaderContactForm";
 
 export function Header() {
   const [isOpenMenu, setIsOpenMenu] = useState(false);
@@ -245,6 +246,8 @@ export function Header() {
               </div>
             </div>
           )}
+
+          <HeaderContactForm />
         </div>
       </header>
       <div className="header-spacer" />
