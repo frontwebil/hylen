@@ -1,7 +1,16 @@
+"use client";
+
 import Link from "next/link";
 import "./style.css";
+import { useEffect } from "react";
 
 export function ContactFormSection() {
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth", // якщо треба миттєво — прибери behavior
+    });
+  }, []);
   return (
     <section className="ContactFormSection" id="contacts">
       <div className="container">
