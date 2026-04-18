@@ -63,61 +63,85 @@ export function ContactFormSection() {
             </div>
           </div>
         </div>
-        <div className="ContactFormSection-form">
-          <form className="contact-request-form">
-            <div className="contact-request-form-grid">
-              <div className="contact-request-form-field">
-                <input
-                  type="text"
-                  name="name"
-                  placeholder="Ім’я*"
-                  className="contact-request-form-input"
-                />
+        <div className="ContactFormSection-form-wrapper">
+          <div className="ContactFormSection-form-line">
+            <div className="ContactFormSection-form-white-line"></div>
+          </div>
+          <div className="ContactFormSection-form">
+            <form className="contact-request-form">
+              <div className="contact-request-form-grid">
+                <div className="contact-request-form-field">
+                  <input
+                    type="text"
+                    name="name"
+                    placeholder="Ім’я*"
+                    className="contact-request-form-input"
+                  />
+                </div>
+
+                <div className="contact-request-form-field">
+                  <input
+                    type="text"
+                    name="company"
+                    placeholder="Назва компанії"
+                    className="contact-request-form-input"
+                  />
+                </div>
+
+                <div className="contact-request-form-field">
+                  <input
+                    type="tel"
+                    name="phone"
+                    placeholder="+38044123 45 67"
+                    className="contact-request-form-input"
+                  />
+                </div>
+
+                <div className="contact-request-form-field">
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder="Email*"
+                    className="contact-request-form-input"
+                  />
+                </div>
+
+                <div className="contact-request-form-field contact-request-form-field-full">
+                  <textarea
+                    rows={2}
+                    name="message"
+                    placeholder="Запит*"
+                    className="contact-request-form-textarea"
+                  ></textarea>
+                </div>
               </div>
 
-              <div className="contact-request-form-field">
-                <input
-                  type="text"
-                  name="company"
-                  placeholder="Назва компанії"
-                  className="contact-request-form-input"
-                />
+              <div className="contact-request-form-actions">
+                <button type="submit" className="contact-request-form-submit">
+                  ВІДПРАВИТИ
+                </button>
               </div>
-
-              <div className="contact-request-form-field">
-                <input
-                  type="tel"
-                  name="phone"
-                  placeholder="+38044123 45 67"
-                  className="contact-request-form-input"
-                />
-              </div>
-
-              <div className="contact-request-form-field">
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="Email*"
-                  className="contact-request-form-input"
-                />
-              </div>
-
-              <div className="contact-request-form-field contact-request-form-field-full">
-                <textarea
-                  rows={2}
-                  name="message"
-                  placeholder="Запит*"
-                  className="contact-request-form-textarea"
-                ></textarea>
-              </div>
-            </div>
-
-            <div className="contact-request-form-actions">
-              <button type="submit" className="contact-request-form-submit">
-                ВІДПРАВИТИ
-              </button>
-            </div>
-          </form>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div className="ContactFormSection-underlines">
+        <div className="ContactFormSection-underlines-higher">
+          <div className="container">
+            <div className="ContactFormSection-underlines-higher-line"></div>
+          </div>
+        </div>
+        <div className="ContactFormSection-underlines-top">
+          <div className="container">
+            <div className="ContactFormSection-underlines-top-left"></div>
+            <div className="ContactFormSection-underlines-top-middle"></div>
+            <div className="ContactFormSection-underlines-top-right"></div>
+          </div>
+        </div>
+        <div className="ContactFormSection-underlines-under">
+          <div className="container">
+            <div className="ContactFormSection-underlines-under-right"></div>
+          </div>
         </div>
       </div>
     </section>

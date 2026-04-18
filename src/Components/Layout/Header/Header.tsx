@@ -7,10 +7,10 @@ import { useState } from "react";
 import { useLanguage } from "@/Store/useLanguage";
 import { MdArrowForward } from "react-icons/md";
 import { useWindowWidth } from "@/Hooks/useWindowWidth";
-import { FooterLanguagueChanger } from "../Footer/FooterLanguagueChanger/FooterLanguagueChanger";
 import { IoMdSearch } from "react-icons/io";
 import { HeaderContactForm } from "./HeaderContactForm/HeaderContactForm";
 import { useHeaderContactForm } from "@/Store/useHeaderContactForm";
+import { usePathname } from "next/navigation";
 
 export function Header() {
   const [isOpenMenu, setIsOpenMenu] = useState(false);
@@ -23,6 +23,7 @@ export function Header() {
   } = useHeaderContactForm();
   const width = useWindowWidth();
   const isMenuVisible = isOpenMenu && !isContactFormOpen;
+  const path = usePathname();
 
   const closeMenu = () => setIsOpenMenu(false);
 
@@ -132,7 +133,7 @@ export function Header() {
               </div>
 
               <div className="header-search-button">
-                {width && width >= 1340 ? (
+                {width && width > 1340 ? (
                   "Знайти"
                 ) : (
                   <Image
@@ -146,7 +147,7 @@ export function Header() {
             </>
           )}
 
-          <div className="header-tel-us">
+          <div className={`header-tel-us ${path == '/contact' && 'under-line-contact'}`}>
             <Link href={"tel:380998409875"}>+38 (099) 840-98-75</Link>
           </div>
           <div className="contact-us" onClick={handleContactFormOpen}>

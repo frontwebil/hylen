@@ -55,7 +55,7 @@ export function HeaderContactForm() {
 
             <div className="header-contact-form-field header-contact-form-field-full">
               <textarea
-              rows={4}
+              rows={3}
                 name="message"
                 placeholder="Запит*"
                 className="header-contact-form-textarea"

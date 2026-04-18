@@ -67,13 +67,30 @@
 .ContactFormSection-left-text-work-graph-column {
 }
 .ContactFormSection-form {
-  max-width: 730px;
+  max-width: 640px;
   width: 100%;
   background-color: #81918d;
   padding: 70px 60px;
+  position: relative;
 }
+
+.ContactFormSection-form-line {
+  width: 100%;
+  background-color: #81918d;
+  height: 14px;
+  position: relative;
+}
+.ContactFormSection-form-white-line {
+  position: absolute;
+  max-width: 220px;
+  height: 14px;
+  left: 60px;
+  width: 100%;
+  background-color: #c0c8c6;
+}
+
 .contact-request-form {
-  max-width: 650px;
+  max-width: 520px;
   width: 100%;
   margin: 0 auto;
 }
@@ -141,4 +158,289 @@
 
 .contact-request-form-submit:hover {
   background: #1f2a19;
+}
+
+.ContactFormSection-underlines-under .container {
+  position: relative;
+}
+.ContactFormSection-underlines-under {
+  background-color: #81918d;
+  height: 17px;
+}
+
+.ContactFormSection-underlines-under-right {
+  width: 100%;
+  max-width: 640px;
+  background-color: #c0c8c6;
+  height: 17px;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.ContactFormSection-underlines-top .container {
+  position: relative;
+  height: 17px;
+}
+.ContactFormSection-underlines-top-left {
+  height: 17px;
+  position: absolute;
+  max-width: 40px;
+  width: 100%;
+  left: 0;
+  top: 0;
+  background-color: #81918d;
+}
+.ContactFormSection-underlines-top-middle {
+  height: 17px;
+  position: absolute;
+  max-width: 180px;
+  width: 100%;
+  left: 270px;
+  top: 0;
+  background-color: #81918d;
+}
+.ContactFormSection-underlines-top-right {
+  width: 100%;
+  max-width: 640px;
+  background-color: #81918d;
+  height: 17px;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.ContactFormSection-underlines-higher .container {
+  position: relative;
+}
+.ContactFormSection-underlines-higher-line {
+  height: 17px;
+  max-width: 230px;
+  width: 100%;
+  position: absolute;
+  left: 40px;
+  background-color: #81918d;
+  bottom: 0;
+}
+
+.ContactFormSection-underlines {
+  overflow: hidden;
+}
+
+@media (max-width: 1200px) {
+  .ContactFormSection-form-white-line {
+    left: auto;
+    right: 0;
+    max-width: 300px;
+  }
+}
+
+@media (max-width: 1165px) {
+  .ContactFormSection-form-line {
+    display: none;
+  }
+  .ContactFormSection .container:first-child {
+    flex-direction: column;
+    gap: 60px;
+  }
+  .ContactFormSection-form {
+    margin-bottom: 50px;
+  }
+  .ContactFormSection-left-text {
+    margin-top: 60px;
+    max-width: 100%;
+    padding: 20px;
+  }
+  .ContactFormSection-form-wrapper {
+    max-width: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: #81918d;
+  }
+  .ContactFormSection .container {
+    padding: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .ContactFormSection-underlines-top-right {
+    background-color: #c0c8c6;
+    width: 100%;
+    max-width: 50vw;
+    height: 17px;
+    position: absolute;
+    top: 0;
+    right: auto;
+    left: 0;
+  }
+  .ContactFormSection-underlines-under-right {
+    max-width: 50vw;
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+  .ContactFormSection-form {
+    padding: 70px 20px 20px;
+  }
+}
+
+@media (max-width: 500px) {
+  .contact-request-form-grid {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 50px;
+  }
+  .contact-request-form-input,
+  .contact-request-form-textarea {
+    padding-bottom: 14px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 1165px) {
+  .ContactFormSection-left-text {
+    margin-top: 60px;
+    max-width: 100%;
+    width: 100%;
+    padding: 0 20px;
+  }
+
+  .ContactFormSection-left-text-title {
+    font-size: 32px;
+    line-height: 38px;
+    padding-bottom: 28px;
+  }
+
+  .ContactFormSection-left-text-description {
+    font-size: 17px;
+    line-height: 24px;
+    padding-bottom: 28px;
+    max-width: 720px;
+  }
+
+  .ContactFormSection-left-text-info {
+    font-size: 18px;
+    line-height: 24px;
+  }
+
+  .ContactFormSection-left-text-info p:first-child {
+    max-width: 95px;
+    flex-shrink: 0;
+  }
+
+  .ContactFormSection-left-text-work-title {
+    margin-top: 40px;
+    font-size: 22px;
+    line-height: 24px;
+  }
+
+  .ContactFormSection-left-text-work-graph {
+    gap: 24px;
+    margin-top: 24px;
+    flex-wrap: wrap;
+  }
+
+  .ContactFormSection-left-text-work-graph-column {
+    min-width: 180px;
+  }
+}
+
+@media (max-width: 768px) {
+  .ContactFormSection-left-text {
+    margin-top: 40px;
+    padding: 0 16px;
+  }
+
+  .ContactFormSection-left-text-title {
+    font-size: 28px;
+    line-height: 33px;
+    letter-spacing: -0.4px;
+    padding-bottom: 20px;
+  }
+
+  .ContactFormSection-left-text-description {
+    font-size: 16px;
+    line-height: 23px;
+    padding-bottom: 24px;
+  }
+
+  .ContactFormSection-left-text-info {
+    font-size: 16px;
+    line-height: 22px;
+    padding-bottom: 8px;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .ContactFormSection-left-text-info p:first-child {
+    max-width: 82px;
+    width: 100%;
+  }
+
+  .ContactFormSection-left-text-work-title {
+    margin-top: 32px;
+    font-size: 20px;
+    line-height: 22px;
+  }
+
+  .ContactFormSection-left-text-work-graph {
+    margin-top: 20px;
+    gap: 20px;
+    font-size: 15px;
+    line-height: 22px;
+  }
+
+  .ContactFormSection-left-text-work-graph-column {
+    min-width: 140px;
+  }
+}
+
+@media (max-width: 500px) {
+  .ContactFormSection-left-text {
+    margin-top: 32px;
+    padding: 0 14px;
+  }
+
+  .ContactFormSection-left-text-title {
+    font-size: 24px;
+    line-height: 29px;
+    letter-spacing: -0.3px;
+    padding-bottom: 16px;
+  }
+
+  .ContactFormSection-left-text-description {
+    font-size: 15px;
+    line-height: 21px;
+    padding-bottom: 20px;
+  }
+
+  .ContactFormSection-left-text-info {
+    font-size: 15px;
+    line-height: 21px;
+    gap: 8px;
+    padding-bottom: 10px;
+  }
+
+  .ContactFormSection-left-text-info p:first-child {
+    max-width: 72px;
+  }
+
+  .ContactFormSection-left-text-work-title {
+    margin-top: 28px;
+    font-size: 18px;
+    line-height: 20px;
+  }
+
+  .ContactFormSection-left-text-work-graph {
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 16px;
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .ContactFormSection-left-text-work-graph-column {
+    min-width: unset;
+    width: 100%;
+  }
 }
