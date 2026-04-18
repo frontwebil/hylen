@@ -24,6 +24,8 @@ export function Header() {
   const width = useWindowWidth();
   const isMenuVisible = isOpenMenu && !isContactFormOpen;
 
+  const closeMenu = () => setIsOpenMenu(false);
+
   const handleMenuToggle = () => {
     setIsOpenLanguagueMenu(false);
     if (isContactFormOpen) closeContactForm();
@@ -55,7 +57,7 @@ export function Header() {
     <>
       <header className="header">
         <div className="container">
-          <div className="header-logo">
+          <Link href={"/"} className="header-logo">
             <Image
               src={
                 width && width > 720
@@ -66,7 +68,7 @@ export function Header() {
               height={18}
               alt="Hylen Logo"
             />
-          </div>
+          </Link>
           {width && width > 1200 && (
             <div className="header-menu-button" onClick={handleMenuToggle}>
               <div
@@ -78,15 +80,27 @@ export function Header() {
                 <span></span>
               </div>
               <div className={`header-menu ${isMenuVisible ? "active" : ""}`}>
-                <Link href={"/"} className="header-menu-link">
+                <Link
+                  href={"/#about"}
+                  className="header-menu-link"
+                  onClick={closeMenu}
+                >
                   <p>про бренд</p>
                   <MdArrowForward className="header-menu-link-icon" />
                 </Link>
-                <Link href={"/"} className="header-menu-link">
+                <Link
+                  href={"/#products"}
+                  className="header-menu-link"
+                  onClick={closeMenu}
+                >
                   <p>Продукти</p>
                   <MdArrowForward className="header-menu-link-icon" />
                 </Link>
-                <Link href={"/"} className="header-menu-link">
+                <Link
+                  href={"/contact#contacts"}
+                  className="header-menu-link"
+                  onClick={closeMenu}
+                >
                   <p>контакти</p>
                   <MdArrowForward className="header-menu-link-icon" />
                 </Link>
@@ -172,15 +186,27 @@ export function Header() {
                 <span></span>
               </div>
               <div className={`header-menu ${isMenuVisible ? "active" : ""}`}>
-                <Link href={"#about"} className="header-menu-link">
+                <Link
+                  href={"/#about"}
+                  className="header-menu-link"
+                  onClick={closeMenu}
+                >
                   <p>про бренд</p>
                   <MdArrowForward className="header-menu-link-icon" />
                 </Link>
-                <Link href={"#products"} className="header-menu-link">
+                <Link
+                  href={"/#products"}
+                  className="header-menu-link"
+                  onClick={closeMenu}
+                >
                   <p>Продукти</p>
                   <MdArrowForward className="header-menu-link-icon" />
                 </Link>
-                <Link href={"#contacts"} className="header-menu-link last">
+                <Link
+                  href={"/contact#contacts"}
+                  className="header-menu-link last"
+                  onClick={closeMenu}
+                >
                   <p>контакти</p>
                   <MdArrowForward className="header-menu-link-icon" />
                 </Link>

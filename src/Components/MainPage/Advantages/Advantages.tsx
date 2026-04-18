@@ -17,7 +17,7 @@ export function Advantages() {
   };
 
   return (
-    <section className="advantages">
+    <section className="advantages" id="advantages">
       <div className="container">
         <div className="advantages-top">
           <h3 className="advantages-top-title">Переваги HYLEN</h3>

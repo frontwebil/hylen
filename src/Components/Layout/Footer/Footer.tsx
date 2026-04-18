@@ -113,17 +113,17 @@ export function Footer() {
               )}
               {width && width > 920 ? (
                 <div className="footer-column-content-nav">
-                  <Link href={"/"}>Продукти</Link>
-                  <Link href={"/"}>Пeреваги Hylen</Link>
-                  <Link href={"/"}>Конструкторське бюро</Link>
-                  <Link href={"/"}>Про HYLEN</Link>
-                  <Link href={"/"}>Контакти</Link>
+                  <Link href={"/#products"}>Продукти</Link>
+                  <Link href={"/#advantages"}>Пeреваги Hylen</Link>
+                  <Link href={"/#byro"}>Конструкторське бюро</Link>
+                  <Link href={"/#about"}>Про HYLEN</Link>
+                  <Link href={"/contact#contacts"}>Контакти</Link>
                 </div>
               ) : (
                 <div className="footer-column-content-nav">
-                  <Link href={"/"}>Про Бренд</Link>
-                  <Link href={"/"}>Продукти</Link>
-                  <Link href={"/"}>Контакти</Link>
+                  <Link href={"/#about"}>Про Бренд</Link>
+                  <Link href={"/#products"}>Продукти</Link>
+                  <Link href={"/contact#contacts"}>Контакти</Link>
                 </div>
               )}
             </div>

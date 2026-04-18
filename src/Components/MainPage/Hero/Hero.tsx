@@ -79,7 +79,7 @@ export function Hero() {
   };
 
   return (
-    <section className="hero" ref={sectionRef}>
+    <section className="hero" ref={sectionRef} id="about">
       <div className="container">
         <video
           className="hero-bg-video"

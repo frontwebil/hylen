@@ -3,7 +3,7 @@ import "./style.css";
 
 export function ContactFormSection() {
   return (
-    <section className="ContactFormSection">
+    <section className="ContactFormSection" id="contacts">
       <div className="container">
         <div className="ContactFormSection-left-text">
           <h2 className="ContactFormSection-left-text-title">Контакти</h2>

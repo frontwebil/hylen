@@ -3,7 +3,7 @@ import "./style.css";
 
 export function Byro() {
   return (
-    <section className="byro">
+    <section className="byro" id="byro">
       <div className="container">
         <div className="byro-top">
           <h2>Конструкторське бюро</h2>
