@@ -33,6 +33,10 @@ export function Header() {
   const handleContactFormOpen = () => {
     setIsOpenMenu(false);
     setIsOpenLanguagueMenu(false);
+    if (isContactFormOpen) {
+      closeContactForm();
+      return;
+    }
     openContactForm();
   };
 

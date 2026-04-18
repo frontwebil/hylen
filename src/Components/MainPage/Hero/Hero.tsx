@@ -4,6 +4,7 @@ import Image from "next/image";
 import "./style.css";
 import { useEffect, useRef, useState } from "react";
 import { useHeaderContactForm } from "@/Store/useHeaderContactForm";
+import { IoArrowForward } from "react-icons/io5";
 
 export function Hero() {
   const sectionRef = useRef<HTMLElement | null>(null);
@@ -116,7 +117,7 @@ export function Hero() {
             onClick={openContactForm}
           >
             <p>зв’язатись з нами</p>
-            <Image src={"/Header/arrow.svg"} width={14} height={15} alt="=>" />
+            <IoArrowForward />
           </button>
         </div>
 

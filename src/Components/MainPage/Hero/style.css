@@ -98,6 +98,7 @@
   will-change: opacity, transform;
 
   cursor: pointer;
+  border: 1px solid transparent;
 }
 
 .hero-contact-us.visible {
@@ -106,6 +107,13 @@
   pointer-events: auto;
   animation: heroFadeUp 0.55s ease both;
   animation-delay: 0.22s;
+  transition: all 0.3s ease;
+}
+
+.hero-contact-us.visible:hover {
+  color: #fff;
+  border: 1px solid #ffffff;
+  background-color: transparent;
 }
 
 .hero-contact-us.hidden {
