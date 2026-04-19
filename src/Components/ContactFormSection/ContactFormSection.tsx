@@ -69,6 +69,7 @@ export function ContactFormSection() {
           </div>
           <div className="ContactFormSection-form">
             <form className="contact-request-form">
+              <h2 className="text-center">Зв’язатись з нами</h2>
               <div className="contact-request-form-grid">
                 <div className="contact-request-form-field">
                   <input

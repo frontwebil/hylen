@@ -35,6 +35,7 @@
   flex-direction: column;
   gap: 24px;
   max-width: 440px;
+  width: 100%;
 }
 
 .header-contact-form-text h2 {
@@ -138,4 +139,68 @@
 .header-contact-form-close:hover {
   background: #443c3b;
   color: #fff;
+}
+
+@media (max-width: 1380px) {
+  .header-contact-form {
+    left: 0;
+    width: 100%;
+  }
+  .header-contact-form-container-grid {
+    gap: 42px 16px;
+  }
+  .header-contact-form-wrapper {
+    gap: 20px;
+  }
+}
+
+@media (max-width: 920px) {
+  .header-contact-form-input,
+  .header-contact-form-textarea {
+    padding-bottom: 14px;
+    font-size: 16px;
+  }
+  .header-contact-form-container-buttons {
+    flex-direction: column;
+    margin-top: 20px;
+    gap: 10px;
+  }
+  .header-contact-form-submit,
+  .header-contact-form-close {
+    height: 45px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 600px) {
+  .header-contact-form-wrapper {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .header-contact-form-wrapper {
+    padding: 50px 20px 30px;
+    max-height: calc(100vh - 74px);
+    overflow-y: auto;
+  }
+  .header-contact-form-text {
+    max-width: 100%;
+  }
+  .header-contact-form-text p {
+    font-size: 16px;
+    line-height: 19px;
+  }
+  .header-contact-form-text h2 {
+    font-size: 28px;
+    line-height: 40px;
+  }
+  .header-contact-form-text {
+    gap: 16px;
+  }
+}
+
+@media (max-width: 500px) {
+  .header-contact-form-container-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
