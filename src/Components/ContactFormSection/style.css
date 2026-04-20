@@ -132,7 +132,7 @@
   letter-spacing: 0%;
   vertical-align: middle;
   padding: 0 0 12px;
-  border-bottom: 1px solid #000000;
+  border-bottom: 2px solid #443c3b;
 }
 
 .contact-request-form-actions {
@@ -250,7 +250,7 @@
     gap: 60px;
   }
 
-  .contact-request-form-grid{
+  .contact-request-form-grid {
     margin-top: 50px;
   }
   .ContactFormSection-form {
