@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Commissioner, Inter } from "next/font/google";
 import "./globals.css";
 import "./reset.css";
+import { ToastContainer } from "react-toastify";
 
 const commissionerFont = Commissioner({ subsets: ["latin"] });
 const interFont = Inter({ subsets: ["latin"] });
@@ -25,7 +26,20 @@ export default function RootLayout({
       lang="en"
       className={`${commissionerFont.className} ${interFont.className} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        <ToastContainer
+          position="top-right"
+          autoClose={3000}
+          theme="colored"
+          toastStyle={{
+            background: "#c0c8c6",
+            color: "#1f2a19",
+          }}
+          closeButton={false}
+        />
+
+        {children}
+      </body>
     </html>
   );
 }

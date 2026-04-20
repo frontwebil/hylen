@@ -30,3 +30,7 @@ body::-webkit-scrollbar {
     padding: 0 20px;
   }
 }
+
+.Toastify__progress-bar {
+  background: #443c3b !important;
+}
