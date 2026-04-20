@@ -6,7 +6,7 @@
 .UnderByroLines-top {
   width: 100%;
   background-color: #81918d;
-  height: 28px;
+height:  26px;
 }
 .UnderByroLines-top .container,
 .UnderByroLines-bottom .container {
@@ -15,7 +15,7 @@
 .UnderByroLines-top-left-line {
   position: absolute;
   background-color: #fff;
-  height: 28px;
+height:  26px;
   max-width: 700px;
   width: 100%;
   left: 100px;
@@ -23,19 +23,19 @@
 .UnderByroLines-top-right-line {
   position: absolute;
   background-color: #fff;
-  height: 28px;
+height:  26px;
   width: 100%;
   max-width: 2000px;
   right: -110%;
 }
 .UnderByroLines-bottom {
   background-color: #ffffff;
-  height: 20px;
+height: 18px;
 }
 .UnderByroLines-bottom-left-line {
   position: absolute;
   background-color: #81918d;
-  height: 20px;
+height: 18px;
   max-width: 700px;
   width: 100%;
   left: 100px;
@@ -43,7 +43,7 @@
 .UnderByroLines-bottom-middle-line {
   position: absolute;
   background-color: #fff;
-  height: 20px;
+height: 18px;
   max-width: 100px;
   width: 100%;
   left: 190px;
@@ -51,7 +51,7 @@
 .UnderByroLines-bottom-right-line {
   position: absolute;
   background-color: #81918d;
-  height: 20px;
+height: 18px;
   width: 100%;
   max-width: 2000px;
   right: -110%;
