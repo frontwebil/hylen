@@ -5,6 +5,7 @@ import "./style.css";
 import { useEffect, useRef, useState } from "react";
 import { useHeaderContactForm } from "@/Store/useHeaderContactForm";
 import { IoArrowForward } from "react-icons/io5";
+import Link from "next/link";
 
 export function Hero() {
   const sectionRef = useRef<HTMLElement | null>(null);
@@ -111,14 +112,13 @@ export function Hero() {
             </h2>
           </div>
 
-          <button
+          <Link href={"/contact"}
             type="button"
             className={`hero-contact-us ${isAnimationReady ? "visible" : "hidden"}`}
-            onClick={openContactForm}
           >
             <p>зв’язатись з нами</p>
             <IoArrowForward />
-          </button>
+          </Link>
         </div>
 
         <div

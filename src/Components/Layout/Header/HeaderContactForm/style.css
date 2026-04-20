@@ -180,7 +180,7 @@
 
   .header-contact-form-wrapper {
     padding: 50px 20px 30px;
-    max-height: calc(100vh - 74px);
+    max-height: calc(100vh - 69px);
     overflow-y: auto;
   }
   .header-contact-form-text {
