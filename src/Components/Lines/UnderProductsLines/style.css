@@ -9,11 +9,11 @@
 }
 .UnderProductsLines-line-top {
   background-color: #d7ccbd;
-  height: 25px;
+height: 18px;
 }
 .UnderProductsLines-line-top-left {
   display: block;
-  height: 25px;
+height: 18px;
   max-width: 100%;
   width: 100%;
   position: relative;
@@ -23,7 +23,7 @@
 }
 .UnderProductsLines-line-top-right {
   display: block;
-  height: 25px;
+height: 18px;
   max-width: 168px;
   width: 100%;
   position: absolute;
@@ -33,11 +33,11 @@
 }
 .UnderProductsLines-line-bottom {
   background-color: #80908d;
-  height: 25px;
+height: 18px;
 }
 .UnderProductsLines-line-bottom-left {
   display: block;
-  height: 25px;
+height: 18px;
   max-width: 100%;
   width: 100%;
   position: relative;
@@ -47,7 +47,7 @@
 }
 .UnderProductsLines-line-bottom-right {
   display: block;
-  height: 25px;
+height: 18px;
   max-width: 168px;
   width: 100%;
   position: absolute;

@@ -34,6 +34,7 @@ export function Header() {
   };
 
   const handleContactFormOpen = () => {
+    if (path === "/contact") return;
     setIsOpenMenu(false);
     setIsOpenLanguagueMenu(false);
     if (isContactFormOpen) {
@@ -147,7 +148,9 @@ export function Header() {
             </>
           )}
 
-          <div className={`header-tel-us ${path == '/contact' && 'under-line-contact'}`}>
+          <div
+            className={`header-tel-us ${path == "/contact" && "under-line-contact"}`}
+          >
             <Link href={"tel:380998409875"}>+38 (099) 840-98-75</Link>
           </div>
           <div className="contact-us" onClick={handleContactFormOpen}>
@@ -157,6 +160,14 @@ export function Header() {
               width={14}
               height={15}
               alt="=>"
+              style={{
+                rotate:
+                  path === "/contact"
+                    ? "90deg"
+                    : isContactFormOpen
+                      ? "90deg"
+                      : "0deg",
+              }}
             />
           </div>
           <div

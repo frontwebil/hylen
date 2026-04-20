@@ -3,8 +3,10 @@
 import Link from "next/link";
 import "./style.css";
 import { useEffect } from "react";
+import { useWindowWidth } from "@/Hooks/useWindowWidth";
 
 export function ContactFormSection() {
+  const width = useWindowWidth();
   useEffect(() => {
     window.scrollTo({
       top: 0,
@@ -69,7 +71,16 @@ export function ContactFormSection() {
           </div>
           <div className="ContactFormSection-form">
             <form className="contact-request-form">
-              <h2 className="text-center">Зв’язатись з нами</h2>
+              {width && width <= 1165 && (
+                <div className="header-contact-form-text">
+                  <h2>Зв’яжіться з нами:</h2>
+                  <p>
+                    щоб отримати консультацію, замовити продукцію або дізнатись
+                    більше про індивідуальні рішення HYLEN. Ми цінуємо кожного
+                    клієнта і працюємо для вашого успіху.
+                  </p>
+                </div>
+              )}
               <div className="contact-request-form-grid">
                 <div className="contact-request-form-field">
                   <input
@@ -109,7 +120,7 @@ export function ContactFormSection() {
 
                 <div className="contact-request-form-field contact-request-form-field-full">
                   <textarea
-                    rows={2}
+                    rows={5}
                     name="message"
                     placeholder="Запит*"
                     className="contact-request-form-textarea"

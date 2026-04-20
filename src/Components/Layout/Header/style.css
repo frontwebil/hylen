@@ -169,6 +169,10 @@
   background-color: #1f2a19;
 }
 
+.contact-us img {
+  transition: all 0.3s ease;
+}
+
 .header-tel-us {
   position: relative;
   font-weight: 600;
@@ -194,7 +198,6 @@
   left: 0;
   width: 100%;
 }
-
 
 .contact-us {
   height: 100%;
