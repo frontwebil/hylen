@@ -27,6 +27,8 @@ export type ProductSpecs = {
 };
 
 export type ProductItem = {
+  /** Якір для посилання з картки в hero (має збігатися з `hero.cards[].id`) */
+  id: string;
   title: string;
   subTitle: string;
   description: ProductDescription;
@@ -67,6 +69,7 @@ export default function page() {
     },
     products: [
       {
+        id: "id1",
         title: "Напівпричіп тракторний одновісний самоскидний НПС",
         subTitle: "Півпричіп-самоскид НПС-1, НПС-2, НПС-3",
 
@@ -134,19 +137,83 @@ export default function page() {
           ],
         },
       },
+      {
+        id: "id2",
+        title: "Напівпричіп тракторний самоскидний",
+        subTitle: "ПРИЧІП — П-6, П-10, П-13",
+
+        description: {
+          about:
+            "Тракторний самоскидний напівпричіп П-6 / П-10 / П-13 – універсальний транспорт для сипучих вантажів: зерна, піску, щебеню, добрив і будматеріалів.",
+
+          purpose:
+            "Надійне рішення для швидкого й ефективного транспортування сипучих матеріалів: добрив, зерна, піску та будматеріалів.",
+
+          features:
+            "Завдяки функції самоскиду, розвантаження відбувається швидко та без зайвих зусиль. Моделі від 1 до 6 тонн дозволяють обрати оптимальний варіант для вашого господарства.",
+
+          advantages: [
+            "Висока вантажопідйомність і міцність",
+            "Легке і швидке самостійне вивантаження",
+            "Компактна конструкція, сумісна з тракторами різних класів",
+            "Довговічність та стійкість до зношування",
+          ],
+        },
+
+        images: [
+          "/hrebet-y-poli/p/1.webp",
+          "/hrebet-y-poli/p/2.webp",
+          "/hrebet-y-poli/p/3.webp",
+        ],
+
+        specs: {
+          models: ["П-6", "П-10", "П-13"],
+
+          rows: [
+            {
+              label: "Довжина, мм",
+              values: ["5185", "6130", "7495"],
+            },
+            {
+              label: "Ширина, мм",
+              values: ["2500", "2600", "2600"],
+            },
+            {
+              label: "Висота, мм",
+              values: ["2000", "2100", "2200"],
+            },
+            {
+              label: "Ширина колії, мм",
+              values: ["2075", "2095", "2056"],
+            },
+            {
+              label: "Маса, кг",
+              values: ["1800", "2300", "3600"],
+            },
+            {
+              label: "Максимальне навантаження, кг",
+              values: ["6000", "10000", "13000"],
+            },
+            {
+              label: "Максимально допустима вага з вантажем, кг",
+              values: ["7500", "12100", "16600"],
+            },
+          ],
+        },
+      },
     ],
   };
 
   return (
-    <>
+    <div style={{ overflow: "hidden" }}>
       <Header />
       <ProductHero heroData={pageData.hero} />
       {pageData.products.map((product, i) => (
-        <div key={i}>
+        <div key={product.id} id={product.id} style={{ scrollMarginTop: 120 }}>
           <ProductSections productData={product} />
-          <TechnicalSpecs specs={product.specs}/>
+          <TechnicalSpecs specs={product.specs} />
         </div>
       ))}
-    </>
+    </div>
   );
 }

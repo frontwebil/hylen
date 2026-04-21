@@ -15,32 +15,33 @@ export function TechnicalSpecs({ specs }: { specs: ProductSpecs }) {
     <section className="technical-specs">
       <div className="container">
         <h2>Технічні характеристики</h2>
-        <div className="technical-specs-table">
-          <div className="table-left">
-            <div className="table-top-line">Модель</div>
-
-            {specs.rows.map((row, i) => (
-              <div key={i} className="table-left-line">{row.label}</div>
-            ))}
-          </div>
-
-          <div className="table-right">
-            <div className="scroll-x">
-              <div className="row table-top-line">
-                {specs.models.map((model, i) => (
-                  <div key={i}>{model}</div>
+        <div className="technical-specs-table-wrap" aria-label="Технічні характеристики">
+          <table className="technical-specs-table">
+            <thead>
+              <tr>
+                <th scope="col" className="col-label">
+                  Модель
+                </th>
+                {specs.models.map((model) => (
+                  <th key={model} scope="col">
+                    {model}
+                  </th>
                 ))}
-              </div>
-
-              {specs.rows.map((row, i) => (
-                <div className="row" key={i}>
+              </tr>
+            </thead>
+            <tbody>
+              {specs.rows.map((row) => (
+                <tr key={row.label}>
+                  <th scope="row" className="row-label">
+                    {row.label}
+                  </th>
                   {row.values.map((value, i) => (
-                    <div key={i}>{value}</div>
+                    <td key={i}>{value}</td>
                   ))}
-                </div>
+                </tr>
               ))}
-            </div>
-          </div>
+            </tbody>
+          </table>
         </div>
       </div>
     </section>

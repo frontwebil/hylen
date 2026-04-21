@@ -10,39 +10,71 @@
   color: #1f2a19;
   margin-bottom: 40px;
 }
-.technical-specs-table {
-  color: #000;
-  background-color: #bcbaba;
-  border-radius: 24px;
-  display: flex;
 
+.technical-specs-table-wrap {
+  border-radius: 24px;
+  overflow: auto;
+  background: #bcbaba;
+}
+
+.technical-specs-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  color: #000;
   font-weight: 400;
   font-size: 24px;
   line-height: 32px;
   letter-spacing: 0%;
 }
-.table-left {
-  display: flex;
-  flex-direction: column;
-  flex: 0 0 250px;
+
+th {
+  font-weight: 400;
+}
+
+.technical-specs-table th,
+.technical-specs-table td {
+  padding: 18px 22px;
+  background: #bcbaba;
+  border-bottom: 1px solid #000000cc;
+  text-align: center;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.technical-specs-table thead th {
+  font-family: Inter;
+  color: #443c3b;
+  padding-bottom: 40px;
+  padding-top: 32px;
+  font-weight: 600;
+  border: none;
+}
+
+.technical-specs-table tr > *:last-child {
+  border-right: none;
+}
+
+.technical-specs-table tbody tr:last-child > * {
+  border-bottom: none;
+}
+
+.technical-specs-table .col-label,
+.technical-specs-table .row-label {
+  text-align: left;
+  white-space: normal;
+  min-width: 240px;
+  max-width: 260px;
+}
+
+/* sticky first column */
+.technical-specs-table .col-label,
+.technical-specs-table .row-label {
   position: sticky;
   left: 0;
-  z-index: 5;
+  z-index: 2;
 }
 
-.table-top-line {
-  padding-bottom: 50px;
-}
-
-.table-right {
-  overflow-x: auto;
-  width: 100%;
-}
-.scroll-x {
-}
-.row {
-  display: flex;
-}
-
-.table-left-line {
+.technical-specs-table thead .col-label {
+  z-index: 3;
 }

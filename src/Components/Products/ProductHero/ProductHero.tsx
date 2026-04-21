@@ -42,7 +42,12 @@ export function ProductHero({ heroData }: ProductHeroProps) {
           </div>
           <div className="product-hero-content-cards">
             {heroData.cards.map((productCard, i) => (
-              <div className="product-hero-content-card" key={i}>
+              <a
+                className="product-hero-content-card"
+                key={productCard.id}
+                href={`#${productCard.id}`}
+                aria-label={`Перейти до опису: ${productCard.subTitle}`}
+              >
                 <Image
                   src={productCard.img}
                   alt=""
@@ -60,7 +65,7 @@ export function ProductHero({ heroData }: ProductHeroProps) {
                     />
                   </div>
                 </div>
-              </div>
+              </a>
             ))}
           </div>
         </div>
