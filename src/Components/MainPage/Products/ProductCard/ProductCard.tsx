@@ -42,7 +42,7 @@ export function ProductCard({ product }: { product: ProductItem }) {
   return (
     <Link
       ref={cardRef}
-      href={"/"}
+      href={product.link}
       className="product-card"
       onMouseEnter={() => !isMobile && setIsHover(true)}
       onMouseLeave={() => !isMobile && setIsHover(false)}

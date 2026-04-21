@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import prisma from "@/lib/prisma";
+import { transporter } from "@/lib/transporter";
 
 type ContactFormData = {
   name: string;
@@ -43,6 +44,21 @@ export async function POST(req: Request) {
         email,
         message,
       },
+    });
+
+    await transporter.sendMail({
+      from: `"HYLEN" <${process.env.SMTP_USER}>`,
+      to: "gollpfd@gmail.com",
+      subject: "Нова заявка з сайту HYLEN",
+      html: `
+        <h2>Новий запит</h2>
+        
+        <p><b>Ім’я:</b> ${name}</p>
+        <p><b>Компанія:</b> ${company}</p>
+        <p><b>Телефон:</b> ${phone}</p>
+        <p><b>Email:</b> ${email}</p>
+        <p><b>Запит:</b> ${message}</p>
+      `,
     });
 
     return NextResponse.json(

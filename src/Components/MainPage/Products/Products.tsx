@@ -12,6 +12,7 @@ export type ProductItem = {
   title: string;
   subTitle: string;
   img: string;
+  link: string;
 };
 
 export const products: ProductItem[] = [
@@ -19,31 +20,37 @@ export const products: ProductItem[] = [
     title: "ХРЕБЕТ У ПОЛІ",
     subTitle: "Одноосні причепи",
     img: "/Products/1",
+    link: "/hrebet-y-poli",
   },
   {
     title: "РИТМ ЖИВЛЕННЯ",
     subTitle: "Кормороздавачі-змішувачі",
     img: "/Products/2",
+    link: "/rytm",
   },
   {
     title: "МІСТ МІЖ ЛАНКАМИ",
     subTitle: "Перевантажувачі зерна",
     img: "/Products/3",
+    link: "/mist",
   },
   {
     title: "ЖИВА АРТЕРІЯ",
     subTitle: "Цистерни для води та пального",
     img: "/Products/4",
+    link: "/jywa-arteria",
   },
   {
     title: "ТЯГОВИЙ ВУЗОЛ",
     subTitle: "Причепи-напівпричепи",
     img: "/Products/5",
+    link: "/tyagovyi-vyzol",
   },
   {
     title: "ОСНОВИ ВРОЖАЮ",
     subTitle: "Ґрунтообробна техніка",
     img: "/Products/6",
+    link: "/osnovy-vrojayy",
   },
 ];
 
@@ -57,16 +64,6 @@ export function Products() {
   });
 
   const [selectedIndex, setSelectedIndex] = useState(0);
-
-  const scrollPrev = useCallback(() => {
-    if (!emblaApi) return;
-    emblaApi.scrollPrev();
-  }, [emblaApi]);
-
-  const scrollNext = useCallback(() => {
-    if (!emblaApi) return;
-    emblaApi.scrollNext();
-  }, [emblaApi]);
 
   const scrollTo = useCallback(
     (index: number) => {
