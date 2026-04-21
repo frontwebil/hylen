@@ -2,6 +2,8 @@ import { Header } from "@/Components/Layout/Header/Header";
 import { ProductHero } from "@/Components/Products/ProductHero/ProductHero";
 import { ProductSections } from "@/Components/Products/ProductSections/ProductSections";
 import { TechnicalSpecs } from "@/Components/Products/TechnicalSpecs/TechnicalSpecs";
+import { ProductOtherTypesSlider } from "@/Components/Products/ProductOtherTypesSlider/ProductOtherTypesSlider";
+import { Footer } from "@/Components/Layout/Footer/Footer";
 
 export type ProductCardItem = {
   img: string;
@@ -27,7 +29,6 @@ export type ProductSpecs = {
 };
 
 export type ProductItem = {
-  /** Якір для посилання з картки в hero (має збігатися з `hero.cards[].id`) */
   id: string;
   title: string;
   subTitle: string;
@@ -208,12 +209,14 @@ export default function page() {
     <div style={{ overflow: "hidden" }}>
       <Header />
       <ProductHero heroData={pageData.hero} />
-      {pageData.products.map((product, i) => (
+      {pageData.products.map((product) => (
         <div key={product.id} id={product.id} style={{ scrollMarginTop: 120 }}>
           <ProductSections productData={product} />
           <TechnicalSpecs specs={product.specs} />
         </div>
       ))}
+      <ProductOtherTypesSlider excludeLink="/hrebet-y-poli" />
+      <Footer />
     </div>
   );
 }
