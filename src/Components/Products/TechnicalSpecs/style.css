@@ -1,0 +1,48 @@
+.technical-specs {
+  background-color: #d9d9d9;
+  padding: 180px 0;
+}
+.technical-specs .container h2 {
+  font-weight: 500;
+  font-size: 40px;
+  line-height: 44px;
+  letter-spacing: -3%;
+  color: #1f2a19;
+  margin-bottom: 40px;
+}
+.technical-specs-table {
+  color: #000;
+  background-color: #bcbaba;
+  border-radius: 24px;
+  display: flex;
+
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 32px;
+  letter-spacing: 0%;
+}
+.table-left {
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 250px;
+  position: sticky;
+  left: 0;
+  z-index: 5;
+}
+
+.table-top-line {
+  padding-bottom: 50px;
+}
+
+.table-right {
+  overflow-x: auto;
+  width: 100%;
+}
+.scroll-x {
+}
+.row {
+  display: flex;
+}
+
+.table-left-line {
+}

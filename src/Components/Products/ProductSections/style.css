@@ -1,0 +1,172 @@
+.product-sections {
+  padding: 120px 0 180px;
+  background-color: #c0c8c6;
+}
+
+.product-sections .container {
+  display: flex;
+  justify-content: space-between;
+  gap: 50px;
+}
+
+.product-left {
+  max-width: 640px;
+  width: 100%;
+}
+
+.product-slider-main-img {
+  border: 3px solid #443c3b;
+}
+
+.product-slider-main-img img {
+  object-fit: contain;
+  max-height: 580px;
+}
+
+.product-slider-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #81918d40;
+  padding: 16px 20px;
+}
+
+.product-slider-controls.is-first-slide
+  .product-slider-control-btn:first-child {
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+.product-slider-controls.is-last-slide .product-slider-control-btn:last-child {
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+.product-slider-control-btn {
+  border: none;
+  background: transparent;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+}
+
+.product-slider-control-btn:hover {
+  transform: scale(1.08);
+}
+
+.product-slider-control-btn.disabled {
+  opacity: 0.35;
+  cursor: default;
+  pointer-events: none;
+}
+
+.product-slider-controls-slides {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.product-slider-controls-slide {
+  position: relative;
+  max-width: 140px;
+  width: 100%;
+  border: 1px solid #81918d;
+  background-color: #c0c8c6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+}
+
+.product-slider-controls-slide::after {
+  content: "";
+  position: absolute;
+  background-color: #81918d;
+  bottom: -16px;
+  left: 0;
+  height: 4px;
+  width: 100%;
+  transition: background-color 0.3s ease;
+}
+
+.product-slider-controls-slide.active {
+  border: 1px solid #53514f;
+}
+
+.product-slider-controls-slide.active::after {
+  background-color: #53514f;
+}
+
+.product-slider-controls-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.product-slider-control-left,
+.product-slider-control-right {
+  width: 30px;
+  height: 28px;
+  color: #443c3b;
+}
+
+.product-slider-alert {
+  margin-top: 60px;
+  background-color: #b4b0b0;
+  border-left: 3px solid #443c3b;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  letter-spacing: 0%;
+  padding: 30px 22px 30px 30px;
+}
+
+.product-right {
+  color: #1f2a19;
+  max-width: 620px;
+  width: 100%;
+}
+.product-right h3 {
+  font-weight: 500;
+  font-size: 54px;
+  line-height: 62px;
+  letter-spacing: -2%;
+  margin-bottom: 15px;
+}
+.product-right h4 {
+  font-size: 18px;
+  line-height: 22px;
+  letter-spacing: 0%;
+  text-transform: uppercase;
+}
+.product-right-text {
+  margin-top: 20px;
+}
+.product-right-text-content {
+  margin-top: 40px;
+}
+.product-right-text-content h2 {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 32px;
+  letter-spacing: 0%;
+  margin-bottom: 6px;
+}
+.product-right-text-content p {
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 24px;
+  letter-spacing: 0%;
+}
+.product-right-text-content-list {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-top: 10px;
+}
