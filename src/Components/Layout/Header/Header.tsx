@@ -83,7 +83,7 @@ export function Header() {
               </div>
               <div className={`header-menu ${isMenuVisible ? "active" : ""}`}>
                 <Link
-                  href={"/#about"}
+                  href={"/about"}
                   className="header-menu-link"
                   onClick={closeMenu}
                 >
@@ -199,7 +199,7 @@ export function Header() {
               </div>
               <div className={`header-menu ${isMenuVisible ? "active" : ""}`}>
                 <Link
-                  href={"/#about"}
+                  href={"/about"}
                   className="header-menu-link"
                   onClick={closeMenu}
                 >

@@ -116,12 +116,12 @@ export function Footer() {
                   <Link href={"/#products"}>Продукти</Link>
                   <Link href={"/#advantages"}>Пeреваги Hylen</Link>
                   <Link href={"/#byro"}>Конструкторське бюро</Link>
-                  <Link href={"/#about"}>Про HYLEN</Link>
+                  <Link href={"/about"}>Про HYLEN</Link>
                   <Link href={"/contact#contacts"}>Контакти</Link>
                 </div>
               ) : (
                 <div className="footer-column-content-nav">
-                  <Link href={"/#about"}>Про Бренд</Link>
+                  <Link href={"/about"}>Про Бренд</Link>
                   <Link href={"/#products"}>Продукти</Link>
                   <Link href={"/contact#contacts"}>Контакти</Link>
                 </div>

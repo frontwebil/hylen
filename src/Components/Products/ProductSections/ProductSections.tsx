@@ -25,12 +25,28 @@ export function ProductSections({ productData }: { productData: ProductItem }) {
     setActiveSlide((prev) => prev + 1);
   };
 
+  const modelCardsRow = (
+    <div className="product-model-cards" role="list" aria-label="Моделі">
+      {productData.modelCards.map((label) => (
+        <div key={label} className="product-model-card" role="listitem">
+          {label}
+        </div>
+      ))}
+    </div>
+  );
+
   return (
     <section className="product-sections">
       <div className="container">
         <div className="product-left">
           <div className="product-slider">
-            {width && width < 520 && <h3>{productData.title}</h3>}
+            {width && width < 980 && (
+              <>
+                {" "}
+                <h3>{productData.title}</h3>
+                {modelCardsRow}
+              </>
+            )}
             <div className="product-slider-main-img">
               <Image
                 src={productData.images[activeSlide]}
@@ -81,12 +97,7 @@ export function ProductSections({ productData }: { productData: ProductItem }) {
               </button>
             </div>
 
-            {width && width < 520 && (
-              <h4>
-                <span className="font-semibold">Модельний ряд:</span>{" "}
-                {productData.subTitle}
-              </h4>
-            )}
+            {/* {width && width < 980 && modelCardsRow} */}
 
             <div className="product-slider-alert">
               <p>
@@ -99,13 +110,10 @@ export function ProductSections({ productData }: { productData: ProductItem }) {
         </div>
 
         <div className="product-right">
-          {width && width >= 520 && (
+          {width && width >= 980 && (
             <>
               <h3>{productData.title}</h3>
-              <h4>
-                <span className="font-semibold">Модельний ряд:</span>{" "}
-                {productData.subTitle}
-              </h4>
+              {modelCardsRow}
             </>
           )}
           <div className="product-right-text">
@@ -125,7 +133,10 @@ export function ProductSections({ productData }: { productData: ProductItem }) {
               <h2>Переваги:</h2>
               <div className="product-right-text-content-list">
                 {productData.description.advantages.map((item, i) => (
-                  <p key={i}>•ㅤ{item}</p>
+                  <div key={i} className="product-right-text-content-list-item">
+                    <p>•</p>
+                    <p>{item}</p>
+                  </div>
                 ))}
               </div>
             </div>

@@ -41,7 +41,7 @@
   position: relative;
   color: #443c3b;
   font-weight: 600;
-  font-size: 36px;
+  font-size: 32px;
   line-height: 24.86px;
   letter-spacing: -0.93px;
   text-transform: uppercase;
@@ -82,14 +82,15 @@
 }
 .product-hero-content-left-text-subTitle {
   font-weight: 500;
-  font-size: 36px;
-  line-height: 62px;
+  font-size: 30px;
+  line-height: 100%;
+  margin-bottom: 20px;
   letter-spacing: -1px;
 }
 .product-hero-content-left-text-text {
   font-weight: 400;
-  font-size: 18px;
-  line-height: 22px;
+  font-size: 16px;
+  line-height: 20px;
   letter-spacing: 0%;
 }
 .product-hero-content-cards {
@@ -211,8 +212,8 @@ a.product-hero-content-card {
     font-size: 20px;
   }
   .product-hero-content-left-text-text {
-    font-size: 16px;
-    line-height: 20px;
+    font-size: 14px;
+    line-height: 18px;
   }
   .product-hero-content-left-text-subTitle {
     font-size: 30px;

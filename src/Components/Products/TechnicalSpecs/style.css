@@ -81,6 +81,12 @@ th {
 }
 
 @media (max-width: 1200px) {
+  .technical-specs .container {
+    padding: 0 0 0 20px;
+  }
+  .technical-specs-table-wrap {
+    border-radius: 16px 0 0 16px;
+  }
   .technical-specs {
     padding: 140px 0;
   }
