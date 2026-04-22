@@ -59,15 +59,17 @@
 .product-other-types__track {
   display: flex;
   align-items: stretch;
-  gap: 20px;
   will-change: transform;
   position: relative;
   z-index: 5;
 }
 
+.product-other-types__slide:last-child {
+}
 .product-other-types__slide {
-  flex: 0 0 448px;
+  flex: 0 0 468px;
   min-width: 0;
+  padding-right: 20px;
 }
 
 .product-other-types__slide .product-card {
