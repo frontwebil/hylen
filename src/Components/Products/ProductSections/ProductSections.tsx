@@ -100,6 +100,7 @@ export function ProductSections({ productData }: { productData: ProductItem }) {
             {/* {width && width < 980 && modelCardsRow} */}
 
             <div className="product-slider-alert">
+              <Image src={'/icons/made-in-ukraine.png'} width={300} height={300} alt="Made in Ukraine" className="product-slider-alert-made-in-ukraine"/>
               <p>
                 Ця техніка входить у програму «Зроблено в Україні» з можливістю
                 отримання компенсації 25% від вартості через Міністерство
