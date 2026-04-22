@@ -97,7 +97,7 @@
 }
 
 .product-slider-controls-slide.active {
-  border: 1px solid #53514f;
+  border: 1px solid #FFFFFF;
 }
 
 .product-slider-controls-slide.active::after {
