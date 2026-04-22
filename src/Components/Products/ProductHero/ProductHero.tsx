@@ -60,7 +60,9 @@ export function ProductHero({ heroData }: ProductHeroProps) {
                   width={1000}
                   height={1000}
                 />
-                <div className="product-hero-content-card-underImg">
+                <div
+                  className={`product-hero-content-card-underImg ${heroData.cards.length - 1 == i && "product-hero-content-card-underImg-border-right"} `}
+                >
                   <p className="product-hero-content-card-underImg-subTitle">
                     {productCard.subTitle}
                   </p>
