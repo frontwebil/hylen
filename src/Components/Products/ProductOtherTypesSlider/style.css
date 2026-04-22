@@ -137,6 +137,11 @@
   }
 }
 
+@media (max-width: 920px) {
+  .product-other-types-bg-bottom {
+    height: 213px;
+  }
+}
 @media (max-width: 900px) {
   .product-other-types {
     padding: 84px 0 100px;
@@ -144,6 +149,10 @@
 
   .product-other-types__slide {
     flex: 0 0 440px;
+  }
+
+  .product-other-types-bg-bottom {
+    height: 193px;
   }
 }
 
@@ -174,5 +183,8 @@
 
   .product-other-types__slide {
     flex: 0 0 350px;
+  }
+  .product-other-types-bg-bottom {
+    height: 181px;
   }
 }
