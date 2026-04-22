@@ -215,7 +215,7 @@ export default function page() {
           <TechnicalSpecs specs={product.specs} />
         </div>
       ))}
-      <ProductOtherTypesSlider excludeLink="/hrebet-y-poli" />
+      {/* <ProductOtherTypesSlider excludeLink="/hrebet-y-poli" /> */}
       <Footer />
     </div>
   );

@@ -5,9 +5,11 @@ import Image from "next/image";
 import { useState } from "react";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import "./style.css";
+import { useWindowWidth } from "@/Hooks/useWindowWidth";
 
 export function ProductSections({ productData }: { productData: ProductItem }) {
   const [activeSlide, setActiveSlide] = useState(0);
+  const width = useWindowWidth();
 
   const lastSlideIndex = productData.images.length - 1;
   const isFirstSlide = activeSlide === 0;
@@ -28,6 +30,7 @@ export function ProductSections({ productData }: { productData: ProductItem }) {
       <div className="container">
         <div className="product-left">
           <div className="product-slider">
+            {width && width < 520 && <h3>{productData.title}</h3>}
             <div className="product-slider-main-img">
               <Image
                 src={productData.images[activeSlide]}
@@ -78,6 +81,13 @@ export function ProductSections({ productData }: { productData: ProductItem }) {
               </button>
             </div>
 
+            {width && width < 520 && (
+              <h4>
+                <span className="font-semibold">Модельний ряд:</span>{" "}
+                {productData.subTitle}
+              </h4>
+            )}
+
             <div className="product-slider-alert">
               <p>
                 Ця техніка входить у програму «Зроблено в Україні» з можливістю
@@ -89,10 +99,15 @@ export function ProductSections({ productData }: { productData: ProductItem }) {
         </div>
 
         <div className="product-right">
-          <h3>{productData.title}</h3>
-          <h4>
-            <span className="font-semibold">Модельний ряд:</span> {productData.subTitle}
-          </h4>
+          {width && width >= 520 && (
+            <>
+              <h3>{productData.title}</h3>
+              <h4>
+                <span className="font-semibold">Модельний ряд:</span>{" "}
+                {productData.subTitle}
+              </h4>
+            </>
+          )}
           <div className="product-right-text">
             <div className="product-right-text-content">
               <h2>Опис</h2>
