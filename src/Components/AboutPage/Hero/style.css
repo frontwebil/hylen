@@ -18,8 +18,38 @@
   width: 100%;
   transform: translateY(-50%);
 }
+
+.about-hero-text .container {
+  /* max-width: 1000px; */
+}
 .about-hero-text-img {
-  max-width: 1000px;
   width: 100%;
   margin: 0 auto;
+}
+
+.about-hero-text-top {
+  color: #1f2a19;
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  margin-bottom: 30px;
+  font-size: 18px;
+}
+.about-hero-text-top p {
+  padding-bottom: 3px;
+}
+.about-hero-text-img {
+}
+.about-hero-text-bottom {
+  display: flex;
+  gap: 10px;
+  max-width: 620px;
+  width: 100%;
+  margin-left: auto;
+  font-weight: 500;
+  font-size: 54px;
+  line-height: 54px;
+  text-transform: uppercase;
+  color: #1F2A19;
+  margin-top: 62px;
 }

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import "./style.css";
+import { IoMdArrowDropright } from "react-icons/io";
 
 export function Hero() {
   return (
@@ -16,6 +17,10 @@ export function Hero() {
       </video>
       <div className="about-hero-text">
         <div className="container">
+          <div className="about-hero-text-top">
+            <IoMdArrowDropright />
+            <p>про Бренд</p>
+          </div>
           <Image
             src={"/AboutPage/Hero/Hero-img.svg"}
             width={10000}
@@ -23,6 +28,11 @@ export function Hero() {
             className="about-hero-text-img"
             alt="HYLEN"
           />
+          <div className="about-hero-text-bottom">
+            <p>–</p>
+            <p></p>
+            це більше, ніж інженерний бренд
+          </div>
         </div>
       </div>
     </section>
