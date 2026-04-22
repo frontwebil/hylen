@@ -15,7 +15,7 @@
 }
 
 .product-slider-main-img {
-  border: 3px solid #443c3b;
+  border: 2px solid #443c3b;
 }
 
 .product-slider-main-img img {
@@ -24,6 +24,7 @@
 }
 
 .product-slider-controls {
+  margin-top: 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
