@@ -9,6 +9,7 @@
   align-items: center;
   gap: 15px;
   color: #443c3b;
+  margin-bottom: 100px;
 }
 .product-hero-breadcrum p {
   padding-bottom: 3px;
@@ -22,6 +23,7 @@
   align-items: flex-end;
 }
 .product-hero-content-left {
+  height: auto;
   display: flex;
   flex-direction: column;
   max-width: 440px;
@@ -109,6 +111,7 @@ a.product-hero-content-card {
 
 .product-hero-content-card img {
   object-fit: contain;
+  height: 420px;
 }
 
 .product-hero-content-card:first-child {
@@ -128,10 +131,12 @@ a.product-hero-content-card {
   height: 75px;
 }
 .product-hero-content-card-underImg-subTitle {
+  display: flex;
+  align-items: center;
   color: #1f2a19;
   font-weight: 500;
   font-size: 24px;
-  line-height: 28px;
+  line-height: 100%;
   letter-spacing: -0.93px;
   padding: 20px;
 }
