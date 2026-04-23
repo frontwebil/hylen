@@ -1,11 +1,19 @@
- "use client";
+"use client";
 
 import Image from "next/image";
 import "./style.css";
-import { useEffect, useMemo, useRef, useState, type CSSProperties } from "react";
+import {
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+  type CSSProperties,
+} from "react";
 
 const clamp01 = (value: number) => Math.min(Math.max(value, 0), 1);
 const easeOutCubic = (t: number) => 1 - Math.pow(1 - t, 3);
+const easeInOutCubic = (t: number) =>
+  t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
 
 export function UniqHylen() {
   const sectionRef = useRef<HTMLElement | null>(null);
@@ -77,13 +85,17 @@ export function UniqHylen() {
   const eased = easeOutCubic(progress);
 
   const cardStyle = (index: number, column: "left" | "right") => {
-    // stagger: 3 cards per column (synced for left/right)
-    const baseStart = 0.12;
-    const step = 0.12;
-    const start = baseStart + index * step;
-    const end = start + 0.22;
-    const local = clamp01((progress - start) / Math.max(end - start, 0.001));
-    const opacity = 0.15 + easeOutCubic(local) * 0.85;
+    // Opacity follows the vertical progress line:
+    // when the line reaches the "row" => the text is already fully visible.
+    // Centers tuned for 3 rows layout: ~top, middle, bottom.
+    const centers = [0.2, 0.5, 0.8] as const;
+    const center = centers[index] ?? (index + 1) / 4;
+    const fadeWindow = 0.34; // longer window => more gradual fade
+
+    const start = Math.max(0, center - fadeWindow);
+    const end = center;
+    const local = clamp01((eased - start) / Math.max(end - start, 0.001));
+    const opacity = 0.15 + easeInOutCubic(local) * 0.85;
 
     return {
       ["--card-opacity" as never]: opacity.toFixed(3),
@@ -91,61 +103,74 @@ export function UniqHylen() {
   };
 
   return (
-    <section
-      className="uniq-hylen"
-      ref={sectionRef}
-      style={
-        {
-          ["--uniq-progress" as never]: eased.toFixed(4),
-        } as CSSProperties
-      }
-    >
-      <div className="uniq-hylen-sticky">
-        <div className="container">
-          <h2 className="uniq-hylen-title">Унікальність HYLEN</h2>
-          <div className="uniq-hylen-top">
-            <div className="uniq-hylen-top-left-progress-line" />
-            <div className="uniq-hylen-top-logo">
-              <Image
-                src={"/icons/uniq-logo.svg"}
-                width={70}
-                height={45}
-                alt="Hylen"
-              />
+    <>
+      <section
+        className="uniq-hylen"
+        ref={sectionRef}
+        style={
+          {
+            ["--uniq-progress" as never]: eased.toFixed(4),
+          } as CSSProperties
+        }
+      >
+        <h2 className="uniq-hylen-title">Унікальність HYLEN</h2>
+        <div className="uniq-hylen-sticky">
+          <div className="container">
+            <div className="uniq-hylen-top">
+              <div className="uniq-hylen-top-left-progress-line" />
+              <div className="uniq-hylen-top-logo">
+                <Image
+                  src={"/icons/uniq-logo.svg"}
+                  width={70}
+                  height={45}
+                  alt="Hylen"
+                />
+              </div>
+              <div className="uniq-hylen-top-right-progress-line" />
             </div>
-            <div className="uniq-hylen-top-right-progress-line" />
-          </div>
-          <div className="uniq-hylen-content">
-            <div className="uniq-hylen-content-left-column">
-              {cards.left.map((card, index) => (
-                <div
-                  key={`left-${card.title}-${index}`}
-                  className="uniq-hylen-content-card"
-                  style={cardStyle(index, "left")}
-                >
-                  <h2>{card.title}</h2>
-                  <p>{card.text}</p>
-                </div>
-              ))}
-            </div>
-            <div className="uniq-hylen-content-middle-progressline-container">
-              <div className="uniq-hylen-content-middle-progressline" />
-            </div>
-            <div className="uniq-hylen-content-right-column">
-              {cards.right.map((card, index) => (
-                <div
-                  key={`right-${card.title}-${index}`}
-                  className="uniq-hylen-content-card"
-                  style={cardStyle(index, "right")}
-                >
-                  <h2>{card.title}</h2>
-                  <p>{card.text}</p>
-                </div>
-              ))}
+            <div className="uniq-hylen-content">
+              <div className="uniq-hylen-content-left-column">
+                {cards.left.map((card, index) => (
+                  <div
+                    key={`left-${card.title}-${index}`}
+                    className="uniq-hylen-content-card"
+                    style={cardStyle(index, "left")}
+                  >
+                    <h2>{card.title}</h2>
+                    <p>{card.text}</p>
+                  </div>
+                ))}
+              </div>
+              <div className="uniq-hylen-content-middle-progressline-container">
+                <div className="uniq-hylen-content-middle-progressline" />
+              </div>
+              <div className="uniq-hylen-content-right-column">
+                {cards.right.map((card, index) => (
+                  <div
+                    key={`right-${card.title}-${index}`}
+                    className="uniq-hylen-content-card"
+                    style={cardStyle(index, "right")}
+                  >
+                    <h2>{card.title}</h2>
+                    <p>{card.text}</p>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
+      </section>
+      <div className="uniq-hylen-top-line">
+        <div className="container">
+          <div className="uniq-hylen-top-line-left"></div>
+          <div className="uniq-hylen-top-line-right"></div>
+        </div>
       </div>
-    </section>
+      <div className="uniq-hylen-bottom-line">
+        <div className="container">
+          <div className="uniq-hylen-bottom-line-center"></div>
+        </div>
+      </div>
+    </>
   );
 }

@@ -5,6 +5,7 @@
   padding: 0;
   position: relative;
   --uniq-progress: 0;
+  padding-top: 150px;
 }
 .container {
 }
@@ -14,7 +15,7 @@
   display: flex;
   align-items: center;
   min-height: calc(100vh - 69px);
-  padding: 150px 0 140px;
+  padding: 50px 0 140px;
 }
 .uniq-hylen-title {
   font-weight: 500;
@@ -22,7 +23,7 @@
   line-height: 70px;
   text-transform: uppercase;
   text-align: center;
-  margin-bottom: 100px;
+  margin-bottom: 50px;
 }
 .uniq-hylen-top {
   display: flex;
@@ -157,4 +158,48 @@
   .uniq-hylen-content-card {
     opacity: 1;
   }
+}
+
+.uniq-hylen-top-line .container {
+  position: relative;
+  height: 18px;
+}
+.uniq-hylen-bottom-line .container {
+  position: relative;
+  height: 18px;
+}
+.uniq-hylen-top-line {
+  height: 18px;
+  background-color: #81918d;
+}
+
+.uniq-hylen-bottom-line {
+  height: 18px;
+  background-color: #443c3b;
+}
+
+.uniq-hylen-top-line-left {
+  position: absolute;
+  left: 20px;
+  height: 100%;
+  width: 100%;
+  max-width: 43%;
+  background-color: #443c3b;
+}
+.uniq-hylen-top-line-right {
+  position: absolute;
+  right: 20px;
+  height: 100%;
+  width: 100%;
+  max-width: 43%;
+  background-color: #443c3b;
+}
+
+.uniq-hylen-bottom-line-center {
+  position: absolute;
+  left: 20px;
+  height: 100%;
+  width: calc(100% - 40px);
+  max-width: 100%;
+  background-color: #81918d;
 }

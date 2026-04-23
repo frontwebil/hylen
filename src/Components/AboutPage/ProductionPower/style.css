@@ -1,0 +1,131 @@
+.production-power {
+  position: relative;
+  height: 400vh;
+  background: #81918d;
+}
+
+.production-power-sticky {
+  position: sticky;
+  top: 35px;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+.production-power-title {
+  position: absolute;
+  left: 48px;
+  top: 155px;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.production-power-title h2 {
+  font-weight: 500;
+  font-style: Medium;
+  font-size: 70px;
+  line-height: 70px;
+  letter-spacing: -3%;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.production-power-title p {
+  max-width: 520px;
+  font-weight: 500;
+  font-size: 36px;
+  line-height: 40px;
+  letter-spacing: -2%;
+  color: #443c3b;
+  margin-top: 40px;
+}
+
+.production-power-cards {
+  display: flex;
+  gap: 100px;
+  padding-left: 32vw;
+  padding-right: 20vw;
+  will-change: transform;
+}
+
+.production-power-card {
+  flex: 0 0 740px;
+}
+
+.production-power-card-img {
+  width: 100%;
+  height: 540px;
+  overflow: hidden;
+}
+
+.production-power-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.production-power-card-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 36px;
+}
+
+.production-power-card-row-title {
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 32px;
+  letter-spacing: 0%;
+  text-transform: uppercase;
+  color: #1f2a19;
+}
+
+.production-power-card-text {
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 24px;
+  letter-spacing: 0%;
+  margin-top: 24px;
+  color: #1f2a19;
+}
+
+@media (max-width: 768px) {
+  .production-power {
+    height: auto;
+  }
+
+  .production-power-sticky {
+    position: relative;
+    height: auto;
+    overflow: visible;
+    display: block;
+    padding: 120px 16px;
+  }
+
+  .production-power-title {
+    position: relative;
+    left: auto;
+    top: auto;
+    font-size: 64px;
+    margin-bottom: 40px;
+    white-space: normal;
+  }
+
+  .production-power-cards {
+    transform: none !important;
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    padding: 0;
+  }
+
+  .production-power-card {
+    flex: none;
+    width: 100%;
+  }
+
+  .production-power-card-img {
+    height: 360px;
+  }
+}

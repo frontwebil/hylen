@@ -8,6 +8,7 @@ import { WhoWeCreateFor } from "@/Components/AboutPage/WhoWeCreateFor/WhoWeCreat
 import { PeopleHylen } from "@/Components/AboutPage/PeopleHylen/PeopleHylen";
 import { SymetricLine } from "@/Components/AboutPage/Lines/SymetricLine/SymetricLine";
 import { UniqHylen } from "@/Components/AboutPage/UniqHylen/UniqHylen";
+import { ProductionPower } from "@/Components/AboutPage/ProductionPower/ProductionPower";
 
 export default function page() {
   return (
@@ -22,6 +23,7 @@ export default function page() {
       <PeopleHylen />
       <SymetricLine />
       <UniqHylen />
+      <ProductionPower />
     </>
   );
 }
