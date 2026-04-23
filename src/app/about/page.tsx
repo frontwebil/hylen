@@ -4,6 +4,8 @@ import { Header } from "@/Components/Layout/Header/Header";
 import { WhoWeAre } from "../../Components/AboutPage/WhoWeAre/WhoWeAre";
 import { LinesWithInner } from "@/Components/AboutPage/Lines/LinesWithInner/LinesWithInner";
 import { WeCreating } from "@/Components/AboutPage/WeCreating/WeCreating";
+import { WhoWeCreateFor } from "@/Components/AboutPage/WhoWeCreateFor/WhoWeCreateFor";
+import { PeopleHylen } from "@/Components/AboutPage/PeopleHylen/PeopleHylen";
 
 export default function page() {
   return (
@@ -14,6 +16,8 @@ export default function page() {
       <WhoWeAre />
       <LinesWithInner />
       <WeCreating />
+      <WhoWeCreateFor />
+      <PeopleHylen />
     </>
   );
 }

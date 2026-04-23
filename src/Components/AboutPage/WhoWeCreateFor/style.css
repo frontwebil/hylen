@@ -1,0 +1,117 @@
+.who-we-create-for {
+  background-color: #d7ccbd;
+  padding: 160px 0 190px;
+}
+
+.who-we-create-for-flex {
+  display: flex;
+  gap: 100px;
+}
+.who-we-create-for-flex-text {
+  max-width: 640px;
+  width: 100%;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 32px;
+  letter-spacing: 0%;
+  color: #1f2a19;
+}
+.who-we-create-for-flex-row {
+  max-width: 640px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  height: max-content;
+  gap: 30px;
+}
+
+.who-we-create-for-flex-row h2 {
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 28px;
+  letter-spacing: 0%;
+  text-transform: uppercase;
+}
+
+.who-we-create-for-top-lines {
+  height: 18px;
+  background-color: #1f2a19;
+  position: relative;
+  overflow: hidden;
+}
+
+.who-we-create-for-top-lines .container {
+  position: relative;
+  height: 18px;
+}
+
+.who-we-create-for-top-line-left {
+  position: absolute;
+  background-color: #d7ccbd;
+  height: 100%;
+  max-width: 46%;
+  width: 100%;
+  left: 20px;
+}
+.who-we-create-for-top-line-right {
+  position: absolute;
+  background-color: #d7ccbd;
+  height: 100%;
+  max-width: 10000px;
+  width: 100%;
+  right: -100%;
+}
+
+.who-we-create-for-bottom-lines {
+  height: 18px;
+  background-color: transparent;
+  position: relative;
+  overflow: hidden;
+}
+.who-we-create-for-bottom-lines .container {
+  position: relative;
+  height: 18px;
+}
+.who-we-create-for-bottom-line-left {
+  position: absolute;
+  background-color: #d7ccbd;
+  height: 100%;
+  max-width: 25%;
+  width: 100%;
+  left: 0;
+}
+.who-we-create-for-bottom-line-right {
+  position: absolute;
+  background-color: #d7ccbd;
+  height: 100%;
+  max-width: 25%;
+  width: 100%;
+  right: 0;
+}
+
+.who-we-create-for-underbottom-lines {
+  height: 18px;
+  background-color: #d7ccbd;
+  position: relative;
+  overflow: hidden;
+}
+.who-we-create-for-underbottom-lines .container {
+  position: relative;
+  height: 18px;
+}
+.who-we-create-for-underbottom-line-left {
+  position: absolute;
+  background-color: #fff;
+  height: 100%;
+  max-width: 25%;
+  width: 100%;
+  left: 0;
+}
+.who-we-create-for-underbottom-line-right {
+  position: absolute;
+  background-color: #fff;
+  height: 100%;
+  max-width: 25%;
+  width: 100%;
+  right: 0;
+}
