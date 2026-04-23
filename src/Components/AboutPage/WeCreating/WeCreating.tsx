@@ -1,15 +1,156 @@
+"use client";
+
+import {
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+  type CSSProperties,
+} from "react";
 import "./style.css";
 
+const WE_CREATING_TEXT =
+  "МИ СТВОРИЛИ HYLEN – ДЛЯ ЛЮДЕЙ СПРАВИ. ДЛЯ ТИХ, ХТО ПРАЦЮЄ В ПОЛІ, НА СКЛАДІ, У МАЙСТЕРНІ ЧИ НА ВИРОБНИЦТВІ. ДЛЯ ТИХ, ХТО ЗАХИЩАЄ КРАЇНУ І РУХАЄ ЇЇ ВПЕРЕД. ДЛЯ ТИХ, ХТО МАЄ СПРАВУ З ТЕХНІКОЮ ЩОДНЯ І ХОЧЕ ОДНОГО, ЩОБ ЦЯ ТЕХНІКА БУЛА НАДІЙНОЮ І ПРАЦЮВАЛА ВІДМІННО.";
+
+const WE_CREATING_TAGS = [
+  { label: "ФЕРМЕРИ", top: "10%", left: "4%", start: 0.12 },
+  { label: "ВОДІЇ", top: "10%", left: "53%", start: 0.2 },
+  {
+    label: "МЕХАНІЗАТОРИ",
+    top: "24%",
+    left: "24%",
+    start: 0.3,
+  },
+  { label: "ВІЙСЬКОВІ", top: "35%", left: "86%", start: 0.38 },
+  { label: "МАЙСТРИ", top: "46%", left: "10%", start: 0.46 },
+  { label: "ЛОГІСТИ", top: "59%", left: "63%", start: 0.54 },
+  { label: "УПРАВЛІНЦІ", top: "72%", left: "31%", start: 0.62 },
+] as const;
+
 export function WeCreating() {
+  const sectionRef = useRef<HTMLElement | null>(null);
+  const [progress, setProgress] = useState(0);
+
+  const words = useMemo(() => WE_CREATING_TEXT.split(" "), []);
+  const lettersCount = useMemo(
+    () => Array.from(WE_CREATING_TEXT).filter((letter) => letter !== " ").length,
+    [],
+  );
+
+  useEffect(() => {
+    let rafId = 0;
+
+    const updateProgress = () => {
+      if (!sectionRef.current) return;
+
+      const rect = sectionRef.current.getBoundingClientRect();
+      const viewport = window.innerHeight;
+      const maxScrollableDistance = Math.max(rect.height - viewport, 1);
+      const nextProgress = Math.min(
+        Math.max(-rect.top / maxScrollableDistance, 0),
+        1,
+      );
+
+      setProgress(nextProgress);
+    };
+
+    const onScroll = () => {
+      cancelAnimationFrame(rafId);
+      rafId = requestAnimationFrame(updateProgress);
+    };
+
+    updateProgress();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+
+    return () => {
+      cancelAnimationFrame(rafId);
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+    };
+  }, []);
+
   return (
-    <section className="we-creating">
-      <div className="container">
-        <h2 className="we-creating-title">
-          Ми створили HYLEN – для людей справи. Для тих, хто працює в полі, на
-          складі, у майстерні чи на виробництві. Для тих, хто захищає країну і
-          рухає її вперед. Для тих, хто має справу з технікою щодня і хоче
-          одного, щоб ця техніка була надійною і працювала відмінно.
-        </h2>
+    <section className="we-creating" ref={sectionRef}>
+      <div className="we-creating-sticky">
+        <div className="container">
+          <h2 className="we-creating-title">
+            {(() => {
+              let visibleLetterIndex = -1;
+
+              const renderLetter = (letter: string, key: string) => {
+                visibleLetterIndex += 1;
+                const letterStart = visibleLetterIndex / lettersCount;
+                const letterEnd = (visibleLetterIndex + 1) / lettersCount;
+                const localProgress = Math.min(
+                  Math.max(
+                    (progress - letterStart) / (letterEnd - letterStart),
+                    0,
+                  ),
+                  1,
+                );
+                const overlayOpacity = localProgress;
+                const overlayScale = 0.86 + localProgress * 0.14;
+
+                return (
+                  <span
+                    key={key}
+                    className="we-creating-letter-stack"
+                    style={
+                      {
+                        "--overlay-opacity": overlayOpacity,
+                        "--overlay-scale": overlayScale,
+                      } as CSSProperties
+                    }
+                  >
+                    <span className="we-creating-letter-base">{letter}</span>
+                    <span className="we-creating-letter-overlay">{letter}</span>
+                  </span>
+                );
+              };
+
+              return words.map((word, wordIndex) => (
+                <span key={`word-${wordIndex}`} className="we-creating-word">
+                  {Array.from(word).map((letter, letterIndex) =>
+                    renderLetter(letter, `${wordIndex}-${letterIndex}-${letter}`),
+                  )}
+                  {wordIndex < words.length - 1 ? (
+                    <span className="we-creating-space" aria-hidden="true" />
+                  ) : null}
+                </span>
+              ));
+            })()}
+          </h2>
+          <div className="we-creating-tags" aria-hidden="true">
+            {WE_CREATING_TAGS.map((tag) => {
+              const end = Math.min(tag.start + 0.16, 1);
+              const localProgress = Math.min(
+                Math.max((progress - tag.start) / (end - tag.start), 0),
+                1,
+              );
+              const opacity = localProgress;
+              const translateY = 42 - localProgress * 56;
+              const scale = 0.9 + localProgress * 0.1;
+
+              return (
+                <span
+                  key={tag.label}
+                  className="we-creating-tag"
+                  style={
+                    {
+                      top: tag.top,
+                      left: tag.left,
+                      opacity,
+                      transform: `translate3d(0, ${translateY}px, 0) scale(${scale})`,
+                    } as CSSProperties
+                  }
+                >
+                  {tag.label}
+                </span>
+              );
+            })}
+          </div>
+        </div>
       </div>
     </section>
   );
