@@ -13,18 +13,18 @@ const WE_CREATING_TEXT =
   "МИ СТВОРИЛИ HYLEN – ДЛЯ ЛЮДЕЙ СПРАВИ. ДЛЯ ТИХ, ХТО ПРАЦЮЄ В ПОЛІ, НА СКЛАДІ, У МАЙСТЕРНІ ЧИ НА ВИРОБНИЦТВІ. ДЛЯ ТИХ, ХТО ЗАХИЩАЄ КРАЇНУ І РУХАЄ ЇЇ ВПЕРЕД. ДЛЯ ТИХ, ХТО МАЄ СПРАВУ З ТЕХНІКОЮ ЩОДНЯ І ХОЧЕ ОДНОГО, ЩОБ ЦЯ ТЕХНІКА БУЛА НАДІЙНОЮ І ПРАЦЮВАЛА ВІДМІННО.";
 
 const WE_CREATING_TAGS = [
-  { label: "ФЕРМЕРИ", top: "10%", left: "4%", start: 0.12 },
-  { label: "ВОДІЇ", top: "10%", left: "53%", start: 0.2 },
+  { label: "ФЕРМЕРИ", top: "30%", left: "14%", start: 0.12 },
+  { label: "ВОДІЇ", top: "30%", left: "58%", start: 0.2 },
   {
     label: "МЕХАНІЗАТОРИ",
-    top: "24%",
-    left: "24%",
+    top: "38%",
+    left: "36%",
     start: 0.3,
   },
-  { label: "ВІЙСЬКОВІ", top: "35%", left: "86%", start: 0.38 },
-  { label: "МАЙСТРИ", top: "46%", left: "10%", start: 0.46 },
-  { label: "ЛОГІСТИ", top: "59%", left: "63%", start: 0.54 },
-  { label: "УПРАВЛІНЦІ", top: "72%", left: "31%", start: 0.62 },
+  { label: "МАЙСТРИ", top: "48%", left: "20%", start: 0.46 },
+  { label: "ВІЙСЬКОВІ", top: "42%", left: "78%", start: 0.38 },
+  { label: "УПРАВЛІНЦІ", top: "52%", left: "36%", start: 0.62 },
+  { label: "ЛОГІСТИ", top: "52%", left: "60%", start: 0.54 },
 ] as const;
 
 export function WeCreating() {
@@ -33,7 +33,8 @@ export function WeCreating() {
 
   const words = useMemo(() => WE_CREATING_TEXT.split(" "), []);
   const lettersCount = useMemo(
-    () => Array.from(WE_CREATING_TEXT).filter((letter) => letter !== " ").length,
+    () =>
+      Array.from(WE_CREATING_TEXT).filter((letter) => letter !== " ").length,
     [],
   );
 
@@ -112,7 +113,10 @@ export function WeCreating() {
               return words.map((word, wordIndex) => (
                 <span key={`word-${wordIndex}`} className="we-creating-word">
                   {Array.from(word).map((letter, letterIndex) =>
-                    renderLetter(letter, `${wordIndex}-${letterIndex}-${letter}`),
+                    renderLetter(
+                      letter,
+                      `${wordIndex}-${letterIndex}-${letter}`,
+                    ),
                   )}
                   {wordIndex < words.length - 1 ? (
                     <span className="we-creating-space" aria-hidden="true" />
@@ -121,36 +125,24 @@ export function WeCreating() {
               ));
             })()}
           </h2>
-          <div className="we-creating-tags" aria-hidden="true">
-            {WE_CREATING_TAGS.map((tag) => {
-              const end = Math.min(tag.start + 0.16, 1);
-              const localProgress = Math.min(
-                Math.max((progress - tag.start) / (end - tag.start), 0),
-                1,
-              );
-              const opacity = localProgress;
-              const translateY = 42 - localProgress * 56;
-              const scale = 0.9 + localProgress * 0.1;
-
-              return (
-                <span
-                  key={tag.label}
-                  className="we-creating-tag"
-                  style={
-                    {
-                      top: tag.top,
-                      left: tag.left,
-                      opacity,
-                      transform: `translate3d(0, ${translateY}px, 0) scale(${scale})`,
-                    } as CSSProperties
-                  }
-                >
-                  {tag.label}
-                </span>
-              );
-            })}
-          </div>
         </div>
+      </div>
+
+      <div className="we-creating-tags" aria-hidden="true">
+        {WE_CREATING_TAGS.map((tag) => (
+          <span
+            key={tag.label}
+            className="we-creating-tag"
+            style={
+              {
+                top: tag.top,
+                left: tag.left,
+              } as CSSProperties
+            }
+          >
+            {tag.label}
+          </span>
+        ))}
       </div>
     </section>
   );

@@ -1,6 +1,7 @@
 .we-creating {
-  min-height: 340vh;
+  min-height: 300vh;
   background-color: #1f2a19;
+  position: relative;
 }
 
 .we-creating-sticky {
