@@ -6,6 +6,8 @@ import { LinesWithInner } from "@/Components/AboutPage/Lines/LinesWithInner/Line
 import { WeCreating } from "@/Components/AboutPage/WeCreating/WeCreating";
 import { WhoWeCreateFor } from "@/Components/AboutPage/WhoWeCreateFor/WhoWeCreateFor";
 import { PeopleHylen } from "@/Components/AboutPage/PeopleHylen/PeopleHylen";
+import { SymetricLine } from "@/Components/AboutPage/Lines/SymetricLine/SymetricLine";
+import { UniqHylen } from "@/Components/AboutPage/UniqHylen/UniqHylen";
 
 export default function page() {
   return (
@@ -18,6 +20,8 @@ export default function page() {
       <WeCreating />
       <WhoWeCreateFor />
       <PeopleHylen />
+      <SymetricLine />
+      <UniqHylen />
     </>
   );
 }

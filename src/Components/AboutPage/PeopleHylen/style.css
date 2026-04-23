@@ -9,6 +9,51 @@
   padding: 0 20px;
   position: relative;
 }
+
+.people-hylen-photos {
+  max-width: 1420px;
+  width: 100%;
+  margin: 0 auto;
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.people-hylen-text {
+  position: relative;
+  z-index: 1;
+}
+
+.people-hylen-photo {
+  position: absolute;
+  height: auto;
+  object-fit: cover;
+  border-radius: 2px;
+  filter: grayscale(100%);
+  opacity: 1;
+  will-change: transform;
+  transform: translate3d(0, var(--photo-parallax-y, 0), 0)
+    scale(var(--photo-parallax-scale, 1));
+  transition: transform 0.24s ease-out;
+}
+
+/* Layout approximates the provided screenshot. */
+.people-hylen-photo:nth-child(1) {
+  width: 210px;
+}
+
+.people-hylen-photo:nth-child(2) {
+  width: 230px;
+}
+
+.people-hylen-photo:nth-child(3) {
+  width: 260px;
+}
+
+.people-hylen-photo:nth-child(4) {
+  width: 230px;
+}
 .people-hylen-sticky {
   position: sticky;
   top: 69px;
@@ -19,6 +64,7 @@
 .people-hylen-text {
   text-align: center;
   margin: 0 auto;
+  max-width: 1070px;
 }
 
 .people-hylen-text p {
@@ -68,13 +114,31 @@
   transform: scale(var(--overlay-scale, 1));
   transform-origin: 50% 58%;
   will-change: opacity, transform;
-  transition: opacity 0.14s linear, transform 0.18s ease-out;
+  transition:
+    opacity 0.14s linear,
+    transform 0.18s ease-out;
 }
 
 @media (max-width: 900px) {
   .people-hylen-sticky {
     top: 60px;
     min-height: calc(100vh - 60px);
+  }
+
+  .people-hylen-photo:nth-child(1) {
+    width: 180px;
+  }
+
+  .people-hylen-photo:nth-child(2) {
+    width: 190px;
+  }
+
+  .people-hylen-photo:nth-child(3) {
+    width: 220px;
+  }
+
+  .people-hylen-photo:nth-child(4) {
+    width: 190px;
   }
 
   .people-hylen-title {
@@ -86,6 +150,23 @@
 @media (max-width: 600px) {
   .people-hylen {
     min-height: 180vh;
+  }
+
+  .people-hylen-photos {
+    opacity: 0.9;
+  }
+
+  .people-hylen-photo:nth-child(1),
+  .people-hylen-photo:nth-child(2),
+  .people-hylen-photo:nth-child(4) {
+    display: none;
+  }
+
+  .people-hylen-photo:nth-child(3) {
+    display: block;
+    width: min(72vw, 280px);
+    left: 50%;
+    top: 70%;
   }
 
   .people-hylen-title {

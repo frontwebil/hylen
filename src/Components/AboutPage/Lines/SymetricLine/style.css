@@ -1,0 +1,42 @@
+.symetric-line-top {
+  height: 18px;
+  background-color: #fff;
+}
+.symetric-line-top .container {
+  position: relative;
+  height: 18px;
+}
+.symetric-line-top-left {
+  position: absolute;
+  height: 100%;
+  max-width: 22%;
+  width: 100%;
+  left: 0;
+  background-color: #443c3b;
+}
+.symetric-line-top-right {
+  position: absolute;
+  height: 100%;
+  max-width: 22%;
+  width: 100%;
+  right: 0;
+  background-color: #443c3b;
+}
+.symetric-line-bottom {
+  height: 18px;
+  background-color: #443c3b;
+}
+.symetric-line-bottom .container {
+  position: relative;
+  height: 18px;
+}
+.symetric-line-bottom-center {
+  position: absolute;
+  height: 100%;
+  max-width: 22%;
+  top: 0;
+  width: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #fff;
+}

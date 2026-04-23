@@ -1,0 +1,92 @@
+.uniq-hylen {
+  background-color: #443c3b;
+  color: #ffffff;
+  padding: 150px 0 140px;
+}
+.container {
+}
+.uniq-hylen-title {
+  font-weight: 500;
+  font-size: 70px;
+  line-height: 70px;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 100px;
+}
+.uniq-hylen-top {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+.uniq-hylen-top-left-progress-line {
+  height: 3px;
+  max-width: 625px;
+  width: 100%;
+  background-color: #fff;
+}
+.uniq-hylen-top-logo {
+  max-width: 70px;
+  width: 100%;
+}
+.uniq-hylen-top-right-progress-line {
+  height: 3px;
+  max-width: 625px;
+  width: 100%;
+  background-color: #fff;
+}
+.uniq-hylen-content {
+  display: flex;
+  gap: 30px;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+.uniq-hylen-content-left-column {
+  max-width: 625px;
+  width: 100%;
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  gap: 20px;
+}
+
+.uniq-hylen-content-middle-progressline-container {
+  max-width: 70px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.uniq-hylen-content-middle-progressline {
+  width: 3px;
+  height: 100%;
+  background: #fff;
+}
+.uniq-hylen-content-right-column {
+  max-width: 625px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 20px;
+}
+
+.uniq-hylen-content-card {
+  max-width: 480px;
+  width: 100%;
+  min-height: 180px;
+}
+
+.uniq-hylen-content-card h2 {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 100%;
+  letter-spacing: 5%;
+  color: #81918d;
+}
+
+.uniq-hylen-content-card p {
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 32px;
+  margin-top: 15px;
+}
