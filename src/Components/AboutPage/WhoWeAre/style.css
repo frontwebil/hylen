@@ -1,0 +1,97 @@
+.who-we-are {
+  padding: 140px 0 220px;
+  background-color: #81918d;
+}
+.who-we-are .container {
+  display: flex;
+  flex-direction: column;
+}
+/* .who-we-are-row {
+} */
+.left-img {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.who-we-are-row-img {
+}
+
+.who-we-are-title {
+  font-weight: 500;
+  font-size: 48px;
+  line-height: 52px;
+  letter-spacing: 0px;
+  text-transform: uppercase;
+  color: #1f2a19;
+  max-width: 450px;
+  margin: 0 auto;
+  width: 100%;
+}
+.right-img {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.who-we-are-row-img {
+  height: 298px;
+  max-width: 691px;
+}
+
+.who-we-are-text {
+  max-width: 691px;
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 28px;
+  letter-spacing: 0%;
+  text-transform: uppercase;
+
+  color: #1f2a19;
+}
+
+.who-we-are-text p {
+  max-width: 500px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.first {
+  border-radius: 0 0 32px 32px;
+  background-image: url("/AboutPage/WhoWeAre/1.png");
+  background-size: cover;
+  width: 100%;
+}
+.second {
+  border-radius: 32px 0 0 0;
+  background-image: url("/AboutPage/WhoWeAre/2.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+}
+.third {
+  background-image: url("/AboutPage/WhoWeAre/3.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+}
+.four {
+  border-radius: 0 0 0 32px;
+  background-image: url("/AboutPage/WhoWeAre/4.png");
+  background-size: cover;
+  width: 100%;
+}
+.fivth {
+  border-radius: 32px 32px 0 0;
+  background-image: url("/AboutPage/WhoWeAre/5.png");
+  background-size: cover;
+  width: 100%;
+}

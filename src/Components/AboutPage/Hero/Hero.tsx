@@ -30,8 +30,7 @@ export function Hero() {
           />
           <div className="about-hero-text-bottom">
             <p>–</p>
-            <p></p>
-            це більше, ніж інженерний бренд
+            <p>це більше, ніж інженерний бренд</p>
           </div>
         </div>
       </div>

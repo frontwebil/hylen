@@ -1,0 +1,62 @@
+.lines-with-inner {
+  display: flex;
+  flex-direction: column;
+}
+
+.lines-with-inner-top-lines {
+  background-color: #1f2a19;
+  height: 18px;
+}
+
+.lines-with-inner-top-lines .container {
+  position: relative;
+  height: 18px;
+}
+.lines-with-inner-top-left-line {
+  position: absolute;
+  left: -100%;
+  width: 100%;
+  max-width: 2000px;
+  height: 100%;
+  background-color: #81918d;
+}
+.lines-with-inner-top-right-line {
+  position: absolute;
+  height: 100%;
+  max-width: 600px;
+  width: 100%;
+  right: 150px;
+  background-color: #81918d;
+}
+.lines-with-inner-bottom-lines .container {
+  position: relative;
+  height: 18px;
+}
+.lines-with-inner-bottom-lines {
+  background-color: #81918d;
+  height: 18px;
+}
+.lines-with-inner-bottom-left-line {
+  position: absolute;
+  left: -100%;
+  width: 100%;
+  max-width: 2000px;
+  height: 100%;
+  background-color: #1f2a19;
+}
+.lines-with-inner-bottom-right-line {
+  position: absolute;
+  height: 100%;
+  max-width: 600px;
+  width: 100%;
+  right: 150px;
+  background-color: #1f2a19;
+}
+.lines-with-inner-bottom-right-inner-line {
+  position: absolute;
+  height: 100%;
+  max-width: 95px;
+  width: 100%;
+  right: 100px;
+  background-color: #81918d;
+}
