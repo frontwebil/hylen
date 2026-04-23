@@ -1,5 +1,5 @@
 .we-creating {
-  min-height: 240vh;
+  min-height: 180vh;
   background-color: #1f2a19;
   position: relative;
 }
@@ -63,6 +63,9 @@
 }
 
 .we-creating-tags {
+  max-width: 1500px;
+  margin: 0 auto;
+  width: 100%;
   position: absolute;
   inset: 0;
   pointer-events: none;
@@ -70,9 +73,10 @@
 
 .we-creating-tag {
   position: absolute;
-  padding: 4px 11px;
+  padding: 10px 16px;
   border-radius: 999px;
-  font-size: 29px;
+  font-size: 24px;
+  font-weight: 500;
   line-height: 1;
   letter-spacing: -0.01em;
   text-transform: uppercase;
@@ -80,7 +84,18 @@
   background: #9f8477;
   white-space: nowrap;
   will-change: transform, opacity;
+  opacity: var(--tag-parallax-opacity, 1);
+  transform: translate3d(0, var(--tag-parallax-y, 0), 0)
+    scale(var(--tag-parallax-scale, 1));
   transition: opacity 0.18s linear, transform 0.24s ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .we-creating-tag {
+    transition: none;
+    transform: none;
+    opacity: 1;
+  }
 }
 
 @media (max-width: 1200px) {

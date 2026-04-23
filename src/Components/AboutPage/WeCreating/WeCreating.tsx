@@ -13,19 +13,23 @@ const WE_CREATING_TEXT =
   "МИ СТВОРИЛИ HYLEN – ДЛЯ ЛЮДЕЙ СПРАВИ. ДЛЯ ТИХ, ХТО ПРАЦЮЄ В ПОЛІ, НА СКЛАДІ, У МАЙСТЕРНІ ЧИ НА ВИРОБНИЦТВІ. ДЛЯ ТИХ, ХТО ЗАХИЩАЄ КРАЇНУ І РУХАЄ ЇЇ ВПЕРЕД. ДЛЯ ТИХ, ХТО МАЄ СПРАВУ З ТЕХНІКОЮ ЩОДНЯ І ХОЧЕ ОДНОГО, ЩОБ ЦЯ ТЕХНІКА БУЛА НАДІЙНОЮ І ПРАЦЮВАЛА ВІДМІННО.";
 
 const WE_CREATING_TAGS = [
-  { label: "ФЕРМЕРИ", top: "50%", left: "14%", start: 0.12 },
-  { label: "ВОДІЇ", top: "50%", left: "58%", start: 0.2 },
+  { label: "ФЕРМЕРИ", top: "60%", left: "10%", start: 0.12 },
+  { label: "ВОДІЇ", top: "60%", left: "58%", start: 0.2 },
   {
     label: "МЕХАНІЗАТОРИ",
-    top: "58%",
+    top: "68%",
     left: "36%",
     start: 0.3,
   },
-  { label: "МАЙСТРИ", top: "63%", left: "20%", start: 0.46 },
-  { label: "ВІЙСЬКОВІ", top: "62%", left: "78%", start: 0.38 },
-  { label: "УПРАВЛІНЦІ", top: "72%", left: "36%", start: 0.62 },
-  { label: "ЛОГІСТИ", top: "67%", left: "60%", start: 0.54 },
+  { label: "МАЙСТРИ", top: "73%", left: "20%", start: 0.46 },
+  { label: "ВІЙСЬКОВІ", top: "72%", left: "78%", start: 0.38 },
+  { label: "УПРАВЛІНЦІ", top: "82%", left: "36%", start: 0.62 },
+  { label: "ЛОГІСТИ", top: "77%", left: "60%", start: 0.54 },
 ] as const;
+
+const clamp01 = (value: number) => Math.min(Math.max(value, 0), 1);
+const lerp = (from: number, to: number, t: number) => from + (to - from) * t;
+const easeOutCubic = (t: number) => 1 - Math.pow(1 - t, 3);
 
 export function WeCreating() {
   const sectionRef = useRef<HTMLElement | null>(null);
@@ -137,6 +141,34 @@ export function WeCreating() {
               {
                 top: tag.top,
                 left: tag.left,
+                ["--tag-parallax-y" as never]: (() => {
+                  const local = clamp01(
+                    (progress - tag.start) / (1 - tag.start),
+                  );
+                  const eased = easeOutCubic(local);
+
+                  // Phase 1 (0..~0.75): rise up. Phase 2 (~0.75..1): "hang" почти на месте.
+                  const riseT = clamp01(eased / 0.75);
+                  const hangT = clamp01((eased - 0.75) / 0.25);
+
+                  const riseY = lerp(34, -8, riseT);
+                  const hangY = lerp(0, -4, hangT);
+                  return `${Math.round(riseY + hangY)}px`;
+                })(),
+                ["--tag-parallax-scale" as never]: (() => {
+                  const local = clamp01(
+                    (progress - tag.start) / (1 - tag.start),
+                  );
+                  const eased = easeOutCubic(local);
+                  return (0.96 + eased * 0.04).toFixed(3);
+                })(),
+                ["--tag-parallax-opacity" as never]: (() => {
+                  const local = clamp01(
+                    (progress - tag.start) / (1 - tag.start),
+                  );
+                  const eased = easeOutCubic(local);
+                  return (0.2 + eased * 0.8).toFixed(3);
+                })(),
               } as CSSProperties
             }
           >
