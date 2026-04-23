@@ -3,6 +3,7 @@ import { Hero } from "@/Components/AboutPage/Hero/Hero";
 import { Header } from "@/Components/Layout/Header/Header";
 import { WhoWeAre } from "../../Components/AboutPage/WhoWeAre/WhoWeAre";
 import { LinesWithInner } from "@/Components/AboutPage/Lines/LinesWithInner/LinesWithInner";
+import { WeCreating } from "@/Components/AboutPage/WeCreating/WeCreating";
 
 export default function page() {
   return (
@@ -12,6 +13,7 @@ export default function page() {
       <AboutAdvantages />
       <WhoWeAre />
       <LinesWithInner />
+      <WeCreating />
     </>
   );
 }
