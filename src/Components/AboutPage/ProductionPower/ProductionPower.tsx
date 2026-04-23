@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { useLayoutEffect, useRef, useState } from "react";
 import "./style.css";
 
 const cards = [
@@ -52,30 +52,56 @@ const cards = [
 
 export function ProductionPower() {
   const sectionRef = useRef<HTMLElement | null>(null);
+  const stickyRef = useRef<HTMLDivElement | null>(null);
+  const cardsRef = useRef<HTMLDivElement | null>(null);
+  const [maxTranslateX, setMaxTranslateX] = useState(0);
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ["start start", "end end"],
   });
 
-  const x = useTransform(scrollYProgress, [0, 1], ["0%", "-55%"]);
+  useLayoutEffect(() => {
+    const sticky = stickyRef.current;
+    const cards = cardsRef.current;
+    if (!sticky || !cards) return;
+
+    const update = () => {
+      const overflow = cards.scrollWidth - sticky.clientWidth;
+      setMaxTranslateX(Math.max(0, overflow));
+    };
+
+    update();
+    const ro = new ResizeObserver(update);
+    ro.observe(sticky);
+    ro.observe(cards);
+    return () => ro.disconnect();
+  }, []);
+
+  const x = useTransform(scrollYProgress, (p) => -p * maxTranslateX);
+
+  const titleLeadColor = useTransform(
+    scrollYProgress,
+    [0, 0.02, 1],
+    ["#443c3b", "#ffffff", "#ffffff"],
+  );
 
   return (
     <section ref={sectionRef} className="production-power">
-      <div className="production-power-sticky">
+      <div ref={stickyRef} className="production-power-sticky">
         <div className="production-power-title">
           <h2>
             Виробничі <br /> потужності HYLEN
           </h2>
-          <p>
+          <motion.p style={{ color: titleLeadColor }}>
             Ми не залежимо від сторонніх підрядників. У нас є все, щоб
             виготовити техніку від «нуля» до готового результату. Кожен етап –
             під нашим контролем. І це гарантує якість, терміни та гнучкість
             виробництва.
-          </p>
+          </motion.p>
         </div>
 
-        <motion.div style={{ x }} className="production-power-cards">
+        <motion.div ref={cardsRef} style={{ x }} className="production-power-cards">
           {cards.map((card, index) => (
             <div className="production-power-card" key={index}>
               <div className="production-power-card-img">

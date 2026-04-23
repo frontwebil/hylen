@@ -1,3 +1,7 @@
+/* =========================
+   Desktop (default)
+   ========================= */
+
 .production-power {
   position: relative;
   height: 400vh;
@@ -8,6 +12,7 @@
   position: sticky;
   top: 35px;
   height: 100vh;
+  min-height: 0;
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -16,7 +21,7 @@
 .production-power-title {
   position: absolute;
   left: 48px;
-  top: 155px;
+  top: 17%;
   z-index: 5;
   pointer-events: none;
 }
@@ -37,12 +42,13 @@
   font-size: 36px;
   line-height: 40px;
   letter-spacing: -2%;
-  color: #443c3b;
   margin-top: 40px;
 }
 
 .production-power-cards {
   display: flex;
+  flex-shrink: 0;
+  min-width: max-content;
   gap: 100px;
   padding-left: 32vw;
   padding-right: 20vw;
@@ -50,7 +56,7 @@
 }
 
 .production-power-card {
-  flex: 0 0 740px;
+  flex: 0 0 min(740px, 85vw);
 }
 
 .production-power-card-img {
@@ -90,42 +96,225 @@
   color: #1f2a19;
 }
 
-@media (max-width: 768px) {
-  .production-power {
-    height: auto;
+/* Менше текст/фото лише на низьких вікнах (десктоп) */
+@media (min-width: 769px) and (max-height: 780px) {
+  .production-power-title h2 {
+    font-size: clamp(36px, 6.5dvh, 70px);
+    line-height: 1.05;
   }
 
-  .production-power-sticky {
-    position: relative;
-    height: auto;
-    overflow: visible;
-    display: block;
-    padding: 120px 16px;
-  }
-
-  .production-power-title {
-    position: relative;
-    left: auto;
-    top: auto;
-    font-size: 64px;
-    margin-bottom: 40px;
-    white-space: normal;
+  .production-power-title p {
+    font-size: clamp(20px, 2.2dvh, 36px);
+    line-height: 1.2;
+    margin-top: clamp(16px, 1.2dvh, 40px);
   }
 
   .production-power-cards {
-    transform: none !important;
-    display: flex;
-    flex-direction: column;
-    gap: 60px;
-    padding: 0;
-  }
-
-  .production-power-card {
-    flex: none;
-    width: 100%;
+    gap: clamp(32px, 1.5dvh, 100px);
   }
 
   .production-power-card-img {
-    height: 360px;
+    height: clamp(180px, min(360px, calc(100dvh - 20rem)), 540px);
+  }
+
+  .production-power-card-row {
+    margin-top: clamp(12px, 0.4dvh, 36px);
+  }
+
+  .production-power-card-row-title {
+    font-size: clamp(16px, 1.6dvh, 24px);
+    line-height: 1.25;
+  }
+
+  .production-power-card-text {
+    font-size: clamp(14px, 1.2dvh, 20px);
+    line-height: 1.35;
+    margin-top: clamp(12px, 0.4dvh, 24px);
+  }
+}
+
+/* =========================
+   Mobile: фіксований тайтл/лід, лише картки в каруселі
+   ========================= */
+
+.production-power--m {
+  height: auto;
+  min-height: 100dvh;
+  --pp-m-px: 16px;
+  --pp-m-top: max(env(safe-area-inset-top, 0px), 0px);
+  --pp-m-head-gap: 1.25rem;
+  --pp-m-image-h: 240px;
+  --pp-m-mid: 0.9rem;
+}
+
+.production-power--m .production-power-m {
+  display: flex;
+  flex-direction: column;
+  min-height: inherit;
+  padding: calc(72px + var(--pp-m-top)) var(--pp-m-px)
+    max(1.5rem, env(safe-area-inset-bottom, 0px) + 1rem);
+  box-sizing: border-box;
+}
+
+.production-power-m-head {
+  flex: 0 0 auto;
+  width: 100%;
+  max-width: 100%;
+}
+
+.production-power-m-title {
+  font-weight: 500;
+  text-transform: uppercase;
+  color: #fff;
+  font-size: 36px;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  margin: 0;
+  padding: 0;
+  white-space: normal;
+  word-wrap: break-word;
+}
+
+.production-power-m-lead {
+  max-width: 100%;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+  margin: var(--pp-m-head-gap) 0 0 0;
+  padding: 0;
+  color: #443c3b;
+  transition: color 0.35s ease;
+}
+
+.production-power-m-slider {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  width: 100%;
+  margin-top: 1.5rem;
+}
+
+.production-power-m-viewport {
+  overflow: hidden;
+  width: 100%;
+  min-height: 0;
+  touch-action: pan-x;
+}
+
+.production-power-m-track {
+  display: flex;
+  align-items: stretch;
+  margin-left: -6px;
+  margin-right: -6px;
+}
+
+.production-power-m-slide {
+  flex: 0 0 100%;
+  min-width: 0;
+  padding: 0 6px;
+  box-sizing: border-box;
+}
+
+.production-power-m-card {
+  min-height: 0;
+  width: 100%;
+}
+
+.production-power-m-card-img {
+  width: 100%;
+  height: var(--pp-m-image-h);
+  max-height: 360px;
+  border-radius: 0;
+  overflow: hidden;
+}
+
+.production-power-m-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.production-power-m-card-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: var(--pp-m-mid);
+}
+
+.production-power-m-card-title {
+  font-weight: 500;
+  font-size: 17px;
+  line-height: 1.25;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  color: #1f2a19;
+  margin: 0;
+}
+
+.production-power-m-card-text {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.4;
+  color: #1f2a19;
+  margin: var(--pp-m-mid) 0 0 0;
+}
+
+.production-power-m-dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 1.25rem;
+  padding: 0;
+}
+
+.production-power-m-dots button {
+  width: 8px;
+  height: 8px;
+  border: none;
+  border-radius: 50%;
+  padding: 0;
+  background: #443c3b;
+  cursor: pointer;
+  opacity: 0.4;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.production-power-m-dots button.active {
+  opacity: 1;
+  background: #fff;
+  transform: scale(1.1);
+}
+
+/* Мобілка: менші шрифти / фото лише на низьких екранах */
+@media (max-width: 768px) and (max-height: 640px) {
+  .production-power--m {
+    --pp-m-head-gap: 0.75rem;
+    --pp-m-image-h: 180px;
+    --pp-m-mid: 0.65rem;
+  }
+
+  .production-power-m-title {
+    font-size: 28px;
+  }
+
+  .production-power-m-lead {
+    font-size: 16px;
+    line-height: 1.25;
+  }
+
+  .production-power-m-card-title {
+    font-size: 15px;
+  }
+
+  .production-power-m-card-text {
+    font-size: 14px;
+  }
+
+  .production-power-m-slider {
+    margin-top: 1rem;
   }
 }
