@@ -69,11 +69,15 @@
 .ContactFormSection-left-text-work-graph-column {
 }
 .ContactFormSection-form {
+  height: 80vh;
   max-width: 640px;
   width: 100%;
   background-color: #81918d;
-  padding: 40px 60px;
+  padding: 80px 60px;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .ContactFormSection-form-line {
