@@ -18,9 +18,15 @@
 .repair-content {
   background-image: url("/AboutPage/Repairs/bg.png");
   background-position: center;
-  background-size: cover;
+  background-size: contain;
   background-repeat: no-repeat;
   height: 900px;
+}
+
+@media (max-width: 1840px) {
+  .repair-content {
+    background-size: cover;
+  }
 }
 
 .repair-content .container {
@@ -89,7 +95,7 @@
 .UnderByroLines-top {
   width: 100%;
   background-color: #81918d;
-  height: 26px;
+  height: 18px;
 }
 .UnderByroLines-top .container,
 .UnderByroLines-bottom .container {
@@ -98,7 +104,7 @@
 .UnderByroLines-top-left-line {
   position: absolute;
   background-color: #d7ccbd;
-  height: 26px;
+  height: 18px;
   max-width: 700px;
   width: 100%;
   left: 100px;
@@ -106,7 +112,7 @@
 .UnderByroLines-top-right-line {
   position: absolute;
   background-color: #d7ccbd;
-  height: 26px;
+  height: 18px;
   width: 100%;
   max-width: 2000px;
   right: -110%;

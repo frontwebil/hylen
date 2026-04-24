@@ -155,3 +155,10 @@
     line-height: 1.12;
   }
 }
+
+@media (max-height: 720px) and (max-width: 440px) {
+  .we-creating-title {
+    font-size: 26px;
+    line-height: 1.1;
+  }
+}

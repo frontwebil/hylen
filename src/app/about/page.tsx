@@ -11,7 +11,6 @@ import { UniqHylen } from "@/Components/AboutPage/UniqHylen/UniqHylen";
 import { ProductionPower } from "@/Components/AboutPage/ProductionPower/ProductionPower";
 import { Repair } from "@/Components/AboutPage/Repair/Repair";
 import { Footer } from "@/Components/Layout/Footer/Footer";
-import { UnderByroLines } from "@/Components/Lines/UnderByroLines/UnderByroLines";
 
 export default function page() {
   return (
