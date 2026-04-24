@@ -20,7 +20,7 @@
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  height: 100vh;
+  height: 900px;
 }
 
 .repair-content .container {
@@ -42,7 +42,8 @@
   letter-spacing: 0%;
   text-transform: uppercase;
   color: #1f2a19;
-  max-width: 460px;
+  max-width: 33%;
+
   width: 100%;
   min-height: 192px;
 }
@@ -181,4 +182,54 @@
     max-width: 30px;
     left: 130px;
   }
+}
+
+@media (max-width: 1200px) {
+  .repair-content-text-card {
+    font-size: 20px;
+    line-height: 28px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .repair-content-text-card.bottom-left,
+  .repair-content-text-card.bottom-right,
+  .repair-content-text-card.top-left,
+  .repair-content-text-card.top-right {
+    position: static;
+  }
+  .repair-content {
+    height: 500px;
+  }
+  .repair-content-top-text,
+  .repair-content-bottom-text {
+    flex-direction: column;
+    gap: 60px;
+    padding: 0 20px;
+  }
+  .repair-content-text-card {
+    max-width: 100%;
+    min-height: auto;
+  }
+  .repair-content-text-card.bottom-right,
+  .repair-content-text-card.top-right {
+    text-align: start;
+  }
+  .repair-content-text-card.top-right {
+    margin-bottom: 50px;
+  }
+  .repair-content-text-card.bottom-left {
+    margin-top: 50px;
+  }
+  .repair-title {
+    font-size: 40px;
+    line-height: 44px;
+    letter-spacing: -3%;
+    margin: 0 auto 60px;
+    text-align: left;
+    padding: 0 20px 0 20px;
+  }
+}
+
+@media (max-width: 500px) {
 }

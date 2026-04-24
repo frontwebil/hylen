@@ -27,8 +27,8 @@ export default function page() {
       <SymetricLine />
       <UniqHylen />
       <ProductionPower />
-      {/* <Repair /> */}
-      {/* <Footer /> */}
+      <Repair />
+      <Footer />
     </>
   );
 }
