@@ -4,6 +4,7 @@ import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useLayoutEffect, useRef, useState } from "react";
 import "./style.css";
+import { useWindowWidth } from "@/Hooks/useWindowWidth";
 
 const cards = [
   {
@@ -51,6 +52,7 @@ const cards = [
 ];
 
 export function ProductionPower() {
+  const width = useWindowWidth();
   const sectionRef = useRef<HTMLElement | null>(null);
   const stickyRef = useRef<HTMLDivElement | null>(null);
   const cardsRef = useRef<HTMLDivElement | null>(null);
@@ -87,8 +89,9 @@ export function ProductionPower() {
   );
 
   return (
-    <section ref={sectionRef} className="production-power">
-      <div ref={stickyRef} className="production-power-sticky">
+    <>
+      {" "}
+      {width && width <= 760 && (
         <div className="production-power-title">
           <h2>
             Виробничі <br /> потужності HYLEN
@@ -100,32 +103,53 @@ export function ProductionPower() {
             виробництва.
           </motion.p>
         </div>
-
-        <motion.div ref={cardsRef} style={{ x }} className="production-power-cards">
-          {cards.map((card, index) => (
-            <div className="production-power-card" key={index}>
-              <div className="production-power-card-img">
-                <Image
-                  src={card.img}
-                  width={900}
-                  height={650}
-                  alt={card.title}
-                />
-              </div>
-
-              <div className="production-power-card-row">
-                <Image src={card.icon} width={30} height={30} alt="hex" />
-
-                <h3 className="production-power-card-row-title">
-                  {card.title}
-                </h3>
-              </div>
-
-              <p className="production-power-card-text">{card.text}</p>
+      )}
+      <section ref={sectionRef} className="production-power">
+        <div ref={stickyRef} className="production-power-sticky">
+          {width && width > 760 && (
+            <div className="production-power-title">
+              <h2>
+                Виробничі <br /> потужності HYLEN
+              </h2>
+              <motion.p style={{ color: titleLeadColor }}>
+                Ми не залежимо від сторонніх підрядників. У нас є все, щоб
+                виготовити техніку від «нуля» до готового результату. Кожен етап
+                – під нашим контролем. І це гарантує якість, терміни та
+                гнучкість виробництва.
+              </motion.p>
             </div>
-          ))}
-        </motion.div>
-      </div>
-    </section>
+          )}
+
+          <motion.div
+            ref={cardsRef}
+            style={{ x }}
+            className="production-power-cards"
+          >
+            {cards.map((card, index) => (
+              <div className="production-power-card" key={index}>
+                <div className="production-power-card-img">
+                  <Image
+                    src={card.img}
+                    width={900}
+                    height={650}
+                    alt={card.title}
+                  />
+                </div>
+
+                <div className="production-power-card-row">
+                  <Image src={card.icon} width={30} height={30} alt="hex" />
+
+                  <h3 className="production-power-card-row-title">
+                    {card.title}
+                  </h3>
+                </div>
+
+                <p className="production-power-card-text">{card.text}</p>
+              </div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+    </>
   );
 }
