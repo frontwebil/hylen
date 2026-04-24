@@ -69,7 +69,7 @@
 .ContactFormSection-left-text-work-graph-column {
 }
 .ContactFormSection-form {
-  height: 80vh;
+  min-height: 80vh;
   max-width: 640px;
   width: 100%;
   background-color: #81918d;

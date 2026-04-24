@@ -13,18 +13,18 @@ const WE_CREATING_TEXT =
   "МИ СТВОРИЛИ HYLEN – ДЛЯ ЛЮДЕЙ СПРАВИ. ДЛЯ ТИХ, ХТО ПРАЦЮЄ В ПОЛІ, НА СКЛАДІ, У МАЙСТЕРНІ ЧИ НА ВИРОБНИЦТВІ. ДЛЯ ТИХ, ХТО ЗАХИЩАЄ КРАЇНУ І РУХАЄ ЇЇ ВПЕРЕД. ДЛЯ ТИХ, ХТО МАЄ СПРАВУ З ТЕХНІКОЮ ЩОДНЯ І ХОЧЕ ОДНОГО, ЩОБ ЦЯ ТЕХНІКА БУЛА НАДІЙНОЮ І ПРАЦЮВАЛА ВІДМІННО.";
 
 const WE_CREATING_TAGS = [
-  { label: "ФЕРМЕРИ", top: "50%", left: "10%", start: 0.12 },
-  { label: "ВОДІЇ", top: "50%", left: "58%", start: 0.2 },
+  { label: "ФЕРМЕРИ", top: "20%", left: "10%", start: 0.12 },
+  { label: "ВОДІЇ", top: "33%", left: "58%", start: 0.2 },
   {
     label: "МЕХАНІЗАТОРИ",
-    top: "58%",
+    top: "42%",
     left: "36%",
     start: 0.3,
   },
-  { label: "МАЙСТРИ", top: "63%", left: "20%", start: 0.46 },
-  { label: "ВІЙСЬКОВІ", top: "62%", left: "78%", start: 0.38 },
-  { label: "УПРАВЛІНЦІ", top: "72%", left: "36%", start: 0.62 },
-  { label: "ЛОГІСТИ", top: "67%", left: "60%", start: 0.54 },
+  { label: "МАЙСТРИ", top: "55%", left: "20%", start: 0.46 },
+  { label: "ВІЙСЬКОВІ", top: "60%", left: "78%", start: 0.38 },
+  { label: "УПРАВЛІНЦІ", top: "70%", left: "36%", start: 0.62 },
+  { label: "ЛОГІСТИ", top: "82%", left: "60%", start: 0.54 },
 ] as const;
 
 const clamp01 = (value: number) => Math.min(Math.max(value, 0), 1);
