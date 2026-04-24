@@ -11,7 +11,7 @@
   height: 100%;
   max-width: 22%;
   width: 100%;
-  left: 0;
+  left: 20px;
   background-color: #443c3b;
 }
 .symetric-line-top-right {
@@ -19,7 +19,7 @@
   height: 100%;
   max-width: 22%;
   width: 100%;
-  right: 0;
+  right: 20px;
   background-color: #443c3b;
 }
 .symetric-line-bottom {
@@ -39,4 +39,22 @@
   left: 50%;
   transform: translateX(-50%);
   background-color: #fff;
+}
+
+@media (max-width: 640px) {
+  .symetric-line-top {
+    height: 10px;
+  }
+
+  .symetric-line-top .container {
+    height: 10px;
+  }
+
+  .symetric-line-bottom {
+    height: 10px;
+  }
+
+  .symetric-line-bottom .container {
+    height: 10px;
+  }
 }

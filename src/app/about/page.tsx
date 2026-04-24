@@ -24,10 +24,10 @@ export default function page() {
       <WeCreating />
       <WhoWeCreateFor />
       <PeopleHylen />
-      {/* <SymetricLine /> */}
+      <SymetricLine />
       <UniqHylen />
       {/* <ProductionPower /> */}
-      <Repair />
+      {/* <Repair /> */}
       {/* <Footer /> */}
     </>
   );
