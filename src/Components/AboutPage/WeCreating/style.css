@@ -55,7 +55,9 @@
   transform: scale(var(--overlay-scale, 1));
   transform-origin: 50% 58%;
   will-change: opacity, transform;
-  transition: opacity 0.14s linear, transform 0.18s ease-out;
+  transition:
+    opacity 0.14s linear,
+    transform 0.18s ease-out;
 }
 
 .we-creating-letter-space {
@@ -87,7 +89,9 @@
   opacity: var(--tag-parallax-opacity, 1);
   transform: translate3d(0, var(--tag-parallax-y, 0), 0)
     scale(var(--tag-parallax-scale, 1));
-  transition: opacity 0.18s linear, transform 0.24s ease-out;
+  transition:
+    opacity 0.18s linear,
+    transform 0.24s ease-out;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -131,15 +135,23 @@
 
 @media (max-width: 600px) {
   .we-creating {
-    min-height: 180vh;
+    min-height: 240vh;
   }
 
   .we-creating-title {
-    font-size: 30px;
+    font-size: 36px;
     line-height: 1.12;
   }
 
   .we-creating-tags {
-    display: none;
+    /* display: none; */
+    left: -70px;
+  }
+}
+
+@media (max-width: 440px) {
+  .we-creating-title {
+    font-size: 30px;
+    line-height: 1.12;
   }
 }

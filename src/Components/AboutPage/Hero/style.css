@@ -61,3 +61,31 @@
   color: #1f2a19;
   margin-top: 62px;
 }
+
+@media (max-width: 1110px) {
+  .about-hero-text-bottom {
+    font-size: 40px;
+    line-height: 100%;
+    max-width: fit-content;
+    margin-top: 30px;
+  }
+}
+
+@media (max-width: 800px) {
+  .about-hero-text-bottom {
+    font-size: 22px;
+    line-height: 100%;
+    max-width: fit-content;
+    margin-top: 20px;
+  }
+  .about-hero-text-top {
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 500px) {
+  .about-hero-text-top{
+    font-size: 14px;
+    margin-bottom: 15px;
+  }
+}

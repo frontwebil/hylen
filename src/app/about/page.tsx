@@ -23,12 +23,12 @@ export default function page() {
       <LinesWithInner />
       <WeCreating />
       <WhoWeCreateFor />
-      <PeopleHylen />
-      <SymetricLine />
-      <UniqHylen />
-      <ProductionPower />
-      <Repair />
-      <Footer />
+      {/* <PeopleHylen /> */}
+      {/* <SymetricLine /> */}
+      {/* <UniqHylen /> */}
+      {/* <ProductionPower /> */}
+      {/* <Repair /> */}
+      {/* <Footer /> */}
     </>
   );
 }

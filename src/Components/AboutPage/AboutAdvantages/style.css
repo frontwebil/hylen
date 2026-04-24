@@ -40,3 +40,28 @@
   align-items: center;
   border-radius: 10px;
 }
+
+@media (max-width: 1200px) {
+  .about-advantages .container {
+    justify-content: center;
+
+    gap: 50px 35px;
+
+    padding: 100px 20px;
+  }
+  .about-advantage {
+    font-size: 20px;
+    line-height: 22px;
+  }
+  .about-advantage-img {
+    max-width: 62px;
+    height: 62px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .about-advantages .container {
+    flex-wrap: wrap;
+    padding: 75px 20px 80px;
+  }
+}

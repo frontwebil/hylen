@@ -60,3 +60,28 @@
   right: 100px;
   background-color: #81918d;
 }
+
+@media (max-width: 1000px) {
+  .lines-with-inner-top-right-line,
+  .lines-with-inner-bottom-right-line {
+    max-width: 45%;
+  }
+}
+
+@media (max-width: 640px) {
+  .lines-with-inner-top-lines,
+  .lines-with-inner-top-lines .container,
+  .lines-with-inner-bottom-lines .container,
+  .lines-with-inner-bottom-lines {
+    height: 10px;
+  }
+  .lines-with-inner-top-right-line,
+  .lines-with-inner-bottom-right-line {
+    max-width: calc(100% - 60px);
+    right: 30px;
+  }
+  .lines-with-inner-bottom-right-inner-line{
+    max-width: 20%;
+    right: 20%;
+  }
+}
