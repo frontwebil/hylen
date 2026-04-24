@@ -43,6 +43,7 @@
   line-height: 40px;
   letter-spacing: -2%;
   margin-top: 40px;
+  transition: all 0.3s ease;
 }
 
 .production-power-cards {
@@ -280,7 +281,9 @@
   background: #443c3b;
   cursor: pointer;
   opacity: 0.4;
-  transition: opacity 0.25s ease, transform 0.25s ease;
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease;
 }
 
 .production-power-m-dots button.active {

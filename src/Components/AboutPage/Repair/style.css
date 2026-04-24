@@ -23,6 +23,63 @@
   height: 100vh;
 }
 
+.repair-content .container {
+  max-width: 1600px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+}
+.repair-content-top-text {
+  display: flex;
+  justify-content: space-between;
+}
+.repair-content-text-card {
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 32px;
+  letter-spacing: 0%;
+  text-transform: uppercase;
+  color: #1f2a19;
+  max-width: 460px;
+  width: 100%;
+  min-height: 192px;
+}
+
+.repair-content-text-card.top-left {
+  position: absolute;
+  left: 20px;
+  top: 0;
+}
+
+.repair-content-text-card.top-right {
+  position: absolute;
+  right: 20px;
+  top: 0;
+  text-align: right;
+}
+
+.repair-content-text-card.bottom-left {
+  position: absolute;
+  left: 20px;
+  bottom: 0;
+}
+
+.repair-content-text-card.bottom-right {
+  position: absolute;
+  right: 20px;
+  bottom: 0;
+  text-align: right;
+}
+
+.repair-content-bottom-text {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Line */
+
 .UnderByroLines {
   display: flex;
   flex-direction: column;

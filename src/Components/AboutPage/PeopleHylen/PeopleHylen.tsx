@@ -16,7 +16,7 @@ const PEOPLE_HYLEN_PHOTOS = [
   { src: "/AboutPage/PeopleHylen/1.png", top: "28%", left: "74%", start: 0.12 },
   { src: "/AboutPage/PeopleHylen/2.png", top: "38%", left: "0%", start: 0.2 },
   { src: "/AboutPage/PeopleHylen/4.png", top: "62%", left: "20%", start: 0.32 },
-  { src: "/AboutPage/PeopleHylen/3.png", top: "61%", left: "90%", start: 0.42 },
+  { src: "/AboutPage/PeopleHylen/3.png", top: "61%", left: "80%", start: 0.42 },
 ] as const;
 
 const clamp01 = (value: number) => Math.min(Math.max(value, 0), 1);
