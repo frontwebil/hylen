@@ -20,7 +20,7 @@ export const products: ProductItem[] = [
     title: "ХРЕБЕТ СИСТЕМИ",
     subTitle: "Одноосні причепи",
     img: "/Products/1",
-    link: "/hrebet-y-poli",
+    link: "/hrebet-systemy",
   },
   {
     title: "РИТМ ЖИВЛЕННЯ",
@@ -32,7 +32,7 @@ export const products: ProductItem[] = [
     title: "МІСТ МІЖ ЛАНКАМИ",
     subTitle: "Перевантажувачі зерна",
     img: "/Products/3",
-    link: "/mist",
+    link: "/mist-mij-lankamy",
   },
   {
     title: "ЖИВА АРТЕРІЯ",
