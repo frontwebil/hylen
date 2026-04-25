@@ -1,11 +1,23 @@
 "use client";
 
-import { ProductItem } from "@/app/hrebet-y-poli/page";
 import Image from "next/image";
 import { useState } from "react";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import "./style.css";
 import { useWindowWidth } from "@/Hooks/useWindowWidth";
+
+type ProductItem = {
+  title: string;
+  modelCards: string[];
+  images: string[];
+  isCustomDesign?: boolean;
+  description: {
+    about: string;
+    purpose: string;
+    features: string;
+    advantages: string[];
+  };
+};
 
 export function ProductSections({ productData }: { productData: ProductItem }) {
   const [activeSlide, setActiveSlide] = useState(0);
@@ -54,6 +66,21 @@ export function ProductSections({ productData }: { productData: ProductItem }) {
                 width={1000}
                 height={1000}
               />
+              {productData.isCustomDesign && (
+                <div className="product-slider-custom-note">
+                  <div className="product-slider-custom-note-img">
+                    <Image
+                      src={"/icons/black-vector-cube.svg"}
+                      width={20}
+                      height={20}
+                      alt="🧊"
+                    />
+                  </div>
+                  <p className="product-slider-custom-note-text">
+                    індивідуальне проєктування та виконання виробу
+                  </p>
+                </div>
+              )}
             </div>
 
             <div
@@ -100,7 +127,13 @@ export function ProductSections({ productData }: { productData: ProductItem }) {
             {/* {width && width < 980 && modelCardsRow} */}
 
             <div className="product-slider-alert">
-              <Image src={'/icons/made-in-ukraine.png'} width={300} height={300} alt="Made in Ukraine" className="product-slider-alert-made-in-ukraine"/>
+              <Image
+                src={"/icons/made-in-ukraine.png"}
+                width={300}
+                height={300}
+                alt="Made in Ukraine"
+                className="product-slider-alert-made-in-ukraine"
+              />
               <p>
                 Ця техніка входить у програму «Зроблено в Україні» з можливістю
                 отримання компенсації 25% від вартості через Міністерство

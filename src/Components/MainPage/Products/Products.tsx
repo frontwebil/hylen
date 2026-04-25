@@ -26,7 +26,7 @@ export const products: ProductItem[] = [
     title: "РИТМ ЖИВЛЕННЯ",
     subTitle: "Кормороздавачі-змішувачі",
     img: "/Products/2",
-    link: "/rytm",
+    link: "/rytm-zhyvlennya",
   },
   {
     title: "МІСТ МІЖ ЛАНКАМИ",

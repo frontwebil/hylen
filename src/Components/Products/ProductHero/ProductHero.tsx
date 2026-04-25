@@ -89,7 +89,9 @@ export function ProductHero({ heroData }: ProductHeroProps) {
               </p>
             </div>
           </div>
-          <div className="product-hero-content-cards">
+          <div
+            className={`product-hero-content-cards ${heroData.cards.length === 1 ? "single-card" : ""}`}
+          >
             {heroData.cards.map((productCard, i) => (
               <a
                 ref={(element) => {

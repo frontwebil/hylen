@@ -33,6 +33,7 @@ export type ProductItem = {
   title: string;
   /** Підписи на картках під заголовком (окремо від колонок у таблиці характеристик) */
   modelCards: string[];
+  isCustomDesign: boolean;
   description: ProductDescription;
   images: string[];
   specs: ProductSpecs;
@@ -74,6 +75,7 @@ export default function page() {
         id: "id1",
         title: "Напівпричіп тракторний одновісний самоскидний НПС",
         modelCards: ["НПС-1", "НПС-2", "НПС-3"],
+        isCustomDesign: true,
 
         description: {
           about:
@@ -143,6 +145,7 @@ export default function page() {
         id: "id2",
         title: "Напівпричіп тракторний самоскидний",
         modelCards: ["П-6", "П-10", "П-13"],
+        isCustomDesign: false,
 
         description: {
           about:

@@ -106,7 +106,7 @@ a.product-hero-content-card {
 .product-hero-content-card {
   background-color: #81918d;
   border: 2px solid #443c3b;
-  max-width: 475px;
+  max-width: 550px;
   width: 100%;
 }
 
@@ -157,6 +157,10 @@ a.product-hero-content-card {
 
 .product-hero-content-card:first-child {
   border-right: none;
+}
+
+.product-hero-content-cards.single-card .product-hero-content-card:first-child {
+  border-right: 2px solid #443c3b;
 }
 
 .product-hero-content-card-underImg-border-right {
@@ -238,13 +242,20 @@ a.product-hero-content-card {
   }
   .product-hero-content-cards {
     margin-top: -50px;
-    justify-content: space-between;
+    justify-content: center;
     gap: 20px;
     max-width: 100%;
     width: 100%;
   }
+  .product-hero-content-card-media img {
+    object-fit: contain;
+  }
   .product-hero-content-card-underImg-border-right {
     border-right: none;
+  }
+  .product-hero-content-cards.single-card
+    .product-hero-content-card-underImg-border-right {
+    border-right: 2px solid #81918d;
   }
   .product-hero-content-card:first-child {
     border-right: 2px solid #443c3b;
