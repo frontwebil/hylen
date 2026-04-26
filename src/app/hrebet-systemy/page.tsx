@@ -34,6 +34,8 @@ export type ProductItem = {
   /** Підписи на картках під заголовком (окремо від колонок у таблиці характеристик) */
   modelCards: string[];
   isCustomDesign: boolean;
+  video: string;
+  videoPreview: string;
   description: ProductDescription;
   images: string[];
   specs: ProductSpecs;
@@ -76,6 +78,8 @@ export default function page() {
         title: "Напівпричіп тракторний одновісний самоскидний НПС",
         modelCards: ["НПС-1", "НПС-2", "НПС-3"],
         isCustomDesign: false,
+        video: "/hrebet-y-poli/1.mp4",
+        videoPreview: "/hrebet-y-poli/1.webp",
 
         description: {
           about:
@@ -146,6 +150,8 @@ export default function page() {
         title: "Напівпричіп тракторний самоскидний",
         modelCards: ["П-6", "П-10", "П-13"],
         isCustomDesign: false,
+        video: "/hrebet-y-poli/2.mp4",
+        videoPreview: "/hrebet-y-poli/2.webp",
 
         description: {
           about:

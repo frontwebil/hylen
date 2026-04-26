@@ -33,6 +33,8 @@ type ProductItem = {
   title: string;
   modelCards: string[];
   isCustomDesign: boolean;
+  video: string;
+  videoPreview: string;
   description: ProductDescription;
   images: string[];
   specs: ProductSpecs;
@@ -75,6 +77,8 @@ export default function page() {
         title: "Кормозмішувач КСП",
         modelCards: ["КСП-6", "КСП-10", "КСП-12"],
         isCustomDesign: true,
+        video: "/rytm-zhyvlennya/1.mp4",
+        videoPreview: "/rytm-zhyvlennya/1.webp",
         description: {
           about:
             "Це техніка для приготування та точного змішування кормових сумішей із різних компонентів: зеленої маси, силосу, сінажу, соломи, комбікорму та добавок.",
@@ -141,6 +145,8 @@ export default function page() {
         title: "Кормозмішувач КСП з двома шнеками",
         modelCards: ["КСП-16", "КСП-18", "КСП-20", "КСП-24"],
         isCustomDesign: true,
+        video: "/rytm-zhyvlennya/2.mp4",
+        videoPreview: "/rytm-zhyvlennya/2.webp",
         description: {
           about:
             "Це надійна техніка для приготування і роздачі кормових сумішей з різних компонентів: зеленої маси, силосу, сінажу, сіна, соломи, комбікорму, брикетів та добавок.",

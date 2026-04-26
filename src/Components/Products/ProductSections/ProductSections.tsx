@@ -10,6 +10,8 @@ type ProductItem = {
   title: string;
   modelCards: string[];
   images: string[];
+  video?: string;
+  videoPreview?: string;
   isCustomDesign?: boolean;
   description: {
     about: string;
@@ -23,9 +25,27 @@ export function ProductSections({ productData }: { productData: ProductItem }) {
   const [activeSlide, setActiveSlide] = useState(0);
   const width = useWindowWidth();
 
-  const lastSlideIndex = productData.images.length - 1;
+  const slides = [
+    ...(productData.video
+      ? [
+          {
+            type: "video" as const,
+            src: productData.video,
+            preview: productData.videoPreview ?? productData.images[0],
+          },
+        ]
+      : []),
+    ...productData.images.map((image) => ({ type: "image" as const, src: image })),
+  ];
+
+  const lastSlideIndex = slides.length - 1;
   const isFirstSlide = activeSlide === 0;
   const isLastSlide = activeSlide === lastSlideIndex;
+  const visibleSlidesStart = Math.max(
+    0,
+    Math.min(activeSlide - 1, Math.max(slides.length - 3, 0)),
+  );
+  const visibleSlides = slides.slice(visibleSlidesStart, visibleSlidesStart + 3);
 
   const handlePrevSlide = () => {
     if (isFirstSlide) return;
@@ -60,12 +80,25 @@ export function ProductSections({ productData }: { productData: ProductItem }) {
               </>
             )}
             <div className="product-slider-main-img">
-              <Image
-                src={productData.images[activeSlide]}
-                alt={`Slide ${activeSlide + 1}`}
-                width={1000}
-                height={1000}
-              />
+              {slides[activeSlide]?.type === "video" ? (
+                <video
+                  key={slides[activeSlide].src}
+                  src={slides[activeSlide].src}
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  controls={false}
+                  className="product-slider-main-video"
+                />
+              ) : (
+                <Image
+                  src={slides[activeSlide].src}
+                  alt={`Slide ${activeSlide + 1}`}
+                  width={1000}
+                  height={1000}
+                />
+              )}
               {productData.isCustomDesign && (
                 <div className="product-slider-custom-note">
                   <div className="product-slider-custom-note-img">
@@ -97,20 +130,34 @@ export function ProductSections({ productData }: { productData: ProductItem }) {
               </button>
 
               <div className="product-slider-controls-slides">
-                {productData.images.map((image, i) => (
+                {visibleSlides.map((slide, i) => {
+                  const realIndex = visibleSlidesStart + i;
+                  return (
                   <div
-                    className={`product-slider-controls-slide ${activeSlide === i ? "active" : ""}`}
-                    key={i}
-                    onClick={() => setActiveSlide(i)}
+                    className={`product-slider-controls-slide ${activeSlide === realIndex ? "active" : ""}`}
+                    key={`${slide.type}-${slide.src}`}
+                    onClick={() => setActiveSlide(realIndex)}
                   >
-                    <Image
-                      src={image}
-                      alt={`slide ${i + 1}`}
-                      width={200}
-                      height={200}
-                    />
+                    {slide.type === "video" ? (
+                      <div className="product-slider-controls-video-thumb">
+                        <Image
+                          src={slide.preview}
+                          alt="video preview"
+                          width={200}
+                          height={200}
+                        />
+                      </div>
+                    ) : (
+                      <Image
+                        src={slide.src}
+                        alt={`slide ${realIndex + 1}`}
+                        width={200}
+                        height={200}
+                      />
+                    )}
                   </div>
-                ))}
+                  );
+                })}
               </div>
 
               <button

@@ -33,6 +33,8 @@ type ProductItem = {
   title: string;
   modelCards: string[];
   isCustomDesign: boolean;
+  video: string;
+  videoPreview: string;
   description: ProductDescription;
   images: string[];
   specs: ProductSpecs;
@@ -72,6 +74,8 @@ export default function page() {
           "Транспортно-перевантажувальний комплекс ТПК-38 (бункер-накопичувач)",
         modelCards: ["ТПК-38"],
         isCustomDesign: false,
+        video: "/mist-mij-lankamy/1.mp4",
+        videoPreview: "/mist-mij-lankamy/1.webp",
         description: {
           about:
             "Ефективне рішення для швидкого транспортування та перевантаження зерна і сипучих матеріалів.",
