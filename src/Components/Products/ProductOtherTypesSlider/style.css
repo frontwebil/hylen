@@ -188,3 +188,106 @@
     height: 181px;
   }
 }
+
+.UnderByroLines {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.UnderByroLines-top {
+  width: 100%;
+  background-color: #81918d;
+  height: 18px;
+}
+.UnderByroLines-top .container,
+.UnderByroLines-bottom .container {
+  position: relative;
+}
+.UnderByroLines-top-left-line {
+  position: absolute;
+  background-color: #443c3b;
+  height: 18px;
+  max-width: 700px;
+  width: 100%;
+  left: 100px;
+}
+.UnderByroLines-top-right-line {
+  position: absolute;
+  background-color: #443c3b;
+  height: 18px;
+  width: 100%;
+  max-width: 2000px;
+  right: -110%;
+}
+.UnderByroLines-bottom {
+  background-color: #443c3b;
+  height: 18px;
+}
+.UnderByroLines-bottom-left-line {
+  position: absolute;
+  background-color: #81918d;
+  height: 18px;
+  max-width: 700px;
+  width: 100%;
+  left: 100px;
+}
+.UnderByroLines-bottom-middle-line {
+  position: absolute;
+  background-color: #443c3b;
+  height: 18px;
+  max-width: 100px;
+  width: 100%;
+  left: 190px;
+}
+.UnderByroLines-bottom-right-line {
+  position: absolute;
+  background-color: #81918d;
+  height: 18px;
+  width: 100%;
+  max-width: 2000px;
+  right: -110%;
+}
+
+@media (max-width: 920px) {
+  .UnderByroLines-top-left-line,
+  .UnderByroLines-bottom-left-line {
+    max-width: 300px;
+    height: 20px;
+  }
+  .UnderByroLines-top,
+  .UnderByroLines-bottom {
+    height: 20px;
+  }
+  .UnderByroLines-top-right-line,
+  .UnderByroLines-bottom-right-line {
+    max-width: 30px;
+    right: 0;
+    height: 20px;
+  }
+  .UnderByroLines-bottom-middle-line {
+    height: 20px;
+    max-width: 50px;
+    left: 150px;
+  }
+}
+
+@media (max-width: 640px) {
+  .UnderByroLines-top-left-line,
+  .UnderByroLines-bottom-left-line {
+    max-width: 180px;
+    height: 10px;
+  }
+  .UnderByroLines-top,
+  .UnderByroLines-bottom {
+    height: 10px;
+  }
+  .UnderByroLines-top-right-line,
+  .UnderByroLines-bottom-right-line {
+    display: none;
+  }
+  .UnderByroLines-bottom-middle-line {
+    height: 10px;
+    max-width: 30px;
+    left: 130px;
+  }
+}

@@ -83,57 +83,74 @@ export function ProductOtherTypesSlider({
   if (!slides.length) return null;
 
   return (
-    <section
-      className="product-other-types"
-      aria-labelledby="product-other-types-heading"
-    >
-      <div className="container">
-        <div className="product-other-types__intro">
-          <h2
-            id="product-other-types-heading"
-            className="product-other-types__heading"
-          >
-            {heading}
-          </h2>
-          <p className="product-other-types__text">{description}</p>
+    <>
+      <section
+        className="product-other-types"
+        aria-labelledby="product-other-types-heading"
+      >
+        <div className="container">
+          <div className="product-other-types__intro">
+            <h2
+              id="product-other-types-heading"
+              className="product-other-types__heading"
+            >
+              {heading}
+            </h2>
+            <p className="product-other-types__text">{description}</p>
+          </div>
         </div>
-      </div>
 
-      <div className="product-other-types__slider-outer">
-        <div className="product-other-types__slider">
-          <div className="product-other-types__viewport" ref={emblaRef}>
-            <div className="product-other-types__track">
-              {preparedSlides.map((product, i) => (
-                <div
-                  className="product-other-types__slide"
-                  key={`${product.link}-${i}`}
+        <div className="product-other-types__slider-outer">
+          <div className="product-other-types__slider">
+            <div className="product-other-types__viewport" ref={emblaRef}>
+              <div className="product-other-types__track">
+                {preparedSlides.map((product, i) => (
+                  <div
+                    className="product-other-types__slide"
+                    key={`${product.link}-${i}`}
+                  >
+                    <ProductCard product={product} />
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="product-other-types__controls">
+              {slides.map((_, index) => (
+                <button
+                  key={index}
+                  type="button"
+                  className={`product-other-types__bar ${
+                    selectedIndex === index ? "is-active" : ""
+                  }`}
+                  onClick={() => scrollTo(index)}
+                  aria-label={`Слайд ${index + 1}`}
+                  aria-current={selectedIndex === index ? "true" : undefined}
                 >
-                  <ProductCard product={product} />
-                </div>
+                  <span />
+                </button>
               ))}
             </div>
           </div>
+        </div>
 
-          <div className="product-other-types__controls">
-            {slides.map((_, index) => (
-              <button
-                key={index}
-                type="button"
-                className={`product-other-types__bar ${
-                  selectedIndex === index ? "is-active" : ""
-                }`}
-                onClick={() => scrollTo(index)}
-                aria-label={`Слайд ${index + 1}`}
-                aria-current={selectedIndex === index ? "true" : undefined}
-              >
-                <span />
-              </button>
-            ))}
+        <div className="product-other-types-bg-bottom"></div>
+      </section>
+      <section className="UnderByroLines">
+        <div className="UnderByroLines-top">
+          <div className="container">
+            <span className="UnderByroLines-top-left-line"></span>
+            <span className="UnderByroLines-top-right-line"></span>
           </div>
         </div>
-      </div>
-
-      <div className="product-other-types-bg-bottom"></div>
-    </section>
+        <div className="UnderByroLines-bottom">
+          <div className="container">
+            <span className="UnderByroLines-bottom-left-line"></span>
+            <span className="UnderByroLines-bottom-middle-line"></span>
+            <span className="UnderByroLines-bottom-right-line"></span>
+          </div>
+        </div>
+      </section>
+    </>
   );
 }

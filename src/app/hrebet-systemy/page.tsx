@@ -75,7 +75,7 @@ export default function page() {
         id: "id1",
         title: "Напівпричіп тракторний одновісний самоскидний НПС",
         modelCards: ["НПС-1", "НПС-2", "НПС-3"],
-        isCustomDesign: true,
+        isCustomDesign: false,
 
         description: {
           about:
