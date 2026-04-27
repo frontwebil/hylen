@@ -28,7 +28,7 @@ export function WhoWeCreateFor() {
                 height={50}
                 alt="Hylen"
               />
-              <h2>Тому HYLEN – без зайвого. Тільки те, що справді потрібно.</h2>
+              <h2>Тому HYLEN – без зайвого. Тільки те, що справді потрібно</h2>
             </div>
           </div>
         </div>

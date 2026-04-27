@@ -114,7 +114,7 @@ export function Footer() {
               {width && width > 920 ? (
                 <div className="footer-column-content-nav">
                   <Link href={"/#products"}>Продукти</Link>
-                  <Link href={"/#advantages"}>Пeреваги Hylen</Link>
+                  <Link href={"/#advantages"}>Пeреваги HYLEN</Link>
                   <Link href={"/#byro"}>Конструкторське бюро</Link>
                   <Link href={"/about"}>Про HYLEN</Link>
                   <Link href={"/contact#contacts"}>Контакти</Link>
