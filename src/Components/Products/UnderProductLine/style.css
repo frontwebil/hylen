@@ -1,0 +1,17 @@
+.under-product-lines {
+  display: flex;
+  flex-direction: column;
+}
+.under-product-top-line {
+  height: 18px;
+}
+.under-product-top-left-line {
+}
+.under-product-top-right-line {
+}
+.under-product-bottom-line {
+}
+.under-product-top-right-line-right {
+}
+.under-product-top-right-line-left {
+}
