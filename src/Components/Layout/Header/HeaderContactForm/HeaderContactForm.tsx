@@ -5,6 +5,7 @@ import { useHeaderContactForm } from "@/Store/useHeaderContactForm";
 import React, { useState } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { useLanguage } from "@/Store/useLanguage";
 
 type FormData = {
   name: string;
@@ -16,6 +17,52 @@ type FormData = {
 
 export function HeaderContactForm() {
   const { isOpen, close } = useHeaderContactForm();
+  const { language } = useLanguage();
+
+  const t = {
+    uk: {
+      title: "Зв’яжіться з нами,",
+      description:
+        "щоб отримати консультацію, замовити продукцію або дізнатись більше про індивідуальні рішення HYLEN. Ми цінуємо кожного клієнта і працюємо для вашого успіху.",
+      placeholders: {
+        name: "Ім’я*",
+        company: "Назва компанії",
+        phone: "+38044123 45 67",
+        email: "Email*",
+        message: "Запит*",
+      },
+      submit: "ВІДПРАВИТИ",
+      submitting: "ВІДПРАВЛЯЄМО...",
+      close: "ЗАКРИТИ",
+      toast: {
+        invalidEmail: "Некоректний email",
+        sent: "Заявку успішно відправлено!",
+        error: "Помилка при відправці",
+      },
+    },
+    en: {
+      title: "Contact us",
+      description:
+        "For expert advice, product orders, or to explore customised HYLEN solutions. Your success is our mission. Every customer matters.",
+      placeholders: {
+        name: "Name*",
+        company: "Company",
+        phone: "+38044123 45 67",
+        email: "E-mail*",
+        message: "Message*",
+      },
+      submit: "SEND",
+      submitting: "SENDING...",
+      close: "CLOSE",
+      toast: {
+        invalidEmail: "Invalid e-mail",
+        sent: "Successfully sent!",
+        error: "Send error",
+      },
+    },
+  } as const;
+
+  const copy = t[language];
 
   const [data, setData] = useState<FormData>({
     name: "",
@@ -46,7 +93,7 @@ export function HeaderContactForm() {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     if (!emailRegex.test(data.email)) {
-      toast.error("Некоректний email", {
+      toast.error(copy.toast.invalidEmail, {
         style: {
           background: "#c0c8c6",
           color: "#1f2a19",
@@ -60,7 +107,7 @@ export function HeaderContactForm() {
 
       await axios.post("/api/create-leed", { data });
 
-      toast.success("Заявку успішно відправлено!", {
+      toast.success(copy.toast.sent, {
         style: {
           background: "#c0c8c6",
           color: "#1f2a19",
@@ -79,7 +126,7 @@ export function HeaderContactForm() {
     } catch (error) {
       console.log(error);
 
-      toast.error("Помилка при відправці", {
+      toast.error(copy.toast.error, {
         style: {
           background: "#c0c8c6",
           color: "#1f2a19",
@@ -94,12 +141,8 @@ export function HeaderContactForm() {
     <div className={`header-contact-form ${isOpen ? "active" : ""}`}>
       <div className="header-contact-form-wrapper">
         <div className="header-contact-form-text">
-          <h2>Зв’яжіться з нами:</h2>
-          <p>
-            щоб отримати консультацію, замовити продукцію або дізнатись більше
-            про індивідуальні рішення HYLEN. Ми цінуємо кожного клієнта і
-            працюємо для вашого успіху.
-          </p>
+          <h2>{copy.title}</h2>
+          <p>{copy.description}</p>
         </div>
 
         <form className="header-contact-form-container" onSubmit={handleSubmit}>
@@ -108,7 +151,7 @@ export function HeaderContactForm() {
               <input
                 type="text"
                 name="name"
-                placeholder="Ім’я*"
+                placeholder={copy.placeholders.name}
                 className="header-contact-form-input"
                 value={data.name}
                 onChange={handleChange}
@@ -120,7 +163,7 @@ export function HeaderContactForm() {
               <input
                 type="text"
                 name="company"
-                placeholder="Назва компанії"
+                placeholder={copy.placeholders.company}
                 className="header-contact-form-input"
                 value={data.company}
                 onChange={handleChange}
@@ -131,7 +174,7 @@ export function HeaderContactForm() {
               <input
                 type="tel"
                 name="phone"
-                placeholder="+38044123 45 67"
+                placeholder={copy.placeholders.phone}
                 className="header-contact-form-input"
                 value={data.phone}
                 onChange={handleChange}
@@ -143,7 +186,7 @@ export function HeaderContactForm() {
               <input
                 type="email"
                 name="email"
-                placeholder="Email*"
+                placeholder={copy.placeholders.email}
                 className="header-contact-form-input"
                 value={data.email}
                 onChange={handleChange}
@@ -155,7 +198,7 @@ export function HeaderContactForm() {
               <textarea
                 rows={3}
                 name="message"
-                placeholder="Запит*"
+                placeholder={copy.placeholders.message}
                 className="header-contact-form-textarea"
                 value={data.message}
                 onChange={handleChange}
@@ -174,7 +217,7 @@ export function HeaderContactForm() {
                 transition: "opacity 0.3s ease",
               }}
             >
-              {loading ? "ВІДПРАВЛЯЄМО..." : "ВІДПРАВИТИ"}
+              {loading ? copy.submitting : copy.submit}
             </button>
 
             <button
@@ -187,7 +230,7 @@ export function HeaderContactForm() {
                 transition: "opacity 0.3s ease",
               }}
             >
-              ЗАКРИТИ
+              {copy.close}
             </button>
           </div>
         </form>

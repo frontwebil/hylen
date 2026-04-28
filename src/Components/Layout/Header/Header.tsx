@@ -25,6 +25,29 @@ export function Header() {
   const isMenuVisible = isOpenMenu && !isContactFormOpen;
   const path = usePathname();
 
+  const t = {
+    uk: {
+      menuAbout: "про бренд",
+      menuProducts: "Продукти",
+      menuContacts: "контакти",
+      searchPlaceholder: "я шукаю...",
+      searchButton: "Знайти",
+      contactUs: "зв’язатись з нами",
+      mobileContactTitle: "Зв’язатись з нами:",
+    },
+    en: {
+      menuAbout: "about",
+      menuProducts: "Products",
+      menuContacts: "contacts",
+      searchPlaceholder: "search...",
+      searchButton: "Search",
+      contactUs: "contact us",
+      mobileContactTitle: "Contact us:",
+    },
+  } as const;
+
+  const copy = t[language];
+
   const closeMenu = () => setIsOpenMenu(false);
 
   const handleMenuToggle = () => {
@@ -87,7 +110,7 @@ export function Header() {
                   className="header-menu-link"
                   onClick={closeMenu}
                 >
-                  <p>про бренд</p>
+                  <p>{copy.menuAbout}</p>
                   <MdArrowForward className="header-menu-link-icon" />
                 </Link>
                 <Link
@@ -95,7 +118,7 @@ export function Header() {
                   className="header-menu-link"
                   onClick={closeMenu}
                 >
-                  <p>Продукти</p>
+                  <p>{copy.menuProducts}</p>
                   <MdArrowForward className="header-menu-link-icon" />
                 </Link>
                 <Link
@@ -103,7 +126,7 @@ export function Header() {
                   className="header-menu-link"
                   onClick={closeMenu}
                 >
-                  <p>контакти</p>
+                  <p>{copy.menuContacts}</p>
                   <MdArrowForward className="header-menu-link-icon" />
                 </Link>
               </div>
@@ -129,13 +152,13 @@ export function Header() {
                   type="text"
                   id="search-input"
                   className="header-search-input"
-                  placeholder="я шукаю..."
+                  placeholder={copy.searchPlaceholder}
                 />
               </div>
 
               <div className="header-search-button">
                 {width && width > 1340 ? (
-                  "Знайти"
+                  copy.searchButton
                 ) : (
                   <Image
                     src={"/Header/search-white.svg"}
@@ -151,10 +174,10 @@ export function Header() {
           <div
             className={`header-tel-us ${path == "/contact" && "under-line-contact"}`}
           >
-            <Link href={"tel:380998409875"}>+38 (099) 840-98-75</Link>
+            <Link href={"tel:380997465652"}>+38 (099) 746 56 52</Link>
           </div>
           <div className="contact-us" onClick={handleContactFormOpen}>
-            <p>зв’язатись з нами</p>
+            <p>{copy.contactUs}</p>
             <Image
               src={"/Header/arrow-white.svg"}
               width={14}
@@ -203,7 +226,7 @@ export function Header() {
                   className="header-menu-link"
                   onClick={closeMenu}
                 >
-                  <p>про бренд</p>
+                  <p>{copy.menuAbout}</p>
                   <MdArrowForward className="header-menu-link-icon" />
                 </Link>
                 <Link
@@ -211,7 +234,7 @@ export function Header() {
                   className="header-menu-link"
                   onClick={closeMenu}
                 >
-                  <p>Продукти</p>
+                  <p>{copy.menuProducts}</p>
                   <MdArrowForward className="header-menu-link-icon" />
                 </Link>
                 <Link
@@ -219,7 +242,7 @@ export function Header() {
                   className="header-menu-link last"
                   onClick={closeMenu}
                 >
-                  <p>контакти</p>
+                  <p>{copy.menuContacts}</p>
                   <MdArrowForward className="header-menu-link-icon" />
                 </Link>
                 {width && width <= 620 && (
@@ -241,18 +264,18 @@ export function Header() {
                         type="text"
                         id="search-input"
                         className="header-search-input"
-                        placeholder="я шукаю..."
+                        placeholder={copy.searchPlaceholder}
                       />
                     </div>
 
                     <div className="header-search-button">
-                      {width && width >= 1340 ? "Знайти" : <IoMdSearch />}
+                      {width && width >= 1340 ? copy.searchButton : <IoMdSearch />}
                     </div>
                   </div>
                 )}
                 <div className="header-menu-mobile-contact">
                   <h3 className="header-menu-mobile-contact-title">
-                    Зв’язатись з нами:
+                    {copy.mobileContactTitle}
                   </h3>
                   <div className="header-menu-mobile-contact-cards">
                     <div
@@ -270,7 +293,7 @@ export function Header() {
                       />
                     </div>
                     <Link
-                      href={"tel:380998409875"}
+                      href={"tel:380997465652"}
                       className="header-menu-mobile-contact-card"
                       onClick={(e) => {
                         e.stopPropagation();

@@ -6,12 +6,47 @@ import { useEffect, useRef, useState } from "react";
 import { useHeaderContactForm } from "@/Store/useHeaderContactForm";
 import { IoArrowForward } from "react-icons/io5";
 import Link from "next/link";
+import { useLanguage } from "@/Store/useLanguage";
 
 export function Hero() {
   const sectionRef = useRef<HTMLElement | null>(null);
   const [activeSlide, setActiveSlide] = useState(0);
   const [isAnimationReady, setIsAnimationReady] = useState(false);
   const { open: openContactForm } = useHeaderContactForm();
+  const { language } = useLanguage();
+
+  const t = {
+    uk: {
+      slideTitle1: "Техніка, що не підводить",
+      slideTitle2: "Індивідуально спроектовані рішення",
+      contactUs: "зв’язатись з нами",
+      sliderAria1: "Показати перший слайд",
+      sliderAria2: "Показати другий слайд",
+      aboutText:
+        "HYLEN – це більше, ніж інженерний бренд. Це надійний партнер для тих, хто рухає країну вперед. З 1979 року ми створюємо техніку, яка не підводить. У кожному міліметрі нашої продукції – досвід і характер. Наша техніка розроблена, щоб бути продовженням сили. Щоб не підвести, коли все тримається на міліметрі.",
+      next: "далі",
+      customText:
+        "Для особливих завдань і нестандартних вимог ми пропонуємо індивідуальні рішення, створені під конкретні потреби клієнта. Наші інженери адаптують конструкції, щоб техніка працювала максимально ефективно та надійно саме у вашому випадку.",
+      customListTitle: "Індивідуально спроектованими можуть бути:",
+      customList: ["розмір", "форма", "колір", "комплектація"],
+    },
+    en: {
+      slideTitle1: "Machinery that doesn’t let you down",
+      slideTitle2: "Custom-engineered solutions",
+      contactUs: "contact us",
+      sliderAria1: "Show first slide",
+      sliderAria2: "Show second slide",
+      aboutText:
+        "HYLEN is more than an engineering brand. It is a reliable partner for those who move the country forward. Since 1979, we have been creating equipment that never lets you down. In every millimeter of our products – there is experience and character. Our trailers are designed to extend your strength. To hold when everything rests on a millimeter.",
+      next: "next",
+      customText:
+        "For special tasks and unique requirements, we provide customised solutions tailored precisely to your needs. Our engineers refine each design to ensure maximum efficiency and reliability for your specific application.",
+      customListTitle: "Custom-designed can be:",
+      customList: ["size", "shape", "color", "configuration"],
+    },
+  } as const;
+
+  const copy = t[language];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -101,22 +136,22 @@ export function Hero() {
                 isAnimationReady && activeSlide === 0 ? "visible" : "hidden"
               }`}
             >
-              Техніка, що не підводить
+              {copy.slideTitle1}
             </h2>
             <h2
               className={`hero-title ${
                 isAnimationReady && activeSlide === 1 ? "visible" : "hidden"
               }`}
             >
-              Індивідуально спроектовані рішення
+              {copy.slideTitle2}
             </h2>
           </div>
 
-          <Link href={"/contact"}
-            type="button"
+          <Link
+            href={"/contact"}
             className={`hero-contact-us ${isAnimationReady ? "visible" : "hidden"}`}
           >
-            <p>зв’язатись з нами</p>
+            <p>{copy.contactUs}</p>
             <IoArrowForward />
           </Link>
         </div>
@@ -132,13 +167,13 @@ export function Hero() {
               type="button"
               className={`hero-slide ${activeSlide === 0 ? "active" : ""}`}
               onClick={() => scrollToSlide(0)}
-              aria-label="Показати перший слайд"
+              aria-label={copy.sliderAria1}
             />
             <button
               type="button"
               className={`hero-slide ${activeSlide === 1 ? "active" : ""}`}
               onClick={() => scrollToSlide(1)}
-              aria-label="Показати другий слайд"
+              aria-label={copy.sliderAria2}
             />
           </div>
 
@@ -148,18 +183,12 @@ export function Hero() {
                 isAnimationReady && activeSlide === 0 ? "visible" : "hidden"
               }`}
             >
-              <p>
-                HYLEN – це більше, ніж інженерний бренд. Це надійний партнер для
-                тих, хто рухає країну вперед. З 1979 року ми створюємо техніку,
-                яка не підводить. У кожному міліметрі нашої продукції – досвід і
-                характер. Наша техніка розроблена, щоб бути продовженням сили.
-                Щоб не підвести, коли все тримається на міліметрі.
-              </p>
+              <p>{copy.aboutText}</p>
               <button
                 className="hero-right-text-next-button"
                 onClick={() => scrollToSlide(1)}
               >
-                <p>далі</p>
+                <p>{copy.next}</p>
                 <Image
                   src={"/Hero/next-icon.svg"}
                   width={8}
@@ -174,19 +203,15 @@ export function Hero() {
                 isAnimationReady && activeSlide === 1 ? "visible" : "hidden"
               }`}
             >
-              <p>
-                Для особливих завдань і нестандартних вимог ми пропонуємо
-                індивідуальні рішення, створені під конкретні потреби клієнта.
-                Наші інженери адаптують конструкції, щоб техніка працювала
-                максимально ефективно та надійно саме у вашому випадку.
-              </p>
+              <p>{copy.customText}</p>
 
-              <h3>Індивідуально спроектованими можуть бути:</h3>
+              <h3>{copy.customListTitle}</h3>
               <div className="hero-text-second-slide-cards">
-                <div className="hero-text-second-slide-card">розмір</div>
-                <div className="hero-text-second-slide-card">форма</div>
-                <div className="hero-text-second-slide-card">комплектація</div>
-                <div className="hero-text-second-slide-card">колір</div>
+                {copy.customList.map((item) => (
+                  <div key={item} className="hero-text-second-slide-card">
+                    {item}
+                  </div>
+                ))}
               </div>
             </div>
           </div>

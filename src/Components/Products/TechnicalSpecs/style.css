@@ -59,7 +59,7 @@ th {
   border-bottom: 1px solid #000000cc;
   text-align: center;
   vertical-align: middle;
-  white-space: nowrap;
+  white-space: pre-wrap;
 }
 
 .technical-specs-table thead th {

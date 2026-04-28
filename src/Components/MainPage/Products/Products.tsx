@@ -7,6 +7,7 @@ import "./styleSlider.css";
 import { useWindowWidth } from "@/Hooks/useWindowWidth";
 import useEmblaCarousel from "embla-carousel-react";
 import { useCallback, useEffect, useState } from "react";
+import { useLanguage } from "@/Store/useLanguage";
 
 export type ProductItem = {
   title: string;
@@ -15,6 +16,8 @@ export type ProductItem = {
   link: string;
 };
 
+// Keep this named export for modules like `ProductOtherTypesSlider`.
+// It serves as a stable default (Ukrainian) list.
 export const products: ProductItem[] = [
   {
     title: "ХРЕБЕТ СИСТЕМИ",
@@ -56,6 +59,58 @@ export const products: ProductItem[] = [
 
 export function Products() {
   const width = useWindowWidth();
+  const { language } = useLanguage();
+
+  const t = {
+    uk: {
+      sectionTitle: "продукти",
+      items: products,
+    },
+    en: {
+      sectionTitle: "product range",
+      items: [
+        {
+          title: "HYLEN SPINE",
+          subTitle: "Single-axle trailers",
+          img: "/Products/1",
+          link: "/hrebet-systemy",
+        },
+        {
+          title: "HYLEN PULSE",
+          subTitle: "Mixer feeder wagons",
+          img: "/Products/2",
+          link: "/rytm-zhyvlennya",
+        },
+        {
+          title: "HYLEN BRIDGE",
+          subTitle: "Grain transfer equipment",
+          img: "/Products/3",
+          link: "/mist-mij-lankamy",
+        },
+        {
+          title: "HYLEN STREAM",
+          subTitle: "Water & fuel tanks",
+          img: "/Products/4",
+          link: "/jywa-arteria",
+        },
+        {
+          title: "HYLEN ANCHOR",
+          subTitle: "Trailers & semi-trailers",
+          img: "/Products/5",
+          link: "/tyagovyi-vyzol",
+        },
+        {
+          title: "HYLEN TERRA",
+          subTitle: "Soil cultivation equipment",
+          img: "/Products/6",
+          link: "/osnovy-vrojayy",
+        },
+      ] satisfies ProductItem[],
+    },
+  } as const;
+
+  const copy = t[language];
+  const items = copy.items;
 
   const [emblaRef, emblaApi] = useEmblaCarousel({
     loop: true,
@@ -101,12 +156,12 @@ export function Products() {
             height={6}
             alt="icon"
           />
-          <h4>продукти</h4>
+          <h4>{copy.sectionTitle}</h4>
         </div>
 
         {width && width >= 600 ? (
           <div className="products-grid">
-            {products.map((el, i) => (
+            {items.map((el, i) => (
               <ProductCard product={el} key={i} />
             ))}
           </div>
@@ -114,7 +169,7 @@ export function Products() {
           <div className="products-slider">
             <div className="products-slider-viewport" ref={emblaRef}>
               <div className="products-slider-container">
-                {products.map((el, i) => (
+                {items.map((el, i) => (
                   <div className="products-slide" key={i}>
                     <ProductCard product={el} />
                   </div>
@@ -122,7 +177,7 @@ export function Products() {
               </div>
             </div>
             <div className="products-slider-controls">
-              {products.map((_, index) => (
+              {items.map((_, index) => (
                 <button
                   key={index}
                   className={`products-slider-bar ${

@@ -6,6 +6,7 @@ import React, { useEffect, useState } from "react";
 import { useWindowWidth } from "@/Hooks/useWindowWidth";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { useLanguage } from "@/Store/useLanguage";
 
 type FormData = {
   name: string;
@@ -16,6 +17,71 @@ type FormData = {
 };
 
 export function ContactFormSection() {
+  const { language } = useLanguage();
+
+  const t = {
+    uk: {
+      title: "Контакти",
+      description:
+        "Ми завжди на зв’язку і готові допомогти вам обрати техніку HYLEN, яка підсилить ваше господарство і зробить роботу ефективнішою.",
+      phoneLabel: "Тел.:",
+      emailLabel: "Пошта:",
+      workTitle: "Графік роботи",
+      monFri: "Понеділок – П'ятниця:",
+      breakLabel: "Перерва:",
+      weekendLabel: "Субота, неділя:",
+      weekendValue: "вихідні",
+      formTitle: "Зв’яжіться з нами,",
+      formDescription:
+        "щоб отримати консультацію, замовити продукцію або дізнатись більше про індивідуальні рішення HYLEN. Ми цінуємо кожного клієнта і працюємо для вашого успіху.",
+      placeholders: {
+        name: "Ім’я*",
+        company: "Назва компанії",
+        phone: "+38044123 45 67",
+        email: "Email*",
+        message: "Запит*",
+      },
+      submit: "ВІДПРАВИТИ",
+      submitting: "ВІДПРАВЛЯЄМО...",
+      toast: {
+        invalidEmail: "Некоректний email",
+        sent: "Заявку успішно відправлено!",
+        error: "Помилка при відправці",
+      },
+    },
+    en: {
+      title: "Contacts",
+      description:
+        "We are always by your side – helping you choose HYLEN equipment that will strengthen your farm and improve efficiency.",
+      phoneLabel: "Tel.:",
+      emailLabel: "E-mail:",
+      workTitle: "Working Hours",
+      monFri: "Monday – Friday:",
+      breakLabel: "Break:",
+      weekendLabel: "Saturday & Sunday:",
+      weekendValue: "Closed",
+      formTitle: "Contact us",
+      formDescription:
+        "For expert advice, product orders, or to explore customised HYLEN solutions. Your success is our mission. Every customer matters.",
+      placeholders: {
+        name: "Name*",
+        company: "Company",
+        phone: "+38044123 45 67",
+        email: "E-mail*",
+        message: "Message*",
+      },
+      submit: "SEND",
+      submitting: "SENDING...",
+      toast: {
+        invalidEmail: "Invalid e-mail",
+        sent: "Successfully sent!",
+        error: "Send error",
+      },
+    },
+  } as const;
+
+  const copy = t[language];
+
   const [data, setData] = useState<FormData>({
     name: "",
     company: "",
@@ -54,19 +120,20 @@ export function ContactFormSection() {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     if (!emailRegex.test(data.email)) {
-      toast.error("Некоректний email", {
+      toast.error(copy.toast.invalidEmail, {
         style: {
           background: "#c0c8c6",
           color: "#1f2a19",
         },
       });
+      setLoading(false);
       return;
     }
 
     try {
       await axios.post("/api/create-leed", { data });
 
-      toast.success("Заявку успішно відправлено!");
+      toast.success(copy.toast.sent);
 
       setData({
         name: "",
@@ -77,7 +144,7 @@ export function ContactFormSection() {
       });
     } catch (error) {
       console.log(error);
-      toast.error("Помилка при відправці", {
+      toast.error(copy.toast.error, {
         style: {
           background: "#c0c8c6",
           color: "#1f2a19",
@@ -92,54 +159,53 @@ export function ContactFormSection() {
     <section className="ContactFormSection" id="contacts">
       <div className="container">
         <div className="ContactFormSection-left-text">
-          <h2 className="ContactFormSection-left-text-title">Контакти</h2>
+          <h2 className="ContactFormSection-left-text-title">{copy.title}</h2>
           <p className="ContactFormSection-left-text-description">
-            Ми завжди на зв’язку і готові допомогти вам обрати техніку HYLEN,
-            яка підсилить ваше господарство і зробить роботу ефективнішою.
+            {copy.description}
           </p>
 
           <Link
-            href={"tel:380998409875"}
+            href={"tel:380997465652"}
             className="ContactFormSection-left-text-info"
           >
-            <p>Тел:</p>
-            <p>+38 (099) 840-98-75</p>
+            <p>{copy.phoneLabel}</p>
+            <p>+38 (099) 746 56 52</p>
           </Link>
 
           <Link
             href={"mailto:hylen.company@gmail.com"}
             className="ContactFormSection-left-text-info"
           >
-            <p>Пошта:</p>
+            <p>{copy.emailLabel}</p>
             <p>
               <b>hylen.company@gmail.com</b>
             </p>
           </Link>
 
           <h3 className="ContactFormSection-left-text-work-title">
-            Графік роботи:
+            {copy.workTitle}
           </h3>
 
           <div className="ContactFormSection-left-text-work-graph">
             <div className="ContactFormSection-left-text-work-graph-column">
               <p>
-                <b>Понеділок – П`ятниця:</b>
+                <b>{copy.monFri}</b>
               </p>
               <p>8:00-17:00</p>
             </div>
 
             <div className="ContactFormSection-left-text-work-graph-column">
               <p>
-                <b>Перерва:</b>
+                <b>{copy.breakLabel}</b>
               </p>
               <p>12:00-13:00</p>
             </div>
 
             <div className="ContactFormSection-left-text-work-graph-column">
               <p>
-                <b>Вихідні:</b>
+                <b>{copy.weekendLabel}</b>
               </p>
-              <p>Субота, неділя</p>
+              <p>{copy.weekendValue}</p>
             </div>
           </div>
         </div>
@@ -153,12 +219,8 @@ export function ContactFormSection() {
             <form className="contact-request-form" onSubmit={handleSubmit}>
               {width && width <= 1165 && (
                 <div className="header-contact-form-text">
-                  <h2>Зв’яжіться з нами:</h2>
-                  <p>
-                    щоб отримати консультацію, замовити продукцію або дізнатись
-                    більше про індивідуальні рішення HYLEN. Ми цінуємо кожного
-                    клієнта і працюємо для вашого успіху.
-                  </p>
+                  <h2>{copy.formTitle}</h2>
+                  <p>{copy.formDescription}</p>
                 </div>
               )}
 
@@ -167,7 +229,7 @@ export function ContactFormSection() {
                   <input
                     type="text"
                     name="name"
-                    placeholder="Ім’я*"
+                    placeholder={copy.placeholders.name}
                     value={data.name}
                     onChange={handleChange}
                     className="contact-request-form-input"
@@ -179,7 +241,7 @@ export function ContactFormSection() {
                   <input
                     type="text"
                     name="company"
-                    placeholder="Назва компанії"
+                    placeholder={copy.placeholders.company}
                     value={data.company}
                     onChange={handleChange}
                     className="contact-request-form-input"
@@ -190,7 +252,7 @@ export function ContactFormSection() {
                   <input
                     type="tel"
                     name="phone"
-                    placeholder="+38044123 45 67"
+                    placeholder={copy.placeholders.phone}
                     value={data.phone}
                     onChange={handleChange}
                     className="contact-request-form-input"
@@ -202,7 +264,7 @@ export function ContactFormSection() {
                   <input
                     type="email"
                     name="email"
-                    placeholder="Email*"
+                    placeholder={copy.placeholders.email}
                     value={data.email}
                     onChange={handleChange}
                     className="contact-request-form-input"
@@ -214,7 +276,7 @@ export function ContactFormSection() {
                   <textarea
                     rows={5}
                     name="message"
-                    placeholder="Запит*"
+                    placeholder={copy.placeholders.message}
                     value={data.message}
                     onChange={handleChange}
                     className="contact-request-form-textarea"
@@ -233,7 +295,7 @@ export function ContactFormSection() {
                     transition: "opacity 0.3s ease",
                   }}
                 >
-                  {loading ? "ВІДПРАВЛЯЄМО..." : "ВІДПРАВИТИ"}
+                  {loading ? copy.submitting : copy.submit}
                 </button>
               </div>
             </form>

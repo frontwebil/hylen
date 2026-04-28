@@ -205,6 +205,10 @@ a.product-hero-content-card {
   background-color: #1f2a19;
 }
 
+.single-card{
+  width: 100%;
+}
+
 @media (max-width: 1300px) {
   .product-hero-content-left {
     max-width: 360px;

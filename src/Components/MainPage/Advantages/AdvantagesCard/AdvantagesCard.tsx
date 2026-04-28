@@ -3,6 +3,7 @@
 import Image from "next/image";
 import "./style.css";
 import type { AdvantageBlock } from "../advantagesData";
+import { useLanguage } from "@/Store/useLanguage";
 
 type AdvantagesCardProps = AdvantageBlock & {
   isOpen: boolean;
@@ -18,6 +19,9 @@ export function AdvantagesCard({
   isOpen,
   onToggle,
 }: AdvantagesCardProps) {
+  const { language } = useLanguage();
+  const benefitLabel = language === "en" ? "Your benefits:" : "Це дає вам:";
+
   return (
     <div className={`advantages-card ${isOpen ? "open" : ""}`}>
       <div className="advantages-card-top" onClick={() => onToggle(id)}>
@@ -45,7 +49,7 @@ export function AdvantagesCard({
                 alt=""
               />
               <p>
-                <strong>Це дає вам:</strong> {benefit}
+                <strong>{benefitLabel}</strong> {benefit}
               </p>
             </div>
           </div>
