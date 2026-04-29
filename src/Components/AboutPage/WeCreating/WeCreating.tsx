@@ -8,38 +8,51 @@ import {
   type CSSProperties,
 } from "react";
 import "./style.css";
+import { useLanguage } from "@/Store/useLanguage";
 
-const WE_CREATING_TEXT =
-  "МИ СТВОРИЛИ HYLEN – ДЛЯ ЛЮДЕЙ СПРАВИ. ДЛЯ ТИХ, ХТО ПРАЦЮЄ В ПОЛІ, НА СКЛАДІ, У МАЙСТЕРНІ ЧИ НА ВИРОБНИЦТВІ. ДЛЯ ТИХ, ХТО ЗАХИЩАЄ КРАЇНУ І РУХАЄ ЇЇ ВПЕРЕД. ДЛЯ ТИХ, ХТО МАЄ СПРАВУ З ТЕХНІКОЮ ЩОДНЯ І ХОЧЕ ОДНОГО, ЩОБ ЦЯ ТЕХНІКА БУЛА НАДІЙНОЮ І ПРАЦЮВАЛА ВІДМІННО.";
-
-const WE_CREATING_TAGS = [
-  { label: "ФЕРМЕРИ", top: "20%", left: "10%", start: 0.12 },
-  { label: "ВОДІЇ", top: "33%", left: "58%", start: 0.2 },
-  {
-    label: "МЕХАНІЗАТОРИ",
-    top: "42%",
-    left: "36%",
-    start: 0.3,
+const WE_CREATING_COPY = {
+  uk: {
+    text: "МИ СТВОРИЛИ HYLEN – ДЛЯ ЛЮДЕЙ СПРАВИ. ДЛЯ ТИХ, ХТО ПРАЦЮЄ В ПОЛІ, НА СКЛАДІ, У МАЙСТЕРНІ ЧИ НА ВИРОБНИЦТВІ. ДЛЯ ТИХ, ХТО ЗАХИЩАЄ КРАЇНУ І РУХАЄ ЇЇ ВПЕРЕД. ДЛЯ ТИХ, ХТО МАЄ СПРАВУ З ТЕХНІКОЮ ЩОДНЯ І ХОЧЕ ОДНОГО, ЩОБ ЦЯ ТЕХНІКА БУЛА НАДІЙНОЮ І ПРАЦЮВАЛА ВІДМІННО.",
+    tags: [
+      { label: "ФЕРМЕРИ", top: "20%", left: "10%", start: 0.12 },
+      { label: "ВОДІЇ", top: "33%", left: "58%", start: 0.2 },
+      { label: "МЕХАНІЗАТОРИ", top: "42%", left: "36%", start: 0.3 },
+      { label: "МАЙСТРИ", top: "55%", left: "20%", start: 0.46 },
+      { label: "ВІЙСЬКОВІ", top: "60%", left: "78%", start: 0.38 },
+      { label: "УПРАВЛІНЦІ", top: "70%", left: "36%", start: 0.62 },
+      { label: "ЛОГІСТИ", top: "82%", left: "60%", start: 0.54 },
+    ],
   },
-  { label: "МАЙСТРИ", top: "55%", left: "20%", start: 0.46 },
-  { label: "ВІЙСЬКОВІ", top: "60%", left: "78%", start: 0.38 },
-  { label: "УПРАВЛІНЦІ", top: "70%", left: "36%", start: 0.62 },
-  { label: "ЛОГІСТИ", top: "82%", left: "60%", start: 0.54 },
-] as const;
+  en: {
+    text: "THE PEOPLE WE BUILT HYLEN FOR. FOR THOSE WHO WORK IN THE FIELD, IN A WAREHOUSE, IN A WORKSHOP, OR IN MANUFACTURING. FOR THOSE WHO PROTECT THE NATION AND KEEP IT MOVING FORWARD. FOR THOSE WHO KEEP THE FLOW RUNNING, DAY AFTER DAY, DEMANDING RELIABILITY AND UNINTERRUPTED PERFORMANCE.",
+    tags: [
+      { label: "FARMERS", top: "20%", left: "10%", start: 0.12 },
+      { label: "DRIVERS", top: "33%", left: "58%", start: 0.2 },
+      { label: "OPERATORS", top: "42%", left: "36%", start: 0.3 },
+      { label: "REPAIR", top: "55%", left: "20%", start: 0.46 },
+      { label: "MILITARY", top: "60%", left: "78%", start: 0.38 },
+      { label: "MANAGERS", top: "70%", left: "36%", start: 0.62 },
+      { label: "LOGISTICS", top: "82%", left: "60%", start: 0.54 },
+    ],
+  },
+} as const;
 
 const clamp01 = (value: number) => Math.min(Math.max(value, 0), 1);
 const lerp = (from: number, to: number, t: number) => from + (to - from) * t;
 const easeOutCubic = (t: number) => 1 - Math.pow(1 - t, 3);
 
 export function WeCreating() {
+  const { language } = useLanguage();
+  const copy = WE_CREATING_COPY[language];
+
   const sectionRef = useRef<HTMLElement | null>(null);
   const [progress, setProgress] = useState(0);
 
-  const words = useMemo(() => WE_CREATING_TEXT.split(" "), []);
+  const words = useMemo(() => copy.text.split(" "), [copy.text]);
   const lettersCount = useMemo(
     () =>
-      Array.from(WE_CREATING_TEXT).filter((letter) => letter !== " ").length,
-    [],
+      Array.from(copy.text).filter((letter) => letter !== " ").length,
+    [copy.text],
   );
 
   useEffect(() => {
@@ -133,7 +146,7 @@ export function WeCreating() {
       </div>
 
       <div className="we-creating-tags" aria-hidden="true">
-        {WE_CREATING_TAGS.map((tag) => (
+        {copy.tags.map((tag) => (
           <span
             key={tag.label}
             className="we-creating-tag"

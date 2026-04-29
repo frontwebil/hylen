@@ -8,9 +8,18 @@ import {
   type CSSProperties,
 } from "react";
 import "./style.css";
+import { useLanguage } from "@/Store/useLanguage";
 
-const PEOPLE_HYLEN_TEXT =
-  "Ми віримо, що найпотужніший ресурс – це люди. HYLEN – це команда інженерів, зварювальників, логістів, управлінців та водіїв, об’єднана спільною метою: створювати техніку, яка допомагає іншим бути сильнішими.";
+const PEOPLE_HYLEN_BY_LANG = {
+  uk: {
+    title: "Люди HYLEN",
+    text: "Ми віримо, що найпотужніший ресурс – це люди. HYLEN – це команда інженерів, зварювальників, логістів, управлінців та водіїв, об’єднана спільною метою: створювати техніку, яка допомагає іншим бути сильнішими.",
+  },
+  en: {
+    title: "HYLEN people",
+    text: "At HYLEN, people come first. HYLEN is a team of engineers, welders, logistics experts, managers, and drivers sharing a common goal – to create equipment that makes others stronger and more resilient.",
+  },
+} as const;
 
 const PEOPLE_HYLEN_PHOTOS = [
   { src: "/AboutPage/PeopleHylen/1.png", top: "28%", left: "74%", start: 0.12 },
@@ -24,10 +33,13 @@ const lerp = (from: number, to: number, t: number) => from + (to - from) * t;
 const easeOutCubic = (t: number) => 1 - Math.pow(1 - t, 3);
 
 export function PeopleHylen() {
+  const { language } = useLanguage();
+  const copy = PEOPLE_HYLEN_BY_LANG[language];
+
   const sectionRef = useRef<HTMLElement | null>(null);
   const [progress, setProgress] = useState(0);
 
-  const words = useMemo(() => PEOPLE_HYLEN_TEXT.split(" "), []);
+  const words = useMemo(() => copy.text.split(" "), [copy.text]);
   const wordStartLetterIndex = useMemo(() => {
     const lengths = words.map((word) => Array.from(word).length);
     const starts: number[] = [];
@@ -44,8 +56,8 @@ export function PeopleHylen() {
   );
   const lettersCount = useMemo(
     () =>
-      Array.from(PEOPLE_HYLEN_TEXT).filter((letter) => letter !== " ").length,
-    [],
+      Array.from(copy.text).filter((letter) => letter !== " ").length,
+    [copy.text],
   );
 
   useEffect(() => {
@@ -86,7 +98,7 @@ export function PeopleHylen() {
       <div className="people-hylen-sticky">
         <div className="people-hylen-container">
           <div className="people-hylen-text">
-            <p>Люди HYLEN</p>
+            <p>{copy.title}</p>
             <h2 className="people-hylen-title">
               {(() => {
                 const renderLetter = (

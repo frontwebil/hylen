@@ -9,6 +9,7 @@ import {
   useState,
   type CSSProperties,
 } from "react";
+import { useLanguage } from "@/Store/useLanguage";
 
 const clamp01 = (value: number) => Math.min(Math.max(value, 0), 1);
 const easeOutCubic = (t: number) => 1 - Math.pow(1 - t, 3);
@@ -16,39 +17,75 @@ const easeInOutCubic = (t: number) =>
   t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
 
 export function UniqHylen() {
+  const { language } = useLanguage();
+
   const sectionRef = useRef<HTMLElement | null>(null);
   const [progress, setProgress] = useState(0);
 
   const cards = useMemo(
     () => ({
-      left: [
-        {
-          title: "[01]",
-          text: "У HYLEN немає випадкових рішень. Ми не створюємо «чергову техніку» –ми створюємо рішення, які працюють у реальному житті",
-        },
-        {
-          title: "[02]",
-          text: "Ми закладаємо витривалість ще на етапі креслення. Ми зварюємо характеру кожен шов",
-        },
-        {
-          title: "[03]",
-          text: "І кожен наш продукт – це результат повного виробничого циклу",
-        },
-      ],
-      right: [
-        {
-          title: "[01]",
-          text: "Наш підхід – це поєднання інженерної точності, виробничого досвіду та глибокого розуміння того, як має працювати надійна техніка",
-        },
-        {
-          title: "[02]",
-          text: "Ми створюємо не просто конструкції, а механіку інстинкту – техніку, яка підлаштовується під реальні умови, а не під ідеальні сценарії",
-        },
-        {
-          title: "[03]",
-          text: "Результат, який ми контролюємо від першого металевого листа до готового причепа",
-        },
-      ],
+      uk: {
+        title: "Унікальність HYLEN",
+        left: [
+          {
+            title: "[01]",
+            text: "У HYLEN немає випадкових рішень. Ми не створюємо «чергову техніку» –ми створюємо рішення, які працюють у реальному житті",
+          },
+          {
+            title: "[02]",
+            text: "Ми закладаємо витривалість ще на етапі креслення. Ми зварюємо характеру кожен шов",
+          },
+          {
+            title: "[03]",
+            text: "І кожен наш продукт – це результат повного виробничого циклу",
+          },
+        ],
+        right: [
+          {
+            title: "[01]",
+            text: "Наш підхід – це поєднання інженерної точності, виробничого досвіду та глибокого розуміння того, як має працювати надійна техніка",
+          },
+          {
+            title: "[02]",
+            text: "Ми створюємо не просто конструкції, а механіку інстинкту – техніку, яка підлаштовується під реальні умови, а не під ідеальні сценарії",
+          },
+          {
+            title: "[03]",
+            text: "Результат, який ми контролюємо від першого металевого листа до готового причепа",
+          },
+        ],
+      },
+      en: {
+        title: "The uniqueness of HYLEN",
+        left: [
+          {
+            title: "[01]",
+            text: "At HYLEN, nothing is random. We don’t build “just another machine” — we create solutions that work in real life.",
+          },
+          {
+            title: "[02]",
+            text: "We build endurance in from the drawing stage. We weld character into every seam.",
+          },
+          {
+            title: "[03]",
+            text: "And every product we make is the result of a full production cycle.",
+          },
+        ],
+        right: [
+          {
+            title: "[01]",
+            text: "Our approach combines engineering precision, manufacturing experience, and a deep understanding of how reliable equipment must work.",
+          },
+          {
+            title: "[02]",
+            text: "We don’t just create structures — we create instinctive mechanics: equipment that adapts to real conditions, not ideal scenarios.",
+          },
+          {
+            title: "[03]",
+            text: "A result we control from the first steel sheet to the finished trailer.",
+          },
+        ],
+      },
     }),
     [],
   );
@@ -105,7 +142,7 @@ export function UniqHylen() {
   return (
     <>
       <section
-        className="uniq-hylen"
+        className={`uniq-hylen ${language === "en" ? "lang-en" : "lang-uk"}`}
         ref={sectionRef}
         style={
           {
@@ -113,7 +150,7 @@ export function UniqHylen() {
           } as CSSProperties
         }
       >
-        <h2 className="uniq-hylen-title">Унікальність HYLEN</h2>
+        <h2 className="uniq-hylen-title">{cards[language].title}</h2>
         <div className="uniq-hylen-sticky">
           <div className="container">
             <div className="uniq-hylen-top">
@@ -130,7 +167,7 @@ export function UniqHylen() {
             </div>
             <div className="uniq-hylen-content">
               <div className="uniq-hylen-content-left-column">
-                {cards.left.map((card, index) => (
+                {cards[language].left.map((card, index) => (
                   <div
                     key={`left-${card.title}-${index}`}
                     className="uniq-hylen-content-card"
@@ -145,7 +182,7 @@ export function UniqHylen() {
                 <div className="uniq-hylen-content-middle-progressline" />
               </div>
               <div className="uniq-hylen-content-right-column">
-                {cards.right.map((card, index) => (
+                {cards[language].right.map((card, index) => (
                   <div
                     key={`right-${card.title}-${index}`}
                     className="uniq-hylen-content-card"

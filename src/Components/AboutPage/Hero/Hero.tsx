@@ -1,8 +1,34 @@
+"use client";
+
 import Image from "next/image";
 import "./style.css";
 import { IoMdArrowDropright } from "react-icons/io";
+import { useLanguage } from "@/Store/useLanguage";
 
 export function Hero() {
+  const { language } = useLanguage();
+
+  const t = {
+    uk: {
+      topLabel: "про бренд",
+      bottomLead: (
+        <>
+          – це більше, ніж <br /> інженерний бренд
+        </>
+      ),
+    },
+    en: {
+      topLabel: "about HYLEN",
+      bottomLead: (
+        <>
+          is more than just <br /> an engineering company
+        </>
+      ),
+    },
+  } as const;
+
+  const copy = t[language];
+
   return (
     <section className="about-hero">
       <video
@@ -19,7 +45,7 @@ export function Hero() {
         <div className="container">
           <div className="about-hero-text-top">
             <IoMdArrowDropright />
-            <p>про Бренд</p>
+            <p>{copy.topLabel}</p>
           </div>
           <Image
             src={"/AboutPage/Hero/Hero-img.svg"}
@@ -30,7 +56,7 @@ export function Hero() {
           />
           <div className="about-hero-text-bottom">
             <p>–</p>
-            <p>це більше, ніж <br /> інженерний бренд</p>
+            <p>{copy.bottomLead}</p>
           </div>
         </div>
       </div>
