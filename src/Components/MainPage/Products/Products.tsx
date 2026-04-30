@@ -38,7 +38,7 @@ export const products: ProductItem[] = [
     link: "/mist-mij-lankamy",
   },
   {
-    title: "ЖИВА АРТЕРІЯ",
+    title: "Живильний потік",
     subTitle: "Цистерни для води та пального",
     img: "/Products/4",
     link: "/zhyva-arteriya",
