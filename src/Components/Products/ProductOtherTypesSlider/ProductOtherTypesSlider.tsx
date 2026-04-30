@@ -84,6 +84,21 @@ export function ProductOtherTypesSlider({
 
   return (
     <>
+      <section className="product-other-types-lines product-other-types-lines--top">
+        <div className="product-other-types-lines-top">
+          <div className="container">
+            <span className="product-other-types-lines-top-left-line"></span>
+            <span className="product-other-types-lines-top-right-line"></span>
+          </div>
+        </div>
+        <div className="product-other-types-lines-bottom">
+          <div className="container">
+            <span className="product-other-types-lines-bottom-left-line"></span>
+            <span className="product-other-types-lines-bottom-middle-line"></span>
+            <span className="product-other-types-lines-bottom-right-line"></span>
+          </div>
+        </div>
+      </section>
       <section
         className="product-other-types"
         aria-labelledby="product-other-types-heading"
@@ -136,7 +151,7 @@ export function ProductOtherTypesSlider({
 
         <div className="product-other-types-bg-bottom"></div>
       </section>
-      <section className="product-other-types-lines">
+      <section className="product-other-types-lines product-other-types-lines--bottom">
         <div className="product-other-types-lines-top">
           <div className="container">
             <span className="product-other-types-lines-top-left-line"></span>
