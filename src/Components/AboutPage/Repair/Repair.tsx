@@ -36,17 +36,17 @@ export function Repair() {
 
   return (
     <>
-      <section className="UnderByroLines">
+      <section className="repair-lines">
         {" "}
-        <div className="UnderByroLines-bottom">
+        <div className="repair-lines-bottom">
           <div className="container">
-            <span className="UnderByroLines-bottom-left-line"></span>
-            <span className="UnderByroLines-bottom-middle-line"></span>
+            <span className="repair-lines-bottom-left-line"></span>
+            <span className="repair-lines-bottom-middle-line"></span>
           </div>
         </div>
-        <div className="UnderByroLines-top">
+        <div className="repair-lines-top">
           <div className="container">
-            <span className="UnderByroLines-top-left-line"></span>
+            <span className="repair-lines-top-left-line"></span>
           </div>
         </div>
       </section>
@@ -98,18 +98,18 @@ export function Repair() {
         )}
       </section>
 
-      <section className="UnderByroLines">
-        <div className="UnderByroLines-top">
+      <section className="repair-lines">
+        <div className="repair-lines-top">
           <div className="container">
-            <span className="UnderByroLines-top-left-line"></span>
-            <span className="UnderByroLines-top-right-line"></span>
+            <span className="repair-lines-top-left-line"></span>
+            <span className="repair-lines-top-right-line"></span>
           </div>
         </div>
-        <div className="UnderByroLines-bottom">
+        <div className="repair-lines-bottom">
           <div className="container">
-            <span className="UnderByroLines-bottom-left-line"></span>
-            <span className="UnderByroLines-bottom-middle-line"></span>
-            <span className="UnderByroLines-bottom-right-line"></span>
+            <span className="repair-lines-bottom-left-line"></span>
+            <span className="repair-lines-bottom-middle-line"></span>
+            <span className="repair-lines-bottom-right-line"></span>
           </div>
         </div>
       </section>

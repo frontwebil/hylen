@@ -136,18 +136,18 @@ export function ProductOtherTypesSlider({
 
         <div className="product-other-types-bg-bottom"></div>
       </section>
-      <section className="UnderByroLines">
-        <div className="UnderByroLines-top">
+      <section className="product-other-types-lines">
+        <div className="product-other-types-lines-top">
           <div className="container">
-            <span className="UnderByroLines-top-left-line"></span>
-            <span className="UnderByroLines-top-right-line"></span>
+            <span className="product-other-types-lines-top-left-line"></span>
+            <span className="product-other-types-lines-top-right-line"></span>
           </div>
         </div>
-        <div className="UnderByroLines-bottom">
+        <div className="product-other-types-lines-bottom">
           <div className="container">
-            <span className="UnderByroLines-bottom-left-line"></span>
-            <span className="UnderByroLines-bottom-middle-line"></span>
-            <span className="UnderByroLines-bottom-right-line"></span>
+            <span className="product-other-types-lines-bottom-left-line"></span>
+            <span className="product-other-types-lines-bottom-middle-line"></span>
+            <span className="product-other-types-lines-bottom-right-line"></span>
           </div>
         </div>
       </section>
