@@ -41,13 +41,13 @@ export const products: ProductItem[] = [
     title: "ЖИВА АРТЕРІЯ",
     subTitle: "Цистерни для води та пального",
     img: "/Products/4",
-    link: "/jywa-arteria",
+    link: "/zhyva-arteriya",
   },
   {
     title: "ТЯГОВИЙ ВУЗОЛ",
     subTitle: "Причепи-напівпричепи",
     img: "/Products/5",
-    link: "/tyagovyi-vyzol",
+    link: "/tyahovyy-vuzol",
   },
   {
     title: "ОСНОВИ ВРОЖАЮ",
@@ -91,13 +91,13 @@ export function Products() {
           title: "HYLEN STREAM",
           subTitle: "Water & fuel tanks",
           img: "/Products/4",
-          link: "/jywa-arteria",
+          link: "/zhyva-arteriya",
         },
         {
           title: "HYLEN ANCHOR",
           subTitle: "Trailers & semi-trailers",
           img: "/Products/5",
-          link: "/tyagovyi-vyzol",
+          link: "/tyahovyy-vuzol",
         },
         {
           title: "HYLEN TERRA",

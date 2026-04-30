@@ -92,7 +92,7 @@ export function ProductHero({ heroData }: ProductHeroProps) {
           <div
             className={`product-hero-content-cards ${heroData.cards.length === 1 ? "single-card" : ""}`}
           >
-            {heroData.cards.map((productCard, i) => (
+            {heroData.cards.slice(0, 2).map((productCard, i) => (
               <a
                 ref={(element) => {
                   cardRefs.current[productCard.id] = element;
@@ -101,10 +101,14 @@ export function ProductHero({ heroData }: ProductHeroProps) {
                 key={productCard.id}
                 href={`#${productCard.id}`}
                 aria-label={`Перейти до опису: ${productCard.subTitle}`}
-                onMouseEnter={() => !isMobile && setHoveredCardId(productCard.id)}
+                onMouseEnter={() =>
+                  !isMobile && setHoveredCardId(productCard.id)
+                }
                 onMouseLeave={() => !isMobile && setHoveredCardId(null)}
               >
-                <div className={`product-hero-content-card-media ${hoveredCardId === productCard.id ? "product-hero-content-card-media-hover" : ""}`}>
+                <div
+                  className={`product-hero-content-card-media ${hoveredCardId === productCard.id ? "product-hero-content-card-media-hover" : ""}`}
+                >
                   <Image
                     src={productCard.img}
                     alt=""
@@ -144,6 +148,69 @@ export function ProductHero({ heroData }: ProductHeroProps) {
             ))}
           </div>
         </div>
+        {heroData.cards.length > 2 && (
+          <div className="product-hero-content under">
+            <div className="product-hero-content-left"></div>
+            <div
+              className={`product-hero-content-cards ${heroData.cards.length === 1 ? "single-card" : ""}`}
+            >
+              {heroData.cards.slice(2, 6).map((productCard, i) => (
+                <a
+                  ref={(element) => {
+                    cardRefs.current[productCard.id] = element;
+                  }}
+                  className="product-hero-content-card"
+                  key={productCard.id}
+                  href={`#${productCard.id}`}
+                  aria-label={`Перейти до опису: ${productCard.subTitle}`}
+                  onMouseEnter={() =>
+                    !isMobile && setHoveredCardId(productCard.id)
+                  }
+                  onMouseLeave={() => !isMobile && setHoveredCardId(null)}
+                >
+                  <div
+                    className={`product-hero-content-card-media ${hoveredCardId === productCard.id ? "product-hero-content-card-media-hover" : ""}`}
+                  >
+                    <Image
+                      src={productCard.img}
+                      alt=""
+                      width={1000}
+                      height={1000}
+                      className={`product-hero-content-card-image ${hoveredCardId === productCard.id && loadedVideos[productCard.id] ? "hide" : ""}`}
+                    />
+
+                    {loadedVideos[productCard.id] && !isMobile && (
+                      <video
+                        className={`product-hero-content-card-video ${hoveredCardId === productCard.id ? "show" : ""}`}
+                        src={productCard.img.replace(".webp", ".mp4")}
+                        autoPlay
+                        muted
+                        loop
+                        playsInline
+                        preload="auto"
+                      />
+                    )}
+                  </div>
+                  <div
+                    className={`product-hero-content-card-underImg ${heroData.cards.length - 1 == i && ""} `}
+                  >
+                    <p className="product-hero-content-card-underImg-subTitle">
+                      {productCard.subTitle}
+                    </p>
+                    <div className="product-hero-content-card-underImg-button">
+                      <Image
+                        src={"/Header/arrow-white.svg"}
+                        width={22}
+                        height={22}
+                        alt="=>"
+                      />
+                    </div>
+                  </div>
+                </a>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
     </section>
   );
