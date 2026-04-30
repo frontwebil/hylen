@@ -7,6 +7,7 @@ import "./style.css";
 import { useWindowWidth } from "@/Hooks/useWindowWidth";
 import { UnderProductLine } from "../UnderProductLine/UnderProductLine";
 import { UnderProductTopLine } from "../UnderProductTopLine/UnderProductTopLine";
+import { useLanguage } from "@/Store/useLanguage";
 
 type ProductItem = {
   title: string;
@@ -30,8 +31,26 @@ export function ProductSections({
   productData: ProductItem;
   showTopLine?: boolean;
 }) {
+  const { language } = useLanguage();
   const [activeSlide, setActiveSlide] = useState(0);
   const width = useWindowWidth();
+  const copy = {
+    modelListAria: language === "en" ? "Models" : "Моделі",
+    customDesign:
+      language === "en"
+        ? "custom design and manufacturing"
+        : "індивідуальне проєктування та виконання виробу",
+    prevSlide: language === "en" ? "Previous slide" : "Попередній слайд",
+    nextSlide: language === "en" ? "Next slide" : "Наступний слайд",
+    madeInUkraine:
+      language === "en"
+        ? "This equipment is part of the Made in Ukraine programme and qualifies for up to 25% compensation from the Ministry of Economy."
+        : "Ця техніка входить у програму «Зроблено в Україні» з можливістю отримання компенсації 25% від вартості через Міністерство економіки.",
+    description: language === "en" ? "Description" : "Опис",
+    purpose: language === "en" ? "Purpose" : "Призначення",
+    features: language === "en" ? "Features" : "Особливості",
+    advantages: language === "en" ? "Advantages:" : "Переваги:",
+  };
 
   const slides = [
     ...(productData.video
@@ -72,7 +91,7 @@ export function ProductSections({
   };
 
   const modelCardsRow = (
-    <div className="product-model-cards" role="list" aria-label="Моделі">
+    <div className="product-model-cards" role="list" aria-label={copy.modelListAria}>
       {productData.modelCards.map((label) => (
         <div key={label} className="product-model-card" role="listitem">
           {label}
@@ -126,7 +145,7 @@ export function ProductSections({
                       />
                     </div>
                     <p className="product-slider-custom-note-text">
-                      індивідуальне проєктування та виконання виробу
+                      {copy.customDesign}
                     </p>
                   </div>
                 )}
@@ -140,7 +159,7 @@ export function ProductSections({
                   className={`product-slider-control-btn ${isFirstSlide ? "disabled" : ""}`}
                   onClick={handlePrevSlide}
                   disabled={isFirstSlide}
-                  aria-label="Попередній слайд"
+                  aria-label={copy.prevSlide}
                 >
                   <FaArrowLeft className="product-slider-control-left" />
                 </button>
@@ -181,7 +200,7 @@ export function ProductSections({
                   className={`product-slider-control-btn ${isLastSlide ? "disabled" : ""}`}
                   onClick={handleNextSlide}
                   disabled={isLastSlide}
-                  aria-label="Наступний слайд"
+                  aria-label={copy.nextSlide}
                 >
                   <FaArrowRight className="product-slider-control-right" />
                 </button>
@@ -198,9 +217,7 @@ export function ProductSections({
                   className="product-slider-alert-made-in-ukraine"
                 />
                 <p>
-                  Ця техніка входить у програму «Зроблено в Україні» з
-                  можливістю отримання компенсації 25% від вартості через
-                  Міністерство економіки.
+                  {copy.madeInUkraine}
                 </p>
               </div>
             </div>
@@ -215,19 +232,19 @@ export function ProductSections({
             )}
             <div className="product-right-text">
               <div className="product-right-text-content">
-                <h2>Опис</h2>
+                <h2>{copy.description}</h2>
                 <p>{productData.description.about}</p>
               </div>
               <div className="product-right-text-content">
-                <h2>Призначення</h2>
+                <h2>{copy.purpose}</h2>
                 <p>{productData.description.purpose}</p>
               </div>
               <div className="product-right-text-content">
-                <h2>Особливості</h2>
+                <h2>{copy.features}</h2>
                 <p>{productData.description.features}</p>
               </div>
               <div className="product-right-text-content">
-                <h2>Переваги:</h2>
+                <h2>{copy.advantages}</h2>
                 <div className="product-right-text-content-list">
                   {productData.description.advantages.map((item, i) => (
                     <div

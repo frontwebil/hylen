@@ -1,9 +1,12 @@
+"use client";
+
 import { Footer } from "@/Components/Layout/Footer/Footer";
 import { Header } from "@/Components/Layout/Header/Header";
 import { ProductOtherTypesSlider } from "@/Components/Products/ProductOtherTypesSlider/ProductOtherTypesSlider";
 import { ProductHero } from "@/Components/Products/ProductHero/ProductHero";
 import { ProductSections } from "@/Components/Products/ProductSections/ProductSections";
 import { TechnicalSpecs } from "@/Components/Products/TechnicalSpecs/TechnicalSpecs";
+import { useLanguage } from "@/Store/useLanguage";
 
 type ProductCardItem = {
   img: string;
@@ -51,7 +54,8 @@ type PageData = {
   products: ProductItem[];
 };
 
-export default function page() {
+export default function Page() {
+  const { language } = useLanguage();
   const pageData: PageData = {
     hero: {
       breadcrums: "тяговий вузол",
@@ -397,6 +401,139 @@ export default function page() {
       },
     ],
   };
+
+  if (language === "en") {
+    const labelMap: Record<string, string> = {
+      "Довжина, мм": "Length, mm",
+      "Ширина, мм": "Width, mm",
+      "Висота (у спорядженому стані), мм": "Height (curb), mm",
+      "Ширина колії, мм": "Track width, mm",
+      "Максимальна маса, кг": "Maximum mass, kg",
+      "Максимальне навантаження, кг": "Maximum load, kg",
+      "Максимальна вага з вантажем, не більше, кг":
+        "Maximum gross weight, kg",
+      "Кількість осей, шт.": "Number of axles, pcs",
+      "Кузов": "Body type",
+      "Споряджена маса, не більше, кг": "Curb weight, max, kg",
+      "Повна маса, не більше, кг": "Gross vehicle weight, max, kg",
+      "Кількість коліс, шт.": "Number of wheels, pcs",
+      "Розмір дисків коліс": "Wheel rim size",
+      "Розмір шин": "Tire size",
+      "Гальмівна система": "Brake system",
+      "Максимальна швидкість руху, км/год": "Maximum speed, km/h",
+      "Підвіска": "Suspension",
+      "Електромережа": "Electrical system",
+      "Зчіпний шкворень": "Kingpin",
+      "Причіпна петля": "Towing eye",
+      "Розмір коліс": "Wheel size",
+      "Максимальна довжина дишла причепа, мм": "Maximum drawbar length, mm",
+      "Габаритні розміри, мм (довжина/ширина (без габаритних сигналів)/висота/кліренс, не менше)":
+        "Overall dimensions, mm (length/width without marker lights/height/min clearance)",
+      "Габаритні розміри, мм (довжина, не більше / ширина / висота (у спорядженому стані))":
+        "Overall dimensions, mm (length max / width / height curb)",
+    };
+
+    pageData.hero = {
+      breadcrums: "hylen anchor",
+      title: "HYLEN ANCHOR",
+      subTitle: "Trailers and semi-trailers",
+      text: "Equipment in the HYLEN ANCHOR category is the foundation of stable and uninterrupted operation. Durable trailers and semi-trailers are designed to handle heavy loads in demanding conditions.",
+      cards: [
+        { img: "/tyahovyy-vuzol/1.webp", subTitle: "Semitrailer platform NPV 3007.5", id: "npv-3007-5" },
+        { img: "/tyahovyy-vuzol/2.webp", subTitle: "Container transport semitrailer NPTK", id: "nptk" },
+        { img: "/tyahovyy-vuzol/3.webp", subTitle: "Container transport trailer PTK-10", id: "ptk-10" },
+        { img: "/tyahovyy-vuzol/4.webp", subTitle: "Special purpose trailer PS-3.5", id: "ps-3-5" },
+      ],
+    };
+
+    pageData.products = pageData.products.map((product) => {
+      const mappedRows = product.specs.rows.map((row) => ({
+        ...row,
+        label: labelMap[row.label] ?? row.label,
+      }));
+
+      if (product.id === "npv-3007-5") {
+        return {
+          ...product,
+          title: "Semitrailer platform NPV 3007.5",
+          modelCards: ["NPV 3007.5"],
+          description: {
+            about: "A universal and reliable solution for transporting heavy and oversized cargo.",
+            purpose:
+              "Ideal for transportation of construction, agricultural, and automotive machinery, as well as large structures and heavy objects.",
+            features:
+              "The robust NPV 3007.5 design makes it indispensable for demanding logistics tasks.",
+            advantages: [
+              "Versatile for multiple cargo types, including oversized loads",
+              "Durable construction, load capacity up to 30 tons",
+              "Simplifies loading and unloading",
+            ],
+          },
+          specs: { ...product.specs, rows: mappedRows },
+        };
+      }
+
+      if (product.id === "nptk") {
+        return {
+          ...product,
+          title: "Container transport semitrailer NPTK",
+          modelCards: ["NPTK"],
+          description: {
+            about: "Reliable solution for safe and fast transportation of cargo containers.",
+            purpose:
+              "Best for logistics, construction, and industrial companies requiring efficient container transport, including intercity and international routes.",
+            features:
+              "Lightweight yet durable design increases payload and includes braking and lighting systems for safe transport.",
+            advantages: [
+              "Supports 20, 40, and 45-foot containers, including oversized cargo",
+              "Reliable locking mechanisms reduce shift risk in transit",
+              "High-strength construction for intensive operation",
+            ],
+          },
+          specs: { ...product.specs, rows: mappedRows },
+        };
+      }
+
+      if (product.id === "ptk-10") {
+        return {
+          ...product,
+          title: "Container transport trailer PTK-10",
+          description: {
+            about: "A reliable trailer for transporting 20-foot cargo containers.",
+            purpose:
+              "Ideal for logistics companies transporting containers over any distance.",
+            features:
+              "PTK-10 features a secure fastening system and vibration-reducing setup for stable transport even on rough roads.",
+            advantages: [
+              "Compatible with standard truck tractors",
+              "Fast and reliable container fixation",
+              "Durable design for heavy-duty road conditions",
+            ],
+          },
+          specs: { ...product.specs, rows: mappedRows },
+        };
+      }
+
+      return {
+        ...product,
+        title: "Special purpose trailer PS-3.5",
+        modelCards: ["PS-3.5"],
+        description: {
+          about:
+            "Specialized trailer designed for safe and convenient transportation of cargo and equipment.",
+          purpose:
+            "Used for transporting loads of different sizes and weights on public roads in field and industrial conditions.",
+          features: "Gross vehicle weight up to 3500 kg.",
+          advantages: [
+            "High-strength steel frame (09G2S)",
+            "Knott-Autoflex axles and overrun brake",
+            "Durable European coating by MALCHEM",
+          ],
+        },
+        specs: { ...product.specs, models: ["PS-3.5"], rows: mappedRows },
+      };
+    });
+  }
 
   return (
     <div style={{ overflow: "hidden" }}>

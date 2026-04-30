@@ -1,9 +1,12 @@
+"use client";
+
 import { Footer } from "@/Components/Layout/Footer/Footer";
 import { Header } from "@/Components/Layout/Header/Header";
 import { ProductOtherTypesSlider } from "@/Components/Products/ProductOtherTypesSlider/ProductOtherTypesSlider";
 import { ProductHero } from "@/Components/Products/ProductHero/ProductHero";
 import { ProductSections } from "@/Components/Products/ProductSections/ProductSections";
 import { TechnicalSpecs } from "@/Components/Products/TechnicalSpecs/TechnicalSpecs";
+import { useLanguage } from "@/Store/useLanguage";
 
 type ProductCardItem = {
   img: string;
@@ -51,7 +54,8 @@ type PageData = {
   products: ProductItem[];
 };
 
-export default function page() {
+export default function Page() {
+  const { language } = useLanguage();
   const pageData: PageData = {
     hero: {
       breadcrums: "живильний потік",
@@ -724,6 +728,302 @@ export default function page() {
       },
     ],
   };
+
+  if (language === "en") {
+    const labelMap: Record<string, string> = {
+      "Габарити, мм (максимальні): довжина/ширина/висота":
+        "Dimensions, mm (max): length/width/height",
+      "Вага без вантажу, кг": "Weight without load, kg",
+      "Максимальне навантаження, кг": "Maximum load, kg",
+      "Загальна вага з вантажем, кг": "Gross weight with load, kg",
+      "Діаметр горловини цистерни, мм": "Tank filler neck diameter, mm",
+      "Ширина колії, мм": "Track width, mm",
+      "Повна маса, без вантажу, кг": "Gross mass without cargo, kg",
+      "Горловина цистерни, мм": "Tank hatch diameter, mm",
+      "Ширина колії, не менше мм": "Track width, not less than, mm",
+      "Габаритні розміри, не більше: довжина / ширина / висота, мм":
+        "Overall dimensions, max: length / width / height, mm",
+      "Максимальна вага з вантажем, не більше, кг":
+        "Maximum gross weight, kg",
+      "Матеріал цистерни, внутрішній": "Tank material, inner shell",
+      "Матеріал цистерни, зовнішній": "Tank material, outer shell",
+      "Диски / шини": "Rims / tires",
+      "Кількість коліс": "Number of wheels",
+      "Об'єм цистерни, л": "Tank volume, l",
+      "Базове шасі": "Base chassis",
+      "Тип цистерни": "Tank type",
+      "Кількість відсіків": "Number of compartments",
+      "Габаритні розміри не більше, мм: довжина / ширина / висота":
+        "Overall dimensions, max, mm: length / width / height",
+      "Маса (не більше), кг: споряджена маса / повна маса":
+        "Mass (max), kg: curb / gross",
+      "Кількість осей": "Number of axles",
+      "Гальмівна система": "Brake system",
+      "Розмір шин": "Tire size",
+      "Диски": "Rims",
+      "Платформа, ложемент": "Platform, saddle",
+      "Тип базового шасі": "Base chassis type",
+      "Конструкція рами": "Frame design",
+      "Підвіска": "Suspension",
+      "Поворотний круг / розмір зчіпної петлі дишла": "Turntable / drawbar eye size",
+      "Електрообладнання": "Electrical equipment",
+      "Монтажна довжина рами причепа-шасі, не більше, мм":
+        "Mounting frame length, max, mm",
+      "Висота до верхньої полки рами причепа-шасі, не більше, мм":
+        "Height to top flange of trailer frame, max, mm",
+      "Ширина рами причепа-шасі, не більше (по балках), мм":
+        "Trailer frame width, max (beam-to-beam), mm",
+      "Ошиновка коліс": "Wheel configuration",
+      "Кількість осей/коліс": "Number of axles/wheels",
+      "Розмір дисків коліс": "Wheel rim size",
+      "Габаритні розміри, не більше, мм: довжина / ширина / висота / ширина колії, +-1% / кліренс, не менше":
+        "Overall dimensions, max, mm: length / width / height / track width +-1% / min clearance",
+      "Розподіл повної маси, не більше, кг: передня вісь / задня вісь":
+        "Gross mass distribution, max, kg: front axle / rear axle",
+      "Форма цистерни": "Tank shape",
+      "Матеріал цистерни": "Tank material",
+      "Перегородка для гасіння гідроудару товщиною не менше 3 мм, шт":
+        "Anti-surge baffles (min 3 mm), pcs",
+      "Кількість окремих секцій цистерни, шт / об'єм цистерни, л +-0,5%":
+        "Number of tank sections, pcs / tank volume, l +-0.5%",
+      "Час зливу палива з цистерни самопливом, не більше, хв":
+        "Gravity fuel discharge time, max, min",
+      "Час розгортання/згортання, не більше, хв": "Deployment/folding time, max, min",
+      "Обслуговуючий розрахунок, осіб": "Operating crew, persons",
+      "Допустима швидкість руху, не більше, км/год": "Allowed speed, max, km/h",
+      "Габаритні розміри зразка (не більше), мм: довжина +-3% / ширина +-3% / висота +-3%":
+        "Sample overall dimensions (max), mm: length +-3% / width +-3% / height +-3%",
+      "Маса (не більше), кг: споряджена маса +-3% / повна маса +-3%":
+        "Mass (max), kg: curb +-3% / gross +-3%",
+      "Експлуатаційна місткість (не менше), л": "Operating capacity (min), l",
+      "Перегородка для гасіння гідроудару з нержавіючої сталі (AISI 321/304), шт":
+        "Anti-surge stainless baffle (AISI 321/304), pcs",
+      "Горловина діаметром 500 мм, шт": "500 mm hatch, pcs",
+      "Відсік (ящик) для зберігання обладнання, шт":
+        "Storage compartment (box) for equipment, pcs",
+      "Насос (мотопомпа): продуктивність (не менше), л/хв / висота всмоктування (не менше), м":
+        "Pump (motopump): flow rate (min), l/min / suction height (min), m",
+      "Витрата роздавальної системи через один рукав (не менше), л/хв":
+        "Dispensing system flow through one hose (min), l/min",
+      "Час заповнення цистерни насосом (мотопомпою), не більше, хв":
+        "Tank filling time by pump (motopump), max, min",
+      "Час згортання-розгортання (не більше), хв": "Deployment/retraction time (max), min",
+      "Цистерна, л": "Tank, l",
+      "Габаритні розміри цистерни (не більше), мм: довжина +-3% / ширина +-3% / висота +-3%":
+        "Tank dimensions (max), mm: length +-3% / width +-3% / height +-3%",
+      "Маса (не більше), кг: маса цистерни +-3% / споряджена маса +-3% / повна маса +-3%":
+        "Mass (max), kg: tank mass +-3% / curb +-3% / gross +-3%",
+      "Матеріал": "Material",
+      "Горловина з герметичною кришкою, шт": "Sealed hatch with lid, pcs",
+      "Рукава напірно-всмоктувальні: діаметр / довжина (не менше) / кількість, шт":
+        "Suction/pressure hoses: diameter / length (min) / qty, pcs",
+      "Рукава роздавальні з швидкозмінними фланцями: діаметр / довжина (не менше) / кількість, шт":
+        "Dispensing hoses with quick flanges: diameter / length (min) / qty, pcs",
+      "Роздавальна гребінка на 4 виходи, кількість, шт":
+        "4-way distribution manifold, qty, pcs",
+      "Вузол видачі DN50, шт": "DN50 dispensing unit, pcs",
+      "Запірний кран для під'єднання до роздавального рукава, кількість, шт":
+        "Shut-off valve for dispensing hose connection, qty, pcs",
+      "Споряджена маса": "Curb weight",
+      "Повна маса, кг": "Gross vehicle weight, kg",
+      "Ємність": "Compartments",
+      "Перегородки": "Baffles",
+      "Шасі": "Chassis",
+      "Кліренс з навантаженням, мм": "Ground clearance with load, mm",
+      "Максимальна потужність, кВт": "Maximum power, kW",
+      "Шини": "Tires",
+      "Напірно-всмоктувальні рукави": "Suction/pressure hoses",
+      "Напірний рукав": "Pressure hose",
+      "Фільтр грубої очистки води, шт": "Coarse water filter, pcs",
+      "Мотопомпа": "Motopump",
+      "Люк-лаз DN 500, шт": "Manhole DN 500, pcs",
+    };
+
+    pageData.hero = {
+      breadcrums: "hylen stream",
+      title: "HYLEN STREAM",
+      subTitle: "Water and Fuel Tanks",
+      text: "Equipment in the HYLEN STREAM category ensures a continuous flow of resources in your operation. From water supply to refueling, it keeps processes stable and productive in any conditions.",
+      cards: [
+        { img: "/zhyvylnyy-potik/1.webp", subTitle: "Tank trailer PC", id: "prychip-tsysterna-pts" },
+        { img: "/zhyvylnyy-potik/2.webp", subTitle: "Tank trailer CV-2.0", id: "prychip-tsysterna-tsv-2-0" },
+        { img: "/zhyvylnyy-potik/3.webp", subTitle: "Fuel tanker APZ", id: "avtomobilnyy-palyvozapravnyk-apz" },
+        { img: "/zhyvylnyy-potik/4.webp", subTitle: "Tank trailer PC-8.0", id: "prychip-tsysterna-pts-8-0" },
+        { img: "/zhyvylnyy-potik/5.webp", subTitle: "Potable water supply vehicle AZPPV", id: "avtomobilnyy-zasib-pidvezennya-pytnoyi-vody-azppv" },
+        { img: "/zhyvylnyy-potik/6.webp", subTitle: "Potable water tanker ACPPV-4.0", id: "acppv-4-0" },
+        { img: "/zhyvylnyy-potik/7.webp", subTitle: "Potable water tanker ACPPV-5.5", id: "acppv-5-5" },
+      ],
+    };
+
+    pageData.products = pageData.products.map((product) => {
+      const base = {
+        ...product,
+        specs: {
+          ...product.specs,
+          rows: product.specs.rows.map((row) => ({
+            ...row,
+            label: labelMap[row.label] ?? row.label,
+          })),
+        },
+      };
+
+      if (product.id === "prychip-tsysterna-pts") {
+        return {
+          ...base,
+          title: "Tank trailer PC",
+          description: {
+            about:
+              "A specialized tank trailer for transporting liquids, designed to be reliable, durable, and easy to operate.",
+            purpose:
+              "Suitable for agriculture, construction, and water supply to remote sites.",
+            features:
+              "A large 350 mm filler neck and a service platform simplify filling, maintenance, and sanitation.",
+            advantages: [
+              "Compact dimensions for better maneuverability",
+              "Maximum load up to 2000 kg (gross weight up to 3000 kg)",
+              "Wide 1700 mm track for stability with liquid cargo",
+              "Includes spare wheel and maintenance platform",
+            ],
+          },
+        };
+      }
+
+      if (product.id === "prychip-tsysterna-tsv-2-0") {
+        return {
+          ...base,
+          title: "Tank trailer CV-2.0",
+          description: {
+            about:
+              "Specialized transport for water and food liquids with a sealed food-grade design.",
+            purpose:
+              "Ideal for delivering water to farms and remote villages, and for transporting liquid products.",
+            features:
+              "Equipped with a sealed lid and pump for easy loading and unloading. Double-layer thermal insulation with polyurethane foam helps maintain temperature.",
+            advantages: [
+              "Suitable for water and various food liquids",
+              "Sanitary-compliant materials ensure hygiene and safety",
+              "Stainless steel or aluminum body provides corrosion resistance",
+            ],
+          },
+        };
+      }
+
+      if (product.id === "avtomobilnyy-palyvozapravnyk-apz") {
+        return {
+          ...base,
+          title: "Fuel tanker APZ",
+          modelCards: ["APZ-6.5", "APZ-8.0"],
+          description: {
+            about:
+              "Designed for transportation and short-term storage of fuel in field conditions.",
+            purpose:
+              "For transporting and mechanized refueling of machinery with filtered fuel.",
+            features:
+              "Fuel can be loaded and dispensed using onboard or external pump systems.",
+            advantages: [
+              "Reliable field and road operation",
+              "Controlled and convenient fuel handling",
+              "Adaptable to multiple vehicle chassis",
+            ],
+          },
+        };
+      }
+
+      if (product.id === "prychip-tsysterna-pts-8-0") {
+        return {
+          ...base,
+          title: "Tank trailer PC-8.0",
+          modelCards: ["PC-8.0"],
+          description: {
+            about:
+              "Designed for transportation and short-term storage of fuel up to 8 m3 in field conditions.",
+            purpose:
+              "Suitable for roads and off-road routes, operating from -40 to +45 C.",
+            features:
+              "8 m3 oval horizontal tank, safe filling, and pneumatic dual-circuit braking with EBS.",
+            advantages: [
+              "4 anti-surge baffles",
+              "Durable welded steel frame",
+              "Filling through top hatch or bottom pipeline",
+              "Suitable for harsh climates",
+            ],
+          },
+        };
+      }
+
+      if (product.id === "avtomobilnyy-zasib-pidvezennya-pytnoyi-vody-azppv") {
+        return {
+          ...base,
+          title: "Automotive Potable Water Supply Vehicle AZPPV",
+          modelCards: ["AZPPV"],
+          description: {
+            about:
+              "Designed for fast and reliable potable water transportation in difficult road and climate conditions.",
+            purpose:
+              "For water delivery to areas without centralized supply, emergencies, construction sites, and agriculture.",
+            features:
+              "4000 L hermetic, thermally insulated food-grade stainless steel tank.",
+            advantages: [
+              "Fully equipped and ready for use",
+              "Durable integrated chassis-based design",
+              "Fast filling and dispensing cycle",
+              "Operated by only two people",
+            ],
+          },
+          specs: {
+            ...base.specs,
+            models: ["Automotive Potable Water Supply Vehicle AZPPV"],
+          },
+        };
+      }
+
+      if (product.id === "acppv-4-0") {
+        return {
+          ...base,
+          title: "Automotive Potable Water Tanker ACPPV-4.0",
+          modelCards: ["ACPPV-4.0"],
+          description: {
+            about:
+              "A specialized modular superstructure that transforms a vehicle into a potable water and liquid food transport unit.",
+            purpose:
+              "For transport and short-term storage of potable water and liquid food products in field conditions.",
+            features:
+              "Double-layer thermally insulated tank with polyurethane foam; operating capacity 4000 L.",
+            advantages: [
+              "Reliable water supply in field conditions",
+              "Quick maintenance and operation",
+              "Durable long-life construction",
+              "Internal baffles improve transport stability",
+            ],
+          },
+        };
+      }
+
+      return {
+        ...base,
+        title: "Automotive Potable Water Tanker ACPPV-5.5",
+        modelCards: ["ACPPV-5.5"],
+        description: {
+          about:
+            "Modern vehicle for safe and fast transportation of large volumes of potable water and liquid food products.",
+          purpose:
+            "Designed for agriculture, municipal services, and construction.",
+          features:
+            "AISI 304 food-grade stainless tank, 336 mm clearance, and 365/85 R20 tires for off-road use.",
+          advantages: [
+            "5500 L capacity for high-volume delivery",
+            "Fewer trips and lower fuel use",
+            "Internal baffles improve transport stability",
+            "Thermally insulated double-layer tank",
+          ],
+        },
+        specs: {
+          ...base.specs,
+          models: ["Automotive Potable Water Tanker ACPPV-5.5"],
+        },
+      };
+    });
+  }
 
   return (
     <div style={{ overflow: "hidden" }}>

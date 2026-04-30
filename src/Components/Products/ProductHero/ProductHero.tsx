@@ -5,6 +5,7 @@ import { IoMdArrowDropright } from "react-icons/io";
 import "./style.css";
 import { useEffect, useRef, useState } from "react";
 import { useWindowWidth } from "@/Hooks/useWindowWidth";
+import { useLanguage } from "@/Store/useLanguage";
 
 type ProductCardItem = {
   img: string;
@@ -23,11 +24,17 @@ type ProductHeroProps = {
 };
 
 export function ProductHero({ heroData }: ProductHeroProps) {
+  const { language } = useLanguage();
   const [hoveredCardId, setHoveredCardId] = useState<string | null>(null);
   const [loadedVideos, setLoadedVideos] = useState<Record<string, boolean>>({});
   const cardRefs = useRef<Record<string, HTMLAnchorElement | null>>({});
   const width = useWindowWidth();
   const isMobile = width && width < 900;
+  const labels = {
+    products: language === "en" ? "products" : "продукти",
+    goToDescription:
+      language === "en" ? "Go to description:" : "Перейти до опису:",
+  };
 
   useEffect(() => {
     if (isMobile) return;
@@ -70,7 +77,7 @@ export function ProductHero({ heroData }: ProductHeroProps) {
             <div className="product-hero-breadcrums">
               <div className="product-hero-breadcrum">
                 <IoMdArrowDropright />
-                <p>продукти</p>
+                <p>{labels.products}</p>
               </div>
               <div className="product-hero-breadcrum">
                 <IoMdArrowDropright />
@@ -100,7 +107,7 @@ export function ProductHero({ heroData }: ProductHeroProps) {
                 className="product-hero-content-card"
                 key={productCard.id}
                 href={`#${productCard.id}`}
-                aria-label={`Перейти до опису: ${productCard.subTitle}`}
+                aria-label={`${labels.goToDescription} ${productCard.subTitle}`}
                 onMouseEnter={() =>
                   !isMobile && setHoveredCardId(productCard.id)
                 }
@@ -162,7 +169,7 @@ export function ProductHero({ heroData }: ProductHeroProps) {
                   className="product-hero-content-card"
                   key={productCard.id}
                   href={`#${productCard.id}`}
-                  aria-label={`Перейти до опису: ${productCard.subTitle}`}
+                  aria-label={`${labels.goToDescription} ${productCard.subTitle}`}
                   onMouseEnter={() =>
                     !isMobile && setHoveredCardId(productCard.id)
                   }

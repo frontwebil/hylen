@@ -1,9 +1,12 @@
+"use client";
+
 import { Footer } from "@/Components/Layout/Footer/Footer";
 import { Header } from "@/Components/Layout/Header/Header";
 import { ProductOtherTypesSlider } from "@/Components/Products/ProductOtherTypesSlider/ProductOtherTypesSlider";
 import { ProductHero } from "@/Components/Products/ProductHero/ProductHero";
 import { ProductSections } from "@/Components/Products/ProductSections/ProductSections";
 import { TechnicalSpecs } from "@/Components/Products/TechnicalSpecs/TechnicalSpecs";
+import { useLanguage } from "@/Store/useLanguage";
 
 type ProductCardItem = {
   img: string;
@@ -51,8 +54,10 @@ type PageData = {
   products: ProductItem[];
 };
 
-export default function page() {
-  const pageData: PageData = {
+export default function Page() {
+  const { language } = useLanguage();
+  const t: Record<"uk" | "en", PageData> = {
+    uk: {
     hero: {
       breadcrums: "основи врожаю",
       title: "ОСНОВИ ВРОЖАЮ",
@@ -158,7 +163,69 @@ export default function page() {
         },
       },
     ],
+    },
+    en: {
+      hero: {
+        breadcrums: "hylen terra",
+        title: "HYLEN TERRA",
+        subTitle: "Soil Cultivation Equipment",
+        text: "Soil cultivation equipment in the HYLEN TERRA category prepares the land for a new life cycle, ensuring proper structure, fertility, and ideal conditions for crop growth.",
+        cards: [
+          { img: "/osnovy-vrojayy/1.webp", subTitle: "Milling and Ridge-Forming Complex", id: "kfg" },
+        ],
+      },
+      products: [
+        {
+          id: "kfg",
+          title: "Milling and Ridge-Forming Complex",
+          modelCards: ["KFG"],
+          isCustomDesign: false,
+          video: "/osnovy-vrojayy/1.mp4",
+          videoPreview: "/osnovy-vrojayy/1.webp",
+          description: {
+            about:
+              "The KFG complex is a specialized unit for pre-sowing soil preparation and ridge formation for vegetable crops. It combines milling cutters and ridge formers to create a fine soil structure and even ridges.",
+            purpose:
+              "Performs soil preparation and ridge formation in one tractor pass. Ideal for potatoes, vegetables, berries, and other ridge-planted crops.",
+            features:
+              "Milling cutters loosen soil and crush plant residues. Ridge formers shape even ridges. Adjustable row spacing and ridge height.",
+            advantages: [
+              "Higher yields by improving root access to air and moisture",
+              "Saves time, fuel, and resources by combining multiple operations",
+              "Improves drainage and simplifies mechanized harvesting",
+              "Adjustable for different crops",
+            ],
+          },
+          images: ["/osnovy-vrojayy/kfg/2.webp", "/osnovy-vrojayy/kfg/3.webp", "/osnovy-vrojayy/kfg/1.webp"],
+          specs: {
+            models: ["KFG"],
+            rows: [
+              { label: "Model", values: ["KFG"] },
+              { label: "Implement type", values: ["Mounted"] },
+              { label: "Application", values: ["Ridge formation for crop planting"] },
+              { label: "Height, mm", values: ["1830"] },
+              { label: "Width, mm", values: ["1980"] },
+              { label: "Length, mm", values: ["4500"] },
+              { label: "Weight, kg", values: ["1200"] },
+              { label: "Recommended tractor power, hp", values: ["80"] },
+              { label: "PTO operating speed, rpm", values: ["540"] },
+              { label: "Hitch type", values: ["Three-point"] },
+              { label: "Hydraulic system", values: ["Film-laying frame lift/lower"] },
+              { label: "Frame", values: ["Rigid, modular, made of high-strength S355 steel"] },
+              { label: "Disc knives", values: ["Front discs, 500 mm diameter, for cutting soil and crop residues, adjustable"] },
+              { label: "Drive", values: ["Tractor PTO drive through driveshaft and gearbox with chain transmission to milling rotor"] },
+              { label: "Support wheels", values: ["Two support wheels with BKT MagLift 4.00-8 tires and FAD half-axle, plus two film-pressing wheels with Deli Tire S 15.00-6 R6 tires"] },
+              { label: "Milling rotor", values: ["Modular design with 42 blades, working width 1140 mm"] },
+              { label: "Drip tape", values: ["Drip irrigation tape installation option with adjustments"] },
+              { label: "Film layer", values: ["Film laying mechanism with pressing wheels and covering shares"] },
+              { label: "Ridge former", values: ["Adjustable shield for ridge width control"] },
+            ],
+          },
+        },
+      ],
+    },
   };
+  const pageData = t[language];
 
   return (
     <div style={{ overflow: "hidden" }}>

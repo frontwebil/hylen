@@ -5,6 +5,7 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 import { ProductCard } from "@/Components/MainPage/Products/ProductCard/ProductCard";
 import type { ProductItem } from "@/Components/MainPage/Products/Products";
 import { products as defaultProducts } from "@/Components/MainPage/Products/Products";
+import { useLanguage } from "@/Store/useLanguage";
 import "./style.css";
 
 export type ProductOtherTypesSliderProps = {
@@ -17,18 +18,72 @@ export type ProductOtherTypesSliderProps = {
 const DEFAULT_HEADING = "Наші інші види продукції";
 const DEFAULT_DESCRIPTION =
   "Ознайомтесь із лінійкою техніки HYLEN: від причепів і перевантажувачів до цистерн і ґрунтообробних агрегатів — оберіть рішення під ваше господарство.";
+const DEFAULT_HEADING_EN = "Our Other Product Types";
+const DEFAULT_DESCRIPTION_EN =
+  "Discover the HYLEN product line: from trailers and transfer equipment to tanks and soil cultivation machinery - choose the right solution for your operation.";
 
 export function ProductOtherTypesSlider({
-  items = defaultProducts,
+  items,
   excludeLink,
-  heading = DEFAULT_HEADING,
-  description = DEFAULT_DESCRIPTION,
+  heading,
+  description,
 }: ProductOtherTypesSliderProps) {
+  const { language } = useLanguage();
+  const localizedItems: ProductItem[] =
+    language === "en"
+      ? [
+          {
+            title: "HYLEN SPINE",
+            subTitle: "Single-axle trailers",
+            img: "/Products/1",
+            link: "/hrebet-systemy",
+          },
+          {
+            title: "HYLEN PULSE",
+            subTitle: "Mixer feeder wagons",
+            img: "/Products/2",
+            link: "/rytm-zhyvlennya",
+          },
+          {
+            title: "HYLEN BRIDGE",
+            subTitle: "Grain transfer equipment",
+            img: "/Products/3",
+            link: "/mist-mij-lankamy",
+          },
+          {
+            title: "HYLEN STREAM",
+            subTitle: "Water & fuel tanks",
+            img: "/Products/4",
+            link: "/zhyvylnyy-potik",
+          },
+          {
+            title: "HYLEN ANCHOR",
+            subTitle: "Trailers & semi-trailers",
+            img: "/Products/5",
+            link: "/tyahovyy-vuzol",
+          },
+          {
+            title: "HYLEN TERRA",
+            subTitle: "Soil cultivation equipment",
+            img: "/Products/6",
+            link: "/osnovy-vrojayy",
+          },
+        ]
+      : defaultProducts;
+
+  const resolvedItems = items ?? localizedItems;
+  const resolvedHeading =
+    heading ??
+    (language === "en" ? DEFAULT_HEADING_EN : DEFAULT_HEADING);
+  const resolvedDescription =
+    description ??
+    (language === "en" ? DEFAULT_DESCRIPTION_EN : DEFAULT_DESCRIPTION);
+
   const slides = useMemo(() => {
-    if (!excludeLink) return items;
-    const filtered = items.filter((p) => p.link !== excludeLink);
-    return filtered.length ? filtered : items;
-  }, [items, excludeLink]);
+    if (!excludeLink) return resolvedItems;
+    const filtered = resolvedItems.filter((p) => p.link !== excludeLink);
+    return filtered.length ? filtered : resolvedItems;
+  }, [resolvedItems, excludeLink]);
 
   const preparedSlides = useMemo(() => {
     if (!slides.length) return [];
@@ -109,9 +164,9 @@ export function ProductOtherTypesSlider({
               id="product-other-types-heading"
               className="product-other-types__heading"
             >
-              {heading}
+              {resolvedHeading}
             </h2>
-            <p className="product-other-types__text">{description}</p>
+            <p className="product-other-types__text">{resolvedDescription}</p>
           </div>
         </div>
 
@@ -139,7 +194,7 @@ export function ProductOtherTypesSlider({
                     selectedIndex === index ? "is-active" : ""
                   }`}
                   onClick={() => scrollTo(index)}
-                  aria-label={`Слайд ${index + 1}`}
+                  aria-label={`${language === "en" ? "Slide" : "Слайд"} ${index + 1}`}
                   aria-current={selectedIndex === index ? "true" : undefined}
                 >
                   <span />
