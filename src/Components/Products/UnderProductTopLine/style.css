@@ -1,0 +1,72 @@
+.under-product-top-only-lines {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.under-product-top-only-line-top {
+  height: 18px;
+  background-color: #c0c8c6;
+  position: relative;
+}
+
+.under-product-top-only-line-top .container {
+  position: relative;
+  height: 18px;
+}
+
+.under-product-top-only-line-top-left {
+  position: absolute;
+  background-color: #d9d9d9;
+  height: 100%;
+  max-width: 25%;
+  width: 100%;
+  left: 0;
+}
+
+.under-product-top-only-line-top-right {
+  position: absolute;
+  background-color: #d9d9d9;
+  height: 100%;
+  max-width: 25%;
+  width: 100%;
+  right: 0;
+}
+
+.under-product-top-only-line-bottom {
+  height: 18px;
+  background-color: #d9d9d9;
+  position: relative;
+}
+
+.under-product-top-only-line-bottom .container {
+  position: relative;
+  height: 18px;
+}
+
+.under-product-top-only-line-bottom-left {
+  position: absolute;
+  background-color: #c0c8c6;
+  height: 100%;
+  max-width: 25%;
+  width: 100%;
+  left: 0;
+}
+
+.under-product-top-only-line-bottom-right {
+  position: absolute;
+  background-color: #c0c8c6;
+  height: 100%;
+  max-width: 25%;
+  width: 100%;
+  right: 0;
+}
+
+@media (max-width: 640px) {
+  .under-product-top-only-line-top,
+  .under-product-top-only-line-top .container,
+  .under-product-top-only-line-bottom,
+  .under-product-top-only-line-bottom .container {
+    height: 10px;
+  }
+}

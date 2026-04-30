@@ -157,6 +157,21 @@
 }
 
 @media (max-width: 600px) {
+  .product-other-types-top-lines-main {
+    height: 28px;
+  }
+
+  .product-other-types-top-lines-accent {
+    height: 10px;
+  }
+
+  .product-other-types-top-lines-accent-left,
+  .product-other-types-top-lines-accent-center,
+  .product-other-types-top-lines-accent-right {
+    top: 2px;
+    height: 6px;
+  }
+
   .product-other-types {
     padding: 72px 0 96px;
   }

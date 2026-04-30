@@ -6,6 +6,7 @@ import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import "./style.css";
 import { useWindowWidth } from "@/Hooks/useWindowWidth";
 import { UnderProductLine } from "../UnderProductLine/UnderProductLine";
+import { UnderProductTopLine } from "../UnderProductTopLine/UnderProductTopLine";
 
 type ProductItem = {
   title: string;
@@ -22,7 +23,13 @@ type ProductItem = {
   };
 };
 
-export function ProductSections({ productData }: { productData: ProductItem }) {
+export function ProductSections({
+  productData,
+  showTopLine = true,
+}: {
+  productData: ProductItem;
+  showTopLine?: boolean;
+}) {
   const [activeSlide, setActiveSlide] = useState(0);
   const width = useWindowWidth();
 
@@ -76,6 +83,7 @@ export function ProductSections({ productData }: { productData: ProductItem }) {
 
   return (
     <>
+      {showTopLine && <UnderProductTopLine />}
       <section className="product-sections">
         <div className="container">
           <div className="product-left">

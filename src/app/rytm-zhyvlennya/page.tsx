@@ -229,9 +229,9 @@ export default function page() {
     <div style={{ overflow: "hidden" }}>
       <Header />
       <ProductHero heroData={pageData.hero} />
-      {pageData.products.map((product) => (
+      {pageData.products.map((product, index) => (
         <div key={product.id} id={product.id} style={{ scrollMarginTop: 120 }}>
-          <ProductSections productData={product} />
+          <ProductSections productData={product} showTopLine={index > 0} />
           <TechnicalSpecs specs={product.specs} />
         </div>
       ))}
