@@ -30,6 +30,7 @@
 .under .product-hero-content-cards {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px 0px;
 }
 
 .product-hero-content-left {
@@ -106,6 +107,8 @@
 .product-hero-content-cards {
   position: relative;
   display: flex;
+  max-width: 100%;
+  width: 100%;
 }
 a.product-hero-content-card {
   text-decoration: none;

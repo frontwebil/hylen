@@ -154,7 +154,7 @@ export function ProductHero({ heroData }: ProductHeroProps) {
             <div
               className={`product-hero-content-cards ${heroData.cards.length === 1 ? "single-card" : ""}`}
             >
-              {heroData.cards.slice(2, 6).map((productCard, i) => (
+              {heroData.cards.slice(2).map((productCard, i) => (
                 <a
                   ref={(element) => {
                     cardRefs.current[productCard.id] = element;

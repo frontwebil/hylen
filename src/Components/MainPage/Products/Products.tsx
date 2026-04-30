@@ -41,7 +41,7 @@ export const products: ProductItem[] = [
     title: "Живильний потік",
     subTitle: "Цистерни для води та пального",
     img: "/Products/4",
-    link: "/zhyva-arteriya",
+    link: "/zhyvylnyy-potik",
   },
   {
     title: "ТЯГОВИЙ ВУЗОЛ",
@@ -91,7 +91,7 @@ export function Products() {
           title: "HYLEN STREAM",
           subTitle: "Water & fuel tanks",
           img: "/Products/4",
-          link: "/zhyva-arteriya",
+          link: "/zhyvylnyy-potik",
         },
         {
           title: "HYLEN ANCHOR",
