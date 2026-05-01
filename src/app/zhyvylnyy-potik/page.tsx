@@ -849,7 +849,7 @@ export default function Page() {
         { img: "/zhyvylnyy-potik/2.webp", subTitle: "Tank trailer CV-2.0", id: "prychip-tsysterna-tsv-2-0" },
         { img: "/zhyvylnyy-potik/3.webp", subTitle: "Fuel tanker APZ", id: "avtomobilnyy-palyvozapravnyk-apz" },
         { img: "/zhyvylnyy-potik/4.webp", subTitle: "Tank trailer PC-8.0", id: "prychip-tsysterna-pts-8-0" },
-        { img: "/zhyvylnyy-potik/5.webp", subTitle: "Potable water supply vehicle AZPPV", id: "avtomobilnyy-zasib-pidvezennya-pytnoyi-vody-azppv" },
+        { img: "/zhyvylnyy-potik/5.webp", subTitle: "Portable water supply vehicle AZPPV", id: "avtomobilnyy-zasib-pidvezennya-pytnoyi-vody-azppv" },
         { img: "/zhyvylnyy-potik/6.webp", subTitle: "Potable water tanker ACPPV-4.0", id: "acppv-4-0" },
         { img: "/zhyvylnyy-potik/7.webp", subTitle: "Potable water tanker ACPPV-5.5", id: "acppv-5-5" },
       ],
@@ -871,6 +871,7 @@ export default function Page() {
         return {
           ...base,
           title: "Tank trailer PC",
+          modelCards: ["PC"],
           description: {
             about:
               "A specialized tank trailer for transporting liquids, designed to be reliable, durable, and easy to operate.",
@@ -892,6 +893,7 @@ export default function Page() {
         return {
           ...base,
           title: "Tank trailer CV-2.0",
+          modelCards: ["CV-2.0"],
           description: {
             about:
               "Specialized transport for water and food liquids with a sealed food-grade design.",
@@ -954,11 +956,11 @@ export default function Page() {
       if (product.id === "avtomobilnyy-zasib-pidvezennya-pytnoyi-vody-azppv") {
         return {
           ...base,
-          title: "Automotive Potable Water Supply Vehicle AZPPV",
+          title: "Automotive Portable Water Supply Vehicle AZPPV",
           modelCards: ["AZPPV"],
           description: {
             about:
-              "Designed for fast and reliable potable water transportation in difficult road and climate conditions.",
+              "Designed for fast and reliable portable water transportation in difficult road and climate conditions.",
             purpose:
               "For water delivery to areas without centralized supply, emergencies, construction sites, and agriculture.",
             features:
@@ -972,7 +974,7 @@ export default function Page() {
           },
           specs: {
             ...base.specs,
-            models: ["Automotive Potable Water Supply Vehicle AZPPV"],
+            models: ["Automotive Portable Water Supply Vehicle AZPPV"],
           },
         };
       }
@@ -980,13 +982,13 @@ export default function Page() {
       if (product.id === "acppv-4-0") {
         return {
           ...base,
-          title: "Automotive Potable Water Tanker ACPPV-4.0",
+          title: "Automotive Portable Water Tanker ACPPV-4.0",
           modelCards: ["ACPPV-4.0"],
           description: {
             about:
-              "A specialized modular superstructure that transforms a vehicle into a potable water and liquid food transport unit.",
+              "A specialized modular superstructure that transforms a vehicle into a portable water and liquid food transport unit.",
             purpose:
-              "For transport and short-term storage of potable water and liquid food products in field conditions.",
+              "For transport and short-term storage of portable water and liquid food products in field conditions.",
             features:
               "Double-layer thermally insulated tank with polyurethane foam; operating capacity 4000 L.",
             advantages: [
@@ -1001,11 +1003,11 @@ export default function Page() {
 
       return {
         ...base,
-        title: "Automotive Potable Water Tanker ACPPV-5.5",
+        title: "Automotive Portable Water Tanker ACPPV-5.5",
         modelCards: ["ACPPV-5.5"],
         description: {
           about:
-            "Modern vehicle for safe and fast transportation of large volumes of potable water and liquid food products.",
+            "Modern vehicle for safe and fast transportation of large volumes of portable water and liquid food products.",
           purpose:
             "Designed for agriculture, municipal services, and construction.",
           features:
@@ -1019,7 +1021,7 @@ export default function Page() {
         },
         specs: {
           ...base.specs,
-          models: ["Automotive Potable Water Tanker ACPPV-5.5"],
+          models: ["Automotive Portable Water Tanker ACPPV-5.5"],
         },
       };
     });

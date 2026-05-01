@@ -168,7 +168,7 @@ a.product-hero-content-card {
   opacity: 1;
 }
 
-.product-hero-content-card:first-child {
+.product-hero-content-card:nth-child(odd):not(:last-child) {
   border-right: none;
 }
 
@@ -285,7 +285,7 @@ a.product-hero-content-card {
     .product-hero-content-card-underImg-border-right {
     border-right: 2px solid #81918d;
   }
-  .product-hero-content-card:first-child {
+  .product-hero-content-card:nth-child(odd):not(:last-child) {
     border-right: 2px solid #443c3b;
   }
   .product-hero {

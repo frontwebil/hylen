@@ -26,12 +26,14 @@ export function TechnicalSpecs({ specs }: { specs: ProductSpecs }) {
     "Вага, кг": "Weight, kg",
     "Маса, кг": "Mass, kg",
     "Максимальне навантаження, кг": "Maximum load, kg",
+    "Максимальне навантаження на вісь, кг": "Maximum axle load, kg",
     "Максимально допустима вага з вантажем, кг":
       "Maximum permissible gross weight, kg",
     "Об'єм бункера, м³": "Hopper volume, m3",
     "Габаритні розміри, мм (довжина/висота/висота вивантажувального отвору/колія/ширина)":
       "Overall dimensions, mm (length/height/discharge opening height/track width/width)",
     "Маса завантажуваного корму, не більше, кг": "Loaded feed mass, max, kg",
+    "Маса завантажуваного корму, кг, не більше": "Loaded feed mass, max, kg",
     "Кількість ножів, шт": "Number of knives, pcs",
     "Число обертів ВВП, об/хв": "PTO speed, rpm",
     "Частота обертання шнека, об/хв": "Auger rotation speed, rpm",
@@ -70,7 +72,6 @@ export function TechnicalSpecs({ specs }: { specs: ProductSpecs }) {
     "Пневматична, з EBS": "Pneumatic, with EBS",
     "Пневматична, двоконтурна": "Pneumatic, dual-circuit",
     '2" шкворень': "2″ kingpin",
-    Овал: "Oval",
     Платформа: "Platform",
     Ресорна: "Leaf spring",
     Односкатна: "Single",
@@ -82,7 +83,12 @@ export function TechnicalSpecs({ specs }: { specs: ProductSpecs }) {
       "Food-grade stainless steel (AISI 321/304), polyurethane foam insulation, outer cladding from S235 steel",
     "Електрозварна, із високоміцної сталі 09Г2С або S355; в основі рами зварена балка двотаврової форми":
       "Electric-welded, made of high-strength 09G2S or S355 steel; I-beam welded in the frame base",
+    "Електрозварна, із високоміцної сталі 09Г2С або S355, \n в основі рами зварена балка двотаврової форми":
+      "Electric-welded, made of high-strength 09G2S or S355 steel; I-beam welded in the frame base",
+    "Двовісне підвищеної прохідності": "Two-axle high-mobility",
     "Схема постійного струму 24В від бортової мережі; світлосигнальне обладнання, задні ліхтарі, ліхтар номерного знаку, розетки, вилки та електроз'єднувачі в захисній оболонці":
+      "24V DC circuit from onboard power; lighting equipment, rear lamps, license plate lamp, sockets, plugs, and protected electrical connectors",
+    "Схема постійного струму 24В від бортової мережі, \n світлосигнальне обладнання, задні ліхтарі, ліхтар номерного знаку, розетки, вилки та електроз'єднувачі в захисній оболонці":
       "24V DC circuit from onboard power; lighting equipment, rear lamps, license plate lamp, sockets, plugs, and protected electrical connectors",
     "Передні диски діаметром 500мм для прорізання ґрунту або рослинних залишків з можливістю регулювання":
       "Front discs, 500 mm diameter, for cutting soil or crop residues with adjustment option",
@@ -118,6 +124,7 @@ export function TechnicalSpecs({ specs }: { specs: ProductSpecs }) {
     навісний: "mounted",
     Трьохточкове: "Three-point",
     "Овальна, горизонтальна": "Oval, horizontal",
+    Овал: "Oval",
     "Герметична, термоізольована": "Sealed, thermally insulated",
     опційно: "optional",
     запасне: "spare",
@@ -132,7 +139,7 @@ export function TechnicalSpecs({ specs }: { specs: ProductSpecs }) {
     "м³": "m3",
     шт: "pcs",
     "об/хв": "rpm",
-    л: "L",
+    " л": " L",
     "л/хв": "L/min",
     хв: "min",
     "км/год": "km/h",
@@ -175,6 +182,12 @@ export function TechnicalSpecs({ specs }: { specs: ProductSpecs }) {
     НПТК: "NPTK",
     "ПТК-10": "PTK-10",
     "Причіп-цистерна ПЦ-8,0": "Tank trailer PC-8.0",
+    "Автомобільна цистерна підвезення питної води АЦППВ-4,0":
+      "Potable water tanker ACPPV-4.0",
+    "Автомобільна цистерна підвезення питної води АЦППВ-5,5":
+      "Potable water tanker ACPPV-5.5",
+    "Автомобільна цистерна підвезення питної води АЦППВ 5.5":
+      "Potable water tanker ACPPV-5.5",
   };
 
   const formatModel = (model: string) => {
