@@ -6,21 +6,13 @@ import "./style.css";
 import { useEffect, useRef, useState } from "react";
 import { useWindowWidth } from "@/Hooks/useWindowWidth";
 import { useLanguage } from "@/Store/useLanguage";
-
-type ProductCardItem = {
-  img: string;
-  subTitle: string;
-  id: string;
-};
+import {
+  HeroBlock,
+  pickLocale,
+} from "@/Types/productData";
 
 type ProductHeroProps = {
-  heroData: {
-    breadcrums: string;
-    title: string;
-    subTitle: string;
-    text: string;
-    cards: ProductCardItem[];
-  };
+  heroData: HeroBlock;
 };
 
 export function ProductHero({ heroData }: ProductHeroProps) {
@@ -81,18 +73,18 @@ export function ProductHero({ heroData }: ProductHeroProps) {
               </div>
               <div className="product-hero-breadcrum">
                 <IoMdArrowDropright />
-                <p>{heroData.breadcrums}</p>
+                <p>{pickLocale(heroData.breadcrums, language)}</p>
               </div>
             </div>
             <h2 className="product-hero-content-left-title">
-              {heroData.title}
+              {pickLocale(heroData.title, language)}
             </h2>
             <div className="product-hero-content-left-text">
               <h3 className="product-hero-content-left-text-subTitle">
-                {heroData.subTitle}
+                {pickLocale(heroData.subTitle, language)}
               </h3>
               <p className="product-hero-content-left-text-text">
-                {heroData.text}
+                {pickLocale(heroData.text, language)}
               </p>
             </div>
           </div>
@@ -107,7 +99,7 @@ export function ProductHero({ heroData }: ProductHeroProps) {
                 className="product-hero-content-card"
                 key={productCard.id}
                 href={`#${productCard.id}`}
-                aria-label={`${labels.goToDescription} ${productCard.subTitle}`}
+                aria-label={`${labels.goToDescription} ${pickLocale(productCard.subTitle, language)}`}
                 onMouseEnter={() =>
                   !isMobile && setHoveredCardId(productCard.id)
                 }
@@ -140,7 +132,7 @@ export function ProductHero({ heroData }: ProductHeroProps) {
                   className={`product-hero-content-card-underImg ${heroData.cards.length - 1 == i && "product-hero-content-card-underImg-border-right"} `}
                 >
                   <p className="product-hero-content-card-underImg-subTitle">
-                    {productCard.subTitle}
+                    {pickLocale(productCard.subTitle, language)}
                   </p>
                   <div className="product-hero-content-card-underImg-button">
                     <Image
@@ -169,7 +161,7 @@ export function ProductHero({ heroData }: ProductHeroProps) {
                   className="product-hero-content-card"
                   key={productCard.id}
                   href={`#${productCard.id}`}
-                  aria-label={`${labels.goToDescription} ${productCard.subTitle}`}
+                  aria-label={`${labels.goToDescription} ${pickLocale(productCard.subTitle, language)}`}
                   onMouseEnter={() =>
                     !isMobile && setHoveredCardId(productCard.id)
                   }
@@ -202,7 +194,7 @@ export function ProductHero({ heroData }: ProductHeroProps) {
                     className={`product-hero-content-card-underImg ${heroData.cards.length - 1 == i && ""} `}
                   >
                     <p className="product-hero-content-card-underImg-subTitle">
-                      {productCard.subTitle}
+                      {pickLocale(productCard.subTitle, language)}
                     </p>
                     <div className="product-hero-content-card-underImg-button">
                       <Image

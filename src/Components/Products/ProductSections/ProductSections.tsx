@@ -8,19 +8,25 @@ import { useWindowWidth } from "@/Hooks/useWindowWidth";
 import { UnderProductLine } from "../UnderProductLine/UnderProductLine";
 import { UnderProductTopLine } from "../UnderProductTopLine/UnderProductTopLine";
 import { useLanguage } from "@/Store/useLanguage";
+import {
+  LocalizedField,
+  LocalizedListField,
+  pickLocale,
+  pickLocaleList,
+} from "@/Types/productData";
 
 type ProductItem = {
-  title: string;
-  modelCards: string[];
+  title: LocalizedField;
+  modelCards: LocalizedListField;
   images: string[];
   video?: string;
   videoPreview?: string;
   isCustomDesign?: boolean;
   description: {
-    about: string;
-    purpose: string;
-    features: string;
-    advantages: string[];
+    about: LocalizedField;
+    purpose: LocalizedField;
+    features: LocalizedField;
+    advantages: LocalizedListField;
   };
 };
 
@@ -90,9 +96,15 @@ export function ProductSections({
     setActiveSlide((prev) => prev + 1);
   };
 
+  const modelCardsList = pickLocaleList(productData.modelCards, language);
+  const advantagesList = pickLocaleList(
+    productData.description.advantages,
+    language,
+  );
+
   const modelCardsRow = (
     <div className="product-model-cards" role="list" aria-label={copy.modelListAria}>
-      {productData.modelCards.map((label) => (
+      {modelCardsList.map((label) => (
         <div key={label} className="product-model-card" role="listitem">
           {label}
         </div>
@@ -110,7 +122,7 @@ export function ProductSections({
               {width && width < 980 && (
                 <>
                   {" "}
-                  <h3>{productData.title}</h3>
+                  <h3>{pickLocale(productData.title, language)}</h3>
                   {modelCardsRow}
                 </>
               )}
@@ -226,27 +238,27 @@ export function ProductSections({
           <div className="product-right">
             {width && width >= 980 && (
               <>
-                <h3>{productData.title}</h3>
+                <h3>{pickLocale(productData.title, language)}</h3>
                 {modelCardsRow}
               </>
             )}
             <div className="product-right-text">
               <div className="product-right-text-content">
                 <h2>{copy.description}</h2>
-                <p>{productData.description.about}</p>
+                <p>{pickLocale(productData.description.about, language)}</p>
               </div>
               <div className="product-right-text-content">
                 <h2>{copy.purpose}</h2>
-                <p>{productData.description.purpose}</p>
+                <p>{pickLocale(productData.description.purpose, language)}</p>
               </div>
               <div className="product-right-text-content">
                 <h2>{copy.features}</h2>
-                <p>{productData.description.features}</p>
+                <p>{pickLocale(productData.description.features, language)}</p>
               </div>
               <div className="product-right-text-content">
                 <h2>{copy.advantages}</h2>
                 <div className="product-right-text-content-list">
-                  {productData.description.advantages.map((item, i) => (
+                  {advantagesList.map((item, i) => (
                     <div
                       key={i}
                       className="product-right-text-content-list-item"
