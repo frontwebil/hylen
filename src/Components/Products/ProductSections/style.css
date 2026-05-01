@@ -17,6 +17,7 @@
 .product-slider-main-img {
   border: 2px solid #443c3b;
   position: relative;
+  overflow: hidden;
 }
 
 .product-slider-main-img img {
@@ -25,6 +26,11 @@
   object-fit: contain;
   max-height: 580px;
   padding: 10px;
+  transition: all 0.3s ease;
+}
+
+.product-slider-main-img img:hover {
+  scale: 1.2;
 }
 
 .product-slider-main-video {
