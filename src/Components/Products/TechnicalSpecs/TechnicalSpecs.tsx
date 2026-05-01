@@ -21,7 +21,8 @@ export function TechnicalSpecs({ specs }: { specs: ProductSpecs }) {
     "Висота, мм": "Height, mm",
     "Габарити кузова, мм": "Body dimensions, mm",
     "Ширина колії, мм": "Track width, mm",
-    "Максимально допустима вага вантажу, кг": "Maximum permissible cargo weight, kg",
+    "Максимально допустима вага вантажу, кг":
+      "Maximum permissible cargo weight, kg",
     "Вага, кг": "Weight, kg",
     "Маса, кг": "Mass, kg",
     "Максимальне навантаження, кг": "Maximum load, kg",
@@ -50,9 +51,13 @@ export function TechnicalSpecs({ specs }: { specs: ProductSpecs }) {
   };
   const copy = {
     title:
-      language === "en" ? "Technical Specifications" : "Технічні характеристики",
+      language === "en"
+        ? "Technical Specifications"
+        : "Технічні характеристики",
     tableAria:
-      language === "en" ? "Technical specifications" : "Технічні характеристики",
+      language === "en"
+        ? "Technical specifications"
+        : "Технічні характеристики",
     model: language === "en" ? "Model" : "Модель",
   };
 
@@ -64,11 +69,11 @@ export function TechnicalSpecs({ specs }: { specs: ProductSpecs }) {
     "Пневматична (EBS - опційно)": "Pneumatic (EBS - optional)",
     "Пневматична, з EBS": "Pneumatic, with EBS",
     "Пневматична, двоконтурна": "Pneumatic, dual-circuit",
-    "2\" шкворень": "2″ kingpin",
+    '2" шкворень': "2″ kingpin",
     Овал: "Oval",
     Платформа: "Platform",
-    "Ресорна": "Leaf spring",
-    "Односкатна": "Single",
+    Ресорна: "Leaf spring",
+    Односкатна: "Single",
     "Харчова нержавіюча сталь (AISI 321 або аналог)":
       "Food-grade stainless steel (AISI 321 or equivalent)",
     "Технічна нержавіюча сталь (AISI 430 або аналог)":
@@ -98,7 +103,6 @@ export function TechnicalSpecs({ specs }: { specs: ProductSpecs }) {
     "До ": "Up to ",
     "не менше": "not less than",
     "не більше": "not more than",
-    запасне: "spare",
     Пневматична: "Pneumatic",
     пневматична: "pneumatic",
     Ресорна: "Leaf spring",
@@ -116,7 +120,7 @@ export function TechnicalSpecs({ specs }: { specs: ProductSpecs }) {
     "Овальна, горизонтальна": "Oval, horizontal",
     "Герметична, термоізольована": "Sealed, thermally insulated",
     опційно: "optional",
-    "запасне": "spare",
+    запасне: "spare",
     "09Г2С": "09G2S",
     " або ": " or ",
     " мм": " mm",
@@ -162,7 +166,7 @@ export function TechnicalSpecs({ specs }: { specs: ProductSpecs }) {
     "КСП-20": "KSP-20",
     "КСП-24": "KSP-24",
     "ТПК-38": "TPK-38",
-    "ПЦ": "PC",
+    ПЦ: "PC",
     "ПЦ-8,0": "PC-8.0",
     "ЦВ-2,0": "CV-2.0",
     "АПЗ-6,5": "APZ-6.5",
@@ -213,7 +217,9 @@ export function TechnicalSpecs({ specs }: { specs: ProductSpecs }) {
               {specs.rows.map((row) => (
                 <tr key={row.label}>
                   <th scope="row" className="row-label">
-                    {language === "en" ? labelMap[row.label] ?? row.label : row.label}
+                    {language === "en"
+                      ? (labelMap[row.label] ?? row.label)
+                      : row.label}
                   </th>
                   {row.values.map((value, i) => (
                     <td key={i}>{formatValue(value)}</td>
