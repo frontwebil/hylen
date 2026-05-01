@@ -105,8 +105,8 @@ export default function Page() {
         },
 
         images: [
-          "/hrebet-y-poli/nps/1.webp",
           "/hrebet-y-poli/nps/2.webp",
+          "/hrebet-y-poli/nps/1.webp",
           "/hrebet-y-poli/nps/3.webp",
         ],
 
@@ -178,8 +178,8 @@ export default function Page() {
         },
 
         images: [
-          "/hrebet-y-poli/p/1.webp",
           "/hrebet-y-poli/p/2.webp",
+          "/hrebet-y-poli/p/1.webp",
           "/hrebet-y-poli/p/3.webp",
         ],
 
@@ -262,8 +262,8 @@ export default function Page() {
             ],
           },
           images: [
-            "/hrebet-y-poli/nps/1.webp",
             "/hrebet-y-poli/nps/2.webp",
+            "/hrebet-y-poli/nps/1.webp",
             "/hrebet-y-poli/nps/3.webp",
           ],
           specs: {
@@ -307,8 +307,8 @@ export default function Page() {
             ],
           },
           images: [
-            "/hrebet-y-poli/p/1.webp",
             "/hrebet-y-poli/p/2.webp",
+            "/hrebet-y-poli/p/1.webp",
             "/hrebet-y-poli/p/3.webp",
           ],
           specs: {

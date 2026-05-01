@@ -96,8 +96,8 @@ export default function Page() {
           ],
         },
         images: [
-          "/mist-mij-lankamy/tpk/1.webp",
           "/mist-mij-lankamy/tpk/2.webp",
+          "/mist-mij-lankamy/tpk/1.webp",
           "/mist-mij-lankamy/tpk/3.webp",
         ],
         specs: {
@@ -172,8 +172,8 @@ export default function Page() {
             ],
           },
           images: [
-            "/mist-mij-lankamy/tpk/1.webp",
             "/mist-mij-lankamy/tpk/2.webp",
+            "/mist-mij-lankamy/tpk/1.webp",
             "/mist-mij-lankamy/tpk/3.webp",
           ],
           specs: {

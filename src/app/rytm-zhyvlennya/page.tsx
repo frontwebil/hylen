@@ -98,8 +98,8 @@ export default function Page() {
           ],
         },
         images: [
-          "/rytm-zhyvlennya/ksp1/1.webp",
           "/rytm-zhyvlennya/ksp1/2.webp",
+          "/rytm-zhyvlennya/ksp1/1.webp",
           "/rytm-zhyvlennya/ksp1/3.webp",
         ],
         specs: {
@@ -165,9 +165,9 @@ export default function Page() {
           ],
         },
         images: [
-          "/rytm-zhyvlennya/ksp2/1.webp",
           "/rytm-zhyvlennya/ksp2/2.webp",
           "/rytm-zhyvlennya/ksp2/3.webp",
+          "/rytm-zhyvlennya/ksp2/1.webp",
         ],
         specs: {
           models: ["КСП-16", "КСП-18", "КСП-20", "КСП-24"],
@@ -270,8 +270,8 @@ export default function Page() {
             ],
           },
           images: [
-            "/rytm-zhyvlennya/ksp1/1.webp",
             "/rytm-zhyvlennya/ksp1/2.webp",
+            "/rytm-zhyvlennya/ksp1/1.webp",
             "/rytm-zhyvlennya/ksp1/3.webp",
           ],
           specs: {
@@ -312,9 +312,9 @@ export default function Page() {
             ],
           },
           images: [
-            "/rytm-zhyvlennya/ksp2/1.webp",
             "/rytm-zhyvlennya/ksp2/2.webp",
             "/rytm-zhyvlennya/ksp2/3.webp",
+            "/rytm-zhyvlennya/ksp2/1.webp",
           ],
           specs: {
             models: ["КСП-16", "КСП-18", "КСП-20", "КСП-24"],

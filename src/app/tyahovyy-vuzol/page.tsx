@@ -109,8 +109,8 @@ export default function Page() {
         },
         images: [
           "/tyahovyy-vuzol/np30/1.webp",
-          "/tyahovyy-vuzol/np30/2.webp",
           "/tyahovyy-vuzol/np30/3.webp",
+          "/tyahovyy-vuzol/np30/2.webp",
         ],
         specs: {
           models: ["НПВ 3007.5"],
@@ -193,9 +193,9 @@ export default function Page() {
           ],
         },
         images: [
+          "/tyahovyy-vuzol/nptk/3.webp",
           "/tyahovyy-vuzol/nptk/1.webp",
           "/tyahovyy-vuzol/nptk/2.webp",
-          "/tyahovyy-vuzol/nptk/3.webp",
         ],
         specs: {
           models: ["НПТК"],
@@ -284,9 +284,9 @@ export default function Page() {
           ],
         },
         images: [
+          "/tyahovyy-vuzol/ptk10/3.webp",
           "/tyahovyy-vuzol/ptk10/1.webp",
           "/tyahovyy-vuzol/ptk10/2.webp",
-          "/tyahovyy-vuzol/ptk10/3.webp",
         ],
         specs: {
           models: ["ПТК-10"],
@@ -294,7 +294,7 @@ export default function Page() {
             {
               label:
                 "Габаритні розміри, мм (довжина, не більше / ширина / висота (у спорядженому стані))",
-              values: ["17765\n2455\n1340"],
+              values: ["17765 / 2455 / 1340"],
             },
             {
               label: "Кузов",
@@ -361,9 +361,9 @@ export default function Page() {
           ],
         },
         images: [
+          "/tyahovyy-vuzol/ps3/3.webp",
           "/tyahovyy-vuzol/ps3/1.webp",
           "/tyahovyy-vuzol/ps3/2.webp",
-          "/tyahovyy-vuzol/ps3/3.webp",
         ],
         specs: {
           models: ["Причіп спеціальний ПС-3,5"],
