@@ -114,7 +114,7 @@ export function Header() {
                   <MdArrowForward className="header-menu-link-icon" />
                 </Link>
                 <Link
-                  href={"/#products"}
+                  href={"/products"}
                   className="header-menu-link"
                   onClick={closeMenu}
                 >
@@ -230,7 +230,7 @@ export function Header() {
                   <MdArrowForward className="header-menu-link-icon" />
                 </Link>
                 <Link
-                  href={"/#products"}
+                  href={"/products"}
                   className="header-menu-link"
                   onClick={closeMenu}
                 >

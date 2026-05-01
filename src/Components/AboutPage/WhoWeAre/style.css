@@ -27,7 +27,8 @@
   width: 100%;
   max-width: 100%;
 
-  padding: 0 20px;
+  white-space: pre-wrap;
+  padding: 0 20px 0 50px;
 }
 .right-img {
   display: flex;
@@ -114,6 +115,7 @@
     letter-spacing: 0px;
     vertical-align: middle;
     text-transform: uppercase;
+    padding: 0 20px;
   }
   .who-we-are-text {
     font-size: 22px;
@@ -136,28 +138,28 @@
     max-width: 100%;
     padding-bottom: 50px;
   }
-  .who-we-are-text p{
+  .who-we-are-text p {
     max-width: 100%;
     margin-top: 120px;
     padding-bottom: 35px;
   }
+  
 }
 
-
 @media (max-width: 600px) {
-  .first{
+  .first {
     background-position: center;
   }
-  .second{
+  .second {
     background-position: center;
   }
-  .third{
+  .third {
     background-position: center;
   }
-  .four{
+  .four {
     background-position: right;
   }
-  .fivth{
+  .fivth {
     background-position: center;
   }
 }

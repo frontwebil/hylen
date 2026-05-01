@@ -187,7 +187,7 @@ export function Footer() {
               )}
               {width && width > 920 ? (
                 <div className="footer-column-content-nav">
-                  <Link href={"/#products"}>{copy.nav.products}</Link>
+                  <Link href={"/products"}>{copy.nav.products}</Link>
                   <Link href={"/#advantages"}>{copy.nav.advantages}</Link>
                   <Link href={"/#byro"}>{copy.nav.bureau}</Link>
                   <Link href={"/about"}>{copy.nav.about}</Link>
@@ -196,7 +196,7 @@ export function Footer() {
               ) : (
                 <div className="footer-column-content-nav">
                   <Link href={"/about"}>{copy.nav.aboutBrand}</Link>
-                  <Link href={"/#products"}>{copy.nav.products}</Link>
+                  <Link href={"/products"}>{copy.nav.products}</Link>
                   <Link href={"/contact#contacts"}>{copy.nav.contacts}</Link>
                 </div>
               )}
