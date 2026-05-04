@@ -7,7 +7,18 @@ export function LoadingScreen() {
   const [isHidden, setIsHidden] = useState(false);
 
   useEffect(() => {
+    const timer = window.setTimeout(() => {
+      setIsHidden(true);
+    }, 3300);
+
+    return () => {
+      window.clearTimeout(timer);
+    };
+  }, []);
+
+  useEffect(() => {
     window.scrollTo({ top: 0, behavior: "instant" });
+
     if (!isHidden) {
       document.body.style.overflow = "hidden";
     } else {
@@ -26,8 +37,7 @@ export function LoadingScreen() {
         muted
         playsInline
         className="loading-screen-video"
-        onEnded={() => setIsHidden(true)}
-          preload="auto"
+        preload="auto"
       >
         <source src="/LoadingScreen/video.webm" type="video/webm" />
       </video>
