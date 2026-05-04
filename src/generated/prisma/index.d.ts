@@ -18,6 +18,16 @@ export type PrismaPromise<T> = $Public.PrismaPromise<T>
  * 
  */
 export type Lead = $Result.DefaultSelection<Prisma.$LeadPayload>
+/**
+ * Model ProductPageContent
+ * 
+ */
+export type ProductPageContent = $Result.DefaultSelection<Prisma.$ProductPageContentPayload>
+/**
+ * Model HomepageCatalogItem
+ * 
+ */
+export type HomepageCatalogItem = $Result.DefaultSelection<Prisma.$HomepageCatalogItemPayload>
 
 /**
  * ##  Prisma Client ʲˢ
@@ -149,6 +159,26 @@ export class PrismaClient<
     * ```
     */
   get lead(): Prisma.LeadDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.productPageContent`: Exposes CRUD operations for the **ProductPageContent** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more ProductPageContents
+    * const productPageContents = await prisma.productPageContent.findMany()
+    * ```
+    */
+  get productPageContent(): Prisma.ProductPageContentDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.homepageCatalogItem`: Exposes CRUD operations for the **HomepageCatalogItem** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more HomepageCatalogItems
+    * const homepageCatalogItems = await prisma.homepageCatalogItem.findMany()
+    * ```
+    */
+  get homepageCatalogItem(): Prisma.HomepageCatalogItemDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -583,7 +613,9 @@ export namespace Prisma {
 
 
   export const ModelName: {
-    Lead: 'Lead'
+    Lead: 'Lead',
+    ProductPageContent: 'ProductPageContent',
+    HomepageCatalogItem: 'HomepageCatalogItem'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -599,7 +631,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "lead"
+      modelProps: "lead" | "productPageContent" | "homepageCatalogItem"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -674,6 +706,154 @@ export namespace Prisma {
           count: {
             args: Prisma.LeadCountArgs<ExtArgs>
             result: $Utils.Optional<LeadCountAggregateOutputType> | number
+          }
+        }
+      }
+      ProductPageContent: {
+        payload: Prisma.$ProductPageContentPayload<ExtArgs>
+        fields: Prisma.ProductPageContentFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.ProductPageContentFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProductPageContentPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.ProductPageContentFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProductPageContentPayload>
+          }
+          findFirst: {
+            args: Prisma.ProductPageContentFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProductPageContentPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.ProductPageContentFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProductPageContentPayload>
+          }
+          findMany: {
+            args: Prisma.ProductPageContentFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProductPageContentPayload>[]
+          }
+          create: {
+            args: Prisma.ProductPageContentCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProductPageContentPayload>
+          }
+          createMany: {
+            args: Prisma.ProductPageContentCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.ProductPageContentCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProductPageContentPayload>[]
+          }
+          delete: {
+            args: Prisma.ProductPageContentDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProductPageContentPayload>
+          }
+          update: {
+            args: Prisma.ProductPageContentUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProductPageContentPayload>
+          }
+          deleteMany: {
+            args: Prisma.ProductPageContentDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.ProductPageContentUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.ProductPageContentUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProductPageContentPayload>[]
+          }
+          upsert: {
+            args: Prisma.ProductPageContentUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProductPageContentPayload>
+          }
+          aggregate: {
+            args: Prisma.ProductPageContentAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateProductPageContent>
+          }
+          groupBy: {
+            args: Prisma.ProductPageContentGroupByArgs<ExtArgs>
+            result: $Utils.Optional<ProductPageContentGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.ProductPageContentCountArgs<ExtArgs>
+            result: $Utils.Optional<ProductPageContentCountAggregateOutputType> | number
+          }
+        }
+      }
+      HomepageCatalogItem: {
+        payload: Prisma.$HomepageCatalogItemPayload<ExtArgs>
+        fields: Prisma.HomepageCatalogItemFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.HomepageCatalogItemFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$HomepageCatalogItemPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.HomepageCatalogItemFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$HomepageCatalogItemPayload>
+          }
+          findFirst: {
+            args: Prisma.HomepageCatalogItemFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$HomepageCatalogItemPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.HomepageCatalogItemFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$HomepageCatalogItemPayload>
+          }
+          findMany: {
+            args: Prisma.HomepageCatalogItemFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$HomepageCatalogItemPayload>[]
+          }
+          create: {
+            args: Prisma.HomepageCatalogItemCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$HomepageCatalogItemPayload>
+          }
+          createMany: {
+            args: Prisma.HomepageCatalogItemCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.HomepageCatalogItemCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$HomepageCatalogItemPayload>[]
+          }
+          delete: {
+            args: Prisma.HomepageCatalogItemDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$HomepageCatalogItemPayload>
+          }
+          update: {
+            args: Prisma.HomepageCatalogItemUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$HomepageCatalogItemPayload>
+          }
+          deleteMany: {
+            args: Prisma.HomepageCatalogItemDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.HomepageCatalogItemUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.HomepageCatalogItemUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$HomepageCatalogItemPayload>[]
+          }
+          upsert: {
+            args: Prisma.HomepageCatalogItemUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$HomepageCatalogItemPayload>
+          }
+          aggregate: {
+            args: Prisma.HomepageCatalogItemAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateHomepageCatalogItem>
+          }
+          groupBy: {
+            args: Prisma.HomepageCatalogItemGroupByArgs<ExtArgs>
+            result: $Utils.Optional<HomepageCatalogItemGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.HomepageCatalogItemCountArgs<ExtArgs>
+            result: $Utils.Optional<HomepageCatalogItemCountAggregateOutputType> | number
           }
         }
       }
@@ -786,6 +966,8 @@ export namespace Prisma {
   }
   export type GlobalOmitConfig = {
     lead?: LeadOmit
+    productPageContent?: ProductPageContentOmit
+    homepageCatalogItem?: HomepageCatalogItemOmit
   }
 
   /* Types for Logging */
@@ -1940,6 +2122,2053 @@ export namespace Prisma {
 
 
   /**
+   * Model ProductPageContent
+   */
+
+  export type AggregateProductPageContent = {
+    _count: ProductPageContentCountAggregateOutputType | null
+    _min: ProductPageContentMinAggregateOutputType | null
+    _max: ProductPageContentMaxAggregateOutputType | null
+  }
+
+  export type ProductPageContentMinAggregateOutputType = {
+    slug: string | null
+    updatedAt: Date | null
+  }
+
+  export type ProductPageContentMaxAggregateOutputType = {
+    slug: string | null
+    updatedAt: Date | null
+  }
+
+  export type ProductPageContentCountAggregateOutputType = {
+    slug: number
+    data: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type ProductPageContentMinAggregateInputType = {
+    slug?: true
+    updatedAt?: true
+  }
+
+  export type ProductPageContentMaxAggregateInputType = {
+    slug?: true
+    updatedAt?: true
+  }
+
+  export type ProductPageContentCountAggregateInputType = {
+    slug?: true
+    data?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type ProductPageContentAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which ProductPageContent to aggregate.
+     */
+    where?: ProductPageContentWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ProductPageContents to fetch.
+     */
+    orderBy?: ProductPageContentOrderByWithRelationInput | ProductPageContentOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: ProductPageContentWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ProductPageContents from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ProductPageContents.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned ProductPageContents
+    **/
+    _count?: true | ProductPageContentCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: ProductPageContentMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: ProductPageContentMaxAggregateInputType
+  }
+
+  export type GetProductPageContentAggregateType<T extends ProductPageContentAggregateArgs> = {
+        [P in keyof T & keyof AggregateProductPageContent]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateProductPageContent[P]>
+      : GetScalarType<T[P], AggregateProductPageContent[P]>
+  }
+
+
+
+
+  export type ProductPageContentGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ProductPageContentWhereInput
+    orderBy?: ProductPageContentOrderByWithAggregationInput | ProductPageContentOrderByWithAggregationInput[]
+    by: ProductPageContentScalarFieldEnum[] | ProductPageContentScalarFieldEnum
+    having?: ProductPageContentScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: ProductPageContentCountAggregateInputType | true
+    _min?: ProductPageContentMinAggregateInputType
+    _max?: ProductPageContentMaxAggregateInputType
+  }
+
+  export type ProductPageContentGroupByOutputType = {
+    slug: string
+    data: JsonValue
+    updatedAt: Date
+    _count: ProductPageContentCountAggregateOutputType | null
+    _min: ProductPageContentMinAggregateOutputType | null
+    _max: ProductPageContentMaxAggregateOutputType | null
+  }
+
+  type GetProductPageContentGroupByPayload<T extends ProductPageContentGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<ProductPageContentGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof ProductPageContentGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], ProductPageContentGroupByOutputType[P]>
+            : GetScalarType<T[P], ProductPageContentGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type ProductPageContentSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    slug?: boolean
+    data?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["productPageContent"]>
+
+  export type ProductPageContentSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    slug?: boolean
+    data?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["productPageContent"]>
+
+  export type ProductPageContentSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    slug?: boolean
+    data?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["productPageContent"]>
+
+  export type ProductPageContentSelectScalar = {
+    slug?: boolean
+    data?: boolean
+    updatedAt?: boolean
+  }
+
+  export type ProductPageContentOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"slug" | "data" | "updatedAt", ExtArgs["result"]["productPageContent"]>
+
+  export type $ProductPageContentPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "ProductPageContent"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      slug: string
+      data: Prisma.JsonValue
+      updatedAt: Date
+    }, ExtArgs["result"]["productPageContent"]>
+    composites: {}
+  }
+
+  type ProductPageContentGetPayload<S extends boolean | null | undefined | ProductPageContentDefaultArgs> = $Result.GetResult<Prisma.$ProductPageContentPayload, S>
+
+  type ProductPageContentCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<ProductPageContentFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: ProductPageContentCountAggregateInputType | true
+    }
+
+  export interface ProductPageContentDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['ProductPageContent'], meta: { name: 'ProductPageContent' } }
+    /**
+     * Find zero or one ProductPageContent that matches the filter.
+     * @param {ProductPageContentFindUniqueArgs} args - Arguments to find a ProductPageContent
+     * @example
+     * // Get one ProductPageContent
+     * const productPageContent = await prisma.productPageContent.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends ProductPageContentFindUniqueArgs>(args: SelectSubset<T, ProductPageContentFindUniqueArgs<ExtArgs>>): Prisma__ProductPageContentClient<$Result.GetResult<Prisma.$ProductPageContentPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one ProductPageContent that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {ProductPageContentFindUniqueOrThrowArgs} args - Arguments to find a ProductPageContent
+     * @example
+     * // Get one ProductPageContent
+     * const productPageContent = await prisma.productPageContent.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends ProductPageContentFindUniqueOrThrowArgs>(args: SelectSubset<T, ProductPageContentFindUniqueOrThrowArgs<ExtArgs>>): Prisma__ProductPageContentClient<$Result.GetResult<Prisma.$ProductPageContentPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first ProductPageContent that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProductPageContentFindFirstArgs} args - Arguments to find a ProductPageContent
+     * @example
+     * // Get one ProductPageContent
+     * const productPageContent = await prisma.productPageContent.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends ProductPageContentFindFirstArgs>(args?: SelectSubset<T, ProductPageContentFindFirstArgs<ExtArgs>>): Prisma__ProductPageContentClient<$Result.GetResult<Prisma.$ProductPageContentPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first ProductPageContent that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProductPageContentFindFirstOrThrowArgs} args - Arguments to find a ProductPageContent
+     * @example
+     * // Get one ProductPageContent
+     * const productPageContent = await prisma.productPageContent.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends ProductPageContentFindFirstOrThrowArgs>(args?: SelectSubset<T, ProductPageContentFindFirstOrThrowArgs<ExtArgs>>): Prisma__ProductPageContentClient<$Result.GetResult<Prisma.$ProductPageContentPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more ProductPageContents that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProductPageContentFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all ProductPageContents
+     * const productPageContents = await prisma.productPageContent.findMany()
+     * 
+     * // Get first 10 ProductPageContents
+     * const productPageContents = await prisma.productPageContent.findMany({ take: 10 })
+     * 
+     * // Only select the `slug`
+     * const productPageContentWithSlugOnly = await prisma.productPageContent.findMany({ select: { slug: true } })
+     * 
+     */
+    findMany<T extends ProductPageContentFindManyArgs>(args?: SelectSubset<T, ProductPageContentFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProductPageContentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a ProductPageContent.
+     * @param {ProductPageContentCreateArgs} args - Arguments to create a ProductPageContent.
+     * @example
+     * // Create one ProductPageContent
+     * const ProductPageContent = await prisma.productPageContent.create({
+     *   data: {
+     *     // ... data to create a ProductPageContent
+     *   }
+     * })
+     * 
+     */
+    create<T extends ProductPageContentCreateArgs>(args: SelectSubset<T, ProductPageContentCreateArgs<ExtArgs>>): Prisma__ProductPageContentClient<$Result.GetResult<Prisma.$ProductPageContentPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many ProductPageContents.
+     * @param {ProductPageContentCreateManyArgs} args - Arguments to create many ProductPageContents.
+     * @example
+     * // Create many ProductPageContents
+     * const productPageContent = await prisma.productPageContent.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends ProductPageContentCreateManyArgs>(args?: SelectSubset<T, ProductPageContentCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many ProductPageContents and returns the data saved in the database.
+     * @param {ProductPageContentCreateManyAndReturnArgs} args - Arguments to create many ProductPageContents.
+     * @example
+     * // Create many ProductPageContents
+     * const productPageContent = await prisma.productPageContent.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many ProductPageContents and only return the `slug`
+     * const productPageContentWithSlugOnly = await prisma.productPageContent.createManyAndReturn({
+     *   select: { slug: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends ProductPageContentCreateManyAndReturnArgs>(args?: SelectSubset<T, ProductPageContentCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProductPageContentPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a ProductPageContent.
+     * @param {ProductPageContentDeleteArgs} args - Arguments to delete one ProductPageContent.
+     * @example
+     * // Delete one ProductPageContent
+     * const ProductPageContent = await prisma.productPageContent.delete({
+     *   where: {
+     *     // ... filter to delete one ProductPageContent
+     *   }
+     * })
+     * 
+     */
+    delete<T extends ProductPageContentDeleteArgs>(args: SelectSubset<T, ProductPageContentDeleteArgs<ExtArgs>>): Prisma__ProductPageContentClient<$Result.GetResult<Prisma.$ProductPageContentPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one ProductPageContent.
+     * @param {ProductPageContentUpdateArgs} args - Arguments to update one ProductPageContent.
+     * @example
+     * // Update one ProductPageContent
+     * const productPageContent = await prisma.productPageContent.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends ProductPageContentUpdateArgs>(args: SelectSubset<T, ProductPageContentUpdateArgs<ExtArgs>>): Prisma__ProductPageContentClient<$Result.GetResult<Prisma.$ProductPageContentPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more ProductPageContents.
+     * @param {ProductPageContentDeleteManyArgs} args - Arguments to filter ProductPageContents to delete.
+     * @example
+     * // Delete a few ProductPageContents
+     * const { count } = await prisma.productPageContent.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends ProductPageContentDeleteManyArgs>(args?: SelectSubset<T, ProductPageContentDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more ProductPageContents.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProductPageContentUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many ProductPageContents
+     * const productPageContent = await prisma.productPageContent.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends ProductPageContentUpdateManyArgs>(args: SelectSubset<T, ProductPageContentUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more ProductPageContents and returns the data updated in the database.
+     * @param {ProductPageContentUpdateManyAndReturnArgs} args - Arguments to update many ProductPageContents.
+     * @example
+     * // Update many ProductPageContents
+     * const productPageContent = await prisma.productPageContent.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more ProductPageContents and only return the `slug`
+     * const productPageContentWithSlugOnly = await prisma.productPageContent.updateManyAndReturn({
+     *   select: { slug: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends ProductPageContentUpdateManyAndReturnArgs>(args: SelectSubset<T, ProductPageContentUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProductPageContentPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one ProductPageContent.
+     * @param {ProductPageContentUpsertArgs} args - Arguments to update or create a ProductPageContent.
+     * @example
+     * // Update or create a ProductPageContent
+     * const productPageContent = await prisma.productPageContent.upsert({
+     *   create: {
+     *     // ... data to create a ProductPageContent
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the ProductPageContent we want to update
+     *   }
+     * })
+     */
+    upsert<T extends ProductPageContentUpsertArgs>(args: SelectSubset<T, ProductPageContentUpsertArgs<ExtArgs>>): Prisma__ProductPageContentClient<$Result.GetResult<Prisma.$ProductPageContentPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of ProductPageContents.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProductPageContentCountArgs} args - Arguments to filter ProductPageContents to count.
+     * @example
+     * // Count the number of ProductPageContents
+     * const count = await prisma.productPageContent.count({
+     *   where: {
+     *     // ... the filter for the ProductPageContents we want to count
+     *   }
+     * })
+    **/
+    count<T extends ProductPageContentCountArgs>(
+      args?: Subset<T, ProductPageContentCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], ProductPageContentCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a ProductPageContent.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProductPageContentAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends ProductPageContentAggregateArgs>(args: Subset<T, ProductPageContentAggregateArgs>): Prisma.PrismaPromise<GetProductPageContentAggregateType<T>>
+
+    /**
+     * Group by ProductPageContent.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProductPageContentGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends ProductPageContentGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: ProductPageContentGroupByArgs['orderBy'] }
+        : { orderBy?: ProductPageContentGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, ProductPageContentGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetProductPageContentGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the ProductPageContent model
+   */
+  readonly fields: ProductPageContentFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for ProductPageContent.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__ProductPageContentClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the ProductPageContent model
+   */
+  interface ProductPageContentFieldRefs {
+    readonly slug: FieldRef<"ProductPageContent", 'String'>
+    readonly data: FieldRef<"ProductPageContent", 'Json'>
+    readonly updatedAt: FieldRef<"ProductPageContent", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * ProductPageContent findUnique
+   */
+  export type ProductPageContentFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProductPageContent
+     */
+    select?: ProductPageContentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProductPageContent
+     */
+    omit?: ProductPageContentOmit<ExtArgs> | null
+    /**
+     * Filter, which ProductPageContent to fetch.
+     */
+    where: ProductPageContentWhereUniqueInput
+  }
+
+  /**
+   * ProductPageContent findUniqueOrThrow
+   */
+  export type ProductPageContentFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProductPageContent
+     */
+    select?: ProductPageContentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProductPageContent
+     */
+    omit?: ProductPageContentOmit<ExtArgs> | null
+    /**
+     * Filter, which ProductPageContent to fetch.
+     */
+    where: ProductPageContentWhereUniqueInput
+  }
+
+  /**
+   * ProductPageContent findFirst
+   */
+  export type ProductPageContentFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProductPageContent
+     */
+    select?: ProductPageContentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProductPageContent
+     */
+    omit?: ProductPageContentOmit<ExtArgs> | null
+    /**
+     * Filter, which ProductPageContent to fetch.
+     */
+    where?: ProductPageContentWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ProductPageContents to fetch.
+     */
+    orderBy?: ProductPageContentOrderByWithRelationInput | ProductPageContentOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for ProductPageContents.
+     */
+    cursor?: ProductPageContentWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ProductPageContents from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ProductPageContents.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of ProductPageContents.
+     */
+    distinct?: ProductPageContentScalarFieldEnum | ProductPageContentScalarFieldEnum[]
+  }
+
+  /**
+   * ProductPageContent findFirstOrThrow
+   */
+  export type ProductPageContentFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProductPageContent
+     */
+    select?: ProductPageContentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProductPageContent
+     */
+    omit?: ProductPageContentOmit<ExtArgs> | null
+    /**
+     * Filter, which ProductPageContent to fetch.
+     */
+    where?: ProductPageContentWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ProductPageContents to fetch.
+     */
+    orderBy?: ProductPageContentOrderByWithRelationInput | ProductPageContentOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for ProductPageContents.
+     */
+    cursor?: ProductPageContentWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ProductPageContents from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ProductPageContents.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of ProductPageContents.
+     */
+    distinct?: ProductPageContentScalarFieldEnum | ProductPageContentScalarFieldEnum[]
+  }
+
+  /**
+   * ProductPageContent findMany
+   */
+  export type ProductPageContentFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProductPageContent
+     */
+    select?: ProductPageContentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProductPageContent
+     */
+    omit?: ProductPageContentOmit<ExtArgs> | null
+    /**
+     * Filter, which ProductPageContents to fetch.
+     */
+    where?: ProductPageContentWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ProductPageContents to fetch.
+     */
+    orderBy?: ProductPageContentOrderByWithRelationInput | ProductPageContentOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing ProductPageContents.
+     */
+    cursor?: ProductPageContentWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ProductPageContents from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ProductPageContents.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of ProductPageContents.
+     */
+    distinct?: ProductPageContentScalarFieldEnum | ProductPageContentScalarFieldEnum[]
+  }
+
+  /**
+   * ProductPageContent create
+   */
+  export type ProductPageContentCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProductPageContent
+     */
+    select?: ProductPageContentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProductPageContent
+     */
+    omit?: ProductPageContentOmit<ExtArgs> | null
+    /**
+     * The data needed to create a ProductPageContent.
+     */
+    data: XOR<ProductPageContentCreateInput, ProductPageContentUncheckedCreateInput>
+  }
+
+  /**
+   * ProductPageContent createMany
+   */
+  export type ProductPageContentCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many ProductPageContents.
+     */
+    data: ProductPageContentCreateManyInput | ProductPageContentCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * ProductPageContent createManyAndReturn
+   */
+  export type ProductPageContentCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProductPageContent
+     */
+    select?: ProductPageContentSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProductPageContent
+     */
+    omit?: ProductPageContentOmit<ExtArgs> | null
+    /**
+     * The data used to create many ProductPageContents.
+     */
+    data: ProductPageContentCreateManyInput | ProductPageContentCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * ProductPageContent update
+   */
+  export type ProductPageContentUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProductPageContent
+     */
+    select?: ProductPageContentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProductPageContent
+     */
+    omit?: ProductPageContentOmit<ExtArgs> | null
+    /**
+     * The data needed to update a ProductPageContent.
+     */
+    data: XOR<ProductPageContentUpdateInput, ProductPageContentUncheckedUpdateInput>
+    /**
+     * Choose, which ProductPageContent to update.
+     */
+    where: ProductPageContentWhereUniqueInput
+  }
+
+  /**
+   * ProductPageContent updateMany
+   */
+  export type ProductPageContentUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update ProductPageContents.
+     */
+    data: XOR<ProductPageContentUpdateManyMutationInput, ProductPageContentUncheckedUpdateManyInput>
+    /**
+     * Filter which ProductPageContents to update
+     */
+    where?: ProductPageContentWhereInput
+    /**
+     * Limit how many ProductPageContents to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * ProductPageContent updateManyAndReturn
+   */
+  export type ProductPageContentUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProductPageContent
+     */
+    select?: ProductPageContentSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProductPageContent
+     */
+    omit?: ProductPageContentOmit<ExtArgs> | null
+    /**
+     * The data used to update ProductPageContents.
+     */
+    data: XOR<ProductPageContentUpdateManyMutationInput, ProductPageContentUncheckedUpdateManyInput>
+    /**
+     * Filter which ProductPageContents to update
+     */
+    where?: ProductPageContentWhereInput
+    /**
+     * Limit how many ProductPageContents to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * ProductPageContent upsert
+   */
+  export type ProductPageContentUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProductPageContent
+     */
+    select?: ProductPageContentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProductPageContent
+     */
+    omit?: ProductPageContentOmit<ExtArgs> | null
+    /**
+     * The filter to search for the ProductPageContent to update in case it exists.
+     */
+    where: ProductPageContentWhereUniqueInput
+    /**
+     * In case the ProductPageContent found by the `where` argument doesn't exist, create a new ProductPageContent with this data.
+     */
+    create: XOR<ProductPageContentCreateInput, ProductPageContentUncheckedCreateInput>
+    /**
+     * In case the ProductPageContent was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<ProductPageContentUpdateInput, ProductPageContentUncheckedUpdateInput>
+  }
+
+  /**
+   * ProductPageContent delete
+   */
+  export type ProductPageContentDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProductPageContent
+     */
+    select?: ProductPageContentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProductPageContent
+     */
+    omit?: ProductPageContentOmit<ExtArgs> | null
+    /**
+     * Filter which ProductPageContent to delete.
+     */
+    where: ProductPageContentWhereUniqueInput
+  }
+
+  /**
+   * ProductPageContent deleteMany
+   */
+  export type ProductPageContentDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which ProductPageContents to delete
+     */
+    where?: ProductPageContentWhereInput
+    /**
+     * Limit how many ProductPageContents to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * ProductPageContent without action
+   */
+  export type ProductPageContentDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProductPageContent
+     */
+    select?: ProductPageContentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProductPageContent
+     */
+    omit?: ProductPageContentOmit<ExtArgs> | null
+  }
+
+
+  /**
+   * Model HomepageCatalogItem
+   */
+
+  export type AggregateHomepageCatalogItem = {
+    _count: HomepageCatalogItemCountAggregateOutputType | null
+    _avg: HomepageCatalogItemAvgAggregateOutputType | null
+    _sum: HomepageCatalogItemSumAggregateOutputType | null
+    _min: HomepageCatalogItemMinAggregateOutputType | null
+    _max: HomepageCatalogItemMaxAggregateOutputType | null
+  }
+
+  export type HomepageCatalogItemAvgAggregateOutputType = {
+    id: number | null
+    sortOrder: number | null
+  }
+
+  export type HomepageCatalogItemSumAggregateOutputType = {
+    id: number | null
+    sortOrder: number | null
+  }
+
+  export type HomepageCatalogItemMinAggregateOutputType = {
+    id: number | null
+    slug: string | null
+    titleUk: string | null
+    titleEn: string | null
+    subtitleUk: string | null
+    subtitleEn: string | null
+    imagePath: string | null
+    sortOrder: number | null
+  }
+
+  export type HomepageCatalogItemMaxAggregateOutputType = {
+    id: number | null
+    slug: string | null
+    titleUk: string | null
+    titleEn: string | null
+    subtitleUk: string | null
+    subtitleEn: string | null
+    imagePath: string | null
+    sortOrder: number | null
+  }
+
+  export type HomepageCatalogItemCountAggregateOutputType = {
+    id: number
+    slug: number
+    titleUk: number
+    titleEn: number
+    subtitleUk: number
+    subtitleEn: number
+    imagePath: number
+    sortOrder: number
+    _all: number
+  }
+
+
+  export type HomepageCatalogItemAvgAggregateInputType = {
+    id?: true
+    sortOrder?: true
+  }
+
+  export type HomepageCatalogItemSumAggregateInputType = {
+    id?: true
+    sortOrder?: true
+  }
+
+  export type HomepageCatalogItemMinAggregateInputType = {
+    id?: true
+    slug?: true
+    titleUk?: true
+    titleEn?: true
+    subtitleUk?: true
+    subtitleEn?: true
+    imagePath?: true
+    sortOrder?: true
+  }
+
+  export type HomepageCatalogItemMaxAggregateInputType = {
+    id?: true
+    slug?: true
+    titleUk?: true
+    titleEn?: true
+    subtitleUk?: true
+    subtitleEn?: true
+    imagePath?: true
+    sortOrder?: true
+  }
+
+  export type HomepageCatalogItemCountAggregateInputType = {
+    id?: true
+    slug?: true
+    titleUk?: true
+    titleEn?: true
+    subtitleUk?: true
+    subtitleEn?: true
+    imagePath?: true
+    sortOrder?: true
+    _all?: true
+  }
+
+  export type HomepageCatalogItemAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which HomepageCatalogItem to aggregate.
+     */
+    where?: HomepageCatalogItemWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of HomepageCatalogItems to fetch.
+     */
+    orderBy?: HomepageCatalogItemOrderByWithRelationInput | HomepageCatalogItemOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: HomepageCatalogItemWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` HomepageCatalogItems from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` HomepageCatalogItems.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned HomepageCatalogItems
+    **/
+    _count?: true | HomepageCatalogItemCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: HomepageCatalogItemAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: HomepageCatalogItemSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: HomepageCatalogItemMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: HomepageCatalogItemMaxAggregateInputType
+  }
+
+  export type GetHomepageCatalogItemAggregateType<T extends HomepageCatalogItemAggregateArgs> = {
+        [P in keyof T & keyof AggregateHomepageCatalogItem]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateHomepageCatalogItem[P]>
+      : GetScalarType<T[P], AggregateHomepageCatalogItem[P]>
+  }
+
+
+
+
+  export type HomepageCatalogItemGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: HomepageCatalogItemWhereInput
+    orderBy?: HomepageCatalogItemOrderByWithAggregationInput | HomepageCatalogItemOrderByWithAggregationInput[]
+    by: HomepageCatalogItemScalarFieldEnum[] | HomepageCatalogItemScalarFieldEnum
+    having?: HomepageCatalogItemScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: HomepageCatalogItemCountAggregateInputType | true
+    _avg?: HomepageCatalogItemAvgAggregateInputType
+    _sum?: HomepageCatalogItemSumAggregateInputType
+    _min?: HomepageCatalogItemMinAggregateInputType
+    _max?: HomepageCatalogItemMaxAggregateInputType
+  }
+
+  export type HomepageCatalogItemGroupByOutputType = {
+    id: number
+    slug: string
+    titleUk: string
+    titleEn: string
+    subtitleUk: string
+    subtitleEn: string
+    imagePath: string
+    sortOrder: number
+    _count: HomepageCatalogItemCountAggregateOutputType | null
+    _avg: HomepageCatalogItemAvgAggregateOutputType | null
+    _sum: HomepageCatalogItemSumAggregateOutputType | null
+    _min: HomepageCatalogItemMinAggregateOutputType | null
+    _max: HomepageCatalogItemMaxAggregateOutputType | null
+  }
+
+  type GetHomepageCatalogItemGroupByPayload<T extends HomepageCatalogItemGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<HomepageCatalogItemGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof HomepageCatalogItemGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], HomepageCatalogItemGroupByOutputType[P]>
+            : GetScalarType<T[P], HomepageCatalogItemGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type HomepageCatalogItemSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    slug?: boolean
+    titleUk?: boolean
+    titleEn?: boolean
+    subtitleUk?: boolean
+    subtitleEn?: boolean
+    imagePath?: boolean
+    sortOrder?: boolean
+  }, ExtArgs["result"]["homepageCatalogItem"]>
+
+  export type HomepageCatalogItemSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    slug?: boolean
+    titleUk?: boolean
+    titleEn?: boolean
+    subtitleUk?: boolean
+    subtitleEn?: boolean
+    imagePath?: boolean
+    sortOrder?: boolean
+  }, ExtArgs["result"]["homepageCatalogItem"]>
+
+  export type HomepageCatalogItemSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    slug?: boolean
+    titleUk?: boolean
+    titleEn?: boolean
+    subtitleUk?: boolean
+    subtitleEn?: boolean
+    imagePath?: boolean
+    sortOrder?: boolean
+  }, ExtArgs["result"]["homepageCatalogItem"]>
+
+  export type HomepageCatalogItemSelectScalar = {
+    id?: boolean
+    slug?: boolean
+    titleUk?: boolean
+    titleEn?: boolean
+    subtitleUk?: boolean
+    subtitleEn?: boolean
+    imagePath?: boolean
+    sortOrder?: boolean
+  }
+
+  export type HomepageCatalogItemOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "slug" | "titleUk" | "titleEn" | "subtitleUk" | "subtitleEn" | "imagePath" | "sortOrder", ExtArgs["result"]["homepageCatalogItem"]>
+
+  export type $HomepageCatalogItemPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "HomepageCatalogItem"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      slug: string
+      titleUk: string
+      titleEn: string
+      subtitleUk: string
+      subtitleEn: string
+      imagePath: string
+      sortOrder: number
+    }, ExtArgs["result"]["homepageCatalogItem"]>
+    composites: {}
+  }
+
+  type HomepageCatalogItemGetPayload<S extends boolean | null | undefined | HomepageCatalogItemDefaultArgs> = $Result.GetResult<Prisma.$HomepageCatalogItemPayload, S>
+
+  type HomepageCatalogItemCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<HomepageCatalogItemFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: HomepageCatalogItemCountAggregateInputType | true
+    }
+
+  export interface HomepageCatalogItemDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['HomepageCatalogItem'], meta: { name: 'HomepageCatalogItem' } }
+    /**
+     * Find zero or one HomepageCatalogItem that matches the filter.
+     * @param {HomepageCatalogItemFindUniqueArgs} args - Arguments to find a HomepageCatalogItem
+     * @example
+     * // Get one HomepageCatalogItem
+     * const homepageCatalogItem = await prisma.homepageCatalogItem.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends HomepageCatalogItemFindUniqueArgs>(args: SelectSubset<T, HomepageCatalogItemFindUniqueArgs<ExtArgs>>): Prisma__HomepageCatalogItemClient<$Result.GetResult<Prisma.$HomepageCatalogItemPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one HomepageCatalogItem that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {HomepageCatalogItemFindUniqueOrThrowArgs} args - Arguments to find a HomepageCatalogItem
+     * @example
+     * // Get one HomepageCatalogItem
+     * const homepageCatalogItem = await prisma.homepageCatalogItem.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends HomepageCatalogItemFindUniqueOrThrowArgs>(args: SelectSubset<T, HomepageCatalogItemFindUniqueOrThrowArgs<ExtArgs>>): Prisma__HomepageCatalogItemClient<$Result.GetResult<Prisma.$HomepageCatalogItemPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first HomepageCatalogItem that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {HomepageCatalogItemFindFirstArgs} args - Arguments to find a HomepageCatalogItem
+     * @example
+     * // Get one HomepageCatalogItem
+     * const homepageCatalogItem = await prisma.homepageCatalogItem.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends HomepageCatalogItemFindFirstArgs>(args?: SelectSubset<T, HomepageCatalogItemFindFirstArgs<ExtArgs>>): Prisma__HomepageCatalogItemClient<$Result.GetResult<Prisma.$HomepageCatalogItemPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first HomepageCatalogItem that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {HomepageCatalogItemFindFirstOrThrowArgs} args - Arguments to find a HomepageCatalogItem
+     * @example
+     * // Get one HomepageCatalogItem
+     * const homepageCatalogItem = await prisma.homepageCatalogItem.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends HomepageCatalogItemFindFirstOrThrowArgs>(args?: SelectSubset<T, HomepageCatalogItemFindFirstOrThrowArgs<ExtArgs>>): Prisma__HomepageCatalogItemClient<$Result.GetResult<Prisma.$HomepageCatalogItemPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more HomepageCatalogItems that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {HomepageCatalogItemFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all HomepageCatalogItems
+     * const homepageCatalogItems = await prisma.homepageCatalogItem.findMany()
+     * 
+     * // Get first 10 HomepageCatalogItems
+     * const homepageCatalogItems = await prisma.homepageCatalogItem.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const homepageCatalogItemWithIdOnly = await prisma.homepageCatalogItem.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends HomepageCatalogItemFindManyArgs>(args?: SelectSubset<T, HomepageCatalogItemFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$HomepageCatalogItemPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a HomepageCatalogItem.
+     * @param {HomepageCatalogItemCreateArgs} args - Arguments to create a HomepageCatalogItem.
+     * @example
+     * // Create one HomepageCatalogItem
+     * const HomepageCatalogItem = await prisma.homepageCatalogItem.create({
+     *   data: {
+     *     // ... data to create a HomepageCatalogItem
+     *   }
+     * })
+     * 
+     */
+    create<T extends HomepageCatalogItemCreateArgs>(args: SelectSubset<T, HomepageCatalogItemCreateArgs<ExtArgs>>): Prisma__HomepageCatalogItemClient<$Result.GetResult<Prisma.$HomepageCatalogItemPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many HomepageCatalogItems.
+     * @param {HomepageCatalogItemCreateManyArgs} args - Arguments to create many HomepageCatalogItems.
+     * @example
+     * // Create many HomepageCatalogItems
+     * const homepageCatalogItem = await prisma.homepageCatalogItem.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends HomepageCatalogItemCreateManyArgs>(args?: SelectSubset<T, HomepageCatalogItemCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many HomepageCatalogItems and returns the data saved in the database.
+     * @param {HomepageCatalogItemCreateManyAndReturnArgs} args - Arguments to create many HomepageCatalogItems.
+     * @example
+     * // Create many HomepageCatalogItems
+     * const homepageCatalogItem = await prisma.homepageCatalogItem.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many HomepageCatalogItems and only return the `id`
+     * const homepageCatalogItemWithIdOnly = await prisma.homepageCatalogItem.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends HomepageCatalogItemCreateManyAndReturnArgs>(args?: SelectSubset<T, HomepageCatalogItemCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$HomepageCatalogItemPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a HomepageCatalogItem.
+     * @param {HomepageCatalogItemDeleteArgs} args - Arguments to delete one HomepageCatalogItem.
+     * @example
+     * // Delete one HomepageCatalogItem
+     * const HomepageCatalogItem = await prisma.homepageCatalogItem.delete({
+     *   where: {
+     *     // ... filter to delete one HomepageCatalogItem
+     *   }
+     * })
+     * 
+     */
+    delete<T extends HomepageCatalogItemDeleteArgs>(args: SelectSubset<T, HomepageCatalogItemDeleteArgs<ExtArgs>>): Prisma__HomepageCatalogItemClient<$Result.GetResult<Prisma.$HomepageCatalogItemPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one HomepageCatalogItem.
+     * @param {HomepageCatalogItemUpdateArgs} args - Arguments to update one HomepageCatalogItem.
+     * @example
+     * // Update one HomepageCatalogItem
+     * const homepageCatalogItem = await prisma.homepageCatalogItem.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends HomepageCatalogItemUpdateArgs>(args: SelectSubset<T, HomepageCatalogItemUpdateArgs<ExtArgs>>): Prisma__HomepageCatalogItemClient<$Result.GetResult<Prisma.$HomepageCatalogItemPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more HomepageCatalogItems.
+     * @param {HomepageCatalogItemDeleteManyArgs} args - Arguments to filter HomepageCatalogItems to delete.
+     * @example
+     * // Delete a few HomepageCatalogItems
+     * const { count } = await prisma.homepageCatalogItem.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends HomepageCatalogItemDeleteManyArgs>(args?: SelectSubset<T, HomepageCatalogItemDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more HomepageCatalogItems.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {HomepageCatalogItemUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many HomepageCatalogItems
+     * const homepageCatalogItem = await prisma.homepageCatalogItem.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends HomepageCatalogItemUpdateManyArgs>(args: SelectSubset<T, HomepageCatalogItemUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more HomepageCatalogItems and returns the data updated in the database.
+     * @param {HomepageCatalogItemUpdateManyAndReturnArgs} args - Arguments to update many HomepageCatalogItems.
+     * @example
+     * // Update many HomepageCatalogItems
+     * const homepageCatalogItem = await prisma.homepageCatalogItem.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more HomepageCatalogItems and only return the `id`
+     * const homepageCatalogItemWithIdOnly = await prisma.homepageCatalogItem.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends HomepageCatalogItemUpdateManyAndReturnArgs>(args: SelectSubset<T, HomepageCatalogItemUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$HomepageCatalogItemPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one HomepageCatalogItem.
+     * @param {HomepageCatalogItemUpsertArgs} args - Arguments to update or create a HomepageCatalogItem.
+     * @example
+     * // Update or create a HomepageCatalogItem
+     * const homepageCatalogItem = await prisma.homepageCatalogItem.upsert({
+     *   create: {
+     *     // ... data to create a HomepageCatalogItem
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the HomepageCatalogItem we want to update
+     *   }
+     * })
+     */
+    upsert<T extends HomepageCatalogItemUpsertArgs>(args: SelectSubset<T, HomepageCatalogItemUpsertArgs<ExtArgs>>): Prisma__HomepageCatalogItemClient<$Result.GetResult<Prisma.$HomepageCatalogItemPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of HomepageCatalogItems.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {HomepageCatalogItemCountArgs} args - Arguments to filter HomepageCatalogItems to count.
+     * @example
+     * // Count the number of HomepageCatalogItems
+     * const count = await prisma.homepageCatalogItem.count({
+     *   where: {
+     *     // ... the filter for the HomepageCatalogItems we want to count
+     *   }
+     * })
+    **/
+    count<T extends HomepageCatalogItemCountArgs>(
+      args?: Subset<T, HomepageCatalogItemCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], HomepageCatalogItemCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a HomepageCatalogItem.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {HomepageCatalogItemAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends HomepageCatalogItemAggregateArgs>(args: Subset<T, HomepageCatalogItemAggregateArgs>): Prisma.PrismaPromise<GetHomepageCatalogItemAggregateType<T>>
+
+    /**
+     * Group by HomepageCatalogItem.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {HomepageCatalogItemGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends HomepageCatalogItemGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: HomepageCatalogItemGroupByArgs['orderBy'] }
+        : { orderBy?: HomepageCatalogItemGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, HomepageCatalogItemGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetHomepageCatalogItemGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the HomepageCatalogItem model
+   */
+  readonly fields: HomepageCatalogItemFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for HomepageCatalogItem.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__HomepageCatalogItemClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the HomepageCatalogItem model
+   */
+  interface HomepageCatalogItemFieldRefs {
+    readonly id: FieldRef<"HomepageCatalogItem", 'Int'>
+    readonly slug: FieldRef<"HomepageCatalogItem", 'String'>
+    readonly titleUk: FieldRef<"HomepageCatalogItem", 'String'>
+    readonly titleEn: FieldRef<"HomepageCatalogItem", 'String'>
+    readonly subtitleUk: FieldRef<"HomepageCatalogItem", 'String'>
+    readonly subtitleEn: FieldRef<"HomepageCatalogItem", 'String'>
+    readonly imagePath: FieldRef<"HomepageCatalogItem", 'String'>
+    readonly sortOrder: FieldRef<"HomepageCatalogItem", 'Int'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * HomepageCatalogItem findUnique
+   */
+  export type HomepageCatalogItemFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the HomepageCatalogItem
+     */
+    select?: HomepageCatalogItemSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the HomepageCatalogItem
+     */
+    omit?: HomepageCatalogItemOmit<ExtArgs> | null
+    /**
+     * Filter, which HomepageCatalogItem to fetch.
+     */
+    where: HomepageCatalogItemWhereUniqueInput
+  }
+
+  /**
+   * HomepageCatalogItem findUniqueOrThrow
+   */
+  export type HomepageCatalogItemFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the HomepageCatalogItem
+     */
+    select?: HomepageCatalogItemSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the HomepageCatalogItem
+     */
+    omit?: HomepageCatalogItemOmit<ExtArgs> | null
+    /**
+     * Filter, which HomepageCatalogItem to fetch.
+     */
+    where: HomepageCatalogItemWhereUniqueInput
+  }
+
+  /**
+   * HomepageCatalogItem findFirst
+   */
+  export type HomepageCatalogItemFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the HomepageCatalogItem
+     */
+    select?: HomepageCatalogItemSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the HomepageCatalogItem
+     */
+    omit?: HomepageCatalogItemOmit<ExtArgs> | null
+    /**
+     * Filter, which HomepageCatalogItem to fetch.
+     */
+    where?: HomepageCatalogItemWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of HomepageCatalogItems to fetch.
+     */
+    orderBy?: HomepageCatalogItemOrderByWithRelationInput | HomepageCatalogItemOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for HomepageCatalogItems.
+     */
+    cursor?: HomepageCatalogItemWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` HomepageCatalogItems from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` HomepageCatalogItems.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of HomepageCatalogItems.
+     */
+    distinct?: HomepageCatalogItemScalarFieldEnum | HomepageCatalogItemScalarFieldEnum[]
+  }
+
+  /**
+   * HomepageCatalogItem findFirstOrThrow
+   */
+  export type HomepageCatalogItemFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the HomepageCatalogItem
+     */
+    select?: HomepageCatalogItemSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the HomepageCatalogItem
+     */
+    omit?: HomepageCatalogItemOmit<ExtArgs> | null
+    /**
+     * Filter, which HomepageCatalogItem to fetch.
+     */
+    where?: HomepageCatalogItemWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of HomepageCatalogItems to fetch.
+     */
+    orderBy?: HomepageCatalogItemOrderByWithRelationInput | HomepageCatalogItemOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for HomepageCatalogItems.
+     */
+    cursor?: HomepageCatalogItemWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` HomepageCatalogItems from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` HomepageCatalogItems.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of HomepageCatalogItems.
+     */
+    distinct?: HomepageCatalogItemScalarFieldEnum | HomepageCatalogItemScalarFieldEnum[]
+  }
+
+  /**
+   * HomepageCatalogItem findMany
+   */
+  export type HomepageCatalogItemFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the HomepageCatalogItem
+     */
+    select?: HomepageCatalogItemSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the HomepageCatalogItem
+     */
+    omit?: HomepageCatalogItemOmit<ExtArgs> | null
+    /**
+     * Filter, which HomepageCatalogItems to fetch.
+     */
+    where?: HomepageCatalogItemWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of HomepageCatalogItems to fetch.
+     */
+    orderBy?: HomepageCatalogItemOrderByWithRelationInput | HomepageCatalogItemOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing HomepageCatalogItems.
+     */
+    cursor?: HomepageCatalogItemWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` HomepageCatalogItems from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` HomepageCatalogItems.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of HomepageCatalogItems.
+     */
+    distinct?: HomepageCatalogItemScalarFieldEnum | HomepageCatalogItemScalarFieldEnum[]
+  }
+
+  /**
+   * HomepageCatalogItem create
+   */
+  export type HomepageCatalogItemCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the HomepageCatalogItem
+     */
+    select?: HomepageCatalogItemSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the HomepageCatalogItem
+     */
+    omit?: HomepageCatalogItemOmit<ExtArgs> | null
+    /**
+     * The data needed to create a HomepageCatalogItem.
+     */
+    data: XOR<HomepageCatalogItemCreateInput, HomepageCatalogItemUncheckedCreateInput>
+  }
+
+  /**
+   * HomepageCatalogItem createMany
+   */
+  export type HomepageCatalogItemCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many HomepageCatalogItems.
+     */
+    data: HomepageCatalogItemCreateManyInput | HomepageCatalogItemCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * HomepageCatalogItem createManyAndReturn
+   */
+  export type HomepageCatalogItemCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the HomepageCatalogItem
+     */
+    select?: HomepageCatalogItemSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the HomepageCatalogItem
+     */
+    omit?: HomepageCatalogItemOmit<ExtArgs> | null
+    /**
+     * The data used to create many HomepageCatalogItems.
+     */
+    data: HomepageCatalogItemCreateManyInput | HomepageCatalogItemCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * HomepageCatalogItem update
+   */
+  export type HomepageCatalogItemUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the HomepageCatalogItem
+     */
+    select?: HomepageCatalogItemSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the HomepageCatalogItem
+     */
+    omit?: HomepageCatalogItemOmit<ExtArgs> | null
+    /**
+     * The data needed to update a HomepageCatalogItem.
+     */
+    data: XOR<HomepageCatalogItemUpdateInput, HomepageCatalogItemUncheckedUpdateInput>
+    /**
+     * Choose, which HomepageCatalogItem to update.
+     */
+    where: HomepageCatalogItemWhereUniqueInput
+  }
+
+  /**
+   * HomepageCatalogItem updateMany
+   */
+  export type HomepageCatalogItemUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update HomepageCatalogItems.
+     */
+    data: XOR<HomepageCatalogItemUpdateManyMutationInput, HomepageCatalogItemUncheckedUpdateManyInput>
+    /**
+     * Filter which HomepageCatalogItems to update
+     */
+    where?: HomepageCatalogItemWhereInput
+    /**
+     * Limit how many HomepageCatalogItems to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * HomepageCatalogItem updateManyAndReturn
+   */
+  export type HomepageCatalogItemUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the HomepageCatalogItem
+     */
+    select?: HomepageCatalogItemSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the HomepageCatalogItem
+     */
+    omit?: HomepageCatalogItemOmit<ExtArgs> | null
+    /**
+     * The data used to update HomepageCatalogItems.
+     */
+    data: XOR<HomepageCatalogItemUpdateManyMutationInput, HomepageCatalogItemUncheckedUpdateManyInput>
+    /**
+     * Filter which HomepageCatalogItems to update
+     */
+    where?: HomepageCatalogItemWhereInput
+    /**
+     * Limit how many HomepageCatalogItems to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * HomepageCatalogItem upsert
+   */
+  export type HomepageCatalogItemUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the HomepageCatalogItem
+     */
+    select?: HomepageCatalogItemSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the HomepageCatalogItem
+     */
+    omit?: HomepageCatalogItemOmit<ExtArgs> | null
+    /**
+     * The filter to search for the HomepageCatalogItem to update in case it exists.
+     */
+    where: HomepageCatalogItemWhereUniqueInput
+    /**
+     * In case the HomepageCatalogItem found by the `where` argument doesn't exist, create a new HomepageCatalogItem with this data.
+     */
+    create: XOR<HomepageCatalogItemCreateInput, HomepageCatalogItemUncheckedCreateInput>
+    /**
+     * In case the HomepageCatalogItem was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<HomepageCatalogItemUpdateInput, HomepageCatalogItemUncheckedUpdateInput>
+  }
+
+  /**
+   * HomepageCatalogItem delete
+   */
+  export type HomepageCatalogItemDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the HomepageCatalogItem
+     */
+    select?: HomepageCatalogItemSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the HomepageCatalogItem
+     */
+    omit?: HomepageCatalogItemOmit<ExtArgs> | null
+    /**
+     * Filter which HomepageCatalogItem to delete.
+     */
+    where: HomepageCatalogItemWhereUniqueInput
+  }
+
+  /**
+   * HomepageCatalogItem deleteMany
+   */
+  export type HomepageCatalogItemDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which HomepageCatalogItems to delete
+     */
+    where?: HomepageCatalogItemWhereInput
+    /**
+     * Limit how many HomepageCatalogItems to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * HomepageCatalogItem without action
+   */
+  export type HomepageCatalogItemDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the HomepageCatalogItem
+     */
+    select?: HomepageCatalogItemSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the HomepageCatalogItem
+     */
+    omit?: HomepageCatalogItemOmit<ExtArgs> | null
+  }
+
+
+  /**
    * Enums
    */
 
@@ -1967,12 +4196,42 @@ export namespace Prisma {
   export type LeadScalarFieldEnum = (typeof LeadScalarFieldEnum)[keyof typeof LeadScalarFieldEnum]
 
 
+  export const ProductPageContentScalarFieldEnum: {
+    slug: 'slug',
+    data: 'data',
+    updatedAt: 'updatedAt'
+  };
+
+  export type ProductPageContentScalarFieldEnum = (typeof ProductPageContentScalarFieldEnum)[keyof typeof ProductPageContentScalarFieldEnum]
+
+
+  export const HomepageCatalogItemScalarFieldEnum: {
+    id: 'id',
+    slug: 'slug',
+    titleUk: 'titleUk',
+    titleEn: 'titleEn',
+    subtitleUk: 'subtitleUk',
+    subtitleEn: 'subtitleEn',
+    imagePath: 'imagePath',
+    sortOrder: 'sortOrder'
+  };
+
+  export type HomepageCatalogItemScalarFieldEnum = (typeof HomepageCatalogItemScalarFieldEnum)[keyof typeof HomepageCatalogItemScalarFieldEnum]
+
+
   export const SortOrder: {
     asc: 'asc',
     desc: 'desc'
   };
 
   export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder]
+
+
+  export const JsonNullValueInput: {
+    JsonNull: typeof JsonNull
+  };
+
+  export type JsonNullValueInput = (typeof JsonNullValueInput)[keyof typeof JsonNullValueInput]
 
 
   export const QueryMode: {
@@ -1989,6 +4248,15 @@ export namespace Prisma {
   };
 
   export type NullsOrder = (typeof NullsOrder)[keyof typeof NullsOrder]
+
+
+  export const JsonNullValueFilter: {
+    DbNull: typeof DbNull,
+    JsonNull: typeof JsonNull,
+    AnyNull: typeof AnyNull
+  };
+
+  export type JsonNullValueFilter = (typeof JsonNullValueFilter)[keyof typeof JsonNullValueFilter]
 
 
   /**
@@ -2035,6 +4303,20 @@ export namespace Prisma {
    * Reference to a field of type 'DateTime[]'
    */
   export type ListDateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'Json'
+   */
+  export type JsonFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Json'>
+    
+
+
+  /**
+   * Reference to a field of type 'QueryMode'
+   */
+  export type EnumQueryModeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'QueryMode'>
     
 
 
@@ -2124,6 +4406,117 @@ export namespace Prisma {
     updatedAt?: DateTimeWithAggregatesFilter<"Lead"> | Date | string
   }
 
+  export type ProductPageContentWhereInput = {
+    AND?: ProductPageContentWhereInput | ProductPageContentWhereInput[]
+    OR?: ProductPageContentWhereInput[]
+    NOT?: ProductPageContentWhereInput | ProductPageContentWhereInput[]
+    slug?: StringFilter<"ProductPageContent"> | string
+    data?: JsonFilter<"ProductPageContent">
+    updatedAt?: DateTimeFilter<"ProductPageContent"> | Date | string
+  }
+
+  export type ProductPageContentOrderByWithRelationInput = {
+    slug?: SortOrder
+    data?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type ProductPageContentWhereUniqueInput = Prisma.AtLeast<{
+    slug?: string
+    AND?: ProductPageContentWhereInput | ProductPageContentWhereInput[]
+    OR?: ProductPageContentWhereInput[]
+    NOT?: ProductPageContentWhereInput | ProductPageContentWhereInput[]
+    data?: JsonFilter<"ProductPageContent">
+    updatedAt?: DateTimeFilter<"ProductPageContent"> | Date | string
+  }, "slug">
+
+  export type ProductPageContentOrderByWithAggregationInput = {
+    slug?: SortOrder
+    data?: SortOrder
+    updatedAt?: SortOrder
+    _count?: ProductPageContentCountOrderByAggregateInput
+    _max?: ProductPageContentMaxOrderByAggregateInput
+    _min?: ProductPageContentMinOrderByAggregateInput
+  }
+
+  export type ProductPageContentScalarWhereWithAggregatesInput = {
+    AND?: ProductPageContentScalarWhereWithAggregatesInput | ProductPageContentScalarWhereWithAggregatesInput[]
+    OR?: ProductPageContentScalarWhereWithAggregatesInput[]
+    NOT?: ProductPageContentScalarWhereWithAggregatesInput | ProductPageContentScalarWhereWithAggregatesInput[]
+    slug?: StringWithAggregatesFilter<"ProductPageContent"> | string
+    data?: JsonWithAggregatesFilter<"ProductPageContent">
+    updatedAt?: DateTimeWithAggregatesFilter<"ProductPageContent"> | Date | string
+  }
+
+  export type HomepageCatalogItemWhereInput = {
+    AND?: HomepageCatalogItemWhereInput | HomepageCatalogItemWhereInput[]
+    OR?: HomepageCatalogItemWhereInput[]
+    NOT?: HomepageCatalogItemWhereInput | HomepageCatalogItemWhereInput[]
+    id?: IntFilter<"HomepageCatalogItem"> | number
+    slug?: StringFilter<"HomepageCatalogItem"> | string
+    titleUk?: StringFilter<"HomepageCatalogItem"> | string
+    titleEn?: StringFilter<"HomepageCatalogItem"> | string
+    subtitleUk?: StringFilter<"HomepageCatalogItem"> | string
+    subtitleEn?: StringFilter<"HomepageCatalogItem"> | string
+    imagePath?: StringFilter<"HomepageCatalogItem"> | string
+    sortOrder?: IntFilter<"HomepageCatalogItem"> | number
+  }
+
+  export type HomepageCatalogItemOrderByWithRelationInput = {
+    id?: SortOrder
+    slug?: SortOrder
+    titleUk?: SortOrder
+    titleEn?: SortOrder
+    subtitleUk?: SortOrder
+    subtitleEn?: SortOrder
+    imagePath?: SortOrder
+    sortOrder?: SortOrder
+  }
+
+  export type HomepageCatalogItemWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    slug?: string
+    AND?: HomepageCatalogItemWhereInput | HomepageCatalogItemWhereInput[]
+    OR?: HomepageCatalogItemWhereInput[]
+    NOT?: HomepageCatalogItemWhereInput | HomepageCatalogItemWhereInput[]
+    titleUk?: StringFilter<"HomepageCatalogItem"> | string
+    titleEn?: StringFilter<"HomepageCatalogItem"> | string
+    subtitleUk?: StringFilter<"HomepageCatalogItem"> | string
+    subtitleEn?: StringFilter<"HomepageCatalogItem"> | string
+    imagePath?: StringFilter<"HomepageCatalogItem"> | string
+    sortOrder?: IntFilter<"HomepageCatalogItem"> | number
+  }, "id" | "slug">
+
+  export type HomepageCatalogItemOrderByWithAggregationInput = {
+    id?: SortOrder
+    slug?: SortOrder
+    titleUk?: SortOrder
+    titleEn?: SortOrder
+    subtitleUk?: SortOrder
+    subtitleEn?: SortOrder
+    imagePath?: SortOrder
+    sortOrder?: SortOrder
+    _count?: HomepageCatalogItemCountOrderByAggregateInput
+    _avg?: HomepageCatalogItemAvgOrderByAggregateInput
+    _max?: HomepageCatalogItemMaxOrderByAggregateInput
+    _min?: HomepageCatalogItemMinOrderByAggregateInput
+    _sum?: HomepageCatalogItemSumOrderByAggregateInput
+  }
+
+  export type HomepageCatalogItemScalarWhereWithAggregatesInput = {
+    AND?: HomepageCatalogItemScalarWhereWithAggregatesInput | HomepageCatalogItemScalarWhereWithAggregatesInput[]
+    OR?: HomepageCatalogItemScalarWhereWithAggregatesInput[]
+    NOT?: HomepageCatalogItemScalarWhereWithAggregatesInput | HomepageCatalogItemScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"HomepageCatalogItem"> | number
+    slug?: StringWithAggregatesFilter<"HomepageCatalogItem"> | string
+    titleUk?: StringWithAggregatesFilter<"HomepageCatalogItem"> | string
+    titleEn?: StringWithAggregatesFilter<"HomepageCatalogItem"> | string
+    subtitleUk?: StringWithAggregatesFilter<"HomepageCatalogItem"> | string
+    subtitleEn?: StringWithAggregatesFilter<"HomepageCatalogItem"> | string
+    imagePath?: StringWithAggregatesFilter<"HomepageCatalogItem"> | string
+    sortOrder?: IntWithAggregatesFilter<"HomepageCatalogItem"> | number
+  }
+
   export type LeadCreateInput = {
     name: string
     company?: string | null
@@ -2196,6 +4589,122 @@ export namespace Prisma {
     message?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ProductPageContentCreateInput = {
+    slug: string
+    data: JsonNullValueInput | InputJsonValue
+    updatedAt?: Date | string
+  }
+
+  export type ProductPageContentUncheckedCreateInput = {
+    slug: string
+    data: JsonNullValueInput | InputJsonValue
+    updatedAt?: Date | string
+  }
+
+  export type ProductPageContentUpdateInput = {
+    slug?: StringFieldUpdateOperationsInput | string
+    data?: JsonNullValueInput | InputJsonValue
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ProductPageContentUncheckedUpdateInput = {
+    slug?: StringFieldUpdateOperationsInput | string
+    data?: JsonNullValueInput | InputJsonValue
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ProductPageContentCreateManyInput = {
+    slug: string
+    data: JsonNullValueInput | InputJsonValue
+    updatedAt?: Date | string
+  }
+
+  export type ProductPageContentUpdateManyMutationInput = {
+    slug?: StringFieldUpdateOperationsInput | string
+    data?: JsonNullValueInput | InputJsonValue
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ProductPageContentUncheckedUpdateManyInput = {
+    slug?: StringFieldUpdateOperationsInput | string
+    data?: JsonNullValueInput | InputJsonValue
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type HomepageCatalogItemCreateInput = {
+    slug: string
+    titleUk: string
+    titleEn: string
+    subtitleUk: string
+    subtitleEn: string
+    imagePath: string
+    sortOrder?: number
+  }
+
+  export type HomepageCatalogItemUncheckedCreateInput = {
+    id?: number
+    slug: string
+    titleUk: string
+    titleEn: string
+    subtitleUk: string
+    subtitleEn: string
+    imagePath: string
+    sortOrder?: number
+  }
+
+  export type HomepageCatalogItemUpdateInput = {
+    slug?: StringFieldUpdateOperationsInput | string
+    titleUk?: StringFieldUpdateOperationsInput | string
+    titleEn?: StringFieldUpdateOperationsInput | string
+    subtitleUk?: StringFieldUpdateOperationsInput | string
+    subtitleEn?: StringFieldUpdateOperationsInput | string
+    imagePath?: StringFieldUpdateOperationsInput | string
+    sortOrder?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type HomepageCatalogItemUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    slug?: StringFieldUpdateOperationsInput | string
+    titleUk?: StringFieldUpdateOperationsInput | string
+    titleEn?: StringFieldUpdateOperationsInput | string
+    subtitleUk?: StringFieldUpdateOperationsInput | string
+    subtitleEn?: StringFieldUpdateOperationsInput | string
+    imagePath?: StringFieldUpdateOperationsInput | string
+    sortOrder?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type HomepageCatalogItemCreateManyInput = {
+    id?: number
+    slug: string
+    titleUk: string
+    titleEn: string
+    subtitleUk: string
+    subtitleEn: string
+    imagePath: string
+    sortOrder?: number
+  }
+
+  export type HomepageCatalogItemUpdateManyMutationInput = {
+    slug?: StringFieldUpdateOperationsInput | string
+    titleUk?: StringFieldUpdateOperationsInput | string
+    titleEn?: StringFieldUpdateOperationsInput | string
+    subtitleUk?: StringFieldUpdateOperationsInput | string
+    subtitleEn?: StringFieldUpdateOperationsInput | string
+    imagePath?: StringFieldUpdateOperationsInput | string
+    sortOrder?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type HomepageCatalogItemUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    slug?: StringFieldUpdateOperationsInput | string
+    titleUk?: StringFieldUpdateOperationsInput | string
+    titleEn?: StringFieldUpdateOperationsInput | string
+    subtitleUk?: StringFieldUpdateOperationsInput | string
+    subtitleEn?: StringFieldUpdateOperationsInput | string
+    imagePath?: StringFieldUpdateOperationsInput | string
+    sortOrder?: IntFieldUpdateOperationsInput | number
   }
 
   export type IntFilter<$PrismaModel = never> = {
@@ -2361,6 +4870,114 @@ export namespace Prisma {
     _min?: NestedDateTimeFilter<$PrismaModel>
     _max?: NestedDateTimeFilter<$PrismaModel>
   }
+  export type JsonFilter<$PrismaModel = never> =
+    | PatchUndefined<
+        Either<Required<JsonFilterBase<$PrismaModel>>, Exclude<keyof Required<JsonFilterBase<$PrismaModel>>, 'path'>>,
+        Required<JsonFilterBase<$PrismaModel>>
+      >
+    | OptionalFlat<Omit<Required<JsonFilterBase<$PrismaModel>>, 'path'>>
+
+  export type JsonFilterBase<$PrismaModel = never> = {
+    equals?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+    path?: string[]
+    mode?: QueryMode | EnumQueryModeFieldRefInput<$PrismaModel>
+    string_contains?: string | StringFieldRefInput<$PrismaModel>
+    string_starts_with?: string | StringFieldRefInput<$PrismaModel>
+    string_ends_with?: string | StringFieldRefInput<$PrismaModel>
+    array_starts_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_ends_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_contains?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    lt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    lte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+  }
+
+  export type ProductPageContentCountOrderByAggregateInput = {
+    slug?: SortOrder
+    data?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type ProductPageContentMaxOrderByAggregateInput = {
+    slug?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type ProductPageContentMinOrderByAggregateInput = {
+    slug?: SortOrder
+    updatedAt?: SortOrder
+  }
+  export type JsonWithAggregatesFilter<$PrismaModel = never> =
+    | PatchUndefined<
+        Either<Required<JsonWithAggregatesFilterBase<$PrismaModel>>, Exclude<keyof Required<JsonWithAggregatesFilterBase<$PrismaModel>>, 'path'>>,
+        Required<JsonWithAggregatesFilterBase<$PrismaModel>>
+      >
+    | OptionalFlat<Omit<Required<JsonWithAggregatesFilterBase<$PrismaModel>>, 'path'>>
+
+  export type JsonWithAggregatesFilterBase<$PrismaModel = never> = {
+    equals?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+    path?: string[]
+    mode?: QueryMode | EnumQueryModeFieldRefInput<$PrismaModel>
+    string_contains?: string | StringFieldRefInput<$PrismaModel>
+    string_starts_with?: string | StringFieldRefInput<$PrismaModel>
+    string_ends_with?: string | StringFieldRefInput<$PrismaModel>
+    array_starts_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_ends_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_contains?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    lt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    lte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedJsonFilter<$PrismaModel>
+    _max?: NestedJsonFilter<$PrismaModel>
+  }
+
+  export type HomepageCatalogItemCountOrderByAggregateInput = {
+    id?: SortOrder
+    slug?: SortOrder
+    titleUk?: SortOrder
+    titleEn?: SortOrder
+    subtitleUk?: SortOrder
+    subtitleEn?: SortOrder
+    imagePath?: SortOrder
+    sortOrder?: SortOrder
+  }
+
+  export type HomepageCatalogItemAvgOrderByAggregateInput = {
+    id?: SortOrder
+    sortOrder?: SortOrder
+  }
+
+  export type HomepageCatalogItemMaxOrderByAggregateInput = {
+    id?: SortOrder
+    slug?: SortOrder
+    titleUk?: SortOrder
+    titleEn?: SortOrder
+    subtitleUk?: SortOrder
+    subtitleEn?: SortOrder
+    imagePath?: SortOrder
+    sortOrder?: SortOrder
+  }
+
+  export type HomepageCatalogItemMinOrderByAggregateInput = {
+    id?: SortOrder
+    slug?: SortOrder
+    titleUk?: SortOrder
+    titleEn?: SortOrder
+    subtitleUk?: SortOrder
+    subtitleEn?: SortOrder
+    imagePath?: SortOrder
+    sortOrder?: SortOrder
+  }
+
+  export type HomepageCatalogItemSumOrderByAggregateInput = {
+    id?: SortOrder
+    sortOrder?: SortOrder
+  }
 
   export type StringFieldUpdateOperationsInput = {
     set?: string
@@ -2516,6 +5133,29 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedDateTimeFilter<$PrismaModel>
     _max?: NestedDateTimeFilter<$PrismaModel>
+  }
+  export type NestedJsonFilter<$PrismaModel = never> =
+    | PatchUndefined<
+        Either<Required<NestedJsonFilterBase<$PrismaModel>>, Exclude<keyof Required<NestedJsonFilterBase<$PrismaModel>>, 'path'>>,
+        Required<NestedJsonFilterBase<$PrismaModel>>
+      >
+    | OptionalFlat<Omit<Required<NestedJsonFilterBase<$PrismaModel>>, 'path'>>
+
+  export type NestedJsonFilterBase<$PrismaModel = never> = {
+    equals?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+    path?: string[]
+    mode?: QueryMode | EnumQueryModeFieldRefInput<$PrismaModel>
+    string_contains?: string | StringFieldRefInput<$PrismaModel>
+    string_starts_with?: string | StringFieldRefInput<$PrismaModel>
+    string_ends_with?: string | StringFieldRefInput<$PrismaModel>
+    array_starts_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_ends_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_contains?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    lt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    lte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
   }
 
 

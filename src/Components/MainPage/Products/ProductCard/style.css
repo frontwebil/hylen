@@ -106,6 +106,15 @@
   opacity: 1;
 }
 
+.product-card--static:hover,
+.product-card--static:hover .product-card-media {
+  background-color: transparent;
+}
+
+.product-card--static:hover .product-card-icon {
+  background-color: transparent;
+}
+
 @media (max-width: 920px) {
   .product-card-flex-title {
     font-size: 24.7px;

@@ -7,7 +7,14 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { useWindowWidth } from "@/Hooks/useWindowWidth";
 
-export function ProductCard({ product }: { product: ProductItem }) {
+export function ProductCard({
+  product,
+  /** Без відео та hover-ефектів (наприклад прев’ю в адмінці). */
+  staticPreview = false,
+}: {
+  product: ProductItem;
+  staticPreview?: boolean;
+}) {
   const [isHover, setIsHover] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
   const cardRef = useRef<HTMLAnchorElement | null>(null);
@@ -15,7 +22,7 @@ export function ProductCard({ product }: { product: ProductItem }) {
   const isMobile = width && width < 900;
 
   useEffect(() => {
-    if (!cardRef.current || isMobile) return;
+    if (staticPreview || !cardRef.current || isMobile) return;
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -37,15 +44,17 @@ export function ProductCard({ product }: { product: ProductItem }) {
     observer.observe(cardRef.current);
 
     return () => observer.disconnect();
-  }, [product.img, isMobile]);
+  }, [product.img, isMobile, staticPreview]);
 
   return (
     <Link
       ref={cardRef}
       href={product.link}
-      className="product-card"
-      onMouseEnter={() => !isMobile && setIsHover(true)}
-      onMouseLeave={() => !isMobile && setIsHover(false)}
+      className={
+        staticPreview ? "product-card product-card--static" : "product-card"
+      }
+      onMouseEnter={() => !staticPreview && !isMobile && setIsHover(true)}
+      onMouseLeave={() => !staticPreview && !isMobile && setIsHover(false)}
     >
       <div className="product-card-media">
         {/* IMAGE */}
@@ -57,7 +66,7 @@ export function ProductCard({ product }: { product: ProductItem }) {
           className={`product-card-image ${isHover && isLoaded ? "hide" : ""}`}
         />
 
-        {isLoaded && !isMobile && (
+        {isLoaded && !isMobile && !staticPreview && (
           <video
             className={`product-card-video ${isHover ? "show" : ""}`}
             src={`${product.img}.mp4`}

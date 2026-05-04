@@ -18,6 +18,46 @@ export type ProductItem = {
 
 // Keep this named export for modules like `ProductOtherTypesSlider`.
 // It serves as a stable default (Ukrainian) list.
+export const homepageProductsEn: ProductItem[] = [
+  {
+    title: "HYLEN SPINE",
+    subTitle: "Single-axle trailers",
+    img: "/Products/1",
+    link: "/hrebet-systemy",
+  },
+  {
+    title: "HYLEN PULSE",
+    subTitle: "Mixer feeder wagons",
+    img: "/Products/2",
+    link: "/rytm-zhyvlennya",
+  },
+  {
+    title: "HYLEN BRIDGE",
+    subTitle: "Grain transfer equipment",
+    img: "/Products/3",
+    link: "/mist-mij-lankamy",
+  },
+  {
+    title: "HYLEN STREAM",
+    subTitle: "Water & fuel tanks",
+    img: "/Products/4",
+    link: "/zhyvylnyy-potik",
+  },
+  {
+    title: "HYLEN ANCHOR",
+    subTitle: "Trailers & semi-trailers",
+    img: "/Products/5",
+    link: "/tyahovyy-vuzol",
+  },
+  {
+    title: "HYLEN TERRA",
+    subTitle: "Soil cultivation equipment",
+    img: "/Products/6",
+    link: "/osnovy-vrojayy",
+  },
+];
+
+/** Стабільний список для української локалі (fallback, якщо БД недоступна). */
 export const products: ProductItem[] = [
   {
     title: "ХРЕБЕТ СИСТЕМИ",
@@ -57,60 +97,30 @@ export const products: ProductItem[] = [
   },
 ];
 
-export function Products() {
+export type ProductsCatalogByLang = {
+  uk: ProductItem[];
+  en: ProductItem[];
+};
+
+type ProductsProps = {
+  /** З БД: картки блоку «продукти» на головній; інакше статичні масиви нижче. */
+  catalogByLang?: ProductsCatalogByLang;
+};
+
+export function Products({ catalogByLang }: ProductsProps) {
   const width = useWindowWidth();
   const { language } = useLanguage();
 
   const t = {
-    uk: {
-      sectionTitle: "продукти",
-      items: products,
-    },
-    en: {
-      sectionTitle: "product range",
-      items: [
-        {
-          title: "HYLEN SPINE",
-          subTitle: "Single-axle trailers",
-          img: "/Products/1",
-          link: "/hrebet-systemy",
-        },
-        {
-          title: "HYLEN PULSE",
-          subTitle: "Mixer feeder wagons",
-          img: "/Products/2",
-          link: "/rytm-zhyvlennya",
-        },
-        {
-          title: "HYLEN BRIDGE",
-          subTitle: "Grain transfer equipment",
-          img: "/Products/3",
-          link: "/mist-mij-lankamy",
-        },
-        {
-          title: "HYLEN STREAM",
-          subTitle: "Water & fuel tanks",
-          img: "/Products/4",
-          link: "/zhyvylnyy-potik",
-        },
-        {
-          title: "HYLEN ANCHOR",
-          subTitle: "Trailers & semi-trailers",
-          img: "/Products/5",
-          link: "/tyahovyy-vuzol",
-        },
-        {
-          title: "HYLEN TERRA",
-          subTitle: "Soil cultivation equipment",
-          img: "/Products/6",
-          link: "/osnovy-vrojayy",
-        },
-      ] satisfies ProductItem[],
-    },
+    uk: { sectionTitle: "продукти" as const, items: products },
+    en: { sectionTitle: "product range" as const, items: homepageProductsEn },
   } as const;
 
-  const copy = t[language];
-  const items = copy.items;
+  const loc = language === "en" ? "en" : "uk";
+
+  const copy = t[loc];
+
+  const items = catalogByLang ? catalogByLang[loc] : copy.items;
 
   const [emblaRef, emblaApi] = useEmblaCarousel({
     loop: true,
@@ -161,16 +171,16 @@ export function Products() {
 
         {width && width >= 600 ? (
           <div className="products-grid">
-            {items.map((el, i) => (
-              <ProductCard product={el} key={i} />
+            {items.map((el) => (
+              <ProductCard product={el} key={el.link} />
             ))}
           </div>
         ) : (
           <div className="products-slider">
             <div className="products-slider-viewport" ref={emblaRef}>
               <div className="products-slider-container">
-                {items.map((el, i) => (
-                  <div className="products-slide" key={i}>
+                {items.map((el) => (
+                  <div className="products-slide" key={el.link}>
                     <ProductCard product={el} />
                   </div>
                 ))}

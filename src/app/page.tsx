@@ -9,15 +9,18 @@ import { UnderAdvantagesLines } from "@/Components/Lines/UnderAdvantagesLines/Un
 import { Byro } from "@/Components/MainPage/Byro/Byro";
 import { UnderByroLines } from "@/Components/Lines/UnderByroLines/UnderByroLines";
 import { Footer } from "@/Components/Layout/Footer/Footer";
+import { getHomepageCatalogGrouped } from "@/lib/homepageCatalog";
 
-export default function Home() {
+export default async function Home() {
+  const catalogByLang = await getHomepageCatalogGrouped();
+
   return (
     <>
       <LoadingScreen />
       <Header />
       <Hero />
       <UnderHeroLines />
-      <Products />
+      <Products catalogByLang={catalogByLang} />
       <UnderProductsLines />
       <Advantages />
       <UnderAdvantagesLines />

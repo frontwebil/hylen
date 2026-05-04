@@ -131,9 +131,30 @@ exports.Prisma.LeadScalarFieldEnum = {
   updatedAt: 'updatedAt'
 };
 
+exports.Prisma.ProductPageContentScalarFieldEnum = {
+  slug: 'slug',
+  data: 'data',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.HomepageCatalogItemScalarFieldEnum = {
+  id: 'id',
+  slug: 'slug',
+  titleUk: 'titleUk',
+  titleEn: 'titleEn',
+  subtitleUk: 'subtitleUk',
+  subtitleEn: 'subtitleEn',
+  imagePath: 'imagePath',
+  sortOrder: 'sortOrder'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
+};
+
+exports.Prisma.JsonNullValueInput = {
+  JsonNull: Prisma.JsonNull
 };
 
 exports.Prisma.QueryMode = {
@@ -146,9 +167,17 @@ exports.Prisma.NullsOrder = {
   last: 'last'
 };
 
+exports.Prisma.JsonNullValueFilter = {
+  DbNull: Prisma.DbNull,
+  JsonNull: Prisma.JsonNull,
+  AnyNull: Prisma.AnyNull
+};
+
 
 exports.Prisma.ModelName = {
-  Lead: 'Lead'
+  Lead: 'Lead',
+  ProductPageContent: 'ProductPageContent',
+  HomepageCatalogItem: 'HomepageCatalogItem'
 };
 
 /**

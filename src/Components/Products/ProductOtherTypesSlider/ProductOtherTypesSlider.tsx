@@ -4,12 +4,19 @@ import useEmblaCarousel from "embla-carousel-react";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { ProductCard } from "@/Components/MainPage/Products/ProductCard/ProductCard";
 import type { ProductItem } from "@/Components/MainPage/Products/Products";
-import { products as defaultProducts } from "@/Components/MainPage/Products/Products";
+import type { ProductsCatalogByLang } from "@/Components/MainPage/Products/Products";
+import {
+  homepageProductsEn,
+  products as defaultProductsUk,
+} from "@/Components/MainPage/Products/Products";
 import { useLanguage } from "@/Store/useLanguage";
 import "./style.css";
 
 export type ProductOtherTypesSliderProps = {
+  /** Якщо задані «items», мова не враховується — показуємо цей один список. */
   items?: ProductItem[];
+  /** Списки UA/EN з БД або з головної; інакше вбудовані 6 категорій. */
+  itemsByLang?: ProductsCatalogByLang;
   excludeLink?: string;
   heading?: string;
   description?: string;
@@ -24,52 +31,20 @@ const DEFAULT_DESCRIPTION_EN =
 
 export function ProductOtherTypesSlider({
   items,
+  itemsByLang,
   excludeLink,
   heading,
   description,
 }: ProductOtherTypesSliderProps) {
   const { language } = useLanguage();
   const localizedItems: ProductItem[] =
-    language === "en"
-      ? [
-          {
-            title: "HYLEN SPINE",
-            subTitle: "Single-axle trailers",
-            img: "/Products/1",
-            link: "/hrebet-systemy",
-          },
-          {
-            title: "HYLEN PULSE",
-            subTitle: "Mixer feeder wagons",
-            img: "/Products/2",
-            link: "/rytm-zhyvlennya",
-          },
-          {
-            title: "HYLEN BRIDGE",
-            subTitle: "Grain transfer equipment",
-            img: "/Products/3",
-            link: "/mist-mij-lankamy",
-          },
-          {
-            title: "HYLEN STREAM",
-            subTitle: "Water & fuel tanks",
-            img: "/Products/4",
-            link: "/zhyvylnyy-potik",
-          },
-          {
-            title: "HYLEN ANCHOR",
-            subTitle: "Trailers & semi-trailers",
-            img: "/Products/5",
-            link: "/tyahovyy-vuzol",
-          },
-          {
-            title: "HYLEN TERRA",
-            subTitle: "Soil cultivation equipment",
-            img: "/Products/6",
-            link: "/osnovy-vrojayy",
-          },
-        ]
-      : defaultProducts;
+    itemsByLang ?
+      language === "en" ?
+        itemsByLang.en
+      : itemsByLang.uk
+    : language === "en" ?
+      homepageProductsEn
+    : defaultProductsUk;
 
   const resolvedItems = items ?? localizedItems;
   const resolvedHeading =

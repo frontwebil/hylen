@@ -18,3 +18,20 @@ model Lead {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
+
+model ProductPageContent {
+  slug      String   @id
+  data      Json
+  updatedAt DateTime @updatedAt
+}
+
+model HomepageCatalogItem {
+  id         Int      @id @default(autoincrement())
+  slug       String   @unique
+  titleUk    String
+  titleEn    String
+  subtitleUk String
+  subtitleEn String
+  imagePath  String
+  sortOrder  Int      @default(0)
+}
