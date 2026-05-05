@@ -6,16 +6,23 @@ import "./style.css";
 import { useWindowWidth } from "@/Hooks/useWindowWidth";
 import { FooterLanguagueChanger } from "./FooterLanguagueChanger/FooterLanguagueChanger";
 import { useLanguage } from "@/Store/useLanguage";
-import { useMemo, useState } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 
 export function Footer() {
   const width = useWindowWidth();
   const { language } = useLanguage();
   const router = useRouter();
-  const searchParams = useSearchParams();
-  const initialQ = useMemo(() => searchParams?.get("q") ?? "", [searchParams]);
-  const [searchValue, setSearchValue] = useState(initialQ);
+  const [searchValue, setSearchValue] = useState("");
+
+  useEffect(() => {
+    try {
+      const q = new URLSearchParams(window.location.search).get("q") ?? "";
+      setSearchValue(q);
+    } catch {
+      /** ignore */
+    }
+  }, []);
 
   const t = {
     uk: {

@@ -3,21 +3,20 @@
 import Image from "next/image";
 import "./style.css";
 import Link from "next/link";
-import { useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import { useLanguage } from "@/Store/useLanguage";
 import { MdArrowForward } from "react-icons/md";
 import { useWindowWidth } from "@/Hooks/useWindowWidth";
 import { IoMdSearch } from "react-icons/io";
 import { HeaderContactForm } from "./HeaderContactForm/HeaderContactForm";
 import { useHeaderContactForm } from "@/Store/useHeaderContactForm";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 export function Header() {
   const [isOpenMenu, setIsOpenMenu] = useState(false);
   const [isOpenLanguagueMenu, setIsOpenLanguagueMenu] = useState(false);
   const { language, setLanguage } = useLanguage();
   const router = useRouter();
-  const searchParams = useSearchParams();
   const {
     isOpen: isContactFormOpen,
     open: openContactForm,
@@ -27,8 +26,16 @@ export function Header() {
   const isMenuVisible = isOpenMenu && !isContactFormOpen;
   const path = usePathname();
 
-  const initialQ = useMemo(() => searchParams?.get("q") ?? "", [searchParams]);
-  const [searchValue, setSearchValue] = useState(initialQ);
+  const [searchValue, setSearchValue] = useState("");
+
+  useEffect(() => {
+    try {
+      const q = new URLSearchParams(window.location.search).get("q") ?? "";
+      setSearchValue(q);
+    } catch {
+      /** ignore */
+    }
+  }, []);
 
   const t = {
     uk: {
