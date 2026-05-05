@@ -174,7 +174,7 @@ export function Header() {
           <div
             className={`header-tel-us ${path == "/contact" && "under-line-contact"}`}
           >
-            <Link href={"tel:380997465652"}>+38 (099) 746 56 52</Link>
+            <Link href={"tel:0998409875"}>+38 099 840 98 75</Link>
           </div>
           <div className="contact-us" onClick={handleContactFormOpen}>
             <p>{copy.contactUs}</p>

@@ -137,14 +137,14 @@ export function Footer() {
                   <Link href={"mailto:hylen.company@gmail.com"}>
                     hylen.company@gmail.com 
                   </Link>
-                  <Link href={"tel:380997465652"}>+38 (099) 746 56 52</Link>
+                  <Link href={"tel:0998409875"}>+38 099 840 98 75</Link>
                 </div>
               ) : (
                 <div className="footer-column-content-contacts">
                   <Link href={"mailto:hylen.company@gmail.com"}>
                     hylen.company@gmail.com 
                   </Link>
-                  <Link href={"tel:380997465652"}>+38 (099) 746 56 52</Link>
+                  <Link href={"tel:0998409875"}>+38 099 840 98 75</Link>
                   <FooterLanguagueChanger />
                 </div>
               )}
