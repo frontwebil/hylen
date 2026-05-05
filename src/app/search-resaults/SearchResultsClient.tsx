@@ -10,19 +10,45 @@ function ensureWebp(path: string): string {
   return path.endsWith(".webp") ? path : `${path}.webp`;
 }
 
+function norm(v: string): string {
+  return v
+    .trim()
+    .toLowerCase()
+    .replace(/[\s\-_./]+/g, "");
+}
+
 export function SearchResultsClient({
   itemsByLang,
+  query,
 }: {
-  itemsByLang: { uk: ProductItem[]; en: ProductItem[] };
+  itemsByLang: { uk: Array<ProductItem & { searchText?: string }>; en: Array<ProductItem & { searchText?: string }> };
+  query: string;
 }) {
   const { language } = useLanguage();
   const loc = language === "en" ? "en" : "uk";
+  const q = norm(query);
+
+  const items = itemsByLang[loc].filter((item) => {
+    if (!q) return true;
+    const hay = item.searchText ? norm(item.searchText) : norm(`${item.title} ${item.subTitle} ${item.link}`);
+    return hay.includes(q);
+  });
+
+  const heading =
+    language === "en"
+      ? q
+        ? `Search results for “${query}”`
+        : "All items"
+      : q
+        ? `Результати пошуку за “${query}”`
+        : "Всі позиції";
 
   return (
     <section className="search-results-hero">
       <div className="container" style={{ paddingTop: 40, paddingBottom: 60 }}>
+        <h2 className="search-results-hero-heading">{heading}</h2>
         <div className="search-results-hero-grid">
-          {itemsByLang[loc].map((item) => (
+          {items.map((item) => (
             <a className="product-hero-content-card" key={item.link} href={item.link}>
               <div className="product-hero-content-card-media">
                 <Image

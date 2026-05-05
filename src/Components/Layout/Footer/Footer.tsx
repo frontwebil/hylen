@@ -6,10 +6,16 @@ import "./style.css";
 import { useWindowWidth } from "@/Hooks/useWindowWidth";
 import { FooterLanguagueChanger } from "./FooterLanguagueChanger/FooterLanguagueChanger";
 import { useLanguage } from "@/Store/useLanguage";
+import { useMemo, useState } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 
 export function Footer() {
   const width = useWindowWidth();
   const { language } = useLanguage();
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const initialQ = useMemo(() => searchParams?.get("q") ?? "", [searchParams]);
+  const [searchValue, setSearchValue] = useState(initialQ);
 
   const t = {
     uk: {
@@ -76,6 +82,11 @@ export function Footer() {
 
   const copy = t[language];
 
+  const runSearch = () => {
+    const q = searchValue.trim();
+    router.push(q ? `/search-resaults?q=${encodeURIComponent(q)}` : "/search-resaults");
+  };
+
   return (
     <footer className="footer">
       <div className="container">
@@ -108,9 +119,24 @@ export function Footer() {
                     id="search-footer-input"
                     className="footer-search-input"
                     placeholder={copy.searchPlaceholder}
+                    value={searchValue}
+                    onChange={(e) => setSearchValue(e.target.value)}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter") runSearch();
+                    }}
                   />
                 </div>
-                <div className="footer-search-button">{copy.searchButton}</div>
+                <div
+                  className="footer-search-button"
+                  role="button"
+                  tabIndex={0}
+                  onClick={runSearch}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" || e.key === " ") runSearch();
+                  }}
+                >
+                  {copy.searchButton}
+                </div>
               </div>
             </div>
           )}
@@ -159,9 +185,22 @@ export function Footer() {
                       id="search-footer-input"
                       className="footer-search-input"
                       placeholder={copy.searchPlaceholder}
+                      value={searchValue}
+                      onChange={(e) => setSearchValue(e.target.value)}
+                      onKeyDown={(e) => {
+                        if (e.key === "Enter") runSearch();
+                      }}
                     />
                   </div>
-                  <div className="footer-search-button">
+                  <div
+                    className="footer-search-button"
+                    role="button"
+                    tabIndex={0}
+                    onClick={runSearch}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter" || e.key === " ") runSearch();
+                    }}
+                  >
                     {" "}
                     <div className="header-search-icon">
                       <Image

@@ -3,19 +3,21 @@
 import Image from "next/image";
 import "./style.css";
 import Link from "next/link";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { useLanguage } from "@/Store/useLanguage";
 import { MdArrowForward } from "react-icons/md";
 import { useWindowWidth } from "@/Hooks/useWindowWidth";
 import { IoMdSearch } from "react-icons/io";
 import { HeaderContactForm } from "./HeaderContactForm/HeaderContactForm";
 import { useHeaderContactForm } from "@/Store/useHeaderContactForm";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
 export function Header() {
   const [isOpenMenu, setIsOpenMenu] = useState(false);
   const [isOpenLanguagueMenu, setIsOpenLanguagueMenu] = useState(false);
   const { language, setLanguage } = useLanguage();
+  const router = useRouter();
+  const searchParams = useSearchParams();
   const {
     isOpen: isContactFormOpen,
     open: openContactForm,
@@ -24,6 +26,9 @@ export function Header() {
   const width = useWindowWidth();
   const isMenuVisible = isOpenMenu && !isContactFormOpen;
   const path = usePathname();
+
+  const initialQ = useMemo(() => searchParams?.get("q") ?? "", [searchParams]);
+  const [searchValue, setSearchValue] = useState(initialQ);
 
   const t = {
     uk: {
@@ -76,6 +81,12 @@ export function Header() {
     setLanguage(nextLanguage);
     setIsOpenMenu(false);
     if (isContactFormOpen) closeContactForm();
+  };
+
+  const runSearch = () => {
+    const q = searchValue.trim();
+    router.push(q ? `/search-resaults?q=${encodeURIComponent(q)}` : "/search-resaults");
+    setIsOpenMenu(false);
   };
 
   return (
@@ -153,10 +164,19 @@ export function Header() {
                   id="search-input"
                   className="header-search-input"
                   placeholder={copy.searchPlaceholder}
+                  value={searchValue}
+                  onChange={(e) => setSearchValue(e.target.value)}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter") runSearch();
+                  }}
                 />
               </div>
 
-              <div className="header-search-button">
+              <div className="header-search-button" role="button" tabIndex={0} onClick={runSearch}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" || e.key === " ") runSearch();
+                }}
+              >
                 {width && width > 1340 ? (
                   copy.searchButton
                 ) : (
@@ -265,10 +285,19 @@ export function Header() {
                         id="search-input"
                         className="header-search-input"
                         placeholder={copy.searchPlaceholder}
+                      value={searchValue}
+                      onChange={(e) => setSearchValue(e.target.value)}
+                      onKeyDown={(e) => {
+                        if (e.key === "Enter") runSearch();
+                      }}
                       />
                     </div>
 
-                    <div className="header-search-button">
+                    <div className="header-search-button" role="button" tabIndex={0} onClick={runSearch}
+                      onKeyDown={(e) => {
+                        if (e.key === "Enter" || e.key === " ") runSearch();
+                      }}
+                    >
                       {width && width >= 1340 ? copy.searchButton : <IoMdSearch />}
                     </div>
                   </div>

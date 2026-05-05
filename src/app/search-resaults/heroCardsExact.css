@@ -2,6 +2,16 @@
   background-color: #81918d;
 }
 
+.search-results-hero .search-results-hero-heading {
+  margin: 0 0 22px 0;
+  color: #443c3b;
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 1.1;
+  letter-spacing: -0.5px;
+  text-transform: uppercase;
+}
+
 .search-results-hero a.product-hero-content-card {
   text-decoration: none;
   color: inherit;
