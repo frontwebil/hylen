@@ -35,7 +35,9 @@ export function SearchResultsClient({
               </div>
 
               <div className="product-hero-content-card-underImg">
-                <p className="product-hero-content-card-underImg-subTitle">{item.title}</p>
+                <p className="product-hero-content-card-underImg-subTitle">
+                  <span className="search-results-hero-titleClamp">{item.title}</span>
+                </p>
                 <div className="product-hero-content-card-underImg-button">
                   <Image
                     src={"/Header/arrow-white.svg"}
