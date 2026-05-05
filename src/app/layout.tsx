@@ -24,16 +24,17 @@ export default function RootLayout({
   return (
     <html
       lang="en"
+      suppressHydrationWarning
       className={`${commissionerFont.className} ${interFont.className} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">
+      <body suppressHydrationWarning className="min-h-full flex flex-col">
         <ToastContainer
           position="top-right"
           autoClose={3000}
           theme="colored"
           toastStyle={{
-            background: "#c0c8c6",
-            color: "#1f2a19",
+            background: "#e7f0ff",
+            color: "#0b1b33",
           }}
           closeButton={false}
         />

@@ -1,7 +1,7 @@
 .admin-shell {
   min-height: 100vh;
-  background: linear-gradient(180deg, #1f2a19 0%, #2b3825 44%, #23301c 100%);
-  color: #e9efe6;
+  background: linear-gradient(180deg, #f3f8ff 0%, #e7f0ff 60%, #f7fbff 100%);
+  color: #0b1b33;
 }
 
 .admin-shell-main {
@@ -20,7 +20,7 @@
 
 .admin-login-heading p {
   margin: 0 0 1.5rem;
-  color: rgba(233, 239, 230, 0.78);
+  color: rgba(11, 27, 51, 0.68);
   font-size: 0.9375rem;
   line-height: 1.5;
 }
@@ -30,11 +30,11 @@
   margin: clamp(48px, 12vh, 120px) auto 0;
   padding: clamp(28px, 4vw, 36px);
   border-radius: 16px;
-  background: rgba(31, 42, 25, 0.65);
-  border: none;
+  background: rgba(255, 255, 255, 0.82);
+  border: 1px solid rgba(31, 79, 215, 0.14);
   box-shadow:
-    0 18px 50px rgba(0, 0, 0, 0.35),
-    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+    0 18px 50px rgba(9, 30, 66, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
 }
 
 .admin-form {
@@ -54,13 +54,13 @@
 .admin-form input {
   padding: 12px 14px;
   border-radius: 10px;
-  border: 1px solid rgba(192, 200, 198, 0.25);
-  background: rgba(15, 20, 12, 0.55);
-  color: inherit;
+  border: 1px solid rgba(31, 79, 215, 0.22);
+  background: rgba(255, 255, 255, 0.92);
+  color: #0b1b33;
 }
 
 .admin-form input:focus {
-  outline: 2px solid rgba(168, 202, 130, 0.45);
+  outline: 2px solid rgba(47, 111, 237, 0.45);
   outline-offset: 1px;
 }
 
@@ -72,8 +72,8 @@
   cursor: pointer;
   font-weight: 600;
   letter-spacing: 0.04em;
-  color: #1f2a19;
-  background: linear-gradient(180deg, #c8dcb0 0%, #9eb986 100%);
+  color: #ffffff;
+  background: linear-gradient(180deg, #2f6fed 0%, #1f4fd7 100%);
 }
 
 .admin-form button:disabled {
@@ -94,11 +94,11 @@
   gap: 12px 20px;
   margin-bottom: 24px;
   padding-bottom: 16px;
-  border-bottom: 1px solid rgba(192, 200, 198, 0.15);
+  border-bottom: 1px solid rgba(31, 79, 215, 0.12);
 }
 
 .admin-toolbar a {
-  color: rgba(168, 202, 130, 0.95);
+  color: rgba(31, 79, 215, 0.95);
   text-decoration: none;
   letter-spacing: 0.03em;
 }
@@ -117,27 +117,27 @@
 .admin-toolbar button {
   padding: 8px 14px;
   border-radius: 8px;
-  border: 1px solid rgba(192, 200, 198, 0.25);
-  background: rgba(15, 20, 12, 0.4);
-  color: inherit;
+  border: 1px solid rgba(31, 79, 215, 0.18);
+  background: rgba(255, 255, 255, 0.7);
+  color: #0b1b33;
   cursor: pointer;
   font-size: 0.875rem;
 }
 
 .admin-toolbar button:hover {
-  border-color: rgba(192, 200, 198, 0.45);
+  border-color: rgba(31, 79, 215, 0.32);
 }
 
 .admin-toolbar button.primary {
   border: none;
-  background: linear-gradient(180deg, #c8dcb0 0%, #9eb986 100%);
-  color: #1f2a19;
+  background: linear-gradient(180deg, #2f6fed 0%, #1f4fd7 100%);
+  color: #ffffff;
   font-weight: 600;
 }
 
 .admin-toolbar span.muted {
   font-size: 0.8125rem;
-  opacity: 0.72;
+  color: rgba(11, 27, 51, 0.62);
 }
 
 .admin-editor-title {
@@ -149,7 +149,7 @@
 
 .admin-json-help {
   font-size: 0.8125rem;
-  color: rgba(233, 239, 230, 0.65);
+  color: rgba(11, 27, 51, 0.58);
   line-height: 1.45;
   margin: 0 0 0.75rem;
 }
@@ -159,9 +159,9 @@
   min-height: min(72vh, 720px);
   padding: 16px;
   border-radius: 12px;
-  border: 1px solid rgba(192, 200, 198, 0.2);
-  background: rgba(10, 14, 9, 0.65);
-  color: rgba(237, 244, 234, 0.95);
+  border: 1px solid rgba(31, 79, 215, 0.18);
+  background: rgba(255, 255, 255, 0.86);
+  color: rgba(11, 27, 51, 0.92);
   font-family:
     ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   font-size: 12px;
@@ -169,7 +169,7 @@
 }
 
 .admin-json textarea:focus {
-  outline: 2px solid rgba(168, 202, 130, 0.35);
+  outline: 2px solid rgba(47, 111, 237, 0.35);
   outline-offset: 1px;
 }
 
@@ -183,22 +183,22 @@
   display: block;
   padding: 18px 20px;
   border-radius: 12px;
-  border: none;
-  background: rgba(15, 20, 12, 0.35);
-  color: inherit;
+  border: 1px solid rgba(31, 79, 215, 0.12);
+  background: rgba(255, 255, 255, 0.76);
+  color: #0b1b33;
   text-decoration: none;
   letter-spacing: 0.03em;
   transition: background 0.15s ease;
 }
 
 .admin-products-grid a:hover {
-  background: rgba(24, 32, 20, 0.55);
+  background: rgba(255, 255, 255, 0.92);
 }
 
 .admin-products-intro {
   margin: 0 0 24px;
   max-width: 52ch;
-  color: rgba(233, 239, 230, 0.78);
+  color: rgba(11, 27, 51, 0.68);
   line-height: 1.55;
   font-size: 0.9375rem;
 }
@@ -211,13 +211,13 @@
 }
 
 .admin-toast.success {
-  background: rgba(120, 180, 96, 0.22);
-  border: none;
+  background: rgba(46, 162, 94, 0.12);
+  border: 1px solid rgba(46, 162, 94, 0.18);
 }
 
 .admin-toast.error {
-  background: rgba(210, 100, 80, 0.18);
-  border: none;
+  background: rgba(220, 61, 46, 0.1);
+  border: 1px solid rgba(220, 61, 46, 0.18);
 }
 
 .admin-segment {
@@ -226,15 +226,15 @@
   gap: 4px;
   padding: 4px;
   border-radius: 10px;
-  background: rgba(10, 14, 9, 0.45);
-  border: none;
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(31, 79, 215, 0.12);
   margin-bottom: 20px;
 }
 
 .admin-segment button {
   border: none;
   background: transparent;
-  color: rgba(233, 239, 230, 0.78);
+  color: rgba(11, 27, 51, 0.75);
   padding: 10px 16px;
   border-radius: 8px;
   cursor: pointer;
@@ -242,12 +242,12 @@
 }
 
 .admin-segment button:hover {
-  background: rgba(255, 255, 255, 0.04);
+  background: rgba(31, 79, 215, 0.06);
 }
 
 .admin-segment button[data-active="true"] {
-  background: rgba(158, 185, 134, 0.45);
-  color: #161d12;
+  background: rgba(47, 111, 237, 0.18);
+  color: #0b1b33;
   font-weight: 600;
 }
 
@@ -257,28 +257,28 @@
   gap: 8px;
   margin: 16px 0 20px;
   padding-bottom: 12px;
-  border-bottom: 1px solid rgba(192, 200, 198, 0.12);
+  border-bottom: 1px solid rgba(31, 79, 215, 0.1);
 }
 
 .admin-subtabs button {
   padding: 8px 14px;
   border-radius: 8px;
-  border: 1px solid rgba(192, 200, 198, 0.2);
-  background: rgba(15, 20, 12, 0.35);
-  color: inherit;
+  border: 1px solid rgba(31, 79, 215, 0.16);
+  background: rgba(255, 255, 255, 0.7);
+  color: rgba(11, 27, 51, 0.86);
   cursor: pointer;
   font-size: 0.8125rem;
 }
 
 .admin-subtabs button[data-active="true"] {
-  border-color: rgba(158, 185, 134, 0.55);
-  background: rgba(158, 185, 134, 0.15);
+  border-color: rgba(31, 79, 215, 0.42);
+  background: rgba(47, 111, 237, 0.12);
 }
 
 .admin-panel-intro {
   font-size: 0.90625rem;
   line-height: 1.55;
-  color: rgba(233, 239, 230, 0.72);
+  color: rgba(11, 27, 51, 0.65);
   margin: -8px 0 20px;
   max-width: 58ch;
 }
@@ -302,7 +302,7 @@
 .admin-field-hint {
   font-size: 0.785rem;
   line-height: 1.45;
-  color: rgba(233, 239, 230, 0.55);
+  color: rgba(11, 27, 51, 0.55);
   font-weight: 400;
 }
 
@@ -336,9 +336,9 @@
   width: 100%;
   padding: 10px 12px;
   border-radius: 8px;
-  border: 1px solid rgba(192, 200, 198, 0.2);
-  background: rgba(10, 14, 9, 0.55);
-  color: inherit;
+  border: 1px solid rgba(31, 79, 215, 0.16);
+  background: rgba(255, 255, 255, 0.86);
+  color: rgba(11, 27, 51, 0.92);
   font-family: inherit;
   font-size: 0.9rem;
 }
@@ -359,8 +359,8 @@
 .admin-card-sheet,
 .admin-sheet {
   border-radius: 12px;
-  border: none;
-  background: rgba(12, 16, 10, 0.35);
+  border: 1px solid rgba(31, 79, 215, 0.12);
+  background: rgba(255, 255, 255, 0.76);
   padding: 16px;
   margin-bottom: 14px;
 }
@@ -405,9 +405,9 @@
   width: 100%;
   padding: 9px 11px;
   border-radius: 8px;
-  border: 1px solid rgba(192, 200, 198, 0.18);
-  background: rgba(10, 14, 9, 0.55);
-  color: inherit;
+  border: 1px solid rgba(31, 79, 215, 0.16);
+  background: rgba(255, 255, 255, 0.86);
+  color: rgba(11, 27, 51, 0.92);
 }
 
 .admin-list-stack {
@@ -428,18 +428,18 @@
   min-width: 140px;
   padding: 8px 10px;
   border-radius: 8px;
-  border: 1px solid rgba(192, 200, 198, 0.18);
-  background: rgba(10, 14, 9, 0.55);
-  color: inherit;
+  border: 1px solid rgba(31, 79, 215, 0.16);
+  background: rgba(255, 255, 255, 0.86);
+  color: rgba(11, 27, 51, 0.92);
 }
 
 .admin-mini-btn {
   padding: 6px 10px;
   font-size: 0.785rem;
   border-radius: 6px;
-  border: 1px solid rgba(192, 200, 198, 0.25);
+  border: 1px solid rgba(31, 79, 215, 0.18);
   background: transparent;
-  color: inherit;
+  color: rgba(11, 27, 51, 0.86);
   cursor: pointer;
 }
 
@@ -448,16 +448,16 @@
 }
 
 .admin-mini-btn.primary {
-  border-color: rgba(158, 185, 134, 0.5);
-  background: rgba(158, 185, 134, 0.12);
+  border-color: rgba(31, 79, 215, 0.34);
+  background: rgba(47, 111, 237, 0.1);
 }
 
 .admin-vis-footer-hint {
   margin-top: 24px;
   padding-top: 16px;
-  border-top: 1px dashed rgba(192, 200, 198, 0.15);
+  border-top: 1px dashed rgba(31, 79, 215, 0.18);
   font-size: 0.785rem;
-  color: rgba(233, 239, 230, 0.5);
+  color: rgba(11, 27, 51, 0.52);
   line-height: 1.5;
 }
 
@@ -477,9 +477,9 @@
 .admin-spec-cell-box {
   flex: 1 1 min(168px, 100%);
   border-radius: 10px;
-  border: none;
+  border: 1px solid rgba(31, 79, 215, 0.12);
   padding: 10px;
-  background: rgba(6, 8, 5, 0.25);
+  background: rgba(255, 255, 255, 0.68);
 }
 
 .admin-spec-cell-box .caps {
@@ -501,8 +501,8 @@
 .admin-catalog-create {
   padding: clamp(18px, 3vw, 24px);
   border-radius: 14px;
-  border: none;
-  background: rgba(12, 16, 10, 0.35);
+  border: 1px solid rgba(31, 79, 215, 0.12);
+  background: rgba(255, 255, 255, 0.76);
 }
 
 .admin-catalog-create-title {
@@ -526,8 +526,8 @@
 
 .admin-catalog-unit {
   border-radius: 14px;
-  border: none;
-  background: rgba(8, 10, 6, 0.28);
+  border: 1px solid rgba(31, 79, 215, 0.12);
+  background: rgba(255, 255, 255, 0.72);
   padding: 14px;
   display: flex;
   flex-direction: column;
@@ -571,9 +571,9 @@
   margin-left: 6px;
   padding: 4px 6px;
   border-radius: 6px;
-  border: 1px solid rgba(192, 200, 198, 0.2);
-  background: rgba(10, 14, 9, 0.55);
-  color: inherit;
+  border: 1px solid rgba(31, 79, 215, 0.16);
+  background: rgba(255, 255, 255, 0.86);
+  color: rgba(11, 27, 51, 0.92);
 }
 
 .admin-catalog-buttons {
@@ -594,9 +594,9 @@
   min-height: 48px;
   padding: 8px;
   border-radius: 8px;
-  border: 1px solid rgba(192, 200, 198, 0.15);
-  background: rgba(10, 14, 9, 0.45);
-  color: inherit;
+  border: 1px solid rgba(31, 79, 215, 0.14);
+  background: rgba(255, 255, 255, 0.86);
+  color: rgba(11, 27, 51, 0.92);
   font-family:
     ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   font-size: 0.785rem;
