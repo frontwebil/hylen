@@ -1,0 +1,52 @@
+.search-results-hero-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+/* ProductHero styles assume a 2-card row; fix borders for a grid. */
+.search-results-hero-grid .product-hero-content-card {
+  max-width: none;
+}
+
+.search-results-hero-grid .product-hero-content-card:not(:nth-child(3n)) {
+  border-right: none;
+}
+
+/* Make the subtitle row height content-driven (no fixed height). */
+.search-results-hero-grid .product-hero-content-card-underImg {
+  height: auto;
+  min-height: 75px;
+}
+
+.search-results-hero-grid .product-hero-content-card-underImg-subTitle {
+  white-space: normal;
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+.search-results-hero-grid .product-hero-content-card-underImg-button {
+  height: auto;
+  align-self: stretch;
+}
+
+@media (max-width: 1200px) {
+  .search-results-hero-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .search-results-hero-grid .product-hero-content-card:not(:nth-child(2n)) {
+    border-right: none;
+  }
+}
+
+@media (max-width: 700px) {
+  .search-results-hero-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .search-results-hero-grid .product-hero-content-card {
+    border-right: 2px solid #443c3b;
+  }
+}
+

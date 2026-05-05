@@ -9,12 +9,12 @@ import { useWindowWidth } from "@/Hooks/useWindowWidth";
 
 export function ProductCard({
   product,
-  /** Без відео та hover-ефектів (наприклад прев’ю в адмінці). */
   staticPreview = false,
 }: {
   product: ProductItem;
   staticPreview?: boolean;
 }) {
+  
   const [isHover, setIsHover] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
   const cardRef = useRef<HTMLAnchorElement | null>(null);

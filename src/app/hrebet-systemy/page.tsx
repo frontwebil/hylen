@@ -8,6 +8,7 @@ export default async function Page() {
     resolveProductPage("hrebet-systemy", pageDataFallback),
     getHomepageCatalogGrouped(),
   ]);
+
   return (
     <ProductCategoryPageClient
       pageData={pageData}
