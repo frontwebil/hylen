@@ -47,6 +47,11 @@ export type ProductData = {
   title: LocalizedField;
   modelCards: LocalizedListField;
   isCustomDesign: boolean;
+  /**
+   * Controls the "Made in Ukraine" note under the product slider.
+   * Optional for backward compatibility with older content.
+   */
+  showMadeInUkraine?: boolean;
   video: string;
   videoPreview: string;
   description: ProductDescription;

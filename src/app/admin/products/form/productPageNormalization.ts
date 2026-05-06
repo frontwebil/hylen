@@ -36,6 +36,7 @@ export type NormalProductData = {
   /** Параметр × моделі (назви моделей у двох мовах, по рядках). */
   modelCards: Pair;
   isCustomDesign: boolean;
+  showMadeInUkraine: boolean;
   video: string;
   videoPreview: string;
   description: {
@@ -168,6 +169,7 @@ export function toNormal(raw: ProductPageData): NormalProductPageData {
       title: lf(p.title),
       modelCards: mc,
       isCustomDesign: p.isCustomDesign,
+      showMadeInUkraine: p.showMadeInUkraine ?? true,
       video: p.video,
       videoPreview: p.videoPreview,
       description: {
@@ -226,6 +228,7 @@ export function toDto(n: NormalProductPageData): ProductPageData {
         title: lfFromPair(p.title),
         modelCards: llFromPairs(p.modelCards),
         isCustomDesign: p.isCustomDesign,
+        showMadeInUkraine: p.showMadeInUkraine,
         video: p.video.trim(),
         videoPreview: p.videoPreview.trim(),
         description: desc,

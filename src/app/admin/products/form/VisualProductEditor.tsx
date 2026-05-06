@@ -136,6 +136,7 @@ export function VisualProductEditor({ data, onChange }: Props) {
       title: { uk: "", en: "" },
       modelCards: { uk: "", en: "" },
       isCustomDesign: false,
+      showMadeInUkraine: true,
       video: "",
       videoPreview: "",
       description: {
@@ -433,6 +434,29 @@ export function VisualProductEditor({ data, onChange }: Props) {
                 }
               />
               <span style={{ fontSize: "0.875rem" }}>Індивідуальний проект (показує виноску)</span>
+            </label>
+
+            <label
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: 10,
+                marginTop: 8,
+              }}
+            >
+              <input
+                type="checkbox"
+                checked={activeProd.showMadeInUkraine}
+                onChange={(e) =>
+                  setProduct(prodIndex, {
+                    ...activeProd,
+                    showMadeInUkraine: e.target.checked,
+                  })
+                }
+              />
+              <span style={{ fontSize: "0.875rem" }}>
+                Показувати «Зроблено в Україні» (блок під слайдером)
+              </span>
             </label>
 
             <div className="admin-inline-fields" style={{ marginTop: 16 }}>
