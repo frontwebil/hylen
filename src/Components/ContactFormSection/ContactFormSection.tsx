@@ -37,7 +37,7 @@ export function ContactFormSection() {
       placeholders: {
         name: "Ім’я*",
         company: "Назва компанії",
-        phone: "+38044123 45 67",
+        phone: "Номер телефону",
         email: "Email*",
         message: "Запит*",
       },
@@ -66,7 +66,7 @@ export function ContactFormSection() {
       placeholders: {
         name: "Name*",
         company: "Company",
-        phone: "+38044123 45 67",
+        phone: "Phone Number",
         email: "E-mail*",
         message: "Message*",
       },
