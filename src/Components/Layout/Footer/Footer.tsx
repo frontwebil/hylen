@@ -29,7 +29,7 @@ export function Footer() {
       searchTitle: "Пошук по сайту:",
       searchPlaceholder: "я шукаю...",
       searchButton: "ЗНАЙТИ",
-      serviceTitleWide: "Контакти відділу \n сервісного обслуговування:",
+      serviceTitleWide: "Контакти відділу \n продажів :",
       serviceTitleNarrow: "Відділ сервісного обслуговування:",
       companyWide: "Інформація про компанію",
       companyNarrow: "Компанія",
@@ -49,7 +49,7 @@ export function Footer() {
         returns: "Повернення та обмін",
       },
       under: {
-        rights: "©2025 Всі права захищені",
+        rights: "©2026 Всі права захищені",
         offer: "Публічна оферта",
         privacy: "Політика конфіденційності",
         cookies: "Політика використання cookies",
@@ -79,7 +79,7 @@ export function Footer() {
         returns: "Returns and Exchanges",
       },
       under: {
-        rights: "©2025 All rights reserved",
+        rights: "©2026 All rights reserved",
         offer: "Public Offer",
         privacy: "Privacy policy",
         cookies: "Cookie policy",
