@@ -91,7 +91,9 @@ export function Footer() {
 
   const runSearch = () => {
     const q = searchValue.trim();
-    router.push(q ? `/search-resaults?q=${encodeURIComponent(q)}` : "/search-resaults");
+    router.push(
+      q ? `/search-resaults?q=${encodeURIComponent(q)}` : "/search-resaults",
+    );
   };
 
   return (
@@ -171,6 +173,18 @@ export function Footer() {
                     hylen.company@gmail.com 
                   </Link>
                   <Link href={"tel:0998409875"}>+38 099 840 98 75</Link>
+                  <div className="footer-column-content-contacts-social">
+                    <Link
+                      href={"https://www.facebook.com/"}
+                      target="_blank"
+                      className="footer-column-content-contacts-social-fb"
+                    ></Link>
+                    <Link
+                      href={"https://www.instagram.com/"}
+                      target="_blank"
+                      className="footer-column-content-contacts-social-inst"
+                    ></Link>
+                  </div>
                 </div>
               ) : (
                 <div className="footer-column-content-contacts">
@@ -178,6 +192,16 @@ export function Footer() {
                     hylen.company@gmail.com 
                   </Link>
                   <Link href={"tel:0998409875"}>+38 099 840 98 75</Link>
+                  <div className="footer-column-content-contacts-social">
+                    <Link
+                      href={"https://www.instagram.com/"}
+                      className="footer-column-content-contacts-social-fb"
+                    ></Link>
+                    <Link
+                      href={"https://www.instagram.com/"}
+                      className="footer-column-content-contacts-social-inst"
+                    ></Link>
+                  </div>
                   <FooterLanguagueChanger />
                 </div>
               )}
@@ -229,7 +253,9 @@ export function Footer() {
                   {copy.companyWide}
                 </h3>
               ) : (
-                <h3 className="footer-column-content-title">{copy.companyNarrow}</h3>
+                <h3 className="footer-column-content-title">
+                  {copy.companyNarrow}
+                </h3>
               )}
               {width && width > 920 ? (
                 <div className="footer-column-content-nav">

@@ -162,6 +162,23 @@
   gap: 6px;
 }
 
+.footer-column-content-contacts-social {
+  display: flex;
+  gap: 20px;
+  max-width: 70px;
+  width: 100%;
+}
+.footer-column-content-contacts-social-fb {
+  width: 24px;
+  height: 24px;
+  background-image: url('/icons/fb-icon.svg');
+}
+.footer-column-content-contacts-social-inst {
+  width: 24px;
+  height: 24px;
+  background-image: url('/icons/inst-icon.svg');
+}
+
 .footer-under {
   display: flex;
   justify-content: space-between;
@@ -268,7 +285,7 @@
     padding: 10px 0;
   }
 
-  .footer-under{
+  .footer-under {
     flex-direction: column-reverse;
   }
 }
