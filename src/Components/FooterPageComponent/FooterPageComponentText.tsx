@@ -96,7 +96,8 @@ function renderWithLinks(value: string) {
 }
 
 export function FooterPageComponentText({ title, text }: Props) {
-  const paragraphs = text
+  const normalizedText = text.replace(/\\n/g, "\n");
+  const paragraphs = normalizedText
     .split(/\n{2,}/)
     .map((p) => p.trim())
     .filter(Boolean);
@@ -108,7 +109,12 @@ export function FooterPageComponentText({ title, text }: Props) {
         <div className="footer-page-text-content">
           {paragraphs.map((paragraph, idx) => (
             <p key={`${paragraph.slice(0, 20)}-${idx}`} className="footer-page-text-paragraph">
-              {renderWithLinks(paragraph)}
+              {paragraph.split("\n").map((line, lineIdx, arr) => (
+                <span key={`${line.slice(0, 20)}-${lineIdx}`}>
+                  {renderWithLinks(line)}
+                  {lineIdx < arr.length - 1 ? <br /> : null}
+                </span>
+              ))}
             </p>
           ))}
         </div>
