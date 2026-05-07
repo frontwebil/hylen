@@ -250,10 +250,10 @@ export function Footer() {
             <div className="footer-column-content">
               <h3 className="footer-column-content-title">{copy.helpTitle}</h3>
               <div className="footer-column-content-nav">
-                <Link href={"/"}>{copy.help.payment}</Link>
-                <Link href={"/"}>{copy.help.delivery}</Link>
-                <Link href={"/"}>{copy.help.service}</Link>
-                <Link href={"/"}>{copy.help.returns}</Link>
+                <Link href={"/payment"}>{copy.help.payment}</Link>
+                <Link href={"/delivery"}>{copy.help.delivery}</Link>
+                <Link href={"/service"}>{copy.help.service}</Link>
+                <Link href={"/returns-exchange"}>{copy.help.returns}</Link>
               </div>
             </div>
           </div>
