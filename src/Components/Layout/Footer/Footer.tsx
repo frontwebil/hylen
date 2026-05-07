@@ -8,10 +8,12 @@ import { FooterLanguagueChanger } from "./FooterLanguagueChanger/FooterLanguague
 import { useLanguage } from "@/Store/useLanguage";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import { useSiteSettings } from "@/Hooks/useSiteSettings";
 
 export function Footer() {
   const width = useWindowWidth();
   const { language } = useLanguage();
+  const siteSettings = useSiteSettings();
   const router = useRouter();
   const [searchValue, setSearchValue] = useState("");
 
@@ -88,6 +90,11 @@ export function Footer() {
   } as const;
 
   const copy = t[language];
+  const helpTitle = siteSettings.footer.helpTitle[language] || copy.helpTitle;
+  const phone = siteSettings.footer.phone.trim() || "+38 099 840 98 75";
+  const phoneHref = phone.replace(/[^\d+]/g, "");
+  const facebook = siteSettings.footer.socials.facebook.trim();
+  const instagram = siteSettings.footer.socials.instagram.trim();
 
   const runSearch = () => {
     const q = searchValue.trim();
@@ -172,36 +179,54 @@ export function Footer() {
                   <Link href={"mailto:hylen.company@gmail.com"}>
                     hylen.company@gmail.com 
                   </Link>
-                  <Link href={"tel:0998409875"}>+38 099 840 98 75</Link>
-                  <div className="footer-column-content-contacts-social">
-                    <Link
-                      href={"https://www.facebook.com/"}
-                      target="_blank"
-                      className="footer-column-content-contacts-social-fb"
-                    ></Link>
-                    <Link
-                      href={"https://www.instagram.com/"}
-                      target="_blank"
-                      className="footer-column-content-contacts-social-inst"
-                    ></Link>
-                  </div>
+                  <Link href={`tel:${phoneHref}`}>{phone}</Link>
+                  {(facebook || instagram) && (
+                    <div className="footer-column-content-contacts-social">
+                      {facebook ? (
+                        <Link
+                          href={facebook}
+                          target="_blank"
+                          aria-label="Facebook"
+                          className="footer-column-content-contacts-social-fb"
+                        ></Link>
+                      ) : null}
+                      {instagram ? (
+                        <Link
+                          href={instagram}
+                          target="_blank"
+                          aria-label="Instagram"
+                          className="footer-column-content-contacts-social-inst"
+                        ></Link>
+                      ) : null}
+                    </div>
+                  )}
                 </div>
               ) : (
                 <div className="footer-column-content-contacts">
                   <Link href={"mailto:hylen.company@gmail.com"}>
                     hylen.company@gmail.com 
                   </Link>
-                  <Link href={"tel:0998409875"}>+38 099 840 98 75</Link>
-                  <div className="footer-column-content-contacts-social">
-                    <Link
-                      href={"https://www.instagram.com/"}
-                      className="footer-column-content-contacts-social-fb"
-                    ></Link>
-                    <Link
-                      href={"https://www.instagram.com/"}
-                      className="footer-column-content-contacts-social-inst"
-                    ></Link>
-                  </div>
+                  <Link href={`tel:${phoneHref}`}>{phone}</Link>
+                  {(facebook || instagram) && (
+                    <div className="footer-column-content-contacts-social">
+                      {facebook ? (
+                        <Link
+                          href={facebook}
+                          target="_blank"
+                          aria-label="Facebook"
+                          className="footer-column-content-contacts-social-fb"
+                        ></Link>
+                      ) : null}
+                      {instagram ? (
+                        <Link
+                          href={instagram}
+                          target="_blank"
+                          aria-label="Instagram"
+                          className="footer-column-content-contacts-social-inst"
+                        ></Link>
+                      ) : null}
+                    </div>
+                  )}
                   <FooterLanguagueChanger />
                 </div>
               )}
@@ -274,12 +299,20 @@ export function Footer() {
               )}
             </div>
             <div className="footer-column-content">
-              <h3 className="footer-column-content-title">{copy.helpTitle}</h3>
+              <h3 className="footer-column-content-title">{helpTitle}</h3>
               <div className="footer-column-content-nav">
-                <Link href={"/payment"}>{copy.help.payment}</Link>
-                <Link href={"/delivery"}>{copy.help.delivery}</Link>
-                <Link href={"/service"}>{copy.help.service}</Link>
-                <Link href={"/returns-exchange"}>{copy.help.returns}</Link>
+                <Link href={"/payment"}>
+                  {siteSettings.footer.links.payment[language] || copy.help.payment}
+                </Link>
+                <Link href={"/delivery"}>
+                  {siteSettings.footer.links.delivery[language] || copy.help.delivery}
+                </Link>
+                <Link href={"/service"}>
+                  {siteSettings.footer.links.service[language] || copy.help.service}
+                </Link>
+                <Link href={"/returns-exchange"}>
+                  {siteSettings.footer.links.returns[language] || copy.help.returns}
+                </Link>
               </div>
             </div>
           </div>
