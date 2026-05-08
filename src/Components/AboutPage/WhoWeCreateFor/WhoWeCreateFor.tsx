@@ -25,7 +25,7 @@ export function WhoWeCreateFor() {
       text: (
         <>
           We create HYLEN for farmers, machine operators, drivers, repair
-          specialists, logistics experts, managers, and military personnel.{" "}
+          specialists, logistics experts, and managers.{" "}
           <br />
           <br />
           We understand these people because we come from the same world. We

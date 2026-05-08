@@ -96,7 +96,7 @@ export const ADVANTAGES_BLOCKS_BY_LANG = {
       index: "05",
       title: "Trust proven over the years",
       description:
-        "HYLEN is built for those who shoulder responsibility. From farmers to military forces, thousands of professionals put their trust in HYLEN.",
+        "HYLEN is the choice of those who know what responsibility is. Thousands of professionals trust us: from farmers to heads of large enterprises.",
       benefit: "freedom from risks and the benefit of others’ experience.",
     },
   ] satisfies AdvantageBlock[],
