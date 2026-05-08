@@ -30,7 +30,7 @@ const WE_CREATING_COPY = {
       { label: "DRIVERS", top: "33%", left: "58%", start: 0.2 },
       { label: "OPERATORS", top: "42%", left: "36%", start: 0.3 },
       { label: "REPAIR", top: "55%", left: "20%", start: 0.46 },
-      { label: "MILITARY", top: "60%", left: "78%", start: 0.38 },
+      // { label: "MILITARY", top: "60%", left: "78%", start: 0.38 },
       { label: "MANAGERS", top: "70%", left: "36%", start: 0.62 },
       { label: "LOGISTICS", top: "82%", left: "60%", start: 0.54 },
     ],
