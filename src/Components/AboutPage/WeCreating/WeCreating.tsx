@@ -18,7 +18,7 @@ const WE_CREATING_COPY = {
       { label: "ВОДІЇ", top: "33%", left: "58%", start: 0.2 },
       { label: "МЕХАНІЗАТОРИ", top: "42%", left: "36%", start: 0.3 },
       { label: "МАЙСТРИ", top: "55%", left: "20%", start: 0.46 },
-      { label: "ВІЙСЬКОВІ", top: "60%", left: "78%", start: 0.38 },
+      // { label: "ВІЙСЬКОВІ", top: "60%", left: "78%", start: 0.38 },
       { label: "УПРАВЛІНЦІ", top: "70%", left: "36%", start: 0.62 },
       { label: "ЛОГІСТИ", top: "82%", left: "60%", start: 0.54 },
     ],

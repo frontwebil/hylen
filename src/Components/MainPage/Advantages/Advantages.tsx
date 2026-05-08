@@ -43,15 +43,12 @@ export function Advantages() {
   } as const;
 
   const copy = t[language];
-
-  const initialOpenId = useMemo(
-    () => blocks.find((block) => block.defaultOpen)?.id ?? null,
-    [blocks]
-  );
-  const [openCardId, setOpenCardId] = useState<string | null>(initialOpenId);
+  const [openCardId, setOpenCardId] = useState<string | null>(null);
 
   const handleToggle = (cardId: string) => {
-    setOpenCardId((currentOpenId) => (currentOpenId === cardId ? null : cardId));
+    setOpenCardId((currentOpenId) =>
+      currentOpenId === cardId ? null : cardId,
+    );
   };
 
   return (
