@@ -28,6 +28,7 @@ export function emptyProductPageTemplate(slug: string): ProductPageData {
         title: { uk: "", en: "" },
         modelCards: { uk: [], en: [] },
         isCustomDesign: false,
+        showMadeInUkraine: true,
         video: "",
         videoPreview: "",
         description: {

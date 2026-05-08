@@ -6,17 +6,32 @@ import "./style.css";
 import { useWindowWidth } from "@/Hooks/useWindowWidth";
 import { FooterLanguagueChanger } from "./FooterLanguagueChanger/FooterLanguagueChanger";
 import { useLanguage } from "@/Store/useLanguage";
+import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
+import { useSiteSettings } from "@/Hooks/useSiteSettings";
 
 export function Footer() {
   const width = useWindowWidth();
   const { language } = useLanguage();
+  const siteSettings = useSiteSettings();
+  const router = useRouter();
+  const [searchValue, setSearchValue] = useState("");
+
+  useEffect(() => {
+    try {
+      const q = new URLSearchParams(window.location.search).get("q") ?? "";
+      setSearchValue(q);
+    } catch {
+      /** ignore */
+    }
+  }, []);
 
   const t = {
     uk: {
       searchTitle: "Пошук по сайту:",
       searchPlaceholder: "я шукаю...",
       searchButton: "ЗНАЙТИ",
-      serviceTitleWide: "Контакти відділу \n сервісного обслуговування:",
+      serviceTitleWide: "Контакти відділу \n продажів :",
       serviceTitleNarrow: "Відділ сервісного обслуговування:",
       companyWide: "Інформація про компанію",
       companyNarrow: "Компанія",
@@ -36,7 +51,7 @@ export function Footer() {
         returns: "Повернення та обмін",
       },
       under: {
-        rights: "©2025 Всі права захищені",
+        rights: "©2026 Всі права захищені",
         offer: "Публічна оферта",
         privacy: "Політика конфіденційності",
         cookies: "Політика використання cookies",
@@ -66,7 +81,7 @@ export function Footer() {
         returns: "Returns and Exchanges",
       },
       under: {
-        rights: "©2025 All rights reserved",
+        rights: "©2026 All rights reserved",
         offer: "Public Offer",
         privacy: "Privacy policy",
         cookies: "Cookie policy",
@@ -75,6 +90,18 @@ export function Footer() {
   } as const;
 
   const copy = t[language];
+  const helpTitle = siteSettings.footer.helpTitle[language] || copy.helpTitle;
+  const phone = siteSettings.footer.phone.trim() || "+38 099 840 98 75";
+  const phoneHref = phone.replace(/[^\d+]/g, "");
+  const facebook = siteSettings.footer.socials.facebook.trim();
+  const instagram = siteSettings.footer.socials.instagram.trim();
+
+  const runSearch = () => {
+    const q = searchValue.trim();
+    router.push(
+      q ? `/search-resaults?q=${encodeURIComponent(q)}` : "/search-resaults",
+    );
+  };
 
   return (
     <footer className="footer">
@@ -108,9 +135,24 @@ export function Footer() {
                     id="search-footer-input"
                     className="footer-search-input"
                     placeholder={copy.searchPlaceholder}
+                    value={searchValue}
+                    onChange={(e) => setSearchValue(e.target.value)}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter") runSearch();
+                    }}
                   />
                 </div>
-                <div className="footer-search-button">{copy.searchButton}</div>
+                <div
+                  className="footer-search-button"
+                  role="button"
+                  tabIndex={0}
+                  onClick={runSearch}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" || e.key === " ") runSearch();
+                  }}
+                >
+                  {copy.searchButton}
+                </div>
               </div>
             </div>
           )}
@@ -137,14 +179,54 @@ export function Footer() {
                   <Link href={"mailto:hylen.company@gmail.com"}>
                     hylen.company@gmail.com 
                   </Link>
-                  <Link href={"tel:380997465652"}>+38 (099) 746 56 52</Link>
+                  <Link href={`tel:${phoneHref}`}>{phone}</Link>
+                  {(facebook || instagram) && (
+                    <div className="footer-column-content-contacts-social">
+                      {facebook ? (
+                        <Link
+                          href={facebook}
+                          target="_blank"
+                          aria-label="Facebook"
+                          className="footer-column-content-contacts-social-fb"
+                        ></Link>
+                      ) : null}
+                      {instagram ? (
+                        <Link
+                          href={instagram}
+                          target="_blank"
+                          aria-label="Instagram"
+                          className="footer-column-content-contacts-social-inst"
+                        ></Link>
+                      ) : null}
+                    </div>
+                  )}
                 </div>
               ) : (
                 <div className="footer-column-content-contacts">
                   <Link href={"mailto:hylen.company@gmail.com"}>
                     hylen.company@gmail.com 
                   </Link>
-                  <Link href={"tel:380997465652"}>+38 (099) 746 56 52</Link>
+                  <Link href={`tel:${phoneHref}`}>{phone}</Link>
+                  {(facebook || instagram) && (
+                    <div className="footer-column-content-contacts-social">
+                      {facebook ? (
+                        <Link
+                          href={facebook}
+                          target="_blank"
+                          aria-label="Facebook"
+                          className="footer-column-content-contacts-social-fb"
+                        ></Link>
+                      ) : null}
+                      {instagram ? (
+                        <Link
+                          href={instagram}
+                          target="_blank"
+                          aria-label="Instagram"
+                          className="footer-column-content-contacts-social-inst"
+                        ></Link>
+                      ) : null}
+                    </div>
+                  )}
                   <FooterLanguagueChanger />
                 </div>
               )}
@@ -159,9 +241,22 @@ export function Footer() {
                       id="search-footer-input"
                       className="footer-search-input"
                       placeholder={copy.searchPlaceholder}
+                      value={searchValue}
+                      onChange={(e) => setSearchValue(e.target.value)}
+                      onKeyDown={(e) => {
+                        if (e.key === "Enter") runSearch();
+                      }}
                     />
                   </div>
-                  <div className="footer-search-button">
+                  <div
+                    className="footer-search-button"
+                    role="button"
+                    tabIndex={0}
+                    onClick={runSearch}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter" || e.key === " ") runSearch();
+                    }}
+                  >
                     {" "}
                     <div className="header-search-icon">
                       <Image
@@ -183,7 +278,9 @@ export function Footer() {
                   {copy.companyWide}
                 </h3>
               ) : (
-                <h3 className="footer-column-content-title">{copy.companyNarrow}</h3>
+                <h3 className="footer-column-content-title">
+                  {copy.companyNarrow}
+                </h3>
               )}
               {width && width > 920 ? (
                 <div className="footer-column-content-nav">
@@ -202,12 +299,20 @@ export function Footer() {
               )}
             </div>
             <div className="footer-column-content">
-              <h3 className="footer-column-content-title">{copy.helpTitle}</h3>
+              <h3 className="footer-column-content-title">{helpTitle}</h3>
               <div className="footer-column-content-nav">
-                <Link href={"/"}>{copy.help.payment}</Link>
-                <Link href={"/"}>{copy.help.delivery}</Link>
-                <Link href={"/"}>{copy.help.service}</Link>
-                <Link href={"/"}>{copy.help.returns}</Link>
+                <Link href={"/payment"}>
+                  {siteSettings.footer.links.payment[language] || copy.help.payment}
+                </Link>
+                <Link href={"/delivery"}>
+                  {siteSettings.footer.links.delivery[language] || copy.help.delivery}
+                </Link>
+                <Link href={"/service"}>
+                  {siteSettings.footer.links.service[language] || copy.help.service}
+                </Link>
+                <Link href={"/returns-exchange"}>
+                  {siteSettings.footer.links.returns[language] || copy.help.returns}
+                </Link>
               </div>
             </div>
           </div>

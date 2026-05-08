@@ -27,7 +27,7 @@ export function HeaderContactForm() {
       placeholders: {
         name: "Ім’я*",
         company: "Назва компанії",
-        phone: "+38044123 45 67",
+        phone: "Номер Телефoну",
         email: "Email*",
         message: "Запит*",
       },
@@ -47,7 +47,7 @@ export function HeaderContactForm() {
       placeholders: {
         name: "Name*",
         company: "Company",
-        phone: "+38044123 45 67",
+        phone: "Phone Number",
         email: "E-mail*",
         message: "Message*",
       },

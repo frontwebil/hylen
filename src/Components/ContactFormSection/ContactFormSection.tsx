@@ -37,7 +37,7 @@ export function ContactFormSection() {
       placeholders: {
         name: "Ім’я*",
         company: "Назва компанії",
-        phone: "+38044123 45 67",
+        phone: "Номер телефону",
         email: "Email*",
         message: "Запит*",
       },
@@ -66,7 +66,7 @@ export function ContactFormSection() {
       placeholders: {
         name: "Name*",
         company: "Company",
-        phone: "+38044123 45 67",
+        phone: "Phone Number",
         email: "E-mail*",
         message: "Message*",
       },
@@ -165,11 +165,11 @@ export function ContactFormSection() {
           </p>
 
           <Link
-            href={"tel:380997465652"}
+            href={"tel:0998409875"}
             className="ContactFormSection-left-text-info"
           >
             <p>{copy.phoneLabel}</p>
-            <p>+38 (099) 746 56 52</p>
+            <p>+38 099 840 98 75</p>
           </Link>
 
           <Link

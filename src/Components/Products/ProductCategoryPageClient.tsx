@@ -21,12 +21,18 @@ export function ProductCategoryPageClient({
   excludeLink,
   carouselByLang,
 }: Props) {
+  const PRODUCT_ANCHOR_OFFSET = 0;
+
   return (
     <div style={{ overflow: "hidden" }}>
       <Header />
       <ProductHero heroData={pageData.hero} />
       {pageData.products.map((product, index) => (
-        <div key={product.id} id={product.id} style={{ scrollMarginTop: 120 }}>
+        <div
+          key={product.id}
+          id={product.id}
+          style={{ scrollMarginTop: PRODUCT_ANCHOR_OFFSET }}
+        >
           <ProductSections productData={product} showTopLine={index > 0} />
           <TechnicalSpecs specs={product.specs} />
         </div>

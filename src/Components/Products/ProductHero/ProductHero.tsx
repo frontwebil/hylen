@@ -10,6 +10,7 @@ import {
   HeroBlock,
   pickLocale,
 } from "@/Types/productData";
+import Link from "next/link";
 
 type ProductHeroProps = {
   heroData: HeroBlock;
@@ -67,10 +68,10 @@ export function ProductHero({ heroData }: ProductHeroProps) {
         <div className="product-hero-content">
           <div className="product-hero-content-left">
             <div className="product-hero-breadcrums">
-              <div className="product-hero-breadcrum">
+              <Link href={'/products'} className="product-hero-breadcrum">
                 <IoMdArrowDropright />
                 <p>{labels.products}</p>
-              </div>
+              </Link>
               <div className="product-hero-breadcrum">
                 <IoMdArrowDropright />
                 <p>{pickLocale(heroData.breadcrums, language)}</p>

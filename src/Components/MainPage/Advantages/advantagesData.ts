@@ -32,7 +32,7 @@ export const ADVANTAGES_BLOCKS_BY_LANG = {
     {
       id: "high-precision",
       index: "03",
-      title: "Високоточне виробництво – преміум у кожному міліметрі",
+      title: "Високоточне виробництво – преміум \n у кожному міліметрі",
       description:
         "Ми використовуємо сучасне обладнання — зокрема, термопластавтомати та високоточні зварювальні системи.",
       benefit:
@@ -53,7 +53,6 @@ export const ADVANTAGES_BLOCKS_BY_LANG = {
       description:
         "HYLEN — це вибір тих, хто знає, що таке відповідальність. Нам довіряють тисячі фахівців: від фермерів до до керівників великих підприємств.",
       benefit: "ви не ризикуєте, ви спираєтесь на досвід інших.",
-      defaultOpen: true,
     },
   ] satisfies AdvantageBlock[],
   en: [
@@ -99,7 +98,6 @@ export const ADVANTAGES_BLOCKS_BY_LANG = {
       description:
         "HYLEN is built for those who shoulder responsibility. From farmers to military forces, thousands of professionals put their trust in HYLEN.",
       benefit: "freedom from risks and the benefit of others’ experience.",
-      defaultOpen: true,
     },
   ] satisfies AdvantageBlock[],
 } as const;

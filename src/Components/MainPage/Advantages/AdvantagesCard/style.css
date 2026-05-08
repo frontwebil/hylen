@@ -81,6 +81,7 @@
   max-width: 800px;
   letter-spacing: -1%;
   text-transform: uppercase;
+  white-space: pre-wrap;
 }
 
 .advantages-card-content-left-text {

@@ -6,7 +6,7 @@ export default function AdminLoginPage() {
       <header className="admin-login-heading">
         <h1>Вхід в адмін панель</h1>
       </header>
-      {/* <LoginClient /> */}
+      <LoginClient />
     </div>
   );
 }

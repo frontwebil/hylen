@@ -1,0 +1,134 @@
+.FooterPageComponentText-container{
+  margin: 100px 0;
+}
+
+.footer-page-text-title {
+  font-family: Commissioner;
+  font-weight: 500;
+  font-size: 36px;
+  line-height: 39.6px;
+  letter-spacing: -0.72px;
+  padding-bottom: 40px;
+  color: #1f2a19;
+}
+
+.footer-page-text-desctiption {
+  font-family: Commissioner;
+  font-size: 18px;
+  line-height: 22px;
+  letter-spacing: 0%;
+  vertical-align: middle;
+  padding-bottom: 40px;
+}
+
+.footer-page-text-content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.footer-page-text-section-title {
+  font-family: Commissioner;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 28px;
+  color: #1f2a19;
+  margin-bottom: 12px;
+}
+
+.footer-page-text-paragraph {
+  font-family: Commissioner;
+  font-size: 18px;
+  line-height: 28px;
+  color: #1f2a19;
+  margin: 0;
+}
+
+.footer-page-text-link {
+  color: #2d5bff;
+  text-decoration: underline;
+}
+
+@media (max-width: 1165px) {
+  .footer-page-text-title {
+    font-size: 32px;
+    line-height: 38px;
+    padding-bottom: 28px;
+  }
+
+  .footer-page-text-desctiption {
+    font-size: 17px;
+    line-height: 24px;
+    padding-bottom: 28px;
+    max-width: 720px;
+  }
+
+  .footer-page-text-section-title {
+    font-size: 22px;
+    line-height: 27px;
+  }
+
+  .footer-page-text-paragraph {
+    font-size: 17px;
+    line-height: 26px;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer-page-text-title {
+    font-size: 28px;
+    line-height: 33px;
+    letter-spacing: -0.4px;
+    padding-bottom: 20px;
+  }
+
+  .footer-page-text-desctiption {
+    font-size: 16px;
+    line-height: 23px;
+    padding-bottom: 24px;
+  }
+
+  .footer-page-text-content {
+    gap: 20px;
+  }
+
+  .footer-page-text-section-title {
+    font-size: 20px;
+    line-height: 25px;
+  }
+
+  .footer-page-text-paragraph {
+    font-size: 16px;
+    line-height: 24px;
+  }
+}
+
+@media (max-width: 500px) {
+  .footer-page-text-title {
+    font-size: 24px;
+    line-height: 29px;
+    letter-spacing: -0.3px;
+    padding-bottom: 16px;
+  }
+
+  .footer-page-text-desctiption {
+    font-size: 15px;
+    line-height: 21px;
+    padding-bottom: 20px;
+  }
+
+  .footer-page-text-content {
+    gap: 16px;
+  }
+
+  .footer-page-text-section-title {
+    font-size: 18px;
+    line-height: 23px;
+    margin-bottom: 8px;
+  }
+
+  .footer-page-text-paragraph {
+    font-size: 15px;
+    line-height: 22px;
+  }
+}

@@ -22,6 +22,7 @@ type ProductItem = {
   video?: string;
   videoPreview?: string;
   isCustomDesign?: boolean;
+  showMadeInUkraine?: boolean;
   description: {
     about: LocalizedField;
     purpose: LocalizedField;
@@ -220,18 +221,18 @@ export function ProductSections({
 
               {/* {width && width < 980 && modelCardsRow} */}
 
-              <div className="product-slider-alert">
-                <Image
-                  src={"/icons/made-in-ukraine.png"}
-                  width={300}
-                  height={300}
-                  alt="Made in Ukraine"
-                  className="product-slider-alert-made-in-ukraine"
-                />
-                <p>
-                  {copy.madeInUkraine}
-                </p>
-              </div>
+              {(productData.showMadeInUkraine ?? true) && (
+                <div className="product-slider-alert">
+                  <Image
+                    src={"/icons/made-in-ukraine.png"}
+                    width={300}
+                    height={300}
+                    alt="Made in Ukraine"
+                    className="product-slider-alert-made-in-ukraine"
+                  />
+                  <p>{copy.madeInUkraine}</p>
+                </div>
+              )}
             </div>
           </div>
 
