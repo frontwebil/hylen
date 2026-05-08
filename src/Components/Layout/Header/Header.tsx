@@ -92,7 +92,9 @@ export function Header() {
 
   const runSearch = () => {
     const q = searchValue.trim();
-    router.push(q ? `/search-resaults?q=${encodeURIComponent(q)}` : "/search-resaults");
+    router.push(
+      q ? `/search-resaults?q=${encodeURIComponent(q)}` : "/search-resaults",
+    );
     setIsOpenMenu(false);
   };
 
@@ -179,7 +181,11 @@ export function Header() {
                 />
               </div>
 
-              <div className="header-search-button" role="button" tabIndex={0} onClick={runSearch}
+              <div
+                className="header-search-button"
+                role="button"
+                tabIndex={0}
+                onClick={runSearch}
                 onKeyDown={(e) => {
                   if (e.key === "Enter" || e.key === " ") runSearch();
                 }}
@@ -273,7 +279,10 @@ export function Header() {
                   <MdArrowForward className="header-menu-link-icon" />
                 </Link>
                 {width && width <= 620 && (
-                  <div className="header-search-mobile-wrapper">
+                  <div
+                    className="header-search-mobile-wrapper"
+                    onClick={(e) => e.stopPropagation()}
+                  >
                     <div className="header-search">
                       {width && width >= 1340 && (
                         <label htmlFor="search-input">
@@ -292,20 +301,28 @@ export function Header() {
                         id="search-input"
                         className="header-search-input"
                         placeholder={copy.searchPlaceholder}
-                      value={searchValue}
-                      onChange={(e) => setSearchValue(e.target.value)}
-                      onKeyDown={(e) => {
-                        if (e.key === "Enter") runSearch();
-                      }}
+                        value={searchValue}
+                        onChange={(e) => setSearchValue(e.target.value)}
+                        onKeyDown={(e) => {
+                          if (e.key === "Enter") runSearch();
+                        }}
                       />
                     </div>
 
-                    <div className="header-search-button" role="button" tabIndex={0} onClick={runSearch}
+                    <div
+                      className="header-search-button"
+                      role="button"
+                      tabIndex={0}
+                      onClick={runSearch}
                       onKeyDown={(e) => {
                         if (e.key === "Enter" || e.key === " ") runSearch();
                       }}
                     >
-                      {width && width >= 1340 ? copy.searchButton : <IoMdSearch />}
+                      {width && width >= 1340 ? (
+                        copy.searchButton
+                      ) : (
+                        <IoMdSearch />
+                      )}
                     </div>
                   </div>
                 )}
