@@ -1,5 +1,18 @@
 .search-results-hero {
   background-color: #81918d;
+  min-height: 80vh;
+  position: relative;
+}
+
+.not-founde-res-zero {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  color: #443c3b;
+  font-weight: 600;
+  font-size: 24px;
 }
 
 .search-results-hero .search-results-hero-heading {

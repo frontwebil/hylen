@@ -123,6 +123,10 @@ a.product-hero-content-card {
   width: 100%;
 }
 
+.product-hero-content-card:hover {
+  background-color: #c0c8c6;
+}
+
 .product-hero-content-card-media {
   position: relative;
   width: 100%;

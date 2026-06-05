@@ -2,6 +2,7 @@ import {
   ADMIN_SESSION_COOKIE,
   verifyAdminCookie,
 } from "@/lib/adminAuth";
+import { revalidateHomepageCatalogCache } from "@/lib/homepageCatalog";
 import prisma from "@/lib/prisma";
 import { cookies } from "next/headers";
 import { revalidatePath } from "next/cache";
@@ -67,6 +68,7 @@ export async function PATCH(
       data,
     });
 
+    revalidateHomepageCatalogCache();
     revalidatePath("/");
 
     const path = slug.startsWith("/") ? slug : "/" + slug;
@@ -90,6 +92,7 @@ export async function DELETE(
   try {
     await prisma.homepageCatalogItem.delete({ where: { slug } });
 
+    revalidateHomepageCatalogCache();
     revalidatePath("/");
 
     const path = slug.startsWith("/") ? slug : "/" + slug;

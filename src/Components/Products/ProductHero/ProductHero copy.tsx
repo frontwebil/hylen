@@ -6,7 +6,10 @@ import "./style.css";
 import { useEffect, useRef, useState } from "react";
 import { useWindowWidth } from "@/Hooks/useWindowWidth";
 import { useLanguage } from "@/Store/useLanguage";
-import { HeroBlock, pickLocale } from "@/Types/productData";
+import {
+  HeroBlock,
+  pickLocale,
+} from "@/Types/productData";
 import Link from "next/link";
 
 type ProductHeroProps = {
@@ -65,7 +68,7 @@ export function ProductHero({ heroData }: ProductHeroProps) {
         <div className="product-hero-content">
           <div className="product-hero-content-left">
             <div className="product-hero-breadcrums">
-              <Link href={"/products"} className="product-hero-breadcrum">
+              <Link href={'/products'} className="product-hero-breadcrum">
                 <IoMdArrowDropright />
                 <p>{labels.products}</p>
               </Link>
@@ -104,25 +107,27 @@ export function ProductHero({ heroData }: ProductHeroProps) {
                 onMouseLeave={() => !isMobile && setHoveredCardId(null)}
               >
                 <div
-                  className="product-hero-content-card-media"
-                  style={{
-                    overflow: "hidden",
-                  }}
+                  className={`product-hero-content-card-media ${hoveredCardId === productCard.id ? "product-hero-content-card-media-hover" : ""}`}
                 >
                   <Image
                     src={productCard.img}
                     alt=""
                     width={1000}
                     height={1000}
-                    className="product-hero-content-card-image"
-                    style={{
-                      transition: "transform 0.4s ease",
-                      transform:
-                        hoveredCardId === productCard.id
-                          ? "scale(1.1)"
-                          : "scale(1)",
-                    }}
+                    className={`product-hero-content-card-image ${hoveredCardId === productCard.id && loadedVideos[productCard.id] ? "hide" : ""}`}
                   />
+
+                  {loadedVideos[productCard.id] && !isMobile && (
+                    <video
+                      className={`product-hero-content-card-video ${hoveredCardId === productCard.id ? "show" : ""}`}
+                      src={productCard.img.replace(".webp", ".mp4")}
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      preload="auto"
+                    />
+                  )}
                 </div>
                 <div
                   className={`product-hero-content-card-underImg ${heroData.cards.length - 1 == i && "product-hero-content-card-underImg-border-right"} `}

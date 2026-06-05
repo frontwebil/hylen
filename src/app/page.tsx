@@ -9,7 +9,12 @@ import { UnderAdvantagesLines } from "@/Components/Lines/UnderAdvantagesLines/Un
 import { Byro } from "@/Components/MainPage/Byro/Byro";
 import { UnderByroLines } from "@/Components/Lines/UnderByroLines/UnderByroLines";
 import { Footer } from "@/Components/Layout/Footer/Footer";
-import { getHomepageCatalogGrouped } from "@/lib/homepageCatalog";
+import {
+  getHomepageCatalogGrouped,
+  HOMEPAGE_CATALOG_REVALIDATE_SECONDS,
+} from "@/lib/homepageCatalog";
+
+export const revalidate = HOMEPAGE_CATALOG_REVALIDATE_SECONDS;
 
 export default async function Home() {
   const catalogByLang = await getHomepageCatalogGrouped();

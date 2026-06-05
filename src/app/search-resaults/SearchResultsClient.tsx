@@ -76,7 +76,9 @@ export function SearchResultsClient({
             </a>
           ))}
         </div>
+        {items.length == 0 && (<p className="not-founde-res-zero">{language == 'en' ? "No Resaults" : "Нічого не знайдено"}</p>)}
       </div>
+
     </section>
   );
 }

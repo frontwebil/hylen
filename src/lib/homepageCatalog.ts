@@ -2,11 +2,19 @@ import type { ProductItem } from "@/Components/MainPage/Products/Products";
 import { productPageFallbackBySlug } from "@/content/productPages/registry";
 import { emptyProductPageTemplate } from "@/lib/emptyProductPage";
 import prisma from "@/lib/prisma";
+import { revalidateTag, unstable_cache } from "next/cache";
 import {
   PRODUCT_PAGE_SLUGS,
   type ProductPageSlug,
 } from "@/lib/productCatalog";
 import type { ProductPageData } from "@/Types/productData";
+
+export const HOMEPAGE_CATALOG_CACHE_TAG = "homepage-catalog";
+export const HOMEPAGE_CATALOG_REVALIDATE_SECONDS = 3600;
+
+export function revalidateHomepageCatalogCache() {
+  revalidateTag(HOMEPAGE_CATALOG_CACHE_TAG, "hours");
+}
 
 export function isBundledProductSlug(s: string): s is ProductPageSlug {
   return (PRODUCT_PAGE_SLUGS as readonly string[]).includes(s);
@@ -150,34 +158,57 @@ function rowToProductItem(row: CatalogRowLite, lang: "uk" | "en"): ProductItem {
   };
 }
 
+async function loadHomepageCatalogGrouped(): Promise<{
+  uk: ProductItem[];
+  en: ProductItem[];
+}> {
+  await seedCatalogIfEmpty();
+  const rows = await prisma.homepageCatalogItem.findMany({
+    orderBy: [{ sortOrder: "asc" }, { id: "asc" }],
+  });
+  return {
+    uk: rows.map((r) => rowToProductItem(r, "uk")),
+    en: rows.map((r) => rowToProductItem(r, "en")),
+  };
+}
+
+const getCachedHomepageCatalogGrouped = unstable_cache(
+  loadHomepageCatalogGrouped,
+  ["homepage-catalog-grouped"],
+  {
+    revalidate: HOMEPAGE_CATALOG_REVALIDATE_SECONDS,
+    tags: [HOMEPAGE_CATALOG_CACHE_TAG],
+  },
+);
+
+function getStaticHomepageCatalogGrouped(): {
+  uk: ProductItem[];
+  en: ProductItem[];
+} {
+  const uk = DEFAULT_ROWS.map((r) => ({
+    title: r.titleUk,
+    subTitle: r.subtitleUk,
+    img: r.imagePath,
+    link: "/" + r.slug,
+  }));
+  const en = DEFAULT_ROWS.map((r) => ({
+    title: r.titleEn,
+    subTitle: r.subtitleEn,
+    img: r.imagePath,
+    link: "/" + r.slug,
+  }));
+  return { uk, en };
+}
+
 /** Карусель домашньої та блоку «інші лінії» — одна таблиця, дві локалі. */
 export async function getHomepageCatalogGrouped(): Promise<{
   uk: ProductItem[];
   en: ProductItem[];
 }> {
   try {
-    await seedCatalogIfEmpty();
-    const rows = await prisma.homepageCatalogItem.findMany({
-      orderBy: [{ sortOrder: "asc" }, { id: "asc" }],
-    });
-    return {
-      uk: rows.map((r) => rowToProductItem(r, "uk")),
-      en: rows.map((r) => rowToProductItem(r, "en")),
-    };
+    return await getCachedHomepageCatalogGrouped();
   } catch {
-    const uk = DEFAULT_ROWS.map((r, i) => ({
-      title: r.titleUk,
-      subTitle: r.subtitleUk,
-      img: r.imagePath,
-      link: "/" + r.slug,
-    }));
-    const en = DEFAULT_ROWS.map((r) => ({
-      title: r.titleEn,
-      subTitle: r.subtitleEn,
-      img: r.imagePath,
-      link: "/" + r.slug,
-    }));
-    return { uk, en };
+    return getStaticHomepageCatalogGrouped();
   }
 }
 
