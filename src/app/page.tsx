@@ -14,7 +14,7 @@ import {
   HOMEPAGE_CATALOG_REVALIDATE_SECONDS,
 } from "@/lib/homepageCatalog";
 
-export const revalidate = HOMEPAGE_CATALOG_REVALIDATE_SECONDS;
+export const revalidate = 3600;
 
 export default async function Home() {
   const catalogByLang = await getHomepageCatalogGrouped();
