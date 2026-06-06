@@ -16,8 +16,7 @@ export type ProductItem = {
   link: string;
 };
 
-// Keep this named export for modules like `ProductOtherTypesSlider`.
-// It serves as a stable default (Ukrainian) list.
+
 export const homepageProductsEn: ProductItem[] = [
   {
     title: "HYLEN SPINE",
@@ -57,7 +56,6 @@ export const homepageProductsEn: ProductItem[] = [
   },
 ];
 
-/** Стабільний список для української локалі (fallback, якщо БД недоступна). */
 export const products: ProductItem[] = [
   {
     title: "ХРЕБЕТ СИСТЕМИ",

@@ -48,7 +48,7 @@ export function ProductCard({
           className={`product-card-image ${isHover && isVideoReady ? "hide" : ""}`}
         />
 
-        {showVideo && (
+        {/* {showVideo && (
           <video
             className={`product-card-video ${isVideoReady ? "show" : ""}`}
             src={`${product.img}.mp4`}
@@ -59,7 +59,7 @@ export function ProductCard({
             preload="auto"
             onLoadedData={() => setIsVideoReady(true)}
           />
-        )}
+        )} */}
       </div>
 
       <div className="product-card-flex">
