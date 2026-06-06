@@ -120,6 +120,7 @@
 .product-slider-controls-slide {
   position: relative;
   max-width: 140px;
+  aspect-ratio: 1 / 1;
   width: 100%;
   border: 1px solid #81918d;
   background-color: #c0c8c6;
