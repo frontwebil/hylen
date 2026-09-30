@@ -192,11 +192,11 @@ export function ProductAdminEditor({
           {dirty ? " • є незбережені зміни" : ""}
         </span>
         <span className="admin-toolbar-split">
-          {hadDatabaseCopy ? (
+          {/* {hadDatabaseCopy ? (
             <button type="button" onClick={clearDatabaseCopy} disabled={busy}>
               Скинути базу
             </button>
-          ) : null}
+          ) : null} */}
           <button type="button" className="primary" onClick={() => void save()} disabled={busy}>
             {busy ? "Зачекайте…" : "Зберегти в базу"}
           </button>
