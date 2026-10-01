@@ -104,7 +104,11 @@ export function ProductSections({
   );
 
   const modelCardsRow = (
-    <div className="product-model-cards" role="list" aria-label={copy.modelListAria}>
+    <div
+      className="product-model-cards"
+      role="list"
+      aria-label={copy.modelListAria}
+    >
       {modelCardsList.map((label) => (
         <div key={label} className="product-model-card" role="listitem">
           {label}
