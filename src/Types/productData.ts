@@ -64,13 +64,19 @@ export type ProductPageData = {
   products: ProductData[];
 };
 
+function normalizeLineBreaks(value: string): string {
+  return value
+    .replace(/\r\n|\r/g, "\n")
+    .replace(/\\n/g, "\n");
+}
+
 export function pickLocale(
   value: LocalizedField | undefined,
   language: Language,
 ): string {
   if (value == null) return "";
-  if (typeof value === "string") return value;
-  return value[language] ?? value.uk ?? value.en ?? "";
+  if (typeof value === "string") return normalizeLineBreaks(value);
+  return normalizeLineBreaks(value[language] ?? value.uk ?? value.en ?? "");
 }
 
 export function pickLocaleList(
@@ -78,6 +84,6 @@ export function pickLocaleList(
   language: Language,
 ): string[] {
   if (!value) return [];
-  if (Array.isArray(value)) return value;
-  return value[language] ?? value.uk ?? value.en ?? [];
+  if (Array.isArray(value)) return value.map(normalizeLineBreaks);
+  return (value[language] ?? value.uk ?? value.en ?? []).map(normalizeLineBreaks);
 }
