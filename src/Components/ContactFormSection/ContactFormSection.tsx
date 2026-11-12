@@ -96,7 +96,7 @@ export function ContactFormSection() {
   useEffect(() => {
     window.scrollTo({
       top: 0,
-      behavior: "smooth",
+      behavior: "instant",
     });
   }, []);
 

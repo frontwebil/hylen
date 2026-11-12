@@ -25,6 +25,7 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
+      data-scroll-behavior="smooth"
       className={`${commissionerFont.className} ${interFont.className} h-full antialiased`}
     >
       <body suppressHydrationWarning className="min-h-full flex flex-col">

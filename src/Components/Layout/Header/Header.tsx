@@ -128,7 +128,10 @@ export function Header() {
                 <Link
                   href={"/about"}
                   className="header-menu-link"
-                  onClick={closeMenu}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    closeMenu();
+                  }}
                 >
                   <p>{copy.menuAbout}</p>
                   <MdArrowForward className="header-menu-link-icon" />
@@ -136,7 +139,10 @@ export function Header() {
                 <Link
                   href={"/products"}
                   className="header-menu-link"
-                  onClick={closeMenu}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    closeMenu();
+                  }}
                 >
                   <p>{copy.menuProducts}</p>
                   <MdArrowForward className="header-menu-link-icon" />
@@ -144,7 +150,10 @@ export function Header() {
                 <Link
                   href={"/contact#contacts"}
                   className="header-menu-link"
-                  onClick={closeMenu}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    closeMenu();
+                  }}
                 >
                   <p>{copy.menuContacts}</p>
                   <MdArrowForward className="header-menu-link-icon" />
@@ -257,7 +266,10 @@ export function Header() {
                 <Link
                   href={"/about"}
                   className="header-menu-link"
-                  onClick={closeMenu}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    closeMenu();
+                  }}
                 >
                   <p>{copy.menuAbout}</p>
                   <MdArrowForward className="header-menu-link-icon" />
@@ -265,7 +277,10 @@ export function Header() {
                 <Link
                   href={"/products"}
                   className="header-menu-link"
-                  onClick={closeMenu}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    closeMenu();
+                  }}
                 >
                   <p>{copy.menuProducts}</p>
                   <MdArrowForward className="header-menu-link-icon" />
@@ -273,7 +288,10 @@ export function Header() {
                 <Link
                   href={"/contact#contacts"}
                   className="header-menu-link last"
-                  onClick={closeMenu}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    closeMenu();
+                  }}
                 >
                   <p>{copy.menuContacts}</p>
                   <MdArrowForward className="header-menu-link-icon" />
